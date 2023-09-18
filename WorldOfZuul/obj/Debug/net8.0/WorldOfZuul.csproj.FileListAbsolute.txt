@@ -13,3 +13,4 @@
 /home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.pdb
 /home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.genruntimeconfig.cache
 /home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/ref/WorldOfZuul.dll
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.sourcelink.json

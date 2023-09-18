@@ -17,14 +17,14 @@
           "/home/dani/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/phvmdx0qvpiimipa62zv7d8l5n4f1413-dotnet-sdk-8.0.100-preview.5.23303.2/sdk/8.0.100-preview.5.23303.2/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/nix/store/03vdv55h6ik5c92s1ikd8xa5adni5kki-dotnet-sdk-7.0.400/sdk/7.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
