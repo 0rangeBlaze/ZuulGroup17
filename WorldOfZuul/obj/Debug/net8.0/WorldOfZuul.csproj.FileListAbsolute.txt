@@ -1,0 +1,15 @@
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/bin/Debug/net8.0/WorldOfZuul
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/bin/Debug/net8.0/WorldOfZuul.deps.json
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/bin/Debug/net8.0/WorldOfZuul.runtimeconfig.json
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/bin/Debug/net8.0/WorldOfZuul.dll
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/bin/Debug/net8.0/WorldOfZuul.pdb
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.csproj.AssemblyReference.cache
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.GeneratedMSBuildEditorConfig.editorconfig
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.AssemblyInfoInputs.cache
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.AssemblyInfo.cs
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.csproj.CoreCompileInputs.cache
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.dll
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/refint/WorldOfZuul.dll
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.pdb
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/WorldOfZuul.genruntimeconfig.cache
+/home/dani/sdu/WorldOfZuul/WorldOfZuul/obj/Debug/net8.0/ref/WorldOfZuul.dll
