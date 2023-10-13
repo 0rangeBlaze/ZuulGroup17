@@ -1,0 +1,16 @@
+{
+    "areas":
+    [
+        {
+            "name": "Mall",
+            "rooms":
+                [
+                    {
+                        "shortDescription": "Restaurant",
+                        "longDescription": "A fast-food restaurant full of people."
+                    }
+                ]
+        },
+        {}
+    ]
+}
