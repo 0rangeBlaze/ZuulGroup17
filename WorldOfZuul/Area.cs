@@ -24,6 +24,7 @@ namespace WorldOfZuul
                 }
             }
         }
+        //This is the main function responsible for going to the specific room in the Mall area
         static void MallCommand(string? commandMall)
         {
             if(commandMall == "restaurant")
@@ -35,6 +36,8 @@ namespace WorldOfZuul
             else
                 ErrorMessage();
         }
+        //This function is responsilble for choosing the restaurant you want to go to
+        //More about the restaurant as a room itself below 
         static void FoodChoice(string? commandRestaurant)
         {
             if(commandRestaurant == "fast food")
@@ -46,6 +49,8 @@ namespace WorldOfZuul
             else
                 ErrorMessage();
         }
+        //Restaurant has a secondary small loop so you can choose between Food choices as they are kinda like rooms themself
+        //You can also backtrack to the main Mall area, something that decided would be beneficial as the player might want to change his choice after seeing his food options
         static void Restaurant()
         {
             string? commandRestaurant;
