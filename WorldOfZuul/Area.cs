@@ -7,16 +7,16 @@ namespace WorldOfZuul
     {
         public static void Mall()
         {
-            string? command;
+            string? commandMall;
 
             while(true)
             {
-                Console.WriteLine("Where would you like to \n 1.Restaurant \n 2.Clothing Store \n 3.General Store");
-                command = Console.ReadLine()?.ToLower();
+                Console.WriteLine("Where would you like to go: \n 1.Restaurant \n 2.Clothing Store \n 3.General Store");
+                commandMall = Console.ReadLine()?.ToLower();
 
                 try
                 {
-                    MallCommand(command);
+                    MallCommand(commandMall);
                 }
                 catch(Exception ex)
                 {
@@ -24,13 +24,13 @@ namespace WorldOfZuul
                 }
             }
         }
-        static void MallCommand(string? command)
+        static void MallCommand(string? commandMall)
         {
-            if(command == "restaurant")
+            if(commandMall == "restaurant")
                 Restaurant();
-            else if(command == "clothing store")
+            else if(commandMall == "clothing store")
                 ClothingStore();
-            else if(command == "general store")
+            else if(commandMall == "general store")
                 GeneralStore();
             else
                 ErrorMessage();
