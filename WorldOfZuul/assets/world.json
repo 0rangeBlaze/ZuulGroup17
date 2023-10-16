@@ -8,9 +8,43 @@
                     {
                         "shortDescription": "Restaurant",
                         "longDescription": "A fast-food restaurant full of people."
+                    },
+                    {
+                        "shortDescription": "Clothing Store",
+                        "longDescription": "A clothing store, full of special offers."
+
                     }
                 ]
         },
-        {}
+        {
+            "name": "Home",
+            "rooms":
+                [
+                    {
+                        "shortDescription": "Home",
+                        "longDescription": "You're in the living room, some food smell in getting to you from the kitchen. In front of you is your favourite painting, you bought it a few years ago at the loval pawn shop."
+                    }
+                ]
+        },
+        {
+            "name": "Work",
+            "rooms":
+                [
+                    {
+                        "shortDescription": "Your office",
+                        "longDescription": "Your small office area, with your desk in one of the cornerns."
+                    }
+                ]
+        },
+        {
+            "name": "Green Place",
+            "rooms":
+                [
+                    {
+                        "shortDescription": "Park",
+                        "longDescription": "The park in the middle of the city, your favourite place to blow off some steam."
+                    }
+                ]
+        }
     ]
 }
