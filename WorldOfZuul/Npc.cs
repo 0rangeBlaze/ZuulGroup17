@@ -60,6 +60,7 @@ namespace WorldOfZuul
             for (int i = dialogIndex; i < dialogs.Count; i++)
             {
                 //Print dialog with index of i
+                RandomGreeting();
                 PrintSlowly(dialogs[i]);
                 dialogIndex++;
                 //Use funticion print choices to print choices good and bad one
@@ -71,11 +72,13 @@ namespace WorldOfZuul
                 {   
                     //Use function implemented somewere else that calculates numbers
                     goodOutcome();
+                    break;
                 }
                 else if (key == 2)
                 {
                     //Use function implemented somewere else that calculates numbers
                     badOutcome();
+                    break;
                 }
                 //Resseting loop to print the same thing when player click wrong key
                 else
