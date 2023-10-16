@@ -94,6 +94,7 @@ namespace WorldOfZuul
                 {
                     PrintSlowly("Wrong key try again");
                     dialogIndex--;
+                    i--;
                     Console.Clear();
                 }
 
