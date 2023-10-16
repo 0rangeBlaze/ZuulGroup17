@@ -6,7 +6,13 @@ namespace WorldOfZuul
 {
     public class Area
     {
-        Area area = new(rooms);
+        List<Room>? rooms;
+        private string? name;
+
+        public Area(String? name)
+        {
+            this.name = name;
+        }
         public static void TravelCheck()
         {
             string? travelCommand;
@@ -28,10 +34,27 @@ namespace WorldOfZuul
         }
         public static void Travel(string? travelCommand)
         {
-            if(travelCommand == rooms)
+            if(travelCommand == "car")
             {
 
             }
+            else if(travelCommand == "walk")
+            {
+
+            }
+            else if(travelCommand == "public transport")
+            {
+
+            }
+            else
+            {
+                ErrorMessage();
+            }
+        }
+        //Generic error message, can later be moved somewhere else
+        public static void ErrorMessage()
+        {
+            Console.WriteLine("Invalid Input, Please try again!");
         }
     }
 }
