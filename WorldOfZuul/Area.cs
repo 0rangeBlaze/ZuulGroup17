@@ -9,9 +9,10 @@ namespace WorldOfZuul
         List<Room>? rooms;
         private string? name;
 
-        public Area(String? name)
+        public Area(string? name, List<Room>? rooms)
         {
             this.name = name;
+            this.rooms = rooms;
         }
         public static void TravelCheck()
         {
