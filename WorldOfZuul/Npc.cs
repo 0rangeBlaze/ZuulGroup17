@@ -50,7 +50,7 @@ namespace WorldOfZuul
         {
             Random greetings = new Random();
             int greetingIndex = greetings.Next(greeting.Count);
-            Console.WriteLine(greeting[greetingIndex]);
+            PrintSlowly(greeting[greetingIndex]);
 
         }
 
@@ -68,15 +68,24 @@ namespace WorldOfZuul
                 PrintSlowly("Choose your option by clicking 1 or 2");
                 //Use funtion ReadKey to check what number player clicked
                 int key = ReadKey();
-                if (key == 1)
-                {   
-                    //Use function implemented somewere else that calculates numbers
-                    goodOutcome();
-                    break;
-                }
-                else if (key == 2)
+                if (key == 1 && dialogIndex < goodOutcome.Count)
                 {
                     //Use function implemented somewere else that calculates numbers
+                    PrintSlowly("You choosed option 1");
+                    //Printing description of outcome
+                    PrintSlowly(goodOutcome[outcomeIndex]);
+                    outcomeIndex++;
+                    goodOutcome();
+
+                    break;
+                }
+                else if (key == 2 && dialogIndex < badOutcome.Count)
+                {
+                    //Use function implemented somewere else that calculates numbers
+                    PrintSlowly("You choosed option 2");
+                    //Printing description of outcome 2
+                    PrintSlowly(badOutcome[outcomeIndex]);
+                    outcomeIndex++;
                     badOutcome();
                     break;
                 }
