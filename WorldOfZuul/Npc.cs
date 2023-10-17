@@ -70,23 +70,24 @@ namespace WorldOfZuul
                 int key = ReadKey();
                 if (key == 1 && dialogIndex < goodOutcome.Count)
                 {
-                    //Use function implemented somewere else that calculates numbers
                     PrintSlowly("You choosed option 1");
                     //Printing description of outcome
                     PrintSlowly(goodOutcome[outcomeIndex]);
                     outcomeIndex++;
+                    //Use function implemented somewere else that calculates numbers
                     goodOutcome();
-
+                    //then stop the loop so it wonn't go to another dialog
                     break;
                 }
                 else if (key == 2 && dialogIndex < badOutcome.Count)
                 {
-                    //Use function implemented somewere else that calculates numbers
                     PrintSlowly("You choosed option 2");
                     //Printing description of outcome 2
                     PrintSlowly(badOutcome[outcomeIndex]);
                     outcomeIndex++;
+                    //Use function implemented somewere else that calculates numbers
                     badOutcome();
+                    //then stop the loop so it wonn't go to another dialog
                     break;
                 }
                 //Resseting loop to print the same thing when player click wrong key
@@ -107,10 +108,10 @@ namespace WorldOfZuul
             for (int i = outcomeIndex; i < badOutcome.Count; i++)
             {
                 PrintSlowly("You have 2 choices");
-                PrintSlowly(goodOutcome[i]);
                 PrintSlowly("Choice number 1");
-                PrintSlowly(badOutcome[i]);
+                PrintSlowly(goodOutcome[i]);
                 PrintSlowly("Choice number 2");
+                PrintSlowly(badOutcome[i]);
                 outcomeIndex++;
             }
           
