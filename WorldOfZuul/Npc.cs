@@ -61,43 +61,58 @@ namespace WorldOfZuul
             {
                 //Print dialog with index of i
                 RandomGreeting();
-                PrintSlowly(dialogs[i]);
+                //Check if you should print choices
+                string[] check = dialogs[i].Split("|");
+                if (check[0] == "yes")
+                {
+                    PrintSlowly(dialogs[i]);
+                    dialogIndex++;
+                    //Use funticion print choices to print choices good and bad one
+                    PrintChoices(ref outcomeIndex);
+                    PrintSlowly("Choose your option by clicking 1 or 2");
+                    //Use funtion ReadKey to check what number player clicked
+                    int key = ReadKey();
+                    if (key == 1 && dialogIndex < goodOutcome.Count)
+                    {
+                        PrintSlowly("You choosed option 1");
+                        //Printing description of outcome
+                        PrintSlowly(goodOutcome[outcomeIndex]);
+                        outcomeIndex++;
+                        //Use function implemented somewere else that calculates numbers
+                        goodOutcome();
+                        //then stop the loop so it wonn't go to another dialog
+                        break;
+                    }
+                    else if (key == 2 && dialogIndex < badOutcome.Count)
+                    {
+                        PrintSlowly("You choosed option 2");
+                        //Printing description of outcome 2
+                        PrintSlowly(badOutcome[outcomeIndex]);
+                        outcomeIndex++;
+                        //Use function implemented somewere else that calculates numbers
+                        badOutcome();
+                        //then stop the loop so it wonn't go to another dialog
+                        break;
+                    }
+                    //Resseting loop to print the same thing when player click wrong key
+                    else
+                    {
+                        PrintSlowly("Wrong key try again");
+                        dialogIndex--;
+                        i--;
+                        Console.Clear();
+                    }
+
+                }
                 dialogIndex++;
-                //Use funticion print choices to print choices good and bad one
-                PrintChoices(ref outcomeIndex);
-                PrintSlowly("Choose your option by clicking 1 or 2");
-                //Use funtion ReadKey to check what number player clicked
+                PrintSlowly("Do you want to continue your talk \n Click 1 if Yes or 2 if No");
                 int key = ReadKey();
-                if (key == 1 && dialogIndex < goodOutcome.Count)
+                if (key == 1)
                 {
-                    PrintSlowly("You choosed option 1");
-                    //Printing description of outcome
-                    PrintSlowly(goodOutcome[outcomeIndex]);
-                    outcomeIndex++;
-                    //Use function implemented somewere else that calculates numbers
-                    goodOutcome();
-                    //then stop the loop so it wonn't go to another dialog
                     break;
                 }
-                else if (key == 2 && dialogIndex < badOutcome.Count)
-                {
-                    PrintSlowly("You choosed option 2");
-                    //Printing description of outcome 2
-                    PrintSlowly(badOutcome[outcomeIndex]);
-                    outcomeIndex++;
-                    //Use function implemented somewere else that calculates numbers
-                    badOutcome();
-                    //then stop the loop so it wonn't go to another dialog
-                    break;
-                }
-                //Resseting loop to print the same thing when player click wrong key
-                else
-                {
-                    PrintSlowly("Wrong key try again");
-                    dialogIndex--;
-                    i--;
-                    Console.Clear();
-                }
+                
+
 
             }
         }
