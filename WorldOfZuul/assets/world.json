@@ -7,10 +7,21 @@
                 [
                     {
                         "shortDescription": "Restaurant",
-                        "longDescription": "A fast-food restaurant full of people."
+                        "longDescription": "A fast-food restaurant full of people.",
+                        "exits":
+                        {
+                            "north": "Hall"
+                        }
+                    },
+                    {
+                        "shortDescription": "Hall",
+                        "longDescription": "Main area of the Mall",
+                        "exits":
+                        {
+                            "south": "Restaurant"
+                        }
                     }
                 ]
-        },
-        {}
+        }
     ]
 }

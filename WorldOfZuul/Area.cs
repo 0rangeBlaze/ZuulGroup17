@@ -6,13 +6,13 @@ namespace WorldOfZuul
 {
     public class Area
     {
-        List<Room>? rooms;
+        public Dictionary<string, Room>? Rooms {get; private set;}
         private string? name;
 
-        public Area(string? name, List<Room>? rooms)
+        public Area(string? name, Dictionary<string, Room>? rooms)
         {
             this.name = name;
-            this.rooms = rooms;
+            Rooms = rooms;
         }
         public static void TravelCheck()
         {

@@ -1,16 +1,24 @@
-﻿namespace WorldOfZuul
+﻿using System.Text.Json;
+
+namespace WorldOfZuul
 {
     public class Game
     {
-        private Room? currentRoom;
-        private Room? previousRoom;
+        private string currentRoom;
+        private string? previousRoom;
+        private int currentArea;
+        private int? previousArea;
+        private World world;
 
         public Game()
         {
-            CreateRooms();
+            world = new World("assets/world.json");
+            //temporary:
+            currentRoom = "Restaurant";
+            currentArea = 0;
         }
 
-        private void CreateRooms()
+        /*private void CreateRooms()
         {
   
             Room? outside = new("Outside", "You are standing outside the main entrance of the university. To the east is a large building, to the south is a computing lab, and to the west is the campus pub.");
@@ -30,7 +38,7 @@
             office.SetExit("west", lab);
 
             currentRoom = outside;
-        }
+        }*/
 
         public void Play()
         {
@@ -41,7 +49,7 @@
             bool continuePlaying = true;
             while (continuePlaying)
             {
-                Console.WriteLine(currentRoom?.ShortDescription);
+                Console.WriteLine(world.GetRoom(currentArea, currentRoom).ShortDescription);
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
@@ -63,7 +71,7 @@
                 switch(command.Name)
                 {
                     case "look":
-                        Console.WriteLine(currentRoom?.LongDescription);
+                        Console.WriteLine(world.GetRoom(currentArea, currentRoom).LongDescription);
                         break;
 
                     case "back":
@@ -99,10 +107,10 @@
 
         private void Move(string direction)
         {
-            if (currentRoom?.Exits.ContainsKey(direction) == true)
+            if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
             {
                 previousRoom = currentRoom;
-                currentRoom = currentRoom?.Exits[direction];
+                currentRoom = world.GetRoom(currentArea, currentRoom).Exits[direction];
             }
             else
             {
