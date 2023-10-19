@@ -1,50 +1,120 @@
 {
     "areas":
-    [
+    {
+        "Mall":
         {
-            "name": "Mall",
+            "default": "Hall",
             "rooms":
-                [
+                {
+                    "Restaurant":
                     {
-                        "shortDescription": "Restaurant",
-                        "longDescription": "A fast-food restaurant full of people."
+                        "longDescription": "A fast-food restaurant, with many people in it. There's an empty ordering machine just a few steps from you.",
+                        "exits":
+                        {
+                            "north": "Hall"
+                        }
                     },
+                    "Hall":
                     {
-                        "shortDescription": "Clothing Store",
-                        "longDescription": "A clothing store, full of special offers."
+                        "longDescription": "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                        "exits":
+                        {
+                            "south": "Restaurant",
+                            "west": "Clothingshop",
+                            "east": "GeneralStore"
 
-                    }
-                ]
-        },
-        {
-            "name": "Home",
-            "rooms":
-                [
+                        }
+                    },
+                    "Clothingshop":
                     {
-                        "shortDescription": "Home",
-                        "longDescription": "You're in the living room, some food smell in getting to you from the kitchen. In front of you is your favourite painting, you bought it a few years ago at the loval pawn shop."
+                        "longDescription": "A clothing store, you are lucky, there are many special offers.",
+                        "exits":
+                        {
+                            "east": "Hall"
+                        }
+                    },
+                    "GeneralStore":{
+                        "longDescription": "You are in a general store, it has everything you could have vere dreamt of.",
+                        "exits":
+                        {
+                            "west": "Hall"
+                        }
                     }
-                ]
+                }
         },
+
+        "Home":
         {
-            "name": "Work",
+            "default": "Livingroom",
             "rooms":
-                [
+            {
+                "Livingroom":
+                {
+                    "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "exits":
                     {
-                        "shortDescription": "Your office",
-                        "longDescription": "Your small office area, with your desk in one of the cornerns."
+                        "kitchen": "Kitchen",
+                        "bedroom": "Bedroom",
+                        "up":"Bathroom"
                     }
-                ]
+                },
+                "Bedroom":
+                {
+                    "longDescription": "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room.",
+                    "exits":
+                    {
+                        "livingroom": "Livingroom"
+                    }
+                },
+                "Kitchen":
+                {
+                    "longDescription": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem.",
+                    "exits":
+                    {
+                        "livingroom": "Livingroom"
+                    }
+                },
+                "Bathroom":
+                {
+                    "longDescription": "A bathroom... Nothing special.",
+                    "exits":
+                    {
+                        "down":"Livingroom"
+                    }
+                }
+            }
         },
+        "Work":
         {
-            "name": "Green Place",
+            "default": "Breakroom",
             "rooms":
-                [
+            {
+                "Breakroom":
+                {
+                    "longDescription": "in the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas.",
+                    "exits":
                     {
-                        "shortDescription": "Park",
-                        "longDescription": "The park in the middle of the city, your favourite place to blow off some steam."
+                        "boss": "Boss",
+                        "office":"Office"
                     }
-                ]
+                },
+                "Boss":
+                {
+                    "longDescription": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office.",
+                    "exits":
+                    {
+                        "breakroom": "Breakroom"
+                    }
+                },
+                "Office":
+                {
+                    "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. You plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
+                    "exits":
+                    {
+                        "down":"Livingroom"
+                    }
+                }
+            }
         }
-    ]
+    }
 }
