@@ -25,5 +25,23 @@
             if (neighbor != null)
                 Exits[direction] = neighbor;
         }
+
+        public void Describe()
+        {
+            Console.WriteLine(this.LongDescription);
+
+            if (Exits.Count > 0)
+            {
+                Console.WriteLine("Exits:");
+                foreach (var exit in Exits)
+                {
+                    Console.WriteLine("- " + exit.Key);
+                }
+            }
+            else 
+            {
+                Console.WriteLine("You cannot exit");
+            }
+        }
     }
 }
