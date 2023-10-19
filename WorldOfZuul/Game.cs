@@ -6,8 +6,8 @@ namespace WorldOfZuul
     {
         private string currentRoom;
         private string? previousRoom;
-        private int currentArea;
-        private int? previousArea;
+        private string currentArea;
+        private string? previousArea;
         private World world;
 
         public Game()
@@ -15,7 +15,7 @@ namespace WorldOfZuul
             world = new World("assets/world.json");
             //temporary:
             currentRoom = "Restaurant";
-            currentArea = 0;
+            currentArea = "Mall";
         }
 
         /*private void CreateRooms()

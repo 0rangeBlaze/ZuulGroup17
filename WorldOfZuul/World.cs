@@ -4,10 +4,10 @@ namespace WorldOfZuul
 {
     public class World
     {
-        public List<Area> areas;
+        Dictionary<string, Area> areas;
 
         public World(string path="assets/world.json") {
-            areas = new List<Area> {};
+            areas = new Dictionary<string, Area> {};
 
             JsonDocument doc;
             JsonElement areasElement;
@@ -16,37 +16,34 @@ namespace WorldOfZuul
             doc = JsonDocument.Parse(jsonString);
             
 
-            if(doc.RootElement.TryGetProperty("areas", out areasElement) && areasElement.ValueKind == JsonValueKind.Array) {
-                foreach (var element in areasElement.EnumerateArray())
+            if(doc.RootElement.TryGetProperty("areas", out areasElement)) {
+                foreach (var area in areasElement.EnumerateObject())
                 {
-                    // Access and work with individual elements
                     JsonElement roomsElement;
-                    JsonElement nameElement;
                     Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
-                    element.TryGetProperty("name", out nameElement);
-                    if(element.TryGetProperty("rooms", out roomsElement)) {
-                        Dictionary<string, string> exits = new Dictionary<string, string> {};
-                        foreach (var room in roomsElement.EnumerateArray()){
-                          JsonElement idElement;
-                          JsonElement LongDescriptionElement;
-                          JsonElement exitsElement;
-                          room.TryGetProperty("shortDescription", out idElement);
-                          room.TryGetProperty("longDescription", out LongDescriptionElement);
-                          if(room.TryGetProperty("exits", out exitsElement)) {
-                            foreach(JsonProperty property in exitsElement.EnumerateObject()){
-                                exits[property.Name] = property.Value.GetString();
+                    if(area.Value.TryGetProperty("rooms", out roomsElement)) {
+                        foreach (var room in roomsElement.EnumerateObject()){
+                            Dictionary<string, string> exits = new Dictionary<string, string> {};
+
+                            JsonElement LongDescriptionElement, exitsElement;
+                            room.Value.TryGetProperty("longDescription", out LongDescriptionElement);
+
+                            if(room.Value.TryGetProperty("exits", out exitsElement)) {
+                                foreach(JsonProperty property in exitsElement.EnumerateObject()){
+                                    exits[property.Name] = property.Value.GetString();
+                                }
                             }
-                          }
-                          rooms[idElement.GetString()] = new Room(idElement.GetString(), LongDescriptionElement.GetString(), exits);
+
+                            rooms[room.Name] = new Room(room.Name, LongDescriptionElement.GetString(), exits);
                         }
                     }
-                    areas.Add(new Area(nameElement.GetString(), rooms));
+                    areas[area.Name] = new Area(area.Name, rooms);
                 }                
             }
             doc.Dispose();
         }
 
-        public Room GetRoom(int area, string room) {
+        public Room GetRoom(string area, string room) {
             return areas[area].Rooms[room];
         }
     }

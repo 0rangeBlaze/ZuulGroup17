@@ -1,27 +1,40 @@
 {
     "areas":
-    [
-        {
-            "name": "Mall",
+    {
+        "Mall":{
             "rooms":
-                [
-                    {
-                        "shortDescription": "Restaurant",
+                {
+                    "Restaurant":{
                         "longDescription": "A fast-food restaurant full of people.",
                         "exits":
                         {
                             "north": "Hall"
                         }
                     },
-                    {
-                        "shortDescription": "Hall",
+                    "Hall":{
                         "longDescription": "Main area of the Mall",
                         "exits":
                         {
                             "south": "Restaurant"
                         }
                     }
-                ]
+                }
+        },
+        "Home":{
+            "rooms":{
+                "Livingroom":{
+                    "longDescription": "Blablabla",
+                    "exits":{
+                        "down":"Bathroom"
+                    }
+                },
+                "Bathroom":{
+                    "longDescription": "Lorem ipsum",
+                    "exits":{
+                        "up":"Livingroom"
+                    }
+                }
+            }
         }
-    ]
+    }
 }
