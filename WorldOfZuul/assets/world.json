@@ -6,12 +6,21 @@
             "default": "Hall",
             "rooms":
                 {
-                    "Restaurant":
+
+                    "FastFood":
                     {
                         "longDescription": "A fast-food restaurant, with many people in it. There's an empty ordering machine just a few steps from you.",
                         "exits":
                         {
-                            "north": "Hall"
+                            "hall": "Hall"
+                        }
+                    },
+                    "Restaurant":
+                    {
+                        "longDescription": "A lovely restaurant, people are chatting, the warm lighting is setting a chill mood. This place has a reputation for using local ingredients, but this also makes it a bit mnore expensive.",
+                        "exits":
+                        {
+                            "hall": "Hall"
                         }
                     },
                     "Hall":
@@ -19,25 +28,25 @@
                         "longDescription": "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
                         "exits":
                         {
-                            "south": "Restaurant",
-                            "west": "Clothingshop",
-                            "east": "GeneralStore"
-
+                            "restaurant": "Restaurant",
+                            "clothingstore": "Clothingshop",
+                            "generalstore": "GeneralStore",
+                            "fastfood": "FastFood"
                         }
                     },
-                    "Clothingshop":
+                    "ClothingShop":
                     {
                         "longDescription": "A clothing store, you are lucky, there are many special offers.",
                         "exits":
                         {
-                            "east": "Hall"
+                            "hall": "Hall"
                         }
                     },
                     "GeneralStore":{
                         "longDescription": "You are in a general store, it has everything you could have vere dreamt of.",
                         "exits":
                         {
-                            "west": "Hall"
+                            "hall": "Hall"
                         }
                     }
                 }
@@ -80,6 +89,47 @@
                     "exits":
                     {
                         "down":"Livingroom"
+                    }
+                }
+            }
+        },
+        "FreeTimeActivities":
+        {
+            "default": "TownSquare",
+            "rooms":
+            {
+                "TownSquare":
+                {
+                    "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "exits":
+                    {
+                        "park": "Park",
+                        "sportcenter": "SportCenter",
+                        "bar":"Bar"
+                    }
+                },
+                "Park":
+                {
+                    "longDescription": "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                    "exits":
+                    {
+                        "townsquare": "TownSquare"
+                    }
+                },
+                "SportCenter":
+                {
+                    "longDescription": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
+                    "exits":
+                    {
+                        "townsquare": "TownSquare"
+                    }
+                },
+                "Bar":
+                {
+                    "longDescription": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. People are chatting and laghing, friends are reuniting, college students are celebrating their survival of a class.",
+                    "exits":
+                    {
+                        "townsquare":"TownSquare"
                     }
                 }
             }
