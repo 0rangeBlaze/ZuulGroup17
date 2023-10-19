@@ -10,36 +10,31 @@ namespace WorldOfZuul
             areas = new Dictionary<string, Area> {};
 
             JsonDocument doc;
-            JsonElement areasElement;
             string jsonString;
             jsonString = File.ReadAllText(path);
             doc = JsonDocument.Parse(jsonString);
             
 
-            if(doc.RootElement.TryGetProperty("areas", out areasElement)) {
-                foreach (var area in areasElement.EnumerateObject())
-                {
-                    JsonElement roomsElement;
-                    Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
-                    if(area.Value.TryGetProperty("rooms", out roomsElement)) {
-                        foreach (var room in roomsElement.EnumerateObject()){
-                            Dictionary<string, string> exits = new Dictionary<string, string> {};
+            //enumerating areas
+            foreach (var area in doc.RootElement.GetProperty("areas").EnumerateObject())
+            {
+                Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
+                string defaultRoom = area.Value.GetProperty("default").GetString();
 
-                            JsonElement LongDescriptionElement, exitsElement;
-                            room.Value.TryGetProperty("longDescription", out LongDescriptionElement);
+                //enumerating rooms
+                foreach (var room in area.Value.GetProperty("rooms").EnumerateObject()){
+                    Dictionary<string, string> exits = new Dictionary<string, string> {};
+                    string longDescription = room.Value.GetProperty("longDescription").GetString();
 
-                            if(room.Value.TryGetProperty("exits", out exitsElement)) {
-                                foreach(JsonProperty property in exitsElement.EnumerateObject()){
-                                    exits[property.Name] = property.Value.GetString();
-                                }
-                            }
-
-                            rooms[room.Name] = new Room(room.Name, LongDescriptionElement.GetString(), exits);
-                        }
+                    //enumerating exits
+                    foreach(JsonProperty property in room.Value.GetProperty("exits").EnumerateObject()){
+                        exits[property.Name] = property.Value.GetString();
                     }
-                    areas[area.Name] = new Area(area.Name, rooms);
-                }                
-            }
+
+                    rooms[room.Name] = new Room(room.Name, longDescription, exits);
+                }
+                areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
+            }                
             doc.Dispose();
         }
 

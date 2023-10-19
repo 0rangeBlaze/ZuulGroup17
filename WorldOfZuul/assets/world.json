@@ -2,6 +2,7 @@
     "areas":
     {
         "Mall":{
+            "default": "Hall",
             "rooms":
                 {
                     "Restaurant":{
@@ -21,6 +22,7 @@
                 }
         },
         "Home":{
+            "default": "Livingroom",
             "rooms":{
                 "Livingroom":{
                     "longDescription": "Blablabla",

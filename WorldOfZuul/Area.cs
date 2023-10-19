@@ -8,10 +8,12 @@ namespace WorldOfZuul
     {
         public Dictionary<string, Room>? Rooms {get; private set;}
         private string? name;
+        private string defaultRoom;
 
-        public Area(string? name, Dictionary<string, Room>? rooms)
+        public Area(string? name, Dictionary<string, Room>? rooms, string defaultRoom)
         {
             this.name = name;
+            this.defaultRoom = defaultRoom;
             Rooms = rooms;
         }
         public static void TravelCheck()
