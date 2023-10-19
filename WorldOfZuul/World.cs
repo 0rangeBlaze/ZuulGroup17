@@ -38,8 +38,8 @@ namespace WorldOfZuul
             doc.Dispose();
         }
 
-        public Room GetRoom(string area, string room) {
-            return areas[area].Rooms[room];
+        public Room GetRoom(string area, string room = "") {
+            return (room == "") ? areas[area].Rooms[areas[area].DefaultRoom] : areas[area].Rooms[room];
         }
     }
 }

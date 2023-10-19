@@ -8,56 +8,14 @@ namespace WorldOfZuul
     {
         public Dictionary<string, Room>? Rooms {get; private set;}
         private string? name;
-        private string defaultRoom;
+        public string DefaultRoom {get; private set;}
 
         public Area(string? name, Dictionary<string, Room>? rooms, string defaultRoom)
         {
             this.name = name;
-            this.defaultRoom = defaultRoom;
+            DefaultRoom = defaultRoom;
             Rooms = rooms;
         }
-        public static void TravelCheck()
-        {
-            string? travelCommand;
-
-            while(true)
-            {
-                Console.WriteLine("Choosing type of transport");
-                travelCommand = Console.ReadLine()?.ToLower();
-
-                try
-                {
-                    Travel(travelCommand);
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine($"You can't travel by {ex.Message}");
-                }
-            } 
-        }
-        public static void Travel(string? travelCommand)
-        {
-            if(travelCommand == "car")
-            {
-
-            }
-            else if(travelCommand == "walk")
-            {
-
-            }
-            else if(travelCommand == "public transport")
-            {
-
-            }
-            else
-            {
-                ErrorMessage();
-            }
-        }
-        //Generic error message, can later be moved somewhere else
-        public static void ErrorMessage()
-        {
-            Console.WriteLine("Invalid Input, Please try again!");
-        }
+       
     }
 }
