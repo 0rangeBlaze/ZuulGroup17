@@ -85,14 +85,24 @@ namespace WorldOfZuul
 
         private void Move(string? direction)
         {
-            if(string.IsNullOrEmpty(direction)) {
+            if (string.IsNullOrEmpty(direction)) {
                 Console.WriteLine("Please choose a direction.");
+                return;
+            }
+            if (direction == "back") {
+                if (previousArea != currentArea) {
+                    Console.WriteLine("You came from a different area you need to use travel to go back.");
+                }
+                else {
+                    (currentRoom, previousRoom) = (previousRoom, currentRoom);
+                }
                 return;
             }
             if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
             {
                 previousRoom = currentRoom;
                 currentRoom = world.GetRoom(currentArea, currentRoom).Exits[direction];
+                previousArea = currentArea;
             }
             else
             {
@@ -102,11 +112,11 @@ namespace WorldOfZuul
 
         public void Travel(string? destination)
         {
-            if(string.IsNullOrEmpty(destination)) {
+            if (string.IsNullOrEmpty(destination)) {
                 Console.WriteLine("Please choose a destination.");
                 return;
             }
-            if(!world.Areas.ContainsKey(destination)){
+            if (!world.Areas.ContainsKey(destination)){
                 Console.WriteLine("This destination doesn't exist!");
                 return;
             } 
@@ -155,10 +165,9 @@ namespace WorldOfZuul
             Console.WriteLine("You are lost. You are alone. You wander");
             Console.WriteLine("around the university.");
             Console.WriteLine();
-            Console.WriteLine("Navigate between rooms by typing: move [direction]");
+            Console.WriteLine("Navigate between rooms by typing: move [direction] \n 'move back' takes you to the previous room.");
             Console.WriteLine("Navigate between areas by typing: travel [destination]");
             Console.WriteLine("Type 'look' for more details.");
-            Console.WriteLine("Type 'back' to go to the previous room.");
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
         }
