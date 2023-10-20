@@ -127,15 +127,23 @@ namespace WorldOfZuul
 
             if(travelCommand == "car")
             {
-
+                Console.WriteLine($"You took the car to {destination}");
             }
             else if(travelCommand == "walk")
             {
+                Console.WriteLine($"You decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right. \n>");
+                Console.ReadKey();
+                Console.WriteLine($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street. \n>");
+                Console.ReadKey();
+                Console.WriteLine($"Another 400 meters at you're there. \n>");
+                Console.ReadKey();
 
             }
             else if(travelCommand == "public transport")
             {
-
+                Console.WriteLine("You get on the next bus. Press any key to continue \n>");
+                Console.ReadKey();
+                Console.WriteLine($"You travelled for 30 minutes, and younow have arrived at {destination}");
             }
 
             previousArea = currentArea;
