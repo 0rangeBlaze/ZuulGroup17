@@ -51,13 +51,6 @@ namespace WorldOfZuul
                         Console.WriteLine(world.GetRoom(currentArea, currentRoom).LongDescription);
                         break;
 
-                    case "back":
-                        if (previousRoom == null)
-                            Console.WriteLine("You can't go back from here!");
-                        else
-                            currentRoom = previousRoom;
-                        break;
-
                     case "move":
                         Move(command.SecondWord);
                         break;
