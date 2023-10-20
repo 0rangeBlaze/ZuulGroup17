@@ -29,12 +29,12 @@
                         "exits":
                         {
                             "restaurant": "Restaurant",
-                            "clothingstore": "Clothingshop",
+                            "clothingstore": "ClothingStore",
                             "generalstore": "GeneralStore",
                             "fastfood": "FastFood"
                         }
                     },
-                    "ClothingShop":
+                    "ClothingStore":
                     {
                         "longDescription": "A clothing store, you are lucky, there are many special offers.",
                         "exits":
@@ -43,7 +43,7 @@
                         }
                     },
                     "GeneralStore":{
-                        "longDescription": "You are in a general store, it has everything you could have vere dreamt of.",
+                        "longDescription": "You are in a general store, it has everything you could have ever dreamt of.",
                         "exits":
                         {
                             "hall": "Hall"
@@ -64,7 +64,7 @@
                     {
                         "kitchen": "Kitchen",
                         "bedroom": "Bedroom",
-                        "up":"Bathroom"
+                        "bathroom":"Bathroom"
                     }
                 },
                 "Bedroom":
@@ -88,19 +88,19 @@
                     "longDescription": "A bathroom... Nothing special.",
                     "exits":
                     {
-                        "down":"Livingroom"
+                        "livingroom":"Livingroom"
                     }
                 }
             }
         },
-        "FreeTimeActivities":
+        "Town":
         {
-            "default": "TownSquare",
+            "default": "MainSquare",
             "rooms":
             {
-                "TownSquare":
+                "MainSquare":
                 {
-                    "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "longDescription": "The town's main square is surrounded by cute little caffees. It's a little greenpatch surrounded by glass giants. ",
                     "exits":
                     {
                         "park": "Park",
@@ -113,7 +113,7 @@
                     "longDescription": "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
                     "exits":
                     {
-                        "townsquare": "TownSquare"
+                        "mainsquare": "MainSquare"
                     }
                 },
                 "SportCenter":
@@ -121,15 +121,15 @@
                     "longDescription": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
                     "exits":
                     {
-                        "townsquare": "TownSquare"
+                        "mainsquare": "MainSquare"
                     }
                 },
                 "Bar":
                 {
-                    "longDescription": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. People are chatting and laghing, friends are reuniting, college students are celebrating their survival of a class.",
+                    "longDescription": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class.",
                     "exits":
                     {
-                        "townsquare":"TownSquare"
+                        "mainsquare": "MainSquare"
                     }
                 }
             }
@@ -150,7 +150,7 @@
                 },
                 "Boss":
                 {
-                    "longDescription": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office.",
+                    "longDescription": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space.\n Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office.",
                     "exits":
                     {
                         "breakroom": "Breakroom"
@@ -158,7 +158,7 @@
                 },
                 "Office":
                 {
-                    "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. You plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
+                    "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYou plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
                     "exits":
                     {
                         "Breakroom":"Breakroom"

@@ -14,7 +14,8 @@ namespace WorldOfZuul
         {
             world = new World("assets/world.json");
             //temporary:
-            currentArea = "Home";
+            currentArea = "home";
+            previousArea = "home";
         }
 
         public void Play()
@@ -108,6 +109,9 @@ namespace WorldOfZuul
                 Console.WriteLine("Please choose a destination.");
                 return;
             }
+            else{
+                destination = destination.ToLower();
+            }
             if (!world.Areas.ContainsKey(destination)){
                 Console.WriteLine("This destination doesn't exist!");
                 return;
@@ -127,23 +131,23 @@ namespace WorldOfZuul
 
             if(travelCommand == "car")
             {
-                Console.WriteLine($"You took the car to {destination}");
+                Console.WriteLine($"\nYou took the car to {destination} \n");
             }
             else if(travelCommand == "walk")
             {
-                Console.WriteLine($"You decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right. \n>");
-                Console.ReadKey();
-                Console.WriteLine($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street. \n>");
-                Console.ReadKey();
-                Console.WriteLine($"Another 400 meters at you're there. \n>");
-                Console.ReadKey();
-
+                Console.WriteLine($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
+                Console.ReadKey(true);
+                Console.WriteLine($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
+                Console.ReadKey(true);
+                Console.WriteLine($"Another 400 meters at you're there.");
+                Console.ReadKey(true);
+                Console.WriteLine();
             }
             else if(travelCommand == "public transport")
             {
-                Console.WriteLine("You get on the next bus. Press any key to continue \n>");
-                Console.ReadKey();
-                Console.WriteLine($"You travelled for 30 minutes, and younow have arrived at {destination}");
+                Console.WriteLine("\nYou get on the next bus. Press any key to continue");
+                Console.ReadKey(true);
+                Console.WriteLine($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
             }
 
             previousArea = currentArea;
@@ -165,8 +169,8 @@ namespace WorldOfZuul
             Console.WriteLine("You are lost. You are alone. You wander");
             Console.WriteLine("around the university.");
             Console.WriteLine();
-            Console.WriteLine("Navigate between rooms by typing: move [direction]\n'move back' takes you to the previous room.");
-            Console.WriteLine("Navigate between areas by typing: travel [destination]");
+            Console.WriteLine("Type 'move [direction]' to navigate between rooms. \nType 'move back', that takes you to the previous room.");
+            Console.WriteLine("Type 'travel [destination]' to navigate between areas.");
             Console.WriteLine("Type 'look' for more details.");
             Console.WriteLine("Type 'help' to print this message again.");
             Console.WriteLine("Type 'quit' to exit the game.");
