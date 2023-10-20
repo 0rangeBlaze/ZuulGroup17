@@ -14,8 +14,7 @@ namespace WorldOfZuul
         {
             world = new World("assets/world.json");
             //temporary:
-            currentRoom = "Restaurant";
-            currentArea = "Mall";
+            currentArea = "Home";
         }
 
         public void Play()
@@ -48,7 +47,7 @@ namespace WorldOfZuul
                 switch(command.Name)
                 {
                     case "look":
-                        Console.WriteLine(world.GetRoom(currentArea, currentRoom).LongDescription);
+                        world.GetRoom(currentArea, currentRoom).Describe();
                         break;
 
                     case "move":
@@ -91,7 +90,7 @@ namespace WorldOfZuul
                 }
                 return;
             }
-            if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
+            else if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
             {
                 previousRoom = currentRoom;
                 currentRoom = world.GetRoom(currentArea, currentRoom).Exits[direction];
@@ -158,7 +157,7 @@ namespace WorldOfZuul
             Console.WriteLine("You are lost. You are alone. You wander");
             Console.WriteLine("around the university.");
             Console.WriteLine();
-            Console.WriteLine("Navigate between rooms by typing: move [direction] \n 'move back' takes you to the previous room.");
+            Console.WriteLine("Navigate between rooms by typing: move [direction]\n'move back' takes you to the previous room.");
             Console.WriteLine("Navigate between areas by typing: travel [destination]");
             Console.WriteLine("Type 'look' for more details.");
             Console.WriteLine("Type 'help' to print this message again.");

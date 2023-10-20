@@ -161,7 +161,7 @@
                     "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. You plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
                     "exits":
                     {
-                        "down":"Livingroom"
+                        "Breakroom":"Breakroom"
                     }
                 }
             }
