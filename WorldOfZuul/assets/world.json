@@ -100,7 +100,7 @@
             {
                 "TownSquare":
                 {
-                    "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "longDescription": "The town square is located in a bit of green patch surrounded by glass giants. There are a few caffees nearby, and the bus station is just visible.",
                     "exits":
                     {
                         "park": "Park",
