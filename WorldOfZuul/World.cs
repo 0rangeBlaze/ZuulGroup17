@@ -4,10 +4,10 @@ namespace WorldOfZuul
 {
     public class World
     {
-        Dictionary<string, Area> areas;
+        public Dictionary<string, Area> Areas {get; private set;}
 
         public World(string path="assets/world.json") {
-            areas = new Dictionary<string, Area> {};
+            Areas = new Dictionary<string, Area> {};
 
             JsonDocument doc;
             string jsonString;
@@ -33,13 +33,13 @@ namespace WorldOfZuul
 
                     rooms[room.Name] = new Room(room.Name, longDescription, exits);
                 }
-                areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
+                Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
             }                
             doc.Dispose();
         }
 
         public Room GetRoom(string area, string room = "") {
-            return (room == "") ? areas[area].Rooms[areas[area].DefaultRoom] : areas[area].Rooms[room];
+            return (room == "") ? Areas[area].Rooms[Areas[area].DefaultRoom] : Areas[area].Rooms[room];
         }
     }
 }

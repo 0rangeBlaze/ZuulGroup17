@@ -83,8 +83,12 @@ namespace WorldOfZuul
             Console.WriteLine("Thank you for playing World of Zuul!");
         }
 
-        private void Move(string direction)
+        private void Move(string? direction)
         {
+            if(string.IsNullOrEmpty(direction)) {
+                Console.WriteLine("Please choose a direction.");
+                return;
+            }
             if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
             {
                 previousRoom = currentRoom;
@@ -96,27 +100,29 @@ namespace WorldOfZuul
             }
         }
 
-        public void TravelCheck()
+        public void Travel(string? destination)
         {
-            string? travelCommand;
-
-            while(true)
-            {
-                Console.WriteLine("Choosing type of transport");
-                travelCommand = Console.ReadLine()?.ToLower();
-                //this try catch block does nothing because Travel doesn't throw any exceptions
-                try
-                {
-                    Travel(travelCommand);
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine($"You can't travel by {ex.Message}");
-                }
+            if(string.IsNullOrEmpty(destination)) {
+                Console.WriteLine("Please choose a destination.");
+                return;
+            }
+            if(!world.Areas.ContainsKey(destination)){
+                Console.WriteLine("This destination doesn't exist!");
+                return;
             } 
-        }
-        public void Travel(string destination, string? travelCommand = null)
-        {
+            else if (destination == currentArea) {
+                Console.WriteLine($"You are already at (the) {currentArea}");
+                return;
+            }
+            string[] transportMethods = {"car", "public transport", "walk"};
+            string? travelCommand;
+            Console.WriteLine($"Choose method of transport({string.Join(" / ", transportMethods)}):");
+            travelCommand = Console.ReadLine();
+            while(!transportMethods.Contains(travelCommand)){
+                Console.WriteLine($"Invalid transport method. Choose from these options: {string.Join(" / ", transportMethods)}. Try again:");
+                travelCommand = Console.ReadLine();
+            }
+
             if(travelCommand == "car")
             {
 
@@ -129,10 +135,7 @@ namespace WorldOfZuul
             {
 
             }
-            else
-            {
-                ErrorMessage();
-            }
+
             previousArea = currentArea;
             currentArea = destination;
             previousRoom = currentRoom;
