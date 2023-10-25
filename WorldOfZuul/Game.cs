@@ -9,13 +9,14 @@ namespace WorldOfZuul
         private string currentArea;
         private string? previousArea;
         private World world;
+        private int personalWelfare = 0, populationWelfare = 0, environment = 0;
 
         public Game()
         {
             world = new World("assets/world.json");
-            //temporary:
             currentArea = "home";
             previousArea = "home";
+            currentRoom = world.GetRoom(currentArea).ShortDescription;
         }
 
         public void Play()
@@ -177,10 +178,19 @@ namespace WorldOfZuul
         }
 
         
-        //Generic error message, can later be moved somewhere else
-        public static void ErrorMessage()
+        private static void Hire()
         {
-            Console.WriteLine("Invalid Input, Please try again!");
+
+        }
+        
+        private static void SupplyChoice()
+        {
+
+        }
+
+        private static void SupplyReview()
+        {
+
         }
     }
 }
