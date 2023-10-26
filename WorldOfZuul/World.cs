@@ -6,37 +6,69 @@ namespace WorldOfZuul
     public class World
     {
         public LowDictionary<Area> Areas {get; private set;}
+        public bool loaded = false;
 
         public World(string path="assets/world.json") {
             Areas = new LowDictionary<Area> {};
 
-            JsonDocument doc;
-            string jsonString;
-            jsonString = File.ReadAllText(path);
-            doc = JsonDocument.Parse(jsonString);
+            try{
+                JsonDocument doc;
+                string jsonString;
+                jsonString = File.ReadAllText(path);
+                doc = JsonDocument.Parse(jsonString);
             
 
-            //enumerating areas
-            foreach (var area in doc.RootElement.GetProperty("areas").EnumerateObject())
-            {
-                Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
-                string defaultRoom = area.Value.GetProperty("default").GetString();
+                //enumerating areas
+                JsonElement areasElement;
+                if(!doc.RootElement.TryGetProperty("areas", out areasElement))
+                throw new Exception($"Property \"areas\" is missing in root element");
 
-                //enumerating rooms
-                foreach (var room in area.Value.GetProperty("rooms").EnumerateObject()){
-                    Dictionary<string, string> exits = new Dictionary<string, string> {};
-                    string longDescription = room.Value.GetProperty("longDescription").GetString();
+                foreach (JsonProperty area in areasElement.EnumerateObject())
+                {
+                    Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
 
-                    //enumerating exits
-                    foreach(JsonProperty property in room.Value.GetProperty("exits").EnumerateObject()){
-                        exits[property.Name] = property.Value.GetString();
+                    JsonElement defaultRoomElement;
+                    if(!area.Value.TryGetProperty("default", out defaultRoomElement))
+                    throw new Exception($"Property \"default\" is missing in area \"{area.Name}\"");
+                    string defaultRoom = defaultRoomElement.GetString() ?? 
+                    throw new Exception($"Value of property \"default\" is null in area \"{area.Name}\"");
+
+                    JsonElement roomsElement;
+                    if(!area.Value.TryGetProperty("rooms", out roomsElement))
+                    throw new Exception($"Property \"rooms\" is missing in area \"{area.Name}\"");
+
+                    //enumerating rooms
+                    foreach (JsonProperty room in roomsElement.EnumerateObject()){
+                        Dictionary<string, string> exits = new Dictionary<string, string> {};
+
+
+                        JsonElement longDescriptionElement;
+                        if(!room.Value.TryGetProperty("longDescription", out longDescriptionElement))
+                        throw new Exception($"Property \"longDescription\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
+                        string longDescription = longDescriptionElement.GetString() ?? 
+                        throw new Exception($"Value of property \"longDescription\" is null in room \"{room.Name}\", in area \"{area.Name}\"");
+
+                        JsonElement exitsElement;
+                        if(!room.Value.TryGetProperty("exits", out exitsElement))
+                        throw new Exception($"Property \"exits\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
+
+                        //enumerating exits
+                        foreach(JsonProperty property in exitsElement.EnumerateObject()){
+                            exits[property.Name] = property.Value.GetString() ?? 
+                            throw new Exception($"Exit \"{property.Name}\" has value null in room \"{room.Name}\", in area \"{area.Name}\"");
+                        }
+
+                        rooms[room.Name] = new Room(room.Name, longDescription, exits);
                     }
-
-                    rooms[room.Name] = new Room(room.Name, longDescription, exits);
+                    Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }
-                Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
-            }                
-            doc.Dispose();
+                doc.Dispose();
+                loaded = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public Room GetRoom(string area, string? room = "") {

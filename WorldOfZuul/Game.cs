@@ -10,23 +10,34 @@ namespace WorldOfZuul
         private string? previousArea;
         private World world;
         private int personalWelfare = 0, populationWelfare = 0, environment = 0;
+        private bool running;
 
         public Game()
         {
             world = new World("assets/world.json");
+            if(!world.loaded) {
+                Console.WriteLine("Couldn't load world.");
+                running = false;
+                return;
+            }
+
             currentArea = "home";
             previousArea = "home";
             currentRoom = world.GetRoom(currentArea).ShortDescription;
+            running = true;
         }
 
         public void Play()
         {
+            if(!running){
+                return;
+            }
+
             Parser parser = new();
 
             PrintWelcome();
 
-            bool continuePlaying = true;
-            while (continuePlaying)
+            while (running)
             {
                 Console.WriteLine(world.GetRoom(currentArea, currentRoom).ShortDescription);
                 Console.Write("> ");
@@ -57,7 +68,7 @@ namespace WorldOfZuul
                         break;
 
                     case "quit":
-                        continuePlaying = false;
+                        running = false;
                         break;
 
                     case "help":
