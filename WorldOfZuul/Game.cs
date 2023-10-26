@@ -249,10 +249,11 @@ namespace WorldOfZuul
                 while(!batchChecked)
                 {
                     Console.Write(">");
-                    string? playerChoice = Console.ReadLine().Trim().ToLower();
-                    if(playerChoice == "bad" || playerChoice == "good")
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if(key.KeyChar == '1' || key.KeyChar == '2')
                     {
-                        if(playerChoice == "good")
+                        Console.WriteLine("");
+                        if(key.KeyChar == '1')
                         {
                             if(GoodBatch)
                             {
@@ -262,7 +263,7 @@ namespace WorldOfZuul
                             else
                                 Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
                         }
-                        else if(playerChoice == "bad")
+                        else if(key.KeyChar == '2')
                         {
                             if(!GoodBatch)
                             {
