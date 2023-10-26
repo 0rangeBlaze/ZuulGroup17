@@ -208,7 +208,7 @@ namespace WorldOfZuul
             Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
             Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
             Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
-            Console.WriteLine("After looking at a batch checking its quality: \nType 'Good' if its acceptable \nType 'Bad' if not");
+            Console.WriteLine("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
 
             int  upForPromotion = 0;
             int goodChoices = 0;
@@ -250,10 +250,10 @@ namespace WorldOfZuul
                 {
                     Console.Write(">");
                     ConsoleKeyInfo key = Console.ReadKey();
-                    if(key.KeyChar == '1' || key.KeyChar == '2')
+                    if(key.KeyChar == 'y' || key.KeyChar == 'n')
                     {
                         Console.WriteLine("");
-                        if(key.KeyChar == '1')
+                        if(key.KeyChar == 'y')
                         {
                             if(GoodBatch)
                             {
@@ -263,7 +263,7 @@ namespace WorldOfZuul
                             else
                                 Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
                         }
-                        else if(key.KeyChar == '2')
+                        else if(key.KeyChar == 'n')
                         {
                             if(!GoodBatch)
                             {
