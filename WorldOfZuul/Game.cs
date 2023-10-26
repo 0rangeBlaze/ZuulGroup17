@@ -1,4 +1,7 @@
-﻿using Utilities;
+﻿using System.Diagnostics;
+using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
+using Utilities;
 
 namespace WorldOfZuul
 {
@@ -200,6 +203,101 @@ namespace WorldOfZuul
         }
 
         private static void SupplyReview()
+        {
+            Console.WriteLine("=========");
+            Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
+            Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
+            Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
+            Console.WriteLine("After looking at a batch checking its quality: \nType 'Good' if its acceptable \nType 'Bad' if not");
+
+            int  upForPromotion = 0;
+            int goodChoices = 0;
+            for(int k = 0; k < 3; k++)
+            {
+                int badEggs = 0;
+                bool GoodBatch;
+                Console.WriteLine("");
+                for(int i = 0; i < 5; i++)
+                {
+                    for(int j = 0; j < 5; j++)
+                    {
+                        Random random = new Random();
+                        int badEgg = random.Next(1, 6);
+                        if(badEgg == 1)
+                        {
+                            Console.Write("O ");
+                            badEggs += 1;
+                        }
+                        else
+                        {
+                            Console.Write("X ");
+                        }
+                    }
+                    Console.WriteLine("");
+                } 
+
+                if(badEggs >= 5)
+                {
+                    GoodBatch = false;
+                }
+                else
+                {
+                    GoodBatch = true;
+                }
+                Console.WriteLine("Is this a good or a bad batch?");
+                bool batchChecked = false;
+                while(!batchChecked)
+                {
+                    Console.Write(">");
+                    string? playerChoice = Console.ReadLine().Trim().ToLower();
+                    if(playerChoice == "bad" || playerChoice == "good")
+                    {
+                        if(playerChoice == "good")
+                        {
+                            if(GoodBatch)
+                            {
+                                goodChoices += 1;
+                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
+                            }
+                            else
+                                Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
+                        }
+                        else if(playerChoice == "bad")
+                        {
+                            if(!GoodBatch)
+                            {
+                                goodChoices += 1;
+                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
+                            }
+                            else
+                                Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Something is WRONG, i need to fix it");
+                        }
+                        batchChecked = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid inpput. Please try again!");
+                    }
+                }
+            }
+            if(goodChoices > 2)
+            {
+                upForPromotion += 1;
+            }
+
+            if(upForPromotion > 2)
+            {
+                Promoted();
+            }
+
+            Console.WriteLine("You are finished for the day, get some rest.");
+        }
+        private static void Promoted()
         {
 
         }
