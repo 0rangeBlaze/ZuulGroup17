@@ -236,7 +236,7 @@ namespace WorldOfZuul
                     Console.WriteLine("");
                 } 
 
-                if(badEggs >= 5)
+                if(badEggs > 5)
                 {
                     GoodBatch = false;
                 }
