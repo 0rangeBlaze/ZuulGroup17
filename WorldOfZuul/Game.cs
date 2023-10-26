@@ -274,10 +274,7 @@ namespace WorldOfZuul
                                 Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
 
                         }
-                        else
-                        {
-                            Console.WriteLine("Something is WRONG, i need to fix it");
-                        }
+                        
                         batchChecked = true;
                     }
                     else
