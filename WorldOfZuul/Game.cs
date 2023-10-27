@@ -7,12 +7,8 @@ namespace WorldOfZuul
 {
     public class Game
     {
-        private string currentRoom;
-        private string? previousRoom;
-        private string currentArea;
-        private string? previousArea;
+        private Player player;
         private World world;
-        private int personalWelfare = 0, populationWelfare = 0, environment = 0;
         private bool running;
         Random random = new Random();
 
@@ -24,10 +20,7 @@ namespace WorldOfZuul
                 running = false;
                 return;
             }
-
-            currentArea = "home";
-            previousArea = "home";
-            currentRoom = world.GetRoom(currentArea).ShortDescription;
+            player = new("home", "home", world.GetRoom("home").ShortDescription);
             running = true;
         }
 
@@ -43,7 +36,7 @@ namespace WorldOfZuul
 
             while (running)
             {
-                Console.WriteLine(world.GetRoom(currentArea, currentRoom).ShortDescription);
+                Console.WriteLine(world.GetRoom(player.CurrentArea, player.CurrentRoom).ShortDescription);
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
@@ -64,7 +57,7 @@ namespace WorldOfZuul
                 switch(command.Name)
                 {
                     case "look":
-                        world.GetRoom(currentArea, currentRoom).Describe();
+                        world.GetRoom(player.CurrentArea, player.CurrentRoom).Describe();
                         break;
 
                     case "move":
@@ -99,19 +92,19 @@ namespace WorldOfZuul
                 return;
             }
             if (direction == "back") {
-                if (previousArea != currentArea) {
+                if (player.PreviousArea != player.CurrentArea) {
                     Console.WriteLine("You came from a different area you need to use travel to go back.");
                 }
                 else {
-                    (currentRoom, previousRoom) = (previousRoom, currentRoom);
+                    (player.CurrentRoom, player.PreviousRoom) = (player.PreviousRoom, player.CurrentRoom);
                 }
                 return;
             }
-            else if (world.GetRoom(currentArea, currentRoom).Exits.ContainsKey(direction))
+            else if (world.GetRoom(player.CurrentArea, player.CurrentRoom).Exits.ContainsKey(direction))
             {
-                previousRoom = currentRoom;
-                currentRoom = world.GetRoom(currentArea, currentRoom).Exits[direction];
-                previousArea = currentArea;
+                player.PreviousRoom = player.CurrentRoom;
+                player.CurrentRoom = world.GetRoom(player.CurrentArea, player.CurrentRoom).Exits[direction];
+                player.PreviousArea = player.CurrentArea;
             }
             else
             {
@@ -132,8 +125,8 @@ namespace WorldOfZuul
                 Console.WriteLine("This destination doesn't exist!");
                 return;
             } 
-            else if (destination == currentArea) {
-                Console.WriteLine($"You are already at (the) {currentArea}");
+            else if (destination == player.CurrentArea) {
+                Console.WriteLine($"You are already at (the) {player.CurrentArea}");
                 return;
             }
             string[] transportMethods = {"car", "public transport", "walk"};
@@ -166,10 +159,10 @@ namespace WorldOfZuul
                 Console.WriteLine($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
             }
 
-            previousArea = currentArea;
-            currentArea = destination;
-            previousRoom = currentRoom;
-            currentRoom = world.GetRoom(destination).ShortDescription;
+            player.PreviousArea = player.CurrentArea;
+            player.CurrentArea = destination;
+            player.PreviousRoom = player.CurrentRoom;
+            player.CurrentRoom = world.GetRoom(destination).ShortDescription;
         }
 
         private static void PrintWelcome()
