@@ -7,45 +7,22 @@ using System.Threading;
 namespace WorldOfZuul
 {
     public class Npc
-    {   //Initializing list variables
+    { 
         private List<string> greeting;
-        private List<string> dialogs;
-        private List<string> badOutcome;
-        private List<string> goodOutcome;
-        //Creating variables that will store index of dialogs
-        public int dialogIndex = 0;
-        public int outcomeIndex = 0;
+        private Dictionary<string, Dialogs> npc;
+        private bool talking = true;
+        private string index = "index1";
 
-        //Creating npc constructor that will take 4 paths as variables
-        public Npc(string filePath1, string filePath2, string filePath3, string filePath4) 
+        public Npc(Dictionary<string,Dialogs> npc) 
         {   
             //initializing lists
-            greeting = new List<string>();
-            dialogs = new List<string>();
-            badOutcome = new List<string>();
-            goodOutcome = new List<string>();
-            //Using function that will input texts from files to lists
-            LoadDialogsFromFile(filePath1,filePath2,filePath3,filePath4) ;
-
-        } 
-        //Fucntion that input texts line by line from txt file to respective list
-        private void LoadDialogsFromFile(string filePath1, string filePath2, string filePath3, string filePath4)
-        {
-            try 
-            {
-                greeting.AddRange(File.ReadAllLines(filePath1));
-                dialogs.AddRange(File.ReadAllLines(filePath2));
-                badOutcome.AddRange(File.ReadAllLines(filePath3));
-                goodOutcome.AddRange(File.ReadAllLines(filePath4));
-            }
-            catch (Exception ex) 
-            { 
-                Console.WriteLine($"Error occured while trying to load dialogs {ex.Message}");
-            }
+            greeting = new List<string>() {"Hi","Helllo","How do you do" };
+            this.npc = npc;
+            
+            
 
         }
-        //Random greeting function.Can be used before dialouge as greeting. 
-        //Creating immersive gampley by using ranomnes of greeting
+        
         public void RandomGreeting()
         {
             Random greetings = new Random();
@@ -55,51 +32,18 @@ namespace WorldOfZuul
         }
 
         //Npc talking Function
-        public void NpcTalk(ref int dialogIndex)
+        public void NpcTalk(string npcName)
         {
-            for (int i = dialogIndex; i < dialogs.Count; i++)
+            while (talking)
             {
-                //Print dialog with index of i
                 RandomGreeting();
-                PrintSlowly(dialogs[i]);
-                dialogIndex++;
-                //Use funticion print choices to print choices good and bad one
-                PrintChoices(ref outcomeIndex);
-                PrintSlowly("Choose your option by clicking 1 or 2");
-                //Use funtion ReadKey to check what number player clicked
-                ConsoleKeyInfo key = Console.ReadKey();
-                if (key.KeyChar == '1' && dialogIndex < goodOutcome.Count)
-                {
-                    PrintSlowly("You choosed option 1");
-                    //Printing description of outcome
-                    PrintSlowly(goodOutcome[outcomeIndex]);
-                    outcomeIndex++;
-                    //Use function implemented somewere else that calculates numbers
-                    goodOutcome();
-                    //then stop the loop so it wonn't go to another dialog
-                    break;
-                }
-                else if (key.KeyChar == '2' && dialogIndex < badOutcome.Count)
-                {
-                    PrintSlowly("You choosed option 2");
-                    //Printing description of outcome 2
-                    PrintSlowly(badOutcome[outcomeIndex]);
-                    outcomeIndex++;
-                    //Use function implemented somewere else that calculates numbers
-                    badOutcome();
-                    //then stop the loop so it wonn't go to another dialog
-                    break;
-                }
-                //Resseting loop to print the same thing when player click wrong key
-                else
-                {
-                    PrintSlowly("Wrong key try again");
-                    dialogIndex--;
-                    i--;
-                    Console.Clear();
-                }
+
+
+                
+                
 
             }
+            
         }
 
         //Function for pringting choices player have
