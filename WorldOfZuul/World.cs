@@ -1,15 +1,14 @@
 using System.Text.Json;
-using Utilities;
 
 namespace WorldOfZuul
 {
     public class World
     {
-        public LowDictionary<Area> Areas {get; private set;}
+        public Dictionary<string, Area> Areas {get; private set;}
         public bool loaded = false;
 
         public World(string path="assets/world.json") {
-            Areas = new LowDictionary<Area> {};
+            Areas = new Dictionary<string, Area>(StringComparer.OrdinalIgnoreCase) {};
 
             try{
                 JsonDocument doc;
