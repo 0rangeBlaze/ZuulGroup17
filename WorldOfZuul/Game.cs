@@ -14,9 +14,10 @@ namespace WorldOfZuul
         private World world;
         private int personalWelfare = 0, populationWelfare = 0, environment = 0;
         private bool running;
+        Random random = new Random();
 
         public Game()
-        {
+        {   
             world = new World("assets/world.json");
             if(!world.loaded) {
                 Console.WriteLine("Couldn't load world.");
@@ -194,9 +195,45 @@ namespace WorldOfZuul
         
         private static void Hire()
         {
+            List<string> hireNames = new List<string>
+            {
+                "Zuhao", "Oskar", "Daniel", "SebestyÃ©n", "Szymon"
+            };
+
+            List<string> hireHobbies = new List<string>
+            {
+                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
+            };
+
+            List<string> hireLastJobs = new List<string>
+            {
+                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
+            };
+            int hires = 0;
+
+            while (hires < 5)
+            {
+                string[] hireTraits = GetRandomCandidate(hireNames, hireHobbies, hireLastJobs);
+                string hireName = hireTraits[0];
+                string hireHobby = hireTraits[1];
+                string hireLastJob = hireTraits[2];
+
+                Console.WriteLine($"Candidate: {hireName}");
+                Console.WriteLine($"Hobbies: {hireHobby}");
+                Console.WriteLine($"Last Job: {hireLastJob}");
+
+                Console.Write("Do you want to hire this candidate? (Yes/No): ");
+                string decision = Console.ReadLine();
+
+                if (decision == "Yes")
+                {
+                    // stat changes based on randomized traits
+                    hires++;
+                }
+            }
 
         }
-        
+
         private static void SupplyChoice()
         {
 
@@ -220,8 +257,7 @@ namespace WorldOfZuul
                 for(int i = 0; i < 5; i++)
                 {
                     for(int j = 0; j < 5; j++)
-                    {
-                        Random random = new Random();
+                    {     
                         int badEgg = random.Next(1, 6);
                         if(badEgg == 1)
                         {
@@ -298,6 +334,21 @@ namespace WorldOfZuul
         private static void Promoted()
         {
 
+        }
+        private string[] GetRandomCandidate(List<string> names, List<string> hobbies, List<string> lastJobs)
+        {
+            string hireName = GetRandomCandidateTrait(names);
+            string hireHobby = GetRandomCandidateTrait(hobbies);
+            string hireLastJob = GetRandomCandidateTrait(lastJobs);
+
+            return new string[] { hireName, hireHobby, hireLastJob };
+        }
+
+        private string GetRandomCandidateTrait(List<string> traitList)
+        {
+            Random random = new Random();
+            int index = random.Next(traitList.Count);
+            return traitList[index];
         }
     }
 }
