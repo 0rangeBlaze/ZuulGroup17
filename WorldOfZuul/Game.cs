@@ -98,11 +98,6 @@ namespace WorldOfZuul
 
         }
 
-        private static void SupplyChoice()
-        {
-
-        }
-
         private void SupplyReview()
         {
             Console.WriteLine("=========");
