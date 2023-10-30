@@ -9,6 +9,7 @@ namespace WorldOfZuul
         public Player Player {get; set;}
         public World World {get; set;}
         public bool Running {get; set;}
+        private Random randomGenerator = new();
 
         public Game()
         {
@@ -56,7 +57,7 @@ namespace WorldOfZuul
         
 
         
-        private static void Hire()
+        private void Hire()
         {
             List<string> hireNames = new List<string>
             {
@@ -102,7 +103,7 @@ namespace WorldOfZuul
 
         }
 
-        private static void SupplyReview()
+        private void SupplyReview()
         {
             Console.WriteLine("=========");
             Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
@@ -121,7 +122,7 @@ namespace WorldOfZuul
                 {
                     for(int j = 0; j < 5; j++)
                     {     
-                        int badEgg = random.Next(1, 6);
+                        int badEgg = randomGenerator.Next(1, 6);
                         if(badEgg == 1)
                         {
                             Console.Write("O ");
@@ -209,8 +210,7 @@ namespace WorldOfZuul
 
         private string GetRandomCandidateTrait(List<string> traitList)
         {
-            Random random = new Random();
-            int index = random.Next(traitList.Count);
+            int index = randomGenerator.Next(traitList.Count);
             return traitList[index];
         }
     }
