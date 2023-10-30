@@ -14,15 +14,13 @@ namespace WorldOfZuul
             personalWelfare = populationWelfare = environment = 0;
         }
         
-        public void Move(Game game, string? direction)
+        public void Move(Game game, string[] args)
         {
-            if (string.IsNullOrEmpty(direction)) {
+            if (args.Length < 1 || string.IsNullOrEmpty(args[0])) {
                 Console.WriteLine("Please choose a direction.");
                 return;
             }
-            else {
-                direction = direction.ToLower();
-            }
+            string direction = args[0].ToLower();
             if (direction == "back") {
                 if (PreviousArea != CurrentArea) {
                     Console.WriteLine("You came from a different area you need to use travel to go back.");
@@ -44,15 +42,13 @@ namespace WorldOfZuul
             }
         }
 
-        public void Travel(Game game, string? destination)
+        public void Travel(Game game, string[] args)
         {
-            if (string.IsNullOrEmpty(destination)) {
+            if (args.Length < 1 || string.IsNullOrEmpty(args[0])) {
                 Console.WriteLine("Please choose a destination.");
                 return;
             }
-            else{
-                destination = destination.ToLower();
-            }
+            string destination = args[0].ToLower();
             if (!game.World.Areas.ContainsKey(destination)){
                 Console.WriteLine("This destination doesn't exist!");
                 return;

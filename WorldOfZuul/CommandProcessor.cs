@@ -13,8 +13,8 @@ namespace WorldOfZuul
             {"help", (_,_) => PrintHelp()},
             {"look", (Game game, string[] _) => 
                 game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Describe()},
-            {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments[0])},
-            {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments[0])},
+            {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
+            {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
         public static int Process(string command, Game game){
@@ -23,7 +23,7 @@ namespace WorldOfZuul
                 Console.WriteLine($"Unknown command '{commandWords[0]}'. Please try again!");
                 return 1;
             }
-            commandDict[commandWords[0]](game, commandWords[1..]); //I don't know why this is red, when it doesn't give any errors
+            commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{})); //I don't know why this is red, when it doesn't give any errors
             return 0; //no error might change to void
         }
 
