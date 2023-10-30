@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace WorldOfZuul
 {
     public class Player {
@@ -5,6 +7,7 @@ namespace WorldOfZuul
         public string? PreviousRoom {get; set;}
         public string CurrentArea {get; set;}
         public string? PreviousArea {get; set;}
+        public int WorkReputation {get; set;}
         public int personalWelfare, populationWelfare, environment;
 
         public Player(string currentArea, string previousArea, string currentRoom) {
@@ -12,6 +15,7 @@ namespace WorldOfZuul
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
             personalWelfare = populationWelfare = environment = 0;
+            WorkReputation = 0;
         }
         
         public void Move(Game game, string[] args)
@@ -91,6 +95,117 @@ namespace WorldOfZuul
             CurrentArea = destination;
             PreviousRoom = CurrentRoom;
             CurrentRoom = game.World.GetRoom(destination).ShortDescription;
+        }
+
+        public void Work(Game game) {
+            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")){
+                if (WorkReputation < 5)
+                {
+                    SupplyReview(game);
+                }
+                else if (WorkReputation < 10) 
+                {
+
+                }
+                else if (WorkReputation < 15)
+                {
+
+                }
+                else //if (WorkReputation < 20)
+                {
+
+                }
+            }
+            else{
+                Console.WriteLine("You need your office environment to be able to work.");
+            }
+        }
+
+        private void SupplyReview(Game game)
+        {
+            Console.WriteLine("=========");
+            Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
+            Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
+            Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
+            Console.WriteLine("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
+
+            int goodChoices = 0;
+            for(int k = 0; k < 3; k++)
+            {
+                int badEggs = 0;
+                bool GoodBatch;
+                Console.WriteLine("");
+                for(int i = 0; i < 5; i++)
+                {
+                    for(int j = 0; j < 5; j++)
+                    {     
+                        int badEgg = game.RandomGenerator.Next(1, 6);
+                        if(badEgg == 1)
+                        {
+                            Console.Write("O ");
+                            badEggs += 1;
+                        }
+                        else
+                        {
+                            Console.Write("X ");
+                        }
+                    }
+                    Console.WriteLine("");
+                } 
+
+                if(badEggs > 5)
+                {
+                    GoodBatch = false;
+                }
+                else
+                {
+                    GoodBatch = true;
+                }
+                Console.WriteLine("Is this a good or a bad batch?");
+                bool batchChecked = false;
+                while(!batchChecked)
+                {
+                    Console.Write(">");
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if(key.KeyChar == 'y' || key.KeyChar == 'n')
+                    {
+                        Console.WriteLine("");
+                        if(key.KeyChar == 'y')
+                        {
+                            if(GoodBatch)
+                            {
+                                goodChoices += 1;
+                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
+                            }
+                            else
+                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
+                        }
+                        else if(key.KeyChar == 'n')
+                        {
+                            if(!GoodBatch)
+                            {
+                                goodChoices += 1;
+                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
+                            }
+                            else
+                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
+
+                        }
+                        
+                        batchChecked = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid inpput. Please try again!");
+                    }
+                }
+            }
+            if(goodChoices > 2)
+            {
+                WorkReputation++;
+            }
+
+            Console.WriteLine("You are finished for the day, get some rest.");
         }
     }
 }

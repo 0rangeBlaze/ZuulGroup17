@@ -15,6 +15,7 @@ namespace WorldOfZuul
                 game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Describe()},
             {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
+            {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
         public static int Process(string command, Game game){

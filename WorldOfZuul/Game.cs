@@ -9,7 +9,7 @@ namespace WorldOfZuul
         public Player Player {get; set;}
         public World World {get; set;}
         public bool Running {get; set;}
-        private Random randomGenerator = new();
+        public Random RandomGenerator {get; set;}
 
         public Game()
         {
@@ -21,6 +21,7 @@ namespace WorldOfZuul
             }
             Player = new("home", "home", World.GetRoom("home").ShortDescription);
             Running = true;
+            RandomGenerator = new();
         }
 
         public void Play()
@@ -60,28 +61,29 @@ namespace WorldOfZuul
         private void Hire()
         {
             List<string> hireNames = new List<string>
-    {
-        "Zuhao", "Oskar", "Daniel", "Sebestyén", "Szymon"
-    };
+            {
+                "Zuhao", "Oskar", "Daniel", "Sebestyén", "Szymon"
+            };
+
 
             List<string> hireHobbies = new List<string>
-    {
-        "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
-    };
+            {
+                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
+            };
 
             List<string> hireLastJobs = new List<string>
-    {
-        "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
-    };
+            {
+                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
+            };
 
             Dictionary<string, int> traitValues = new Dictionary<string, int>
-    {
-        { "Filler1", 1 },   // Stat changes for different traits (can be negative?)
-        { "Filler2", 2 },
-        { "Filler3", 3 },
-        { "Filler4", 4 },
-        { "Filler5", 5 },
-    };
+            {
+                { "Filler1", 1 },   // Stat changes for different traits (can be negative?)
+                { "Filler2", 2 },
+                { "Filler3", 3 },
+                { "Filler4", 4 },
+                { "Filler5", 5 },
+            };
 
             int hires = 0;
 
@@ -136,98 +138,7 @@ namespace WorldOfZuul
 
         }
 
-        private void SupplyReview()
-        {
-            Console.WriteLine("=========");
-            Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
-            Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
-            Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
-            Console.WriteLine("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
-
-            int  upForPromotion = 0;
-            int goodChoices = 0;
-            for(int k = 0; k < 3; k++)
-            {
-                int badEggs = 0;
-                bool GoodBatch;
-                Console.WriteLine("");
-                for(int i = 0; i < 5; i++)
-                {
-                    for(int j = 0; j < 5; j++)
-                    {     
-                        int badEgg = randomGenerator.Next(1, 6);
-                        if(badEgg == 1)
-                        {
-                            Console.Write("O ");
-                            badEggs += 1;
-                        }
-                        else
-                        {
-                            Console.Write("X ");
-                        }
-                    }
-                    Console.WriteLine("");
-                } 
-
-                if(badEggs > 5)
-                {
-                    GoodBatch = false;
-                }
-                else
-                {
-                    GoodBatch = true;
-                }
-                Console.WriteLine("Is this a good or a bad batch?");
-                bool batchChecked = false;
-                while(!batchChecked)
-                {
-                    Console.Write(">");
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    if(key.KeyChar == 'y' || key.KeyChar == 'n')
-                    {
-                        Console.WriteLine("");
-                        if(key.KeyChar == 'y')
-                        {
-                            if(GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
-                        }
-                        else if(key.KeyChar == 'n')
-                        {
-                            if(!GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are uncorrect, this is a bad batch, but do not despair! You can still prove yourself.");
-
-                        }
-                        
-                        batchChecked = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid inpput. Please try again!");
-                    }
-                }
-            }
-            if(goodChoices > 2)
-            {
-                upForPromotion += 1;
-            }
-
-            if(upForPromotion > 2)
-            {
-                Promoted();
-            }
-
-            Console.WriteLine("You are finished for the day, get some rest.");
-        }
+        
         private static void Promoted()
         {
 
@@ -243,7 +154,7 @@ namespace WorldOfZuul
 
         private string GetRandomCandidateTrait(List<string> traitList)
         {
-            int index = randomGenerator.Next(traitList.Count);
+            int index = RandomGenerator.Next(traitList.Count);
             return traitList[index];
         }
     }

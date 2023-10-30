@@ -10,6 +10,7 @@
                     "FastFood":
                     {
                         "longDescription": "A fast-food restaurant, with many people in it. There's an empty ordering machine just a few steps from you.",
+                        "actions": [],
                         "exits":
                         {
                             "hall": "Hall"
@@ -18,6 +19,7 @@
                     "Restaurant":
                     {
                         "longDescription": "A lovely restaurant, people are chatting, the warm lighting is setting a chill mood. This place has a reputation for using local ingredients, but this also makes it a bit mnore expensive.",
+                        "actions": [],
                         "exits":
                         {
                             "hall": "Hall"
@@ -26,6 +28,7 @@
                     "Hall":
                     {
                         "longDescription": "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                        "actions": [],
                         "exits":
                         {
                             "restaurant": "Restaurant",
@@ -37,6 +40,7 @@
                     "ClothingStore":
                     {
                         "longDescription": "A clothing store, you are lucky, there are many special offers.",
+                        "actions": [],
                         "exits":
                         {
                             "hall": "Hall"
@@ -44,6 +48,7 @@
                     },
                     "GeneralStore":{
                         "longDescription": "You are in a general store, it has everything you could have ever dreamt of.",
+                        "actions": [],
                         "exits":
                         {
                             "hall": "Hall"
@@ -60,6 +65,7 @@
                 "Livingroom":
                 {
                     "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "actions": [],
                     "exits":
                     {
                         "kitchen": "Kitchen",
@@ -70,6 +76,7 @@
                 "Bedroom":
                 {
                     "longDescription": "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room.",
+                    "actions": [],
                     "exits":
                     {
                         "livingroom": "Livingroom"
@@ -78,6 +85,7 @@
                 "Kitchen":
                 {
                     "longDescription": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem.",
+                    "actions": [],
                     "exits":
                     {
                         "livingroom": "Livingroom"
@@ -86,6 +94,7 @@
                 "Bathroom":
                 {
                     "longDescription": "A bathroom... Nothing special.",
+                    "actions": [],
                     "exits":
                     {
                         "livingroom":"Livingroom"
@@ -101,6 +110,7 @@
                 "MainSquare":
                 {
                     "longDescription": "The town's main square is surrounded by cute little caffees. It's a little greenpatch surrounded by glass giants. ",
+                    "actions": [],
                     "exits":
                     {
                         "park": "Park",
@@ -111,6 +121,7 @@
                 "Park":
                 {
                     "longDescription": "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                    "actions": [],
                     "exits":
                     {
                         "mainsquare": "MainSquare"
@@ -119,6 +130,7 @@
                 "SportCenter":
                 {
                     "longDescription": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
+                    "actions": [],
                     "exits":
                     {
                         "mainsquare": "MainSquare"
@@ -127,6 +139,7 @@
                 "Bar":
                 {
                     "longDescription": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class.",
+                    "actions": [],
                     "exits":
                     {
                         "mainsquare": "MainSquare"
@@ -142,6 +155,7 @@
                 "Breakroom":
                 {
                     "longDescription": "in the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas.",
+                    "actions": [],
                     "exits":
                     {
                         "boss": "Boss",
@@ -151,6 +165,7 @@
                 "Boss":
                 {
                     "longDescription": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space.\n Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office.",
+                    "actions": [],
                     "exits":
                     {
                         "breakroom": "Breakroom"
@@ -159,6 +174,7 @@
                 "Office":
                 {
                     "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYou plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
+                    "actions": ["work"],
                     "exits":
                     {
                         "Breakroom":"Breakroom"
