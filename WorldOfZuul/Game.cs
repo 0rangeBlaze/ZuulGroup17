@@ -1,189 +1,59 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
-using Utilities;
 
 namespace WorldOfZuul
 {
     public class Game
     {
-        private Player player;
-        private World world;
-        private bool running;
-        Random random = new Random();
+        public Player Player {get; set;}
+        public World World {get; set;}
+        public bool Running {get; set;}
 
         public Game()
-        {   
-            world = new World("assets/world.json");
-            if(!world.loaded) {
+        {
+            World = new World("assets/world.json");
+            if(!World.loaded) {
                 Console.WriteLine("Couldn't load world.");
-                running = false;
+                Running = false;
                 return;
             }
-            player = new("home", "home", world.GetRoom("home").ShortDescription);
-            running = true;
+            Player = new("home", "home", World.GetRoom("home").ShortDescription);
+            Running = true;
         }
 
         public void Play()
         {
-            if(!running){
+            if(!Running){
                 return;
             }
 
-            Parser parser = new();
-
             PrintWelcome();
 
-            while (running)
+            while (Running)
             {
-                Console.WriteLine(world.GetRoom(player.CurrentArea, player.CurrentRoom).ShortDescription);
+                Console.WriteLine(World.GetRoom(Player.CurrentArea, Player.CurrentRoom).ShortDescription);
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
-
-                if (string.IsNullOrEmpty(input))
-                {
-                    Console.WriteLine("Please enter a command.");
-                    continue;
-                }
-
-                Command? command = parser.GetCommand(input);
-
-                if (command == null)
-                {
-                    Console.WriteLine("I don't know that command.");
-                    continue;
-                }
-                switch(command.Name)
-                {
-                    case "look":
-                        world.GetRoom(player.CurrentArea, player.CurrentRoom).Describe();
-                        break;
-
-                    case "move":
-                        Move(command.SecondWord);
-                        break;
-
-                    case "quit":
-                        running = false;
-                        break;
-
-                    case "help":
-                        PrintHelp();
-                        break;
-
-                    case "travel":
-                        Travel(command.SecondWord);
-                        break;
-
-                    default:
-                        Console.WriteLine("I don't know what command.");
-                        break;
-                }
+                CommandProcessor.Process(input, this);
             }
 
             Console.WriteLine("Thank you for playing World of Zuul!");
         }
 
-        private void Move(string? direction)
-        {
-            if (string.IsNullOrEmpty(direction)) {
-                Console.WriteLine("Please choose a direction.");
-                return;
-            }
-            if (direction == "back") {
-                if (player.PreviousArea != player.CurrentArea) {
-                    Console.WriteLine("You came from a different area you need to use travel to go back.");
-                }
-                else {
-                    (player.CurrentRoom, player.PreviousRoom) = (player.PreviousRoom, player.CurrentRoom);
-                }
-                return;
-            }
-            else if (world.GetRoom(player.CurrentArea, player.CurrentRoom).Exits.ContainsKey(direction))
-            {
-                player.PreviousRoom = player.CurrentRoom;
-                player.CurrentRoom = world.GetRoom(player.CurrentArea, player.CurrentRoom).Exits[direction];
-                player.PreviousArea = player.CurrentArea;
-            }
-            else
-            {
-                Console.WriteLine($"You can't go {direction}!");
-            }
-        }
+        
 
-        public void Travel(string? destination)
-        {
-            if (string.IsNullOrEmpty(destination)) {
-                Console.WriteLine("Please choose a destination.");
-                return;
-            }
-            else{
-                destination = destination.ToLower();
-            }
-            if (!world.Areas.ContainsKey(destination)){
-                Console.WriteLine("This destination doesn't exist!");
-                return;
-            } 
-            else if (destination == player.CurrentArea) {
-                Console.WriteLine($"You are already at (the) {player.CurrentArea}");
-                return;
-            }
-            string[] transportMethods = {"car", "public transport", "walk"};
-            string? travelCommand;
-            Console.WriteLine($"Choose method of transport({string.Join(" / ", transportMethods)}):");
-            travelCommand = Console.ReadLine();
-            while(!transportMethods.Contains(travelCommand)){
-                Console.WriteLine($"Invalid transport method. Choose from these options: {string.Join(" / ", transportMethods)}. Try again:");
-                travelCommand = Console.ReadLine();
-            }
 
-            if(travelCommand == "car")
-            {
-                Console.WriteLine($"\nYou took the car to {destination} \n");
-            }
-            else if(travelCommand == "walk")
-            {
-                Console.WriteLine($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
-                Console.ReadKey(true);
-                Console.WriteLine($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
-                Console.ReadKey(true);
-                Console.WriteLine($"Another 400 meters at you're there.");
-                Console.ReadKey(true);
-                Console.WriteLine();
-            }
-            else if(travelCommand == "public transport")
-            {
-                Console.WriteLine("\nYou get on the next bus. Press any key to continue");
-                Console.ReadKey(true);
-                Console.WriteLine($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
-            }
-
-            player.PreviousArea = player.CurrentArea;
-            player.CurrentArea = destination;
-            player.PreviousRoom = player.CurrentRoom;
-            player.CurrentRoom = world.GetRoom(destination).ShortDescription;
-        }
 
         private static void PrintWelcome()
         {
             Console.WriteLine("Welcome to the World of Zuul!");
             Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
-            PrintHelp();
             Console.WriteLine();
         }
 
-        private static void PrintHelp()
-        {
-            Console.WriteLine("You are lost. You are alone. You wander");
-            Console.WriteLine("around the university.");
-            Console.WriteLine();
-            Console.WriteLine("Type 'move [direction]' to navigate between rooms. \nType 'move back', that takes you to the previous room.");
-            Console.WriteLine("Type 'travel [destination]' to navigate between areas.");
-            Console.WriteLine("Type 'look' for more details.");
-            Console.WriteLine("Type 'help' to print this message again.");
-            Console.WriteLine("Type 'quit' to exit the game.");
-        }
+        
 
         
         private static void Hire()

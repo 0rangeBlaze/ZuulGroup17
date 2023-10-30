@@ -38,7 +38,7 @@ namespace WorldOfZuul
 
                     //enumerating rooms
                     foreach (JsonProperty room in roomsElement.EnumerateObject()){
-                        Dictionary<string, string> exits = new Dictionary<string, string> {};
+                        Dictionary<string, string> exits = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {};
 
 
                         JsonElement longDescriptionElement;

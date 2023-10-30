@@ -10,7 +10,7 @@
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
-            Exits = (exits == null) ? new() : exits;
+            Exits = (exits == null) ? new(StringComparer.OrdinalIgnoreCase) {} : exits;
         }
 
         public void Describe()
