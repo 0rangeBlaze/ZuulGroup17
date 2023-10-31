@@ -6,7 +6,7 @@ namespace WorldOfZuul
 {
     public class Player {
         public string CurrentRoom {get; set;}
-        public string? PreviousRoom {get; set;}
+        public string PreviousRoom {get; set;}
         public string CurrentArea {get; set;}
         public string? PreviousArea {get; set;}
         public int WorkReputation {get; set;}
@@ -19,6 +19,7 @@ namespace WorldOfZuul
             CurrentArea = currentArea;
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
+            PreviousRoom = currentRoom;
             personalWelfare = 0;
             WorkReputation = 0;
         }

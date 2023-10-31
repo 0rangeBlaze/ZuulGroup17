@@ -104,7 +104,7 @@ namespace WorldOfZuul
                 while (!validDecision)
                 {
                     Console.Write("Do you want to hire this candidate? (Yes/No): ");
-                    decision = Console.ReadLine();
+                    decision = Console.ReadLine() ?? "";
 
                     if (decision.Equals("Yes"))
                     {

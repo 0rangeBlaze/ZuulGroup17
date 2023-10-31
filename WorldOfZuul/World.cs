@@ -58,7 +58,7 @@ namespace WorldOfZuul
                         if(actionsElement.ValueKind != JsonValueKind.Array)
                             throw new Exception($"Property \"actions\" is not an array in room \"{room.Name}\", in area \"{area.Name}\"");
 
-                        string[] actions = JsonSerializer.Deserialize<string[]>(actionsElement);
+                        string[] actions = JsonSerializer.Deserialize<string[]>(actionsElement) ?? new string[0];
 
                         JsonElement exitsElement;
                         if(!room.Value.TryGetProperty("exits", out exitsElement))

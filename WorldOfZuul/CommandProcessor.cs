@@ -19,14 +19,18 @@ namespace WorldOfZuul
             {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
-        public static int Process(string? command, Game game){
-            string[] commandWords = command.Split();
-            if(!commandDict.ContainsKey(commandWords[0])) {
-                Console.WriteLine($"Unknown command '{commandWords[0]}'. Please try again!");
-                return 1;
+        public static void Process(string? command, Game game){
+            if(command == null) {
+                Console.WriteLine("Specify a valid command!");
             }
-            commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{})); //I don't know why this is red, when it doesn't give any errors
-            return 0; //no error might change to void
+            else {
+                string[] commandWords = command.Split();
+                if(!commandDict.ContainsKey(commandWords[0])) {
+                    Console.WriteLine($"Unknown command '{commandWords[0]}'. Please try again!");
+                    return;
+                }
+                commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{})); //I don't know why this is red, when it doesn't give any errors
+            }
         }
 
         

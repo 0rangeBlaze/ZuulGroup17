@@ -6,7 +6,7 @@ namespace WorldOfZuul
 {
     public class Area
     {
-        public Dictionary<string, Room>? Rooms {get; private set;}
+        public Dictionary<string, Room> Rooms {get; private set;}
         private string? name;
         public string DefaultRoom {get; private set;}
 
@@ -14,7 +14,7 @@ namespace WorldOfZuul
         {
             this.name = name;
             DefaultRoom = defaultRoom;
-            Rooms = rooms;
+            Rooms = rooms ?? new Dictionary<string,Room>();
         }
        
     }
