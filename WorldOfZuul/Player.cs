@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 using System.Linq;
-=======
 using System;
 using System.Collections.Generic;
->>>>>>> SupplyChain
 
 namespace WorldOfZuul
 {
