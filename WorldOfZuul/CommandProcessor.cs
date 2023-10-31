@@ -16,6 +16,7 @@ namespace WorldOfZuul
             {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"work", (Game game, string[] _) => game.Player.Work(game)},
+            {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
         public static int Process(string? command, Game game){

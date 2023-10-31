@@ -76,7 +76,7 @@
                 "Bedroom":
                 {
                     "longDescription": "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room.",
-                    "actions": [],
+                    "actions": ["nextTurn"],
                     "exits":
                     {
                         "livingroom": "Livingroom"

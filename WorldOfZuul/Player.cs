@@ -11,6 +11,9 @@ namespace WorldOfZuul
         public string? PreviousArea {get; set;}
         public int WorkReputation {get; set;}
         private int personalWelfare;
+        private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
+            {"work", (false, "You still haven't done any work today. Your boss will be mad.")}
+        };
 
         public Player(string currentArea, string previousArea, string currentRoom) {
             CurrentArea = currentArea;
@@ -100,22 +103,28 @@ namespace WorldOfZuul
         }
 
         public void Work(Game game) {
-            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")){
-                if (WorkReputation < 5)
-                {
-                    SupplyReview(game);
-                }
-                else if (WorkReputation < 10) 
-                {
+            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
+                if(!tasks["work"].done) {
+                    if (WorkReputation < 5)
+                    {
+                        SupplyReview(game);
+                    }
+                    else if (WorkReputation < 10) 
+                    {
 
-                }
-                else if (WorkReputation < 15)
-                {
+                    }
+                    else if (WorkReputation < 15)
+                    {
 
-                }
-                else //if (WorkReputation < 20)
-                {
+                    }
+                    else //if (WorkReputation < 20)
+                    {
 
+                    }
+                    tasks["work"] = (true, tasks["work"].incompleteMessage);
+                }
+                else {
+                    Console.WriteLine("You are tired from the work you have already done today.");
                 }
             }
             else{
@@ -254,6 +263,27 @@ namespace WorldOfZuul
             personalWelfare += providers[input].personalWelfareChange;
             game.World.PopulationWelfare += providers[input].populationWelfareChange;
             game.World.Environment += providers[input].environmentChange;
+        }
+
+        public void NextTurn(Game game) {
+            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("nextTurn")) {
+                foreach(var task in tasks.Values) {
+                    if (!task.done) {
+                        Console.WriteLine(task.incompleteMessage);
+                        return;
+                    }
+                }
+                ResetTasks();
+                Console.WriteLine("You wake up the next day fully refreshed!");
+            }
+            else {
+                Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
+            }
+
+        }
+
+        private void ResetTasks() {
+            tasks["work"] = (false, tasks["work"].incompleteMessage);
         }
     }
 }
