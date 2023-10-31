@@ -18,7 +18,7 @@ namespace WorldOfZuul
             {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
-        public static int Process(string command, Game game){
+        public static int Process(string? command, Game game){
             string[] commandWords = command.Split();
             if(!commandDict.ContainsKey(commandWords[0])) {
                 Console.WriteLine($"Unknown command '{commandWords[0]}'. Please try again!");

@@ -14,14 +14,14 @@ namespace WorldOfZuul
         public Game()
         {
             World = new World("assets/world.json");
+            RandomGenerator = new();
+            Player = new("home", "home", World.GetRoom("home").ShortDescription);
             if(!World.loaded) {
                 Console.WriteLine("Couldn't load world.");
                 Running = false;
                 return;
             }
-            Player = new("home", "home", World.GetRoom("home").ShortDescription);
             Running = true;
-            RandomGenerator = new();
         }
 
         public void Play()

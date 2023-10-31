@@ -10,13 +10,13 @@ namespace WorldOfZuul
         public string CurrentArea {get; set;}
         public string? PreviousArea {get; set;}
         public int WorkReputation {get; set;}
-        public int personalWelfare, populationWelfare, environment;
+        private int personalWelfare;
 
         public Player(string currentArea, string previousArea, string currentRoom) {
             CurrentArea = currentArea;
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
-            personalWelfare = populationWelfare = environment = 0;
+            personalWelfare = 0;
             WorkReputation = 0;
         }
         
@@ -210,7 +210,7 @@ namespace WorldOfZuul
             Console.WriteLine("You are finished for the day, get some rest.");
         }
 
-        private void SupplyChoice()
+        private void SupplyChoice(Game game)
         {
             List<Food> foods = new();
             List<Provider> providers = new();
@@ -227,10 +227,10 @@ namespace WorldOfZuul
             foreach(Food name in foods)
             {
                 Console.WriteLine($"Who would you like to buy {name.FoodName} from.?");
-                SupplyChoiceProvider(providers);
+                SupplyChoiceProvider(game, providers);
             }
         }
-        private void SupplyChoiceProvider(List<Provider> providers)
+        private void SupplyChoiceProvider(Game game, List<Provider> providers)
         {
             for(int i =0; i < providers.Count(); i++)
             {
@@ -252,8 +252,8 @@ namespace WorldOfZuul
             Console.WriteLine($"{providers[input].ProviderName}");
             Console.WriteLine($"You have chosen {providers[input].ProviderName}");
             personalWelfare += providers[input].personalWelfareChange;
-            populationWelfare += providers[input].populationWelfareChange;
-            environment += providers[input].environmentChange;
+            game.World.PopulationWelfare += providers[input].populationWelfareChange;
+            game.World.Environment += providers[input].environmentChange;
         }
     }
 }

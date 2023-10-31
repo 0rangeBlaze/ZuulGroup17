@@ -6,10 +6,16 @@ namespace WorldOfZuul
     {
         public Dictionary<string, Area> Areas {get; private set;}
         public bool loaded = false;
+        public int PopulationWelfare{get; set;}
+        public int Environment{get; set;}
 
         public World(string path="assets/world.json") {
             Areas = new Dictionary<string, Area>(StringComparer.OrdinalIgnoreCase) {};
+            Environment = PopulationWelfare = 0;
+            Load(path);
+        }
 
+        private void Load(string path){
             try{
                 JsonDocument doc;
                 string jsonString;
