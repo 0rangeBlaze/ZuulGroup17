@@ -1,4 +1,5 @@
-using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace WorldOfZuul
 {
@@ -96,116 +97,50 @@ namespace WorldOfZuul
             PreviousRoom = CurrentRoom;
             CurrentRoom = game.World.GetRoom(destination).ShortDescription;
         }
+        private void SupplyChoice()
+        {
+            List<Food> foods = new();
+            List<Provider> providers = new();
+            foods.Add(new Food() {FoodName = "fish"});
+            foods.Add(new Food() {FoodName = "meat"});
+            foods.Add(new Food() {FoodName = "spices"});
+            foods.Add(new Food() {FoodName = "fruits"});
+            foods.Add(new Food() {FoodName = "vegetables"});
 
-        public void Work(Game game) {
-            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")){
-                if (WorkReputation < 5)
-                {
-                    SupplyReview(game);
-                }
-                else if (WorkReputation < 10) 
-                {
+            providers.Add(new Provider() {ProviderName = "Zabka",  personalWelfareChange = -1, environmentChange = -1, populationWelfareChange = -1, providerDescription = "Lorem ipsum"});
+            providers.Add(new Provider() {ProviderName = "Lidl",  personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1, providerDescription = "Lorem ipsum"});
+            providers.Add(new Provider() {ProviderName = "Bilka", personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1, providerDescription = "Lorem ipsum"});
 
-                }
-                else if (WorkReputation < 15)
-                {
-
-                }
-                else //if (WorkReputation < 20)
-                {
-
-                }
-            }
-            else{
-                Console.WriteLine("You need your office environment to be able to work.");
+            foreach(Food name in foods)
+            {
+                Console.WriteLine($"Who would you like to buy {name.FoodName} from.?");
+                SupplyChoiceProvider(providers);
             }
         }
-
-        private void SupplyReview(Game game)
+        private void SupplyChoiceProvider(List<Provider> providers)
         {
-            Console.WriteLine("=========");
-            Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
-            Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
-            Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
-            Console.WriteLine("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
-
-            int goodChoices = 0;
-            for(int k = 0; k < 3; k++)
+            for(int i =0; i < providers.Count(); i++)
             {
-                int badEggs = 0;
-                bool GoodBatch;
-                Console.WriteLine("");
-                for(int i = 0; i < 5; i++)
-                {
-                    for(int j = 0; j < 5; j++)
-                    {     
-                        int badEgg = game.RandomGenerator.Next(1, 6);
-                        if(badEgg == 1)
-                        {
-                            Console.Write("O ");
-                            badEggs += 1;
-                        }
-                        else
-                        {
-                            Console.Write("X ");
-                        }
-                    }
-                    Console.WriteLine("");
-                } 
-
-                if(badEggs > 5)
-                {
-                    GoodBatch = false;
-                }
-                else
-                {
-                    GoodBatch = true;
-                }
-                Console.WriteLine("Is this a good or a bad batch?");
-                bool batchChecked = false;
-                while(!batchChecked)
-                {
-                    Console.Write(">");
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    if(key.KeyChar == 'y' || key.KeyChar == 'n')
-                    {
-                        Console.WriteLine("");
-                        if(key.KeyChar == 'y')
-                        {
-                            if(GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
-                        }
-                        else if(key.KeyChar == 'n')
-                        {
-                            if(!GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
-
-                        }
-                        
-                        batchChecked = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid inpput. Please try again!");
-                    }
-                }
+                Console.WriteLine($"{i+1}. {providers[i].ProviderName}, \n{providers[i].providerDescription} ");
             }
-            if(goodChoices > 2)
+            int input;
+            bool inputBool = true;
+
+            do
             {
-                WorkReputation++;
-            }
-
-            Console.WriteLine("You are finished for the day, get some rest.");
+                inputBool = int.TryParse(Console.ReadLine(), out input);
+                input = input -1;
+                if(input < 0 || input >= providers.Count())
+                {
+                    inputBool = false;
+                }
+            }while(!inputBool);
+            
+            Console.WriteLine($"{providers[input].ProviderName}");
+            Console.WriteLine($"You have chosen {providers[input].ProviderName}");
+            personalWelfare += providers[input].personalWelfareChange;
+            populationWelfare += providers[input].populationWelfareChange;
+            environment += providers[input].environmentChange;
         }
     }
 }
