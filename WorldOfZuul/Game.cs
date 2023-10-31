@@ -133,16 +133,6 @@ namespace WorldOfZuul
             }
         }
 
-        private static void SupplyChoice()
-        {
-
-        }
-
-        
-        private static void Promoted()
-        {
-
-        }
         private string[] GetRandomCandidate(List<string> names, List<string> hobbies, List<string> lastJobs)
         {
             string hireName = GetRandomCandidateTrait(names);
