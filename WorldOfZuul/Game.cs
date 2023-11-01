@@ -73,16 +73,21 @@ namespace WorldOfZuul
 
             List<string> hireLastJobs = new List<string>
             {
-                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
+                "Filler6", "Filler7", "Filler8", "Filler9", "Filler0"
             };
-
-            Dictionary<string, int> traitValues = new Dictionary<string, int>
+            //I really need a better way to address these stats
+            Dictionary<string, (int PER, int POPU, int ENV)> traitValues = new Dictionary<string, (int, int, int)>
             {
-                { "Filler1", 1 },   // Stat changes for different traits (can be negative?)
-                { "Filler2", 2 },
-                { "Filler3", 3 },
-                { "Filler4", 4 },
-                { "Filler5", 5 },
+                { "Filler1", (1, 2, 3) },
+                { "Filler2", (1, 2, 3) },
+                { "Filler3", (1, 2, 3) },
+                { "Filler4", (1, 2, 3) },
+                { "Filler5", (1, 2, 3) },
+                { "Filler6", (1, 2, 3) },
+                { "Filler7", (1, 2, 3) },
+                { "Filler8", (1, 2, 3) },
+                { "Filler9", (1, 2, 3) },
+                { "Filler0", (1, 2, 3) },
             };
 
             int hires = 0;
@@ -108,14 +113,18 @@ namespace WorldOfZuul
 
                     if (decision.Equals("Yes"))
                     {
-                        // Stat changes based on randomized traits
-                        int hobbyValue = traitValues[hireHobby];
-                        int lastJobValue = traitValues[hireLastJob];
+                        // Stat changes
+                        int hobbyPersonal = traitValues[hireHobby].PER;
+                        int hobbyPopulation = traitValues[hireHobby].POPU;
+                        int hobbyEnvironment = traitValues[hireHobby].ENV;
+                        int lastJobPersonal = traitValues[hireLastJob].PER;
+                        int lastJobPopulation = traitValues[hireLastJob].POPU;
+                        int lastJobEnvironment = traitValues[hireLastJob].ENV;
 
                         // Update game stats based on trait values
                         //Examples:
-                        //personalWelfare += hobbyValue;
-                        //populationWelfare += lastJobValue;
+                        //personalWelfare += hobbyPersonal;
+                        //populationWelfare += lastJobPopulation;
                         //something for environment +=
 
                         hires++;
