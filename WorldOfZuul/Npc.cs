@@ -9,16 +9,17 @@ namespace WorldOfZuul
 {
     public class Npc
     {
+        private string name;
+        private string currentDialog;
         private List<string> greeting;
-        private Dictionary<string, Dictionary<string, DialogData>> npcData;
-        private Dictionary<string, int> npcIndexes;
+        private Dictionary<string, DialogData> npcData;
         private bool talking = true;
 
         public Npc(string jsonFilePath)
         {
             greeting = new List<string>() { "Hi", "Hello", "How do you do" };
+            currentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
-            npcIndexes = new Dictionary<string, int>();
         }
 
         private void LoadDialogsFromJson(string jsonFilePath)
@@ -26,7 +27,13 @@ namespace WorldOfZuul
             try
             {
                 string jsonData = File.ReadAllText(jsonFilePath);
-                npcData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, DialogData>>>(jsonData);
+                JsonDocument npcDoc = JsonDocument.Parse(jsonData);
+                JsonElement nameElement;
+                npcDoc.RootElement.TryGetProperty("name", out nameElement);
+                name = nameElement.GetString();
+                JsonElement dialogsElement;
+                npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
+                npcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString());
             }
             catch (FileNotFoundException)
             {
@@ -36,25 +43,27 @@ namespace WorldOfZuul
             {
                 Console.WriteLine("Error: Invalid JSON format.");
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error loading npc.");
+            }
         }
 
         private void PrintChoices(DialogData dialogData)
         {
-            if (dialogData.Choices != null)
+            int choiceNumber = 1;
+            foreach (var choice in dialogData.Choices)
             {
-                int choiceNumber = 1;
-                foreach (var choice in dialogData.Choices)
-                {
-                    PrintSlowly($"Choice number {choiceNumber}: {choice.Value.Description}");
-                    choiceNumber++;
-                }
+                PrintSlowly($"Choice number {choiceNumber}: {choice.Value.Description}");
+                choiceNumber++;
             }
+            PrintSlowly($"Choice number {choiceNumber}: Stop talking");
         }
 
-        private int GetPlayerChoice(Dictionary<string, DialogChoice> choices)
+        private string GetPlayerChoice(Dictionary<string, DialogChoice> choices)
         {
-            string[] choiceIndices = choices.Keys.ToArray();
-            int numberOfChoices = choiceIndices.Length;
+            DialogChoice[] choiceIndices = choices.Values.ToArray();
+            int numberOfChoices = choiceIndices.Length + 1;
 
             int choice;
             bool validChoice = false;
@@ -69,35 +78,39 @@ namespace WorldOfZuul
                 }
             } while (!validChoice || choice < 1 || choice > numberOfChoices);
 
-            
-            return Int32.Parse(choiceIndices[choice - 1]);
+            if (choice == numberOfChoices)
+            {
+                talking = false;
+                return currentDialog;
+            }
+            return choiceIndices[choice - 1].JumpDialogIndex;
         }
 
-        public void NpcTalk(string npcName)
+        public void NpcTalk()
         {
-            if (npcData != null && npcData.ContainsKey(npcName))
+            if (npcData != null)
             {
-                if (!npcIndexes.ContainsKey(npcName))
+                talking = true;
+                RandomGreeting();
+                while (talking)
                 {
-                    npcIndexes[npcName] = 1;
+                    if (npcData.ContainsKey(currentDialog))
+                    {
+                        DialogData currentDialogData = npcData[currentDialog];
+                        PrintSlowly(currentDialogData.Dialog);
+                        PrintChoices(currentDialogData);
+                        currentDialog = GetPlayerChoice(currentDialogData.Choices);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error: {name} doesn't have dialog with index '{currentDialog}'");
+                    }
                 }
 
-                var currentNpcTalking = npcData[npcName];
-                var index = npcIndexes[npcName].ToString(); 
-
-                while (talking && currentNpcTalking.ContainsKey(index))
-                {
-                    RandomGreeting();
-                    var dialogData = currentNpcTalking[index];
-                    PrintSlowly(dialogData.Dialog);
-                    PrintChoices(dialogData);
-                    index = GetPlayerChoice(dialogData.Choices).ToString();
-                    npcIndexes[npcName] = Int32.Parse(index); 
-                }
             }
             else
             {
-                Console.WriteLine($"Error: NPC '{npcName}' not found in the loaded data.");
+                Console.WriteLine($"Error: NPC '{name}' not found in the loaded data.");
             }
         }
 
@@ -110,7 +123,7 @@ namespace WorldOfZuul
 
         private void PrintSlowly(string text)
         {
-            int delay = 300;
+            int delay = 25;
             foreach (char c in text)
             {
                 Console.Write(c);

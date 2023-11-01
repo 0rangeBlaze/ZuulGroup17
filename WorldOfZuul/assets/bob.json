@@ -1,0 +1,44 @@
+{
+  "name": "Bob",
+  "dialogs": {
+
+    "index1": {
+      "Dialog": "Quest 1",
+      "Choices": {
+        "anwser1": {
+          "Description": "I chose 1",
+          "JumpDialogIndex": "index2"
+        }
+      }
+    },
+    "index2": {
+      "Dialog": "Quest 2",
+      "Choices": {
+        "anwser1": {
+          "Description": "I chose 1",
+          "JumpDialogIndex": "index1"
+        },
+        "anwser2": {
+          "Description": "I chose 2",
+          "JumpDialogIndex": "index3"
+        }
+      }
+
+    },
+    "index3": {
+      "Dialog": "Quest 3",
+      "Choices": {
+        "anwser1": {
+          "Description": "I chose 32",
+          "JumpDialogIndex": "index1"
+        },
+        "anwser2": {
+          "Description": "I chose 2",
+          "JumpDialogIndex": "index2"
+        }
+      }
+
+    }
+
+  }
+}
