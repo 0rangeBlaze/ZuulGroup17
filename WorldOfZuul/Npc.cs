@@ -20,6 +20,8 @@ namespace WorldOfZuul
             greeting = new List<string>() { "Hi", "Hello", "How do you do" };
             currentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
+            name = name ?? "";
+            npcData = npcData ?? new();
         }
 
         private void LoadDialogsFromJson(string jsonFilePath)
@@ -30,10 +32,10 @@ namespace WorldOfZuul
                 JsonDocument npcDoc = JsonDocument.Parse(jsonData);
                 JsonElement nameElement;
                 npcDoc.RootElement.TryGetProperty("name", out nameElement);
-                name = nameElement.GetString();
+                name = nameElement.GetString() ?? "";
                 JsonElement dialogsElement;
                 npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
-                npcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString());
+                npcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
             }
             catch (FileNotFoundException)
             {
@@ -45,7 +47,7 @@ namespace WorldOfZuul
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error loading npc.");
+                Console.WriteLine($"Error loading npc: {e.Message}");
             }
         }
 
@@ -70,7 +72,7 @@ namespace WorldOfZuul
             do
             {
                 Console.Write($"Enter your choice (1-{numberOfChoices}): ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? "";
                 validChoice = Int32.TryParse(input, out choice);
                 if (!validChoice || choice < 1 || choice > numberOfChoices)
                 {
@@ -137,11 +139,19 @@ namespace WorldOfZuul
     {
         public string Dialog { get; set; }
         public Dictionary<string, DialogChoice> Choices { get; set; }
+        public DialogData(string? dialog, Dictionary<string, DialogChoice>? choices) {
+            Dialog = dialog ?? "";
+            Choices = choices ?? new();
+        }
     }
 
     public class DialogChoice
     {
         public string Description { get; set; }
         public string JumpDialogIndex { get; set; }
+        public DialogChoice(string? description, string? jumpDialogIndex) {
+            Description = description ?? "";
+            JumpDialogIndex = jumpDialogIndex ?? "";
+        }
     }
 }
