@@ -201,7 +201,7 @@ namespace WorldOfZuul
                                 Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
                             }
                             else
-                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
+                                Console.WriteLine("Unfortunately you are incorrect, this was a good batch, but do not despair! You can still prove yourself.");
 
                         }
                         
