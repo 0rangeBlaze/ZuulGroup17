@@ -119,9 +119,9 @@ namespace WorldOfZuul
 
                         SupplyChoice(game);
                     }
-                    else //if (WorkReputation < 20)
+                    else
                     {
-
+                        Contract.ContractReviewWork();
                     }
                     tasks["work"] = (true, tasks["work"].incompleteMessage);
                 }
