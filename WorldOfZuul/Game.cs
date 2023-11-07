@@ -30,6 +30,7 @@ namespace WorldOfZuul
             }
 
             PrintWelcome();
+            CommandProcessor.Process("help", this);
 
             while (Running)
             {
@@ -49,13 +50,14 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
-            Console.WriteLine();
+            Utilities.WriteLineWordWrap("Welcome to Lasting Impact!");
+            Utilities.WriteLineWordWrap("In this game you will experience humanity's impact on the environment.");
+            Utilities.WriteLineWordWrap("You will be playing as an average person whose impact on the world is projected to an entire generation of people.");
+            Utilities.WriteLineWordWrap();
         }
 
 
-
+        
 
         
     }

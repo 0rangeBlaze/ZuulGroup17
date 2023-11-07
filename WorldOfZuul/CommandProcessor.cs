@@ -37,14 +37,19 @@ namespace WorldOfZuul
 
         private static void PrintHelp()
         {
-            Console.WriteLine("You are lost. You are alone. You wander");
-            Console.WriteLine("around the university.");
-            Console.WriteLine();
-            Console.WriteLine("Type 'move [direction]' to navigate between rooms. \nType 'move back', that takes you to the previous room.");
-            Console.WriteLine("Type 'travel [destination]' to navigate between areas.");
-            Console.WriteLine("Type 'look' for more details.");
-            Console.WriteLine("Type 'help' to print this message again.");
-            Console.WriteLine("Type 'quit' to exit the game.");
+           Utilities.WriteLineWordWrap("""
+The world is divided into four main areas: home, mall, town and work.
+Each of these areas contain rooms for you to explore.
+""");
+            Utilities.WriteLineWordWrap("""
+Type 'move [direction]' to navigate between rooms. 
+Type 'move back', that takes you to the previous room.
+Type 'travel [destination]' to navigate between areas.
+Type 'look' to find out more about your surroundings and which ways you can move.
+Type 'help' to print this message again.
+Type 'quit' to exit the game.
+
+""");
         }
     }
 }
