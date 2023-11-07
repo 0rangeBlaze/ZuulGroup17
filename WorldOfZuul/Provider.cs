@@ -7,6 +7,7 @@ namespace WorldOfZuul
         public int populationWelfareChange {get; set;}
         public int environmentChange {get; set;}
         public string? providerDescription {get; set;}
+        public int Desirablity {get; set;}
     }
     public class Food
     {

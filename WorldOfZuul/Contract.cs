@@ -39,7 +39,7 @@ namespace WorldOfZuul
                 }
             };
 
-        private void ContractReview()
+        private void ContractReview(Game game)
         {
             this.PrintContract();
 
@@ -57,6 +57,7 @@ namespace WorldOfZuul
                     if (key.KeyChar == 'y')
                     {
                         Console.WriteLine(this.ifAccepted);
+                        game.World.Environment += this.GoodForEnvironment;
                     }
                     else if (key.KeyChar == 'n')
                     {
@@ -72,10 +73,10 @@ namespace WorldOfZuul
             }
         }
 
-        public static void ContractReviewWork() {
+        public static void ContractReviewWork(Game game) {
             const int NUMBEROFCONTRACTS = 3;
             for(int i = ContractNamesIndex; i < ContractNamesIndex + NUMBEROFCONTRACTS; i++) {
-                ContractNames[i%ContractNames.Count].ContractReview();
+                ContractNames[i%ContractNames.Count].ContractReview(game);
             }
             ContractNamesIndex += NUMBEROFCONTRACTS;
             ContractNamesIndex %= ContractNames.Count;
