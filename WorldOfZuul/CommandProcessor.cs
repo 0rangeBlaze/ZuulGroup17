@@ -46,6 +46,8 @@ Type 'move [direction]' to navigate between rooms.
 Type 'move back', that takes you to the previous room.
 Type 'travel [destination]' to navigate between areas.
 Type 'look' to find out more about your surroundings and which ways you can move.
+Type 'work' in your office to start working.
+Tpye 'sleep' in you bedroom to start a new turn.
 Type 'help' to print this message again.
 Type 'quit' to exit the game.
 
