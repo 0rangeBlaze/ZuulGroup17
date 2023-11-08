@@ -8,15 +8,15 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation < 1)
+                    if (WorkReputation < 5)
                     {
                         SupplyReview(game);
                     }
-                    else if (WorkReputation < 2) 
+                    else if (WorkReputation < 10) 
                     {
                         Hire(game);
                     }
-                    else if (WorkReputation < 3)
+                    else if (WorkReputation < 15)
                     {
                         SupplyChoice(game);
                     }
