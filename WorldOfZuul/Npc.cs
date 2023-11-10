@@ -9,7 +9,7 @@ namespace WorldOfZuul
 {
     public class Npc
     {
-        private string name;
+        public string Name {get; private set;}
         private string currentDialog;
         private List<string> greeting;
         private Dictionary<string, DialogData> npcData;
@@ -20,7 +20,7 @@ namespace WorldOfZuul
             greeting = new List<string>() { "Hi", "Hello", "How do you do" };
             currentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
-            name = name ?? "";
+            Name = Name ?? "";
             npcData = npcData ?? new();
         }
 
@@ -32,7 +32,7 @@ namespace WorldOfZuul
                 JsonDocument npcDoc = JsonDocument.Parse(jsonData);
                 JsonElement nameElement;
                 npcDoc.RootElement.TryGetProperty("name", out nameElement);
-                name = nameElement.GetString() ?? "";
+                Name = nameElement.GetString() ?? "";
                 JsonElement dialogsElement;
                 npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
                 npcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
@@ -105,14 +105,14 @@ namespace WorldOfZuul
                     }
                     else
                     {
-                        Console.WriteLine($"Error: {name} doesn't have dialog with index '{currentDialog}'");
+                        Console.WriteLine($"Error: {Name} doesn't have dialog with index '{currentDialog}'");
                     }
                 }
 
             }
             else
             {
-                Console.WriteLine($"Error: NPC '{name}' not found in the loaded data.");
+                Console.WriteLine($"Error: NPC '{Name}' not found in the loaded data.");
             }
         }
 

@@ -45,7 +45,7 @@ namespace WorldOfZuul
                     //enumerating rooms
                     foreach (JsonProperty room in roomsElement.EnumerateObject()){
                         Dictionary<string, string> exits = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {};
-                        List<Npc> npcs = new();
+                        Dictionary<string, Npc> npcs = new(StringComparer.OrdinalIgnoreCase);
 
                         JsonElement longDescriptionElement;
                         if(!room.Value.TryGetProperty("longDescription", out longDescriptionElement))
@@ -77,8 +77,9 @@ namespace WorldOfZuul
                         
                         //enumerating npcs
                         foreach(JsonElement pathNpc in npcsElement.EnumerateArray()){
-                            npcs.Add(new Npc(pathNpc.GetString() ?? 
-                            throw new Exception($"Npcs contains a non-string element in room \"{room.Name}\", in area \"{area.Name}\"")));
+                            Npc npc = new Npc(pathNpc.GetString() ?? 
+                            throw new Exception($"Npcs contains a non-string element in room \"{room.Name}\", in area \"{area.Name}\""));
+                            npcs[npc.Name] = npc;
                         }
                         
                         rooms[room.Name] = new Room(room.Name, longDescription, actions, exits, npcs);
