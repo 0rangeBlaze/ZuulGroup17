@@ -124,5 +124,8 @@ namespace WorldOfZuul
             tasks["work"] = (false, tasks["work"].incompleteMessage);
         }
 
+        public void SortTrash() {
+        }
+
     }
 }

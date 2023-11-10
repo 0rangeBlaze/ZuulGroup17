@@ -16,6 +16,9 @@ namespace WorldOfZuul
             {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"work", (Game game, string[] _) => game.Player.Work(game)},
+            {"talk", (Game game, string[] arguments) => TalkToNpc(game, arguments)},
+            {"map", (Game game, string[] _ ) => Map(game)},
+            {"sort", (Game game, string[] _) => game.Player.SortTrash()},
             {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
         };
@@ -52,6 +55,14 @@ Type 'help' to print this message again.
 Type 'quit' to exit the game.
 
 """);
+        }
+    
+        private static void TalkToNpc(Game game, string[] arguments) {
+
+        }
+
+        private static void Map(Game game) {
+
         }
     }
 }
