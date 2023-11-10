@@ -6,13 +6,15 @@
         public string LongDescription { get; private set;}
         public Dictionary<string, string> Exits { get; private set; }
         public string[] Actions {get; private set;}
+        public List<Npc> Npcs {get; private set;}
 
-        public Room(string shortDesc, string longDesc, string[]? actions = null, Dictionary<string, string>? exits = null)
+        public Room(string shortDesc, string longDesc, string[]? actions = null, Dictionary<string, string>? exits = null, List<Npc>? npcs = null)
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
             Exits = exits ?? new(StringComparer.OrdinalIgnoreCase) {};
             Actions = actions ?? new string[0];
+            Npcs = npcs ?? new();
         }
 
         public void Describe()

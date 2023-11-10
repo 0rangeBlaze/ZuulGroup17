@@ -23,11 +23,11 @@ namespace WorldOfZuul
                 doc = JsonDocument.Parse(jsonString);
             
 
-                //enumerating areas
                 JsonElement areasElement;
                 if(!doc.RootElement.TryGetProperty("areas", out areasElement))
                     throw new Exception($"Property \"areas\" is missing in root element");
 
+                //enumerating areas
                 foreach (JsonProperty area in areasElement.EnumerateObject())
                 {
                     Dictionary<string, Room> rooms = new Dictionary<string, Room> {};
@@ -45,6 +45,7 @@ namespace WorldOfZuul
                     //enumerating rooms
                     foreach (JsonProperty room in roomsElement.EnumerateObject()){
                         Dictionary<string, string> exits = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {};
+                        List<Npc> npcs = new();
 
                         JsonElement longDescriptionElement;
                         if(!room.Value.TryGetProperty("longDescription", out longDescriptionElement))
@@ -69,8 +70,18 @@ namespace WorldOfZuul
                             exits[property.Name] = property.Value.GetString() ?? 
                             throw new Exception($"Exit \"{property.Name}\" has value null in room \"{room.Name}\", in area \"{area.Name}\"");
                         }
-
-                        rooms[room.Name] = new Room(room.Name, longDescription, actions, exits);
+                        
+                        JsonElement npcsElement;
+                        if(!room.Value.TryGetProperty("npcs", out npcsElement))
+                            throw new Exception($"Property \"npcs\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
+                        
+                        //enumerating npcs
+                        foreach(JsonElement pathNpc in npcsElement.EnumerateArray()){
+                            npcs.Add(new Npc(pathNpc.GetString() ?? 
+                            throw new Exception($"Npcs contains a non-string element in room \"{room.Name}\", in area \"{area.Name}\"")));
+                        }
+                        
+                        rooms[room.Name] = new Room(room.Name, longDescription, actions, exits, npcs);
                     }
                     Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }
