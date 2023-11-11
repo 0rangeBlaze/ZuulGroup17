@@ -9,7 +9,15 @@
 
                     "FastFood":
                     {
-                        "longDescription": "A fast-food restaurant, with many people in it. There's an empty ordering machine just a few steps from you.",
+                        "shortDescription" : "You can get food, but its done fast.",
+                        "longDescription": 
+                        {
+                            20: "You step in, and see only empty, oily papers around. One machine is runing up front, and you can hear someone speak in the back rooms.",
+                            40: "When you walk in you only see a couple sitting at the window. By the looks of it the place hasn't been cleaned in days, and something smells.",
+                            60: "There are many people inside, all looking bored, uninterested. They just want to get over this day. There's an empty ordering machine just a few steps from you.",
+                            80: "This reastaurant isn't what you expected. IT's clean, good looking, and besides the normal hamburgers and and sidedishes, there is a localy sourced selection.",
+                            100: "When you step in you notice the amount of natural light coming into the main space. People are smiling and chatting, and most of the items on the menu have a stamp on them, marking the enviromentally friendly."
+                        },
                         "actions": [],
                         "npcs": [
                         ],
@@ -20,7 +28,15 @@
                     },
                     "Restaurant":
                     {
-                        "longDescription": "A lovely restaurant, people are chatting, the warm lighting is setting a chill mood. This place has a reputation for using local ingredients, but this also makes it a bit mnore expensive.",
+                        "shortDescription" : "This place has a reputation for using local ingredients, but also is a bit mnore expensive than the competitors.",
+                        "longDescription": 
+                        {
+                            20: "This place is nothing like it used to be. The flowers are dead, the beautiful wood interior is cracked, the painting on the wall is falling of. Since local food production is almost impossible the food here is less than acceptable.",
+                            40: "No one is sitting outside. Walking in you see a few people, but given that the prices of locally grown food costs several times more than before only a very few people can afford to eat here.",
+                            60: "The restaurant is having a busy night, people waiting in line. This is the place you want to take your relatives for a birthday dinner. The food is great, and also less damaging for the natural world.",
+                            80: "The place is thriving, people are chatting, laughing, having a good time with their loved ones. Its also running for \"The Restaurant of the Town\" award, and everybody thinks it has really good chances.",
+                            100: "THe crowd favourite. Since the uprising of local farming, the cost of dining here has gone down quite a bit, but that doesn't mean that the quality has takes a hit. It's still remarkably good."
+                        },
                         "actions": [],
                         "npcs": [
                         ],
@@ -31,7 +47,15 @@
                     },
                     "Hall":
                     {
-                        "longDescription": "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                        "shortDescription" : "You can get food fast.",
+                        "longDescription":
+                        {
+                            20: "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                            40: "",
+                            60: "",
+                            80: "",
+                            100: ""
+                        },
                         "actions": [],
                         "npcs": [
                         ],
@@ -45,7 +69,15 @@
                     },
                     "ClothingStore":
                     {
-                        "longDescription": "A clothing store, you are lucky, there are many special offers.",
+                        "shortDescription" : "You can get food fast.",
+                        "longDescription":
+                        {
+                            20: "A clothing store, you are lucky, there are many special offers.",
+                            40: "",
+                            60: "",
+                            80: "",
+                            100: ""
+                        },
                         "actions": [],
                         "npcs": [
                         ],
@@ -54,8 +86,17 @@
                             "hall": "Hall"
                         }
                     },
-                    "GeneralStore":{
-                        "longDescription": "You are in a general store, it has everything you could have ever dreamt of.",
+                    "GeneralStore":
+                    {
+                        "shortDescription" : "You can get food fast.",
+                        "longDescription": 
+                        {
+                            20: "You are in a general store, it has everything you could have ever dreamt of.",
+                            40: "",
+                            60: "",
+                            80: "",
+                            100: ""
+                        },
                         "actions": [],
                         "npcs": [
                         ],
@@ -74,7 +115,11 @@
             {
                 "Livingroom":
                 {
-                    "longDescription": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription":
+                    {
+                        100: "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there.",
+                    }, 
                     "actions": [],
                     "npcs": [
                     ],
@@ -87,7 +132,11 @@
                 },
                 "Bedroom":
                 {
-                    "longDescription": "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription": 
+                    {
+                       100: "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room.",
+                    },
                     "actions": ["nextTurn"],
                     "npcs": [
                     ],
@@ -98,6 +147,7 @@
                 },
                 "Kitchen":
                 {
+                    "shortDescription": "Kitchen...",
                     "longDescription": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem.",
                     "actions": [],
                     "npcs": [
@@ -109,6 +159,7 @@
                 },
                 "Bathroom":
                 {
+                    "shortDescription" : "You can get food fast.",
                     "longDescription": "A bathroom... Nothing special.",
                     "actions": [],
                     "npcs": [
@@ -127,7 +178,15 @@
             {
                 "MainSquare":
                 {
-                    "longDescription": "The town's main square is surrounded by cute little caffees. It's a little greenpatch surrounded by glass giants. ",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription":
+                    {
+                        20: "The town's main square is surrounded by cute little caffees. It's a little greenpatch surrounded by glass giants. ",
+                        40: "",
+                        60: "",
+                        80: "",
+                        100: ""
+                    },
                     "actions": [],
                     "npcs": [
                     ],
@@ -140,7 +199,15 @@
                 },
                 "Park":
                 {
-                    "longDescription": "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription": 
+                    {
+                        20: "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                        40: "",
+                        60: "",
+                        80: "",
+                        100: ""
+                    },
                     "actions": [],
                     "npcs": [
                     ],
@@ -151,7 +218,15 @@
                 },
                 "SportCenter":
                 {
-                    "longDescription": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription":
+                    {
+                        20: "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
+                        40: "",
+                        60: "",
+                        80: "",
+                        100: ""
+                    },
                     "actions": [],
                     "npcs": [
                     ],
@@ -162,7 +237,15 @@
                 },
                 "Bar":
                 {
-                    "longDescription": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription": 
+                    {
+                        20: "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class.",
+                        40: "",
+                        60: "",
+                        80: "",
+                        100: ""
+                    },
                     "actions": [],
                     "npcs": [
                         "./assets/npcs/bob.json"
@@ -181,7 +264,15 @@
             {
                 "Breakroom":
                 {
-                    "longDescription": "in the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription": 
+                    {
+                        20: "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas.",
+                        40: "",
+                        60: "",
+                        80: "",
+                        100: ""
+                    },
                     "actions": [],
                     "npcs": [
                     ],
@@ -193,6 +284,7 @@
                 },
                 "Boss":
                 {
+                    "shortDescription" : "You can get food fast.",
                     "longDescription": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space.\n Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office.",
                     "actions": [],
                     "npcs": [
@@ -204,7 +296,8 @@
                 },
                 "Office":
                 {
-                    "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYou plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
+                    "shortDescription" : "You can get food fast.",
+                    "longDescription": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is.",
                     "actions": ["work"],
                     "npcs": [
                     ],
