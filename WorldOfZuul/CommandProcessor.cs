@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,8 +62,22 @@ Type 'quit' to exit the game.
 
         }
 
-        private static void Map(Game game) {
-
+        private static void Map(Game game) 
+        {
+            Console.WriteLine("Areas:");
+            foreach(var area in game.World.Areas.Keys)
+            {
+                if(area.ToLower() == game.Player.CurrentArea)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{area} <- You Are Here");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine(area);
+                }
+            }
         }
     }
 }
