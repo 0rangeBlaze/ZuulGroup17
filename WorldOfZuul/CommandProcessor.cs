@@ -18,7 +18,7 @@ namespace WorldOfZuul
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"talk", (Game game, string[] arguments) => TalkToNpc(game, arguments)},
-            {"map", (Game game, string[] _ ) => Map(game)},
+            {"map", (Game game, string[] arguments ) => Map(game, arguments)},
             {"sort", (Game game, string[] _) => game.Player.SortTrash()},
             {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
@@ -62,20 +62,31 @@ Type 'quit' to exit the game.
 
         }
 
-        private static void Map(Game game) 
+        private static void Map(Game game, string[] arguments) 
         {
-            Console.WriteLine("Areas:");
-            foreach(var area in game.World.Areas.Keys)
+            if(arguments.Length == 0 || arguments[0] == "")
             {
-                if(area.ToLower() == game.Player.CurrentArea)
+                Console.WriteLine("Areas:");
+                foreach(var area in game.World.Areas.Keys)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"{area} <- You Are Here");
-                    Console.ResetColor();
+                    if(area.ToLower() == game.Player.CurrentArea)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"{area} <- You Are Here");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine(area);
+                    }
                 }
-                else
+            }
+            else
+            {
+                Console.WriteLine("Rooms:");
+                foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
                 {
-                    Console.WriteLine(area);
+                    Console.WriteLine(room.ShortDescription);
                 }
             }
         }
