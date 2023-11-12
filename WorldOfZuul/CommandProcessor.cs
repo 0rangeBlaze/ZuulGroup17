@@ -58,6 +58,15 @@ Type 'quit' to exit the game.
         }
     
         private static void TalkToNpc(Game game, string[] arguments) {
+            if(arguments.Length == 0 || string.IsNullOrEmpty(arguments[0])) {
+                Console.WriteLine("You need to specify who you are talking to!");
+            }
+            else if(!game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs.ContainsKey(arguments[0])) {
+                Console.WriteLine($"{arguments[0]} is not here.");
+            }
+            else{
+                game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs[arguments[0]].NpcTalk();
+            }
 
         }
 
