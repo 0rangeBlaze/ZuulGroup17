@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WorldOfZuul",
+    "\\WorldOfZuul\\assets"
   ],
+  "SelectedNode": "\\WorldOfZuul\\Player.cs",
   "PreviewInSolutionExplorer": false
 }

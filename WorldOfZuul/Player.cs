@@ -1,21 +1,24 @@
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace WorldOfZuul
 {
-    public partial class Player {
-        public string CurrentRoom {get; set;}
-        public string PreviousRoom {get; set;}
-        public string CurrentArea {get; set;}
-        public string? PreviousArea {get; set;}
-        public int WorkReputation {get; set;}
+    public partial class Player
+    {
+        public string CurrentRoom { get; set; }
+        public string PreviousRoom { get; set; }
+        public string CurrentArea { get; set; }
+        public string? PreviousArea { get; set; }
+        public int WorkReputation { get; set; }
         private int personalWelfare;
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")}
         };
 
-        public Player(string currentArea, string previousArea, string currentRoom) {
+        public Player(string currentArea, string previousArea, string currentRoom)
+        {
             CurrentArea = currentArea;
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
@@ -23,19 +26,23 @@ namespace WorldOfZuul
             personalWelfare = 0;
             WorkReputation = 0;
         }
-        
+
         public void Move(Game game, string[] args)
         {
-            if (args.Length < 1 || string.IsNullOrEmpty(args[0])) {
+            if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
+            {
                 Console.WriteLine("Please choose a direction.");
                 return;
             }
             string direction = args[0].ToLower();
-            if (direction == "back") {
-                if (PreviousArea != CurrentArea) {
+            if (direction == "back")
+            {
+                if (PreviousArea != CurrentArea)
+                {
                     Console.WriteLine("You came from a different area you need to use travel to go back.");
                 }
-                else {
+                else
+                {
                     (CurrentRoom, PreviousRoom) = (PreviousRoom, CurrentRoom);
                 }
                 return;
@@ -54,33 +61,37 @@ namespace WorldOfZuul
 
         public void Travel(Game game, string[] args)
         {
-            if (args.Length < 1 || string.IsNullOrEmpty(args[0])) {
+            if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
+            {
                 Console.WriteLine("Please choose a destination.");
                 return;
             }
             string destination = args[0].ToLower();
-            if (!game.World.Areas.ContainsKey(destination)){
+            if (!game.World.Areas.ContainsKey(destination))
+            {
                 Console.WriteLine("This destination doesn't exist!");
                 return;
-            } 
-            else if (destination == CurrentArea) {
+            }
+            else if (destination == CurrentArea)
+            {
                 Console.WriteLine($"You are already at (the) {CurrentArea}.");
                 return;
             }
-            string[] transportMethods = {"car", "public transport", "walk"};
+            string[] transportMethods = { "car", "public transport", "walk" };
             string? travelCommand;
             Console.WriteLine($"Choose method of transport({string.Join(" / ", transportMethods)}):");
             travelCommand = Console.ReadLine();
-            while(!transportMethods.Contains(travelCommand)){
+            while (!transportMethods.Contains(travelCommand))
+            {
                 Console.WriteLine($"Invalid transport method. Choose from these options: {string.Join(" / ", transportMethods)}. Try again:");
                 travelCommand = Console.ReadLine();
             }
 
-            if(travelCommand == "car")
+            if (travelCommand == "car")
             {
                 Console.WriteLine($"\nYou took the car to {destination} \n");
             }
-            else if(travelCommand == "walk")
+            else if (travelCommand == "walk")
             {
                 Console.WriteLine($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
                 Console.ReadKey(true);
@@ -90,7 +101,7 @@ namespace WorldOfZuul
                 Console.ReadKey(true);
                 Console.WriteLine();
             }
-            else if(travelCommand == "public transport")
+            else if (travelCommand == "public transport")
             {
                 Console.WriteLine("\nYou get on the next bus. Press any key to continue");
                 Console.ReadKey(true);
@@ -103,10 +114,14 @@ namespace WorldOfZuul
             CurrentRoom = game.World.GetRoom(destination).ShortDescription;
         }
 
-        public void NextTurn(Game game) {
-            if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("nextTurn")) {
-                foreach(var task in tasks.Values) {
-                    if (!task.done) {
+        public void NextTurn(Game game)
+        {
+            if (game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("nextTurn"))
+            {
+                foreach (var task in tasks.Values)
+                {
+                    if (!task.done)
+                    {
                         Console.WriteLine(task.incompleteMessage);
                         return;
                     }
@@ -114,17 +129,115 @@ namespace WorldOfZuul
                 ResetTasks();
                 Console.WriteLine("You wake up the next day fully refreshed!");
             }
-            else {
+            else
+            {
                 Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
             }
 
         }
 
-        private void ResetTasks() {
-            tasks["work"] = (false, tasks["work"].incompleteMessage);
+        public void ResetTasks()
+        {
+
         }
 
-        public void SortTrash() {
+        public void SortTrash()
+        {
+            Dictionary<string, string> trashAlignment = new Dictionary<string, string>()
+        {
+            { "Plastic Bottle", "plastic" },
+            { "Metal Can", "metal" },
+            { "Newspaper", "paper" },
+            { "Food Scraps", "organic" },
+            { "Glass Jar", "glass" },
+            { "Cardboard Box", "paper" },
+            { "Aluminum Foil", "metal" },
+            { "Banana Peel", "organic" },
+            { "Plastic Wrap", "plastic" },
+            { "Tin Can", "metal" },
+            { "Coffee Cup", "paper" },
+            { "Egg Carton", "paper" },
+            { "Soda Can", "metal" },
+            { "Milk Jug", "plastic" },
+            { "Pizza Box", "paper" }
+        };
+
+            List<string> temporary = new List<string>() { "Plastic Bottle", "Metal Can", "Newspaper", "Food Scraps", "Glass Jar",
+            "Cardboard Box", "Aluminum Foil", "Banana Peel", "Plastic Wrap", "Tin Can", "Coffee Cup", "Egg Carton", "Soda Can", "Milk Jug", "Pizza Box" };
+
+            List<string> trashBins = new List<string>() { "plastic", "metal", "paper", "organic", "glass" };
+
+            List<string> start = new List<string>() { "Yes", "No" };
+            int points = 0;
+            string option = SelectOption("Do you want to sort a trash", start);
+
+            if (option == "Yes")
+            {
+                Random random = new Random();
+                for (int i = 0; i < 4; i++)
+                {
+                    int randomNumber = random.Next(temporary.Count);
+                    string randomTrash = temporary[randomNumber];
+                    string trash = SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
+                    if (trashAlignment[randomTrash] == trash)
+                    {
+                        points++;
+                        Console.WriteLine("Good choice");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong choice");
+                    }
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("You are not environmentally friendly");
+            }
+        }
+
+
+        public string SelectOption(string question, List<string> temp)
+        {
+            int option = 1;
+            int startingPosition = temp.Count;
+            int endingPosition = (temp.Count + 1) - startingPosition;
+
+            bool selected = false;
+
+            while (!selected)
+            {
+                Console.WriteLine(question);
+
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    Console.WriteLine(option == i + 1 ? $" >{temp[i]}" : $" {temp[i]}");
+                }
+
+                ConsoleKeyInfo key = Console.ReadKey();
+                switch (key.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        if (option < startingPosition)
+                        {
+                            option++;
+                        }
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (option > endingPosition)
+                        {
+                            option--;
+                        }
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.Enter:
+                        selected = true;
+                        break;
+                }
+            }
+            return temp[option - 1];
         }
     }
-}
+}      
