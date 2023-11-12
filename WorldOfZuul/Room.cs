@@ -21,7 +21,15 @@
         {
             Console.WriteLine(this.LongDescription);
 
-            if (Exits.Count > 0)
+            if (Npcs.Count > 0)
+            {
+                Console.WriteLine("You see the following people in the room:");
+                foreach (var npc in Npcs)
+                {
+                    Console.WriteLine(" " + npc.Value.Name)
+                }
+            }
+                if (Exits.Count > 0)
             {
                 Console.WriteLine("Exits:");
                 foreach (var exit in Exits)
