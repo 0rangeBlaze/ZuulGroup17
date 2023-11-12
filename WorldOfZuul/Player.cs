@@ -126,6 +126,5 @@ namespace WorldOfZuul
 
         public void SortTrash() {
         }
-
     }
 }
