@@ -69,14 +69,14 @@
                     },
                     "ClothingStore":
                     {
-                        "shortDescription" : "You can get food fast.",
+                        "shortDescription" : "A clothing store filled with all kinds of fashionware",
                         "longDescription":
                         {
-                            "0": "A clothing store, you are lucky, there are many special offers.",
-                            "20": "",
-                            "40": "",
-                            "60": "",
-                            "80": ""
+                            "0": "The first thing you notice, is how little the selection is. There are only generic colour shirts, with the most basic signs on them. \n This may be because only the super large printing factories remained due the cotton shortage, and they have to make the clothes appealing to everyone.",
+                            "20": "You heard this store had a little financial trouble since the rise of gas prices, and shipment fees. But you didn't think it was this bad. \nOther than this seasons clothes, every isle is empty.",
+                            "40": "You are lucky, there are many special offers. You can see every size, and every color of clothes, varying from summer dresses, to the most rugged winter jackets.",
+                            "60": "After stepping in, and walking past the kids section, there's a special corner, where you can buy faulty clothes for cheaper prices. \nThe store is not promoting this, but a recently passed law forces cloth makers to not throw out usable, but not perfect products.",
+                            "80": "Next to the door, there's a huge sign advertising that the factory, from where this store is getting its products, is carbon-neutral. A few products even have \"recycled\" tags on them."
                         },
                         "actions": [],
                         "npcs": [
@@ -88,14 +88,14 @@
                     },
                     "GeneralStore":
                     {
-                        "shortDescription" : "You can get food fast.",
+                        "shortDescription" : "You are in a general store, it has everything you could have ever dreamt of.",
                         "longDescription": 
                         {
-                            "0": "You are in a general store, it has everything you could have ever dreamt of.",
-                            "20": "",
-                            "40": "",
-                            "60": "",
-                            "80": ""
+                            "0": "0%",
+                            "20": "20%",
+                            "40": "40%",
+                            "60": "60%",
+                            "80": "80%"
                         },
                         "actions": [],
                         "npcs": [
@@ -115,7 +115,7 @@
             {
                 "Livingroom":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "The main area of the house.",
                     "longDescription":
                     {
                         "0": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there."
@@ -132,10 +132,10 @@
                 },
                 "Bedroom":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "Your bedroom.",
                     "longDescription": 
                     {
-                       "0": "You are int the bedroom. The TV is on, just as a background noise. Light is coming in from the living room."
+                       "0": "You are in the bedroom. The TV is on, just as a background noise. Light is coming in from the living room."
                     },
                     "actions": ["nextTurn"],
                     "npcs": [
@@ -147,7 +147,7 @@
                 },
                 "Kitchen":
                 {
-                    "shortDescription": "Kitchen...",
+                    "shortDescription": "The small kitchen of your home.",
                     "longDescription":
                     {
                         "0": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem."
@@ -162,7 +162,7 @@
                 },
                 "Bathroom":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "A bathroom... Nothing special.",
                     "longDescription": 
                     {
                         "0": "A bathroom... Nothing special."
@@ -184,14 +184,14 @@
             {
                 "MainSquare":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "The main square of the town, one corner from the bus station.",
                     "longDescription":
                     {
-                        "0": "The town's main square is surrounded by cute little caffees. It's a little greenpatch surrounded by glass giants. ",
-                        "20": "",
-                        "40": "",
-                        "60": "",
-                        "80": ""
+                        "0": "The plastic trees that the government has planted to keep the good vibe up have also lost their leaves. It didn't seem possible, but chances are that no one has looked after them in a very long time. \nThere's a non-passing centimeter of sand on the ground, and on worse days, you can hardly see a few meters because of air-pollution.",
+                        "20": "The greenpatch in the middle has been replaced by ake plants. The actuall ones could survive in these conditions. The cafés are still busy, just not as much as usually. \nThe constant smog makes it hard to breathe, and unpleasant to stay outside for longer than needed.",
+                        "40": "The town's main square is surrounded by cute little cafés. It's a little greenpatch surrounded by glass giants. There are benches situated under the shade of the trees. \nThe place is suprisingly well lit, compared to how tall buildings stand around it. It's because the sunlight bounces around on those hoge windos.",
+                        "60": "When you look around you see that a few cafés have joined the action against unlawful, and environmentally harmful ways of farming coffee, and are proudly showing it off with huge banners. ",
+                        "80": "Only busses are allowed in the main square. Other than that no vehicle can come near the middle of the town. This way there are more spacious and more well lit roads, surrounded by trees. \nSince there are no cars, there are no traffic jams, and the well timed bus rides can get anyone, anywhere on time."
                     },
                     "actions": [],
                     "npcs": [
@@ -205,14 +205,14 @@
                 },
                 "Park":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "It is the city park, with the great lake in the middle.",
                     "longDescription": 
                     {
-                        "0": "It is the city park, with the great lake in the middle. You see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
-                        "20": "",
-                        "40": "",
-                        "60": "",
-                        "80": ""
+                        "0": "Everything that has made this place beautiful has died, because no sunlight is getting to the ground. Even the large pines that could maybe get just enough light to survive aren't alive anymore. \nIt's because the lake's water is full of garbage, and it pollutes everything in its area. There are no more reasons to come here.",
+                        "20": "Even if you tried, you couldn't find any of the famous bunnies, they had to be moved, since nothing they can eat was able to grow in conditions like these. And it's perfectly understandable, since practically only large trees are alive.",
+                        "40": "When you walk past the tree line on the park's edge you see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                        "60": "The municipailty is putting a big emphasis on providing greenplaces for people, and it is very noticable. This park is magnificent. Not a piece of trash in sight, everything is well maintained and clean. \nThere are more benches and tables for people to eat, instead of eating in the closed and crowded reastaurants.",
+                        "80": "Many people love spendind their days outside. Even more people have the chance to get the feeling of walking in the mountains, or on a in a meadow of flowers, because of this beautifully maintained park. \nActually there isn't a lot maintaining to do, nature is just thriving here, you almost can't notice that you are in a big city."
                     },
                     "actions": [],
                     "npcs": [
@@ -224,14 +224,10 @@
                 },
                 "SportCenter":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "The place everyone goes to work out",
                     "longDescription":
                     {
-                        "0": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated and you can feel the energy in the air",
-                        "20": "",
-                        "40": "",
-                        "60": "",
-                        "80": ""
+                        "0": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated, you can almost actually feel the energy in the air"
                     },
                     "actions": [],
                     "npcs": [
@@ -243,14 +239,10 @@
                 },
                 "Bar":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "The best site to catch up with friends and blow of a bit of steam.",
                     "longDescription": 
                     {
-                        "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class.",
-                        "20": "",
-                        "40": "",
-                        "60": "",
-                        "80": ""
+                        "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class."
                     },
                     "actions": [],
                     "npcs": [
@@ -270,14 +262,10 @@
             {
                 "Breakroom":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "The main hangout area for collegues.",
                     "longDescription": 
                     {
-                        "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas.",
-                        "20": "",
-                        "40": "",
-                        "60": "",
-                        "80": ""
+                        "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas."
                     },
                     "actions": [],
                     "npcs": [
@@ -290,7 +278,7 @@
                 },
                 "Boss":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "Your bosses spacious and shiny office.",
                     "longDescription": 
                     {
                         "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space.\n Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
@@ -305,7 +293,7 @@
                 },
                 "Office":
                 {
-                    "shortDescription" : "You can get food fast.",
+                    "shortDescription" : "Your second home, shared with all your collegues.",
                     "longDescription": 
                     {
                         "0": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
