@@ -110,7 +110,7 @@ namespace WorldOfZuul
             PreviousArea = CurrentArea;
             CurrentArea = destination;
             PreviousRoom = CurrentRoom;
-            CurrentRoom = game.World.GetRoom(destination).ShortDescription;
+            CurrentRoom = game.World.GetRoom(destination).Name;
         }
 
         public void NextTurn(Game game)

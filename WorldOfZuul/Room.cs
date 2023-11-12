@@ -2,14 +2,16 @@
 {
     public class Room
     {
+        public string Name {get; private set;}
         public string ShortDescription { get; private set; }
         private Dictionary<int, string> longDescriptions;
         public Dictionary<string, string> Exits { get; private set; }
         public string[] Actions {get; private set;}
         public Dictionary<string, Npc> Npcs {get; private set;}
 
-        public Room(string shortDesc, Dictionary<int, string>? longDescs, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
+        public Room(string name, string shortDesc, Dictionary<int, string>? longDescs, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
         {
+            Name = name;
             ShortDescription = shortDesc;
             longDescriptions = longDescs ?? new();
             Exits = exits ?? new(StringComparer.OrdinalIgnoreCase) {};

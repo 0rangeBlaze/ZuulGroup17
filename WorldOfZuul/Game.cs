@@ -20,7 +20,7 @@ namespace WorldOfZuul
                 Running = false;
                 return;
             }
-            Player = new("home", "home", World.GetRoom("home").ShortDescription);
+            Player = new("home", "home", World.GetRoom("home").Name);
             Running = true;
         }
 

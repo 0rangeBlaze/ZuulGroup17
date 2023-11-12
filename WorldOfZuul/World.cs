@@ -48,6 +48,13 @@ namespace WorldOfZuul
                         Dictionary<string, Npc> npcs = new(StringComparer.OrdinalIgnoreCase);
                         Dictionary<int, string> longDescriptions = new Dictionary<int, string>();
 
+                        JsonElement shortDescriptionElement;
+                        if(!room.Value.TryGetProperty("shortDescription", out shortDescriptionElement))
+                            throw new Exception($"Property \"shortDescription\" is missing in room \"{room.Name}\", in area \"{area.Name}\".");
+                        string shortDesc = shortDescriptionElement.GetString() ?? 
+                            throw new Exception($"Value of property \"shortDescription\" is null in room \"{room.Name}\", in area \"{area.Name}\".");
+
+
                         JsonElement longDescriptionElement;
                         if(!room.Value.TryGetProperty("longDescription", out longDescriptionElement))
                             throw new Exception($"Property \"longDescription\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
@@ -88,7 +95,7 @@ namespace WorldOfZuul
                             npcs[npc.Name] = npc;
                         }
                         
-                        rooms[room.Name] = new Room(room.Name, longDescriptions, actions, exits, npcs);
+                        rooms[room.Name] = new Room(room.Name, shortDesc, longDescriptions, actions, exits, npcs);
                     }
                     Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }
