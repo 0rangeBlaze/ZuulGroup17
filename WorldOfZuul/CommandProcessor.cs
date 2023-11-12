@@ -12,7 +12,7 @@ namespace WorldOfZuul
             {"", (_,_) => {}},
             {"help", (_,_) => PrintHelp()},
             {"look", (Game game, string[] _) => 
-                game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Describe()},
+                game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Describe(game)},
             {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"work", (Game game, string[] _) => game.Player.Work(game)},

@@ -46,12 +46,18 @@ namespace WorldOfZuul
                     foreach (JsonProperty room in roomsElement.EnumerateObject()){
                         Dictionary<string, string> exits = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {};
                         Dictionary<string, Npc> npcs = new(StringComparer.OrdinalIgnoreCase);
+                        Dictionary<int, string> longDescriptions = new Dictionary<int, string>();
 
                         JsonElement longDescriptionElement;
                         if(!room.Value.TryGetProperty("longDescription", out longDescriptionElement))
                             throw new Exception($"Property \"longDescription\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
-                        string longDescription = longDescriptionElement.GetString() ?? 
-                            throw new Exception($"Value of property \"longDescription\" is null in room \"{room.Name}\", in area \"{area.Name}\"");
+                        foreach(JsonProperty longDesc in longDescriptionElement.EnumerateObject()){
+                            int environmentValue;
+                            if(!int.TryParse(longDesc.Name, out environmentValue))
+                                throw new Exception($"Description must contain integers as keys in room \"{room.Name}\", in area \"{area.Name}\"");
+                            longDescriptions[environmentValue] = longDesc.Value.GetString() ??
+                                throw new Exception($"Description with value \"{longDesc.Name}\" has value null in room \"{room.Name}\", in area \"{area.Name}\"");
+                        }
 
                         JsonElement actionsElement;
                         if(!room.Value.TryGetProperty("actions", out actionsElement))
@@ -82,7 +88,7 @@ namespace WorldOfZuul
                             npcs[npc.Name] = npc;
                         }
                         
-                        rooms[room.Name] = new Room(room.Name, longDescription, actions, exits, npcs);
+                        rooms[room.Name] = new Room(room.Name, longDescriptions, actions, exits, npcs);
                     }
                     Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }

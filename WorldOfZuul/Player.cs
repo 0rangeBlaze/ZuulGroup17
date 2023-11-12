@@ -17,8 +17,7 @@ namespace WorldOfZuul
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")}
         };
 
-        public Player(string currentArea, string previousArea, string currentRoom)
-        {
+        public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {
             CurrentArea = currentArea;
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;

@@ -3,30 +3,46 @@
     public class Room
     {
         public string ShortDescription { get; private set; }
-        public string LongDescription { get; private set;}
+        private Dictionary<int, string> longDescriptions;
         public Dictionary<string, string> Exits { get; private set; }
         public string[] Actions {get; private set;}
         public Dictionary<string, Npc> Npcs {get; private set;}
 
-        public Room(string shortDesc, string longDesc, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
+        public Room(string shortDesc, Dictionary<int, string>? longDescs, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
         {
             ShortDescription = shortDesc;
-            LongDescription = longDesc;
+            longDescriptions = longDescs ?? new();
             Exits = exits ?? new(StringComparer.OrdinalIgnoreCase) {};
             Actions = actions ?? new string[0];
             Npcs = npcs ?? new(StringComparer.OrdinalIgnoreCase);
         }
 
-        public void Describe()
+        private string GetLongDescription(int environment) {
+            int[] keys = longDescriptions.Keys.ToArray();
+            int maxValue = int.MinValue;
+            //O(n) not the best but array won't be longer than 100 elements for sure, so doesn't matter
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (keys[i] <= environment && keys[i] > maxValue)
+                {
+                    maxValue = keys[i];
+                }
+            }
+
+            //a bit ugly, but it gets the job done if we don't find a value
+            return longDescriptions.ContainsKey(maxValue) ? longDescriptions[maxValue] : longDescriptions[keys[0]];
+        }
+
+        public void Describe(Game game)
         {
-            Console.WriteLine(this.LongDescription);
+            Console.WriteLine(this.GetLongDescription(game.World.Environment));
 
             if (Npcs.Count > 0)
             {
                 Console.WriteLine("You see the following people in the room:");
                 foreach (var npc in Npcs)
                 {
-                    Console.WriteLine(" " + npc.Value.Name)
+                    Console.WriteLine(" " + npc.Value.Name);
                 }
             }
                 if (Exits.Count > 0)
