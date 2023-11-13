@@ -83,10 +83,17 @@ Type 'quit' to exit the game.
             }
             else
             {
-                Console.WriteLine("Rooms:");
-                foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
+                if(!game.World.Areas.ContainsKey(arguments[0]))
                 {
-                    Console.WriteLine(room.ShortDescription);
+                    Console.WriteLine("There is no such location!s");
+                }
+                else
+                {
+                    Console.WriteLine("Rooms:");
+                    foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
+                    {
+                        Console.WriteLine(room.ShortDescription); 
+                    }
                 }
             }
         }
