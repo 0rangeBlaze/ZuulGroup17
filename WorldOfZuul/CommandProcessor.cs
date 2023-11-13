@@ -101,15 +101,15 @@ Type 'quit' to exit the game.
                     Console.WriteLine("Rooms:");
                     foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
                     {
-                        if(room.ShortDescription == game.Player.CurrentRoom)
+                        if(room.Name == game.Player.CurrentRoom)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine($"{room.ShortDescription} <- You Are Here");
+                            Console.WriteLine($"{room.Name} <- You Are Here");
                             Console.ResetColor();
                         } 
                         else
                         {
-                            Console.WriteLine(room.ShortDescription);
+                            Console.WriteLine(room.Name);
                         }
                     }
                 }
