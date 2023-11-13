@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace WorldOfZuul
             {"travel", (Game game, string[] arguments) => game.Player.Travel(game, arguments)},
             {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"talk", (Game game, string[] arguments) => TalkToNpc(game, arguments)},
-            {"map", (Game game, string[] _ ) => Map(game)},
+            {"map", (Game game, string[] arguments ) => Map(game, arguments)},
             {"sort", (Game game, string[] _) => game.Player.SortTrash()},
             {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
             {"quit", (Game game, string[] arguments) => game.Running = false}
@@ -70,8 +71,49 @@ Type 'quit' to exit the game.
 
         }
 
-        private static void Map(Game game) {
-
+        private static void Map(Game game, string[] arguments) 
+        {
+            if(arguments.Length == 0 || arguments[0] == "")
+            {
+                Console.WriteLine("Areas:");
+                foreach(var area in game.World.Areas.Keys)
+                {
+                    if(area.ToLower() == game.Player.CurrentArea)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"{area} <- You Are Here");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine(area);
+                    }
+                }
+            }
+            else
+            {
+                if(!game.World.Areas.ContainsKey(arguments[0]))
+                {
+                    Console.WriteLine("There is no such location!");
+                }
+                else
+                {
+                    Console.WriteLine("Rooms:");
+                    foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
+                    {
+                        if(room.ShortDescription == game.Player.CurrentRoom)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"{room.ShortDescription} <- You Are Here");
+                            Console.ResetColor();
+                        } 
+                        else
+                        {
+                            Console.WriteLine(room.ShortDescription);
+                        }
+                    }
+                }
+            }
         }
     }
 }
