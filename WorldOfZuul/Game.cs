@@ -39,7 +39,7 @@ namespace WorldOfZuul
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
-                CommandProcessor.Process(input, this);
+                CommandProcessor.HandleInput(input, this);
             }
 
             Console.WriteLine("Thank you for playing World of Zuul!");

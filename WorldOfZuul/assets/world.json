@@ -15,11 +15,12 @@
                             "0": "You step in, and see only empty, oily papers around. One machine is runing up front, and you can hear someone speak in the back rooms.",
                             "20": "When you walk in you only see a couple sitting at the window. By the looks of it the place hasn't been cleaned in days, and something smells.",
                             "40": "There are many people inside, all looking bored, uninterested. They just want to get over this day. There's an empty ordering machine just a few steps from you.",
-                            "60": "This reastaurant isn't what you expected. It's clean, good looking, and besides the normal hamburgers and and sidedishes, there is a localy sourced selection.",
+                            "60": "This reastaurant isn't what you expected. It's clean, good looking, and besides the normal hamburgers and sidedishes, there is a localy sourced selection.",
                             "80": "When you step in you notice the amount of natural light coming into the main space. \nPeople are smiling and chatting, and most of the items on the menu have a stamp on them, marking the enviromentally friendly."
                         },
                         "actions": [],
                         "npcs": [
+                            "./assets/npcs/adam.json"
                         ],
                         "exits":
                         {

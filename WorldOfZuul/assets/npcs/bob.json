@@ -7,7 +7,8 @@
       "Choices": {
         "anwser1": {
           "Description": "I chose 1",
-          "JumpDialogIndex": "index2"
+          "JumpDialogIndex": "index2",
+          "Actions": []
         }
       }
     },
@@ -16,11 +17,13 @@
       "Choices": {
         "anwser1": {
           "Description": "I chose 1",
-          "JumpDialogIndex": "index1"
+          "JumpDialogIndex": "index1",
+          "Actions": []
         },
         "anwser2": {
           "Description": "I chose 2",
-          "JumpDialogIndex": "index3"
+          "JumpDialogIndex": "index3",
+          "Actions": []
         }
       }
 
@@ -30,11 +33,13 @@
       "Choices": {
         "anwser1": {
           "Description": "I chose 32",
-          "JumpDialogIndex": "index1"
+          "JumpDialogIndex": "index1",
+          "Actions": []
         },
         "anwser2": {
           "Description": "I chose 2",
-          "JumpDialogIndex": "index2"
+          "JumpDialogIndex": "index2",
+          "Actions": []
         }
       }
 

@@ -47,7 +47,7 @@ namespace WorldOfZuul
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Error loading npc: {e.Message}");
+                Console.WriteLine($"Error loading npc: {e.Message} in {jsonFilePath}");
             }
         }
 
@@ -62,9 +62,10 @@ namespace WorldOfZuul
             PrintSlowly($"Choice number {choiceNumber}: Stop talking");
         }
 
-        private string GetPlayerChoice(Dictionary<string, DialogChoice> choices)
+        //to do refactor:
+        private string GetPlayerChoice(Dictionary<string, DialogChoice> choices, Game game)
         {
-            DialogChoice[] choiceIndices = choices.Values.ToArray();
+            string[] choiceIndices = choices.Keys.ToArray();
             int numberOfChoices = choiceIndices.Length + 1;
 
             int choice;
@@ -85,10 +86,17 @@ namespace WorldOfZuul
                 talking = false;
                 return currentDialog;
             }
-            return choiceIndices[choice - 1].JumpDialogIndex;
+
+            choices[choiceIndices[choice - 1]].HandleActions(game);
+
+            if (choiceIndices[choice-1][0] == '#') {
+                talking = false;
+            }
+
+            return choices[choiceIndices[choice - 1]].JumpDialogIndex;
         }
 
-        public void NpcTalk()
+        public void NpcTalk(Game game)
         {
             if (npcData != null)
             {
@@ -101,11 +109,12 @@ namespace WorldOfZuul
                         DialogData currentDialogData = npcData[currentDialog];
                         PrintSlowly(currentDialogData.Dialog);
                         PrintChoices(currentDialogData);
-                        currentDialog = GetPlayerChoice(currentDialogData.Choices);
+                        currentDialog = GetPlayerChoice(currentDialogData.Choices, game);
                     }
                     else
                     {
                         Console.WriteLine($"Error: {Name} doesn't have dialog with index '{currentDialog}'");
+                        talking = false;
                     }
                 }
 
@@ -149,9 +158,19 @@ namespace WorldOfZuul
     {
         public string Description { get; set; }
         public string JumpDialogIndex { get; set; }
-        public DialogChoice(string? description, string? jumpDialogIndex) {
+        //the deserialization of the json file only works if Actions is public for some reason, however, either set or get can be set to private (they can't be both set to private) the code still works.
+        public List<string> Actions {get; private set; } 
+        
+        public DialogChoice(string? description, string? jumpDialogIndex, List<string> actions) {
             Description = description ?? "";
             JumpDialogIndex = jumpDialogIndex ?? "";
+            Actions = actions ?? new();
+        }
+
+        public void HandleActions(Game game) {
+            foreach(var action in Actions) {
+                CommandProcessor.Process(action, game);
+            }
         }
     }
 }

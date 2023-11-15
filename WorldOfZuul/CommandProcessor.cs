@@ -21,23 +21,42 @@ namespace WorldOfZuul
             {"map", (Game game, string[] arguments ) => Map(game, arguments)},
             {"sort", (Game game, string[] _) => game.Player.SortTrash()},
             {"sleep", (Game game, string[] arguments) => game.Player.NextTurn(game)},
-            {"quit", (Game game, string[] arguments) => game.Running = false}
+            {"quit", (Game game, string[] arguments) => game.Running = false},
+
+            {"eat", (Game game, string[] _) => game.Player.Eat()}
         };
+        private static readonly HashSet<string> possibleCommands = new HashSet<string> (StringComparer.OrdinalIgnoreCase){
+            "", "help", "look", "move", "travel", "work", "talk", "map", "sort", "sleep", "quit"
+        };
+
         public static void Process(string? command, Game game){
             if(command == null) {
                 Console.WriteLine("Specify a valid command!");
             }
             else {
                 string[] commandWords = command.Split();
-                if(!commandDict.ContainsKey(commandWords[0])) {
-                    Console.WriteLine($"Unknown command '{commandWords[0]}'. Please try again!");
-                    return;
+                if(commandDict.ContainsKey(commandWords[0])) {
+                    commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{}));
                 }
-                commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{})); //I don't know why this is red, when it doesn't give any errors
+                else{
+                    Console.WriteLine($"Unknown action '{commandWords[0]}'.");
+                }
             }
         }
 
-        
+        public static void HandleInput(string? command, Game game) {
+            if(command == null) {
+                Console.WriteLine("Specify a valid command!");
+            }
+            else {
+                if(possibleCommands.Contains(command.Split()[0])) {
+                    Process(command, game);
+                }
+                else {
+                    Console.WriteLine($"Unknown command '{command.Split()[0]}'. Please try again!");
+                }
+            }
+        }       
 
         private static void PrintHelp()
         {
@@ -66,7 +85,7 @@ Type 'quit' to exit the game.
                 Console.WriteLine($"{arguments[0]} is not here.");
             }
             else{
-                game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs[arguments[0]].NpcTalk();
+                game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs[arguments[0]].NpcTalk(game);
             }
 
         }

@@ -1,0 +1,155 @@
+{
+  "name": "Adam",
+  "dialogs": {
+
+    "index1": {
+      "Dialog": "Welcome to PolyTaste! How may I serve you?",
+      "Choices": {
+        "burger": {
+          "Description": "I would like a cheese burger.",
+          "JumpDialogIndex": "fries",
+          "Actions": []
+        },
+        "pizza": {
+          "Description": "I feel like eating a pizza",
+          "JumpDialogIndex": "toppings",
+          "Actions": []
+        },
+        "hotdog": {
+          "Description": "Can I have a hotdog please?",
+          "JumpDialogIndex": "fillings",
+          "Actions": []
+        }
+      }
+    },
+
+    "fries": {
+      "Dialog": "Would you like to have fries?",
+      "Choices": {
+        "anwser1": {
+          "Description": "Yeah.",
+          "JumpDialogIndex": "friesSize",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "No, thank you!",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        }
+      }
+
+    },
+
+    "friesSize": {
+      "Dialog": "Do you want large medium or small fries?",
+      "Choices": {
+        "small": {
+          "Description": "Small, please!",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "medium": {
+          "Description": "Medium, please!",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "large": {
+          "Description": "Large, please!",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        }
+      }
+    },
+
+    "toppings": {
+      "Dialog": "What would you like on your pizza?",
+      "Choices": {
+        "hawaiian": {
+          "Description": "Tomato sauce, cheese, ham and pineapple slices.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "meat": {
+          "Description": "BBQ sauce, ham, pepperoni, bacon.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "vegetarian": {
+          "Description": "Cheese, mushrooms, onions, tomatoes and corn.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        }
+      }
+
+    },
+
+    "fillings": {
+      "Dialog": "What would you like to have in your hotdog?",
+      "Choices": {
+        "hawaiian": {
+          "Description": "Onions, ketchup and mustard.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "meat": {
+          "Description": "Just ketchup.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        },
+        "vegetarian": {
+          "Description": "I would like the vegeterian susage, with pickels and kethcup.",
+          "JumpDialogIndex": "drink",
+          "Actions": []
+        }
+      }
+    },
+
+    "drink": {
+      "Dialog": "Would you like to drink anything?",
+      "Choices": {
+        "coke": {
+          "Description": "Yes, a coke please!",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "fanta": {
+          "Description": "Yes, I would like fanta!",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "7up": {
+          "Description": "A 7up, thank you!",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "IceTea": {
+          "Description": "I want some ice tea!",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "water": {
+          "Description": "Just water.",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "no": {
+          "Description": "No, thank you!",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        }
+      }
+    },
+
+    "end": {
+      "Dialog": "Alright, your order is coming right up!",
+      "Choices": {
+        "#pay": {
+          "Description": "Pay",
+          "JumpDialogIndex": "index1",
+          "Actions": ["eat"]
+        }
+      }
+    }
+
+  }
+}

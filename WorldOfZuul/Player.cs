@@ -14,7 +14,8 @@ namespace WorldOfZuul
         public int WorkReputation { get; set; }
         private int personalWelfare;
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
-            {"work", (false, "You still haven't done any work today. Your boss will be mad.")}
+            {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
+            {"eat", (false, "You still haven't eaten anything today. You are vety hungry.")}
         };
 
         public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {
@@ -137,7 +138,18 @@ namespace WorldOfZuul
 
         public void ResetTasks()
         {
+            tasks["work"] = (false, tasks["work"].incompleteMessage);
+            tasks["eat"] = (false, tasks["eat"].incompleteMessage);
+        }
 
+        public void Eat() {
+            if(tasks["eat"].done) {
+                Console.WriteLine("You have eaten so much that you are still full. Maybe you should get some rest before you eat again.");
+            }
+            else {
+                Console.WriteLine("You finish your delicious meal which makes you so full that you can't imagine eating anything for the rest of the day!");
+                tasks["eat"] = (true, tasks["eat"].incompleteMessage);
+            }
         }
 
         public void SortTrash()
