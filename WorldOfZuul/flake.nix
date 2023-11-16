@@ -1,5 +1,5 @@
 {
-  description = "Flake with SDL2 dependency";
+  description = "Flake for the game WorldOfZuul";
 
   outputs = { self, nixpkgs }: 
   let 

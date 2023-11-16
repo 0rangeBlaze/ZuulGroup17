@@ -2,4 +2,5 @@
 # Please dont edit it manually, your changes might get overwritten!
 
 { fetchNuGet }: [
+  (fetchNuGet { pname = "CSharpier"; version = "0.26.1"; sha256 = "1kh2013azc926n8cis0r65ihbjyfddgchiih6gr47hlz49dhldnb"; })
 ]
