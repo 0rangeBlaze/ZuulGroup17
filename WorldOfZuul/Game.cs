@@ -10,9 +10,11 @@ namespace WorldOfZuul
         public World World {get; set;}
         public bool Running {get; set;}
         public static Random RandomGenerator = new Random();
+        private int turn;
 
         public Game()
         {
+            turn = 0;
             World = new World("assets/world.json");
             if(!World.loaded) {
                 Console.WriteLine("Couldn't load world.");
@@ -46,6 +48,20 @@ namespace WorldOfZuul
         }
 
         
+        public void NextTurn()
+        {
+            if (World.GetRoom(Player.CurrentArea, Player.CurrentRoom).Actions.Contains("nextTurn"))
+            {
+                if(Player.ResetTasks()) {
+                    Console.WriteLine("You wake up the next day fully refreshed!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
+            }
+
+        }
 
 
 
@@ -57,9 +73,5 @@ namespace WorldOfZuul
             Utilities.WriteLineWordWrap();
         }
 
-
-        
-
-        
     }
 }

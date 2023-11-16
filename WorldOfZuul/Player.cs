@@ -114,32 +114,19 @@ namespace WorldOfZuul
             CurrentRoom = game.World.GetRoom(destination).Name;
         }
 
-        public void NextTurn(Game game)
-        {
-            if (game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("nextTurn"))
-            {
-                foreach (var task in tasks.Values)
-                {
-                    if (!task.done)
-                    {
-                        Console.WriteLine(task.incompleteMessage);
-                        return;
-                    }
-                }
-                ResetTasks();
-                Console.WriteLine("You wake up the next day fully refreshed!");
-            }
-            else
-            {
-                Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
-            }
-
-        }
-
-        public void ResetTasks()
+        public bool ResetTasks()
         {
             tasks["work"] = (false, tasks["work"].incompleteMessage);
             tasks["eat"] = (false, tasks["eat"].incompleteMessage);
+            foreach (var task in tasks.Values)
+            {
+                if (!task.done)
+                {
+                    Console.WriteLine(task.incompleteMessage);
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void Eat() {
