@@ -270,6 +270,8 @@
                     },
                     "actions": [],
                     "npcs": [
+                        "./assets/npcs/collegaue1.json",
+                        "./assets/npcs/collegaue2.json"
                     ],
                     "exits":
                     {
