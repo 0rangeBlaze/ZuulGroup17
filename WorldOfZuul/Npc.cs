@@ -14,6 +14,7 @@ namespace WorldOfZuul
         private List<string> greeting;
         private Dictionary<string, DialogData> npcData;
         private bool talking = true;
+        Methods methods = new Methods();
 
         public Npc(string jsonFilePath)
         {
@@ -56,10 +57,10 @@ namespace WorldOfZuul
             int choiceNumber = 1;
             foreach (var choice in dialogData.Choices)
             {
-                PrintSlowly($"Choice number {choiceNumber}: {choice.Value.Description}");
+                methods.PrintSlowly($"Choice number {choiceNumber}: {choice.Value.Description}");
                 choiceNumber++;
             }
-            PrintSlowly($"Choice number {choiceNumber}: Stop talking");
+            methods.PrintSlowly($"Choice number {choiceNumber}: Stop talking");
         }
 
         //to do refactor:
@@ -77,7 +78,7 @@ namespace WorldOfZuul
                 validChoice = Int32.TryParse(input, out choice);
                 if (!validChoice || choice < 1 || choice > numberOfChoices)
                 {
-                    PrintSlowly($"Invalid input. Please enter a number between 1 and {numberOfChoices}.");
+                    methods.PrintSlowly($"Invalid input. Please enter a number between 1 and {numberOfChoices}.");
                 }
             } while (!validChoice || choice < 1 || choice > numberOfChoices);
 
@@ -107,7 +108,7 @@ namespace WorldOfZuul
                     if (npcData.ContainsKey(currentDialog))
                     {
                         DialogData currentDialogData = npcData[currentDialog];
-                        PrintSlowly(currentDialogData.Dialog);
+                        methods.PrintSlowly(currentDialogData.Dialog);
                         PrintChoices(currentDialogData);
                         currentDialog = GetPlayerChoice(currentDialogData.Choices, game);
                     }
@@ -129,19 +130,10 @@ namespace WorldOfZuul
         {
             Random greetings = new Random();
             int greetingIndex = greetings.Next(greeting.Count);
-            PrintSlowly(greeting[greetingIndex]);
+            methods.PrintSlowly(greeting[greetingIndex]);
         }
 
-        private void PrintSlowly(string text)
-        {
-            int delay = 25;
-            foreach (char c in text)
-            {
-                Console.Write(c);
-                Thread.Sleep(delay);
-            }
-            Console.WriteLine();
-        }
+        
     }
 
     public class DialogData

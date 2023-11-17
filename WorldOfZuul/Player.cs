@@ -138,9 +138,9 @@ namespace WorldOfZuul
                 tasks["eat"] = (true, tasks["eat"].incompleteMessage);
             }
         }
-
         public void SortTrash()
         {
+            Methods methods = new Methods();
             Dictionary<string, string> trashAlignment = new Dictionary<string, string>()
         {
             { "Plastic Bottle", "plastic" },
@@ -167,75 +167,38 @@ namespace WorldOfZuul
 
             List<string> start = new List<string>() { "Yes", "No" };
             int points = 0;
-            string option = SelectOption("Do you want to sort a trash", start);
+            string option = methods.SelectOption("Do you want to sort a trash", start);
 
             if (option == "Yes")
             {
+                Console.Clear();
                 Random random = new Random();
                 for (int i = 0; i < 4; i++)
                 {
                     int randomNumber = random.Next(temporary.Count);
                     string randomTrash = temporary[randomNumber];
-                    string trash = SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
+                    string trash = methods.SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
                     if (trashAlignment[randomTrash] == trash)
                     {
                         points++;
-                        Console.WriteLine("Good choice");
+                        methods.CenterColor("Good choice","green");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                     else
                     {
-                        Console.WriteLine("Wrong choice");
+                        methods.CenterColor("Wrong choice","red");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                 }
+
 
             }
             else
             {
-                Console.WriteLine("You are not environmentally friendly");
+                methods.CenterColor("You are not environmentally friendly", "red");
             }
-        }
-
-
-        public string SelectOption(string question, List<string> temp)
-        {
-            int option = 1;
-            int startingPosition = temp.Count;
-            int endingPosition = (temp.Count + 1) - startingPosition;
-
-            bool selected = false;
-
-            while (!selected)
-            {
-                Console.WriteLine(question);
-
-                for (int i = 0; i < temp.Count; i++)
-                {
-                    Console.WriteLine(option == i + 1 ? $" >{temp[i]}" : $" {temp[i]}");
-                }
-
-                ConsoleKeyInfo key = Console.ReadKey();
-                switch (key.Key)
-                {
-                    case ConsoleKey.DownArrow:
-                        if (option < startingPosition)
-                        {
-                            option++;
-                        }
-                        Console.Clear();
-                        break;
-                    case ConsoleKey.UpArrow:
-                        if (option > endingPosition)
-                        {
-                            option--;
-                        }
-                        Console.Clear();
-                        break;
-                    case ConsoleKey.Enter:
-                        selected = true;
-                        break;
-                }
-            }
-            return temp[option - 1];
         }
     }
 }      
