@@ -83,9 +83,9 @@ namespace WorldOfZuul
         {
             if(World.Environment >= 80)
             {
-                Console.WriteLine("You have managed to look out for the envrionment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't figthing against it, but embracing its strengths.");
+                Console.WriteLine("You have managed to look out for the environment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't fighting against it, but embracing its strengths.");
                 HumanWellfareConclusion();
-                Console.WriteLine("You can see now, how much effect small, seemingly wortless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
+                Console.WriteLine("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
                 Console.WriteLine("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
 
             }
