@@ -15,7 +15,7 @@ namespace WorldOfZuul
         private int personalWelfare;
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
-            {"eat", (false, "You still haven't eaten anything today. You are vety hungry.")}
+            {"eat", (false, "You still haven't eaten anything today. You are very hungry.")}
         };
 
         public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {
