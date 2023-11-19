@@ -116,8 +116,6 @@ namespace WorldOfZuul
 
         public bool ResetTasks()
         {
-            tasks["work"] = (false, tasks["work"].incompleteMessage);
-            tasks["eat"] = (false, tasks["eat"].incompleteMessage);
             foreach (var task in tasks.Values)
             {
                 if (!task.done)
@@ -126,6 +124,8 @@ namespace WorldOfZuul
                     return false;
                 }
             }
+            tasks["work"] = (false, tasks["work"].incompleteMessage);
+            tasks["eat"] = (false, tasks["eat"].incompleteMessage);
             return true;
         }
 
