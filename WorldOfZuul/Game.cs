@@ -60,8 +60,12 @@ namespace WorldOfZuul
                     }
                     else
                     {
+                        int previousEnvironment = 50;
+                        int previousPopulationWelfare = 50;
+
                         Console.WriteLine("You wake up the next day fully refreshed!");
                         turn++;
+                        NewsInTheMorning(World.Environment, World.PopulationWelfare, ref previousEnvironment, ref previousPopulationWelfare);
                     }
                 }
             }
@@ -70,6 +74,48 @@ namespace WorldOfZuul
                 Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
             }
 
+        }
+        private void NewsInTheMorning(int environmentNow, int populationWelfareNow, ref int previousE, ref int previousP)
+        {
+            if(environmentNow > previousE)
+            {
+                BetterEnvironment();
+                if(populationWelfareNow > previousP)
+                {
+                    BetterPopulationWelfare();
+                }
+                else
+                    WorsePopulationWelfare();
+            }
+            else if(environmentNow < previousE)
+            {
+                WorseEnvironment();
+                if(populationWelfareNow > previousP)
+                {
+                    BetterPopulationWelfare();
+                }
+                else
+                    WorsePopulationWelfare();
+            }
+            previousE = environmentNow;
+            previousP = populationWelfareNow;
+        }
+        private void BetterEnvironment()
+        {
+            //i'll write a few more, and then shuffle from those, same in all 4 methods
+            Console.WriteLine("In the morning news they mentioned, that there has been a surprising reduction in the number of hurricanes in the past year.");
+        }
+        private void WorseEnvironment()
+        {
+            Console.WriteLine("While making breakfast, in the radio you hear about a disaster in Lisboa, where a sandstorm hit, reason are still unclear");
+        }
+        private void BetterPopulationWelfare()
+        {
+            Console.WriteLine("This week's headline in the newspaper is that multiple villages in Africa finally got clean drinking water, thanks to donations.");
+        }
+        private void WorsePopulationWelfare()
+        {
+            Console.WriteLine("Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness.");
         }
         private void EndGame()
         {
