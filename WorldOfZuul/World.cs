@@ -8,10 +8,12 @@ namespace WorldOfZuul
         public bool loaded = false;
         public int PopulationWelfare{get; set;}
         public int Environment{get; set;}
+        public int PreviousEnvironment{get; set;}
+        public int PreviousPopulationWelfare{get; set;}
 
         public World(string path="assets/world.json") {
             Areas = new Dictionary<string, Area>(StringComparer.OrdinalIgnoreCase) {};
-            Environment = PopulationWelfare = 0;
+            Environment = PopulationWelfare = PreviousEnvironment = PreviousPopulationWelfare = 0;
             Load(path);
         }
 
