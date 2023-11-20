@@ -10,11 +10,11 @@ namespace WorldOfZuul
         public World World {get; set;}
         public bool Running {get; set;}
         public static Random RandomGenerator = new Random();
-        private int turn;
+        public int Turn {get; set;}
 
         public Game()
         {
-            turn = 0;
+            Turn = 0;
             World = new World("assets/world.json");
             if(!World.loaded) {
                 Console.WriteLine("Couldn't load world.");
@@ -52,20 +52,18 @@ namespace WorldOfZuul
         {
             if (World.GetRoom(Player.CurrentArea, Player.CurrentRoom).Actions.Contains("nextTurn"))
             {
-                if(Player.ResetTasks()) 
+                if(Player.TasksDone()) 
                 {
-                    if(turn == 20)
+                    if(Turn == 20)
                     {
                         EndGame();
                     }
                     else
                     {
-                        int previousEnvironment = 50;
-                        int previousPopulationWelfare = 50;
-
                         Console.WriteLine("You wake up the next day fully refreshed!");
-                        turn++;
-                        NewsInTheMorning(World.Environment, World.PopulationWelfare, ref previousEnvironment, ref previousPopulationWelfare);
+                        NewsInTheMorning();
+                        Turn++;
+                        Player.ResetTasks(this);
                     }
                 }
             }
@@ -75,51 +73,87 @@ namespace WorldOfZuul
             }
 
         }
-        private void NewsInTheMorning(int environmentNow, int populationWelfareNow, ref int previousE, ref int previousP)
+        private void NewsInTheMorning()
         {
-            if(environmentNow > previousE)
+            int headlineNumber = Turn % 10;
+
+            if(World.Environment > World.PreviousEnvironment)
             {
-                BetterEnvironment();
-                if(populationWelfareNow > previousP)
-                {
-                    BetterPopulationWelfare();
-                }
-                else
-                    WorsePopulationWelfare();
+                BetterEnvironment(headlineNumber);
             }
-            else if(environmentNow < previousE)
+            else if(World.Environment < World.PreviousEnvironment)
             {
-                WorseEnvironment();
-                if(populationWelfareNow > previousP)
-                {
-                    BetterPopulationWelfare();
-                }
-                else
-                    WorsePopulationWelfare();
+                WorseEnvironment(headlineNumber);
             }
-            previousE = environmentNow;
-            previousP = populationWelfareNow;
+
+            if(World.PopulationWelfare > World.PreviousPopulationWelfare)
+            {
+                BetterPopulationWelfare(headlineNumber);
+            }
+            else
+            {
+                WorsePopulationWelfare(headlineNumber);
+            }
+
+
+            World.PreviousEnvironment = World.Environment;
+            World.PreviousPopulationWelfare = World.PopulationWelfare;
         }
-        private void BetterEnvironment()
+
+        private void BetterEnvironment(int headlineNumber)
         {
-            //i'll write a few more, and then shuffle from those, same in all 4 methods
-            Console.WriteLine("In the morning news they mentioned, that there has been a surprising reduction in the number of hurricanes in the past year.");
+
+            string[] News = new string[]
+            {
+                "In the morning news they mentioned, that there has been a surprising reduction in the number of hurricanes in the past year."
+            };
+
+            Console.WriteLine(News[headlineNumber]);
+
         }
-        private void WorseEnvironment()
+
+        private void WorseEnvironment(int headlineNumber)
         {
-            Console.WriteLine("While making breakfast, in the radio you hear about a disaster in Lisboa, where a sandstorm hit, reason are still unclear");
+
+            string[] News = new string[]
+            {
+                "While making breakfast, in the radio you hear about a disaster in Lisboa, where a sandstorm hit, reason are still unclear"
+            };
+
+            Console.WriteLine(News[headlineNumber]);
+
         }
-        private void BetterPopulationWelfare()
+
+        private void BetterPopulationWelfare(int headlineNumber)
         {
-            Console.WriteLine("This week's headline in the newspaper is that multiple villages in Africa finally got clean drinking water, thanks to donations.");
+
+            string[] News = new string[]
+            {
+                "This week's headline in the newspaper is that multiple villages in Africa finally got clean drinking water, thanks to donations."
+            };
+
+            Console.WriteLine(News[headlineNumber]);
+        
         }
-        private void WorsePopulationWelfare()
+
+        private void WorsePopulationWelfare(int headlineNumber)
         {
-            Console.WriteLine("Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness.");
+
+            string[] News = new string[]
+            {
+                "Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness."
+            };
+
+            Console.WriteLine(News[headlineNumber]);
+
         }
+        
         private void EndGame()
         {
             EnvironmentConclusion();
+            HumanWellfareConclusion();
+            Console.WriteLine("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
+            Console.WriteLine("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
             Console.WriteLine("Hope you enjoyed our game :)");
             Running = false;
             return;
@@ -128,64 +162,38 @@ namespace WorldOfZuul
         private void EnvironmentConclusion()
         {
             if(World.Environment >= 80)
-            {
                 Console.WriteLine("You have managed to look out for the environment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't fighting against it, but embracing its strengths.");
-                HumanWellfareConclusion();
-                Console.WriteLine("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
-                Console.WriteLine("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
-
-            }
+                
             else if(World.Environment >= 60)
-            {
                 Console.WriteLine("");
-                HumanWellfareConclusion();
-            }
+
             else if(World.Environment >= 40)
-            {
                 Console.WriteLine("");
-                HumanWellfareConclusion();
 
-            }
             else if(World.Environment >= 20)
-            {
                 Console.WriteLine("");
-                HumanWellfareConclusion();
 
-            }
             else
-            {
                 Console.WriteLine("");
-                HumanWellfareConclusion();
-
-            }
         }
 
         private void HumanWellfareConclusion()
         {
             if(World.PopulationWelfare >= 80)
-            {
                 Console.WriteLine("The population's wellfare has improved greatly. Almost everyone is living well, poverty and homelessness has been has been clamped back, by figures never seen before.");
-            }
-            else if(World.PopulationWelfare >= 60)
-            {
+            
+            else if(World.PopulationWelfare >= 60)            
                 Console.WriteLine("");
 
-            }
             else if(World.PopulationWelfare >= 40)
-            {
                 Console.WriteLine("");
 
-            }
             else if(World.PopulationWelfare >= 20)
-            {
                 Console.WriteLine("");
 
-            }
             else
-            {
                 Console.WriteLine("");
 
-            }
         }
 
 

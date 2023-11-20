@@ -153,7 +153,7 @@
                     {
                         "0": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem."
                     },
-                    "actions": [],
+                    "actions": ["sort"],
                     "npcs": [
                     ],
                    "exits":

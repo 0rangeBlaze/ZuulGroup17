@@ -11,7 +11,7 @@ namespace WorldOfZuul
     {
         private static readonly Dictionary<string, Action<Game, string[]>> commandDict = new Dictionary<string, Action<Game, string[]>> (StringComparer.OrdinalIgnoreCase){
             {"", (_,_) => {}},
-            {"help", (_,_) => PrintHelp()},
+            {"help", (Game game,string[] arguments) => Help(arguments)},
             {"look", (Game game, string[] _) => 
                 game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Describe(game)},
             {"move", (Game game, string[] arguments) => game.Player.Move(game, arguments)},
@@ -19,14 +19,24 @@ namespace WorldOfZuul
             {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"talk", (Game game, string[] arguments) => TalkToNpc(game, arguments)},
             {"map", (Game game, string[] arguments ) => Map(game, arguments)},
-            {"sort", (Game game, string[] _) => game.Player.SortTrash()},
+            {"sort", (Game game, string[] _) => game.Player.SortTrash(game)},
             {"sleep", (Game game, string[] arguments) => game.NextTurn()},
             {"quit", (Game game, string[] arguments) => game.Running = false},
 
             {"eat", (Game game, string[] _) => game.Player.Eat()}
         };
-        private static readonly HashSet<string> possibleCommands = new HashSet<string> (StringComparer.OrdinalIgnoreCase){
-            "", "help", "look", "move", "travel", "work", "talk", "map", "sort", "sleep", "quit"
+        private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {
+            {"", ""}, 
+            {"help", "\nhelp: help [command]\n\tPrint usage of command.\n\tIf command is not sepcified list all commands.\n"},
+            {"look", "\nlook:\n\tFind out more about your surroundings and which ways you can move.\n"},
+            {"move", "\nmove: move [direction]\n\tMove in direction.\n\tIf direction is set to back move back to previous room.\n"},
+            {"travel", "\ntravel: travel [destination]\n\tNavigate to area specified in destination.\n"},
+            {"work", "\nwork: \n\tWhen in your office start working.\n"},
+            {"talk", "\ntalk: talk [name]\n\tTalk to the npc specified by name in the current room .\n"},
+            {"map", "\nmap: map [area]\n\tLists room in area. \n\tIf area is not specified lists areas.\n"},
+            {"sort", "\ntrash:\n\tWhen in kitchen sort or just throw out trash.\n"},
+            {"sleep", "\nsleep:\n\tWhen in your bedroom start a new turn.\n"},
+            {"quit", "\nquit:\n\tExit the game.\n"}
         };
 
         public static void Process(string? command, Game game){
@@ -49,7 +59,7 @@ namespace WorldOfZuul
                 Console.WriteLine("Specify a valid command!");
             }
             else {
-                if(possibleCommands.Contains(command.Split()[0])) {
+                if(possibleCommands.ContainsKey(command.Split()[0])) {
                     Process(command, game);
                 }
                 else {
@@ -58,23 +68,33 @@ namespace WorldOfZuul
             }
         }       
 
-        private static void PrintHelp()
+        private static void Help(string[] args)
         {
-           Utilities.WriteLineWordWrap("""
+            if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
+            {
+                /*Utilities.WriteLineWordWrap("""
 The world is divided into four main areas: home, mall, town and work.
 Each of these areas contain rooms for you to explore.
-""");
-            Utilities.WriteLineWordWrap("""
-Type 'move [direction]' to navigate between rooms. 
-Type 'move back', that takes you to the previous room.
-Type 'travel [destination]' to navigate between areas.
-Type 'look' to find out more about your surroundings and which ways you can move.
-Type 'work' in your office to start working.
-Tpye 'sleep' in you bedroom to start a new turn.
-Type 'help' to print this message again.
-Type 'quit' to exit the game.
+""");*/ //put this somehow in welcome text
 
-""");
+                Utilities.WriteLineWordWrap("Possible commands are:");
+                string commandList = "\t";
+                foreach(string command in possibleCommands.Keys) {
+                    if(command != "")
+                        commandList += $"{command}, ";
+                }
+                Utilities.WriteLineWordWrap(commandList[..^2]);
+                Utilities.WriteLineWordWrap("\tTo find out more about a command use 'help [command]'.");
+                Console.WriteLine();
+            }
+            else {
+                if(possibleCommands.ContainsKey(args[0])){
+                    Utilities.WriteLineWordWrap(possibleCommands[args[0]]);
+                }
+                else{
+                    Utilities.WriteLineWordWrap($"Command {args[0]} does not exist.");
+                }
+            }
         }
     
         private static void TalkToNpc(Game game, string[] arguments) {
