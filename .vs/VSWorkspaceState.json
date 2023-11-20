@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WorldOfZuul",
+    "\\WorldOfZuul\\assets",
+    "\\WorldOfZuul\\assets\\npcs"
   ],
-  "SelectedNode": "\\WorldOfZuul.sln (WorldOfZuul\\WorldOfZuul.sln)",
+  "SelectedNode": "\\WorldOfZuul\\assets\\npcs\\collegaue1.json",
   "PreviewInSolutionExplorer": false
 }

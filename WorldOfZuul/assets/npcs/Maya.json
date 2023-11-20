@@ -1,0 +1,100 @@
+{
+  "name": "Maya",
+  "dialogs": {
+    "helpOffer": {
+      "Dialog": "Thanks for the offer! I might take you up on that. Teamwork makes the dream work, right?",
+      "Choices": {
+        "#end": {
+          "Description": "End Conversation",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
+    },
+    "index1": {
+      "Dialog": "Hey there! How's it going?",
+      "Choices": {
+        "weather": {
+          "Description": "Not bad. How's the weather outside?",
+          "JumpDialogIndex": "weatherResponse",
+          "Actions": []
+        },
+        "workload": {
+          "Description": "It's okay. How about the workload?",
+          "JumpDialogIndex": "workloadResponse",
+          "Actions": []
+        }
+      }
+    },
+    "movieRecommendation": {
+      "Dialog": "Oh, I recently watched this amazing sci-fi movie. It's called 'Galactic Odyssey.' You should check it out!",
+      "Choices": {
+        "thanks": {
+          "Description": "Thanks for the recommendation!",
+          "JumpDialogIndex": "thanks",
+          "Actions": []
+        },
+        "workload": {
+          "Description": "By the way, how's your workload these days?",
+          "JumpDialogIndex": "workloadResponse",
+          "Actions": []
+        }
+      }
+    },
+    "thanks": {
+      "Dialog": "No problem! Enjoy the movie. Let me know if you need more suggestions.",
+      "Choices": {
+        "#end": {
+          "Description": "End Conversation",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
+    },
+    "weatherResponse": {
+      "Dialog": "Oh, you know, the usual unpredictable weather. One moment it's sunny, the next it's pouring rain.",
+      "Choices": {
+        "plans": {
+          "Description": "Any plans for the weekend?",
+          "JumpDialogIndex": "weekendPlans",
+          "Actions": []
+        },
+        "workload": {
+          "Description": "Speaking of unpredictability, how's your workload?",
+          "JumpDialogIndex": "workloadResponse",
+          "Actions": []
+        }
+      }
+    },
+    "weekendPlans": {
+      "Dialog": "Not sure yet. Maybe catch up on some movies or just relax at home. How about you?",
+      "Choices": {
+        "movies": {
+          "Description": "Sounds nice! Any movie recommendations?",
+          "JumpDialogIndex": "movieRecommendation",
+          "Actions": []
+        },
+        "workload": {
+          "Description": "Speaking of relaxation, how's your workload?",
+          "JumpDialogIndex": "workloadResponse",
+          "Actions": []
+        }
+      }
+    },
+    "workloadResponse": {
+      "Dialog": "It's a bit hectic, you know how it is. But trying to manage. How about yours?",
+      "Choices": {
+        "help": {
+          "Description": "Need any help with your tasks?",
+          "JumpDialogIndex": "helpOffer",
+          "Actions": []
+        },
+        "weekend": {
+          "Description": "Speaking of managing, any plans for the weekend?",
+          "JumpDialogIndex": "weekendPlans",
+          "Actions": []
+        }
+      }
+    }
+  }
+}

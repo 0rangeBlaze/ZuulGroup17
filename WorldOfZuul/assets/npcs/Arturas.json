@@ -1,0 +1,115 @@
+{
+  "name": "Arturas",
+  "dialogs": {
+    "index1": {
+      "Dialog": "Hey, good to see you! How's everything going?",
+      "Choices": {
+        "projects": {
+          "Description": "Not bad. Any interesting projects you're working on?",
+          "JumpDialogIndex": "projectsResponse",
+          "Actions": []
+        },
+        "office": {
+          "Description": "It's going okay. How's everything in the office?",
+          "JumpDialogIndex": "officeResponse",
+          "Actions": []
+        }
+      }
+    },
+    "projectsResponse": {
+      "Dialog": "Yeah, I've got this new project on optimizing our workflow. It's challenging but exciting.",
+      "Choices": {
+        "challenges": {
+          "Description": "Facing any challenges with the project?",
+          "JumpDialogIndex": "challengesResponse",
+          "Actions": []
+        },
+        "office": {
+          "Description": "Speaking of projects, how's your workload these days?",
+          "JumpDialogIndex": "officeResponse",
+          "Actions": []
+        }
+      }
+    },
+    "challengesResponse": {
+      "Dialog": "Well, there are a few roadblocks, but that's the fun part, right? Keeps things interesting.",
+      "Choices": {
+        "solutions": {
+          "Description": "Have you found any solutions to the challenges?",
+          "JumpDialogIndex": "solutionsResponse",
+          "Actions": []
+        },
+        "office": {
+          "Description": "Speaking of interesting, how's everything in the office?",
+          "JumpDialogIndex": "officeResponse",
+          "Actions": []
+        }
+      }
+    },
+    "solutionsResponse": {
+      "Dialog": "I'm working on it. It's a collaborative effort, so I'm open to suggestions!",
+      "Choices": {
+        "ideas": {
+          "Description": "Any specific ideas you're considering?",
+          "JumpDialogIndex": "ideasResponse",
+          "Actions": []
+        },
+        "office": {
+          "Description": "Speaking of collaboration, how's your workload these days?",
+          "JumpDialogIndex": "officeResponse",
+          "Actions": []
+        }
+      }
+    },
+    "ideasResponse": {
+      "Dialog": "I'm exploring a few ideas, but I'm always open to brainstorming sessions. Teamwork, you know?",
+      "Choices": {
+        "collaborate": {
+          "Description": "Would you be interested in collaborating on some ideas?",
+          "JumpDialogIndex": "collaborateResponse",
+          "Actions": []
+        },
+        "end": {
+          "Description": "End Conversation",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
+    },
+    "collaborateResponse": {
+      "Dialog": "Absolutely! Let's schedule a meeting to discuss and bounce around some ideas.",
+      "Choices": {
+        "#end": {
+          "Description": "End Conversation",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
+    },
+    "officeResponse": {
+      "Dialog": "It's buzzing as usual. How about your workload? Managing everything?",
+      "Choices": {
+        "help": {
+          "Description": "Need any help with your tasks?",
+          "JumpDialogIndex": "helpOffer",
+          "Actions": []
+        },
+        "projects": {
+          "Description": "Speaking of managing, any interesting projects on your plate?",
+          "JumpDialogIndex": "projectsResponse",
+          "Actions": []
+        }
+      }
+    },
+    "helpOffer": {
+      "Dialog": "Thanks for the offer! I appreciate it. If anything comes up, I'll let you know.",
+      "Choices": {
+        "#end": {
+          "Description": "End Conversation",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
+    }
+  }
+}
