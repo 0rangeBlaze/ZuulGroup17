@@ -19,7 +19,7 @@ namespace WorldOfZuul
             {"work", (Game game, string[] _) => game.Player.Work(game)},
             {"talk", (Game game, string[] arguments) => TalkToNpc(game, arguments)},
             {"map", (Game game, string[] arguments ) => Map(game, arguments)},
-            {"sort", (Game game, string[] _) => game.Player.SortTrash()},
+            {"sort", (Game game, string[] _) => game.Player.SortTrash(game)},
             {"sleep", (Game game, string[] arguments) => game.NextTurn()},
             {"quit", (Game game, string[] arguments) => game.Running = false},
 

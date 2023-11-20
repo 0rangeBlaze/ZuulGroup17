@@ -10,11 +10,11 @@ namespace WorldOfZuul
         public World World {get; set;}
         public bool Running {get; set;}
         public static Random RandomGenerator = new Random();
-        private int turn;
+        public int Turn {get; set;}
 
         public Game()
         {
-            turn = 0;
+            Turn = 0;
             World = new World("assets/world.json");
             if(!World.loaded) {
                 Console.WriteLine("Couldn't load world.");
@@ -52,19 +52,18 @@ namespace WorldOfZuul
         {
             if (World.GetRoom(Player.CurrentArea, Player.CurrentRoom).Actions.Contains("nextTurn"))
             {
-                if(Player.ResetTasks()) 
+                if(Player.TasksDone()) 
                 {
-                    if(turn == 20)
+                    if(Turn == 20)
                     {
                         EndGame();
                     }
                     else
                     {
-                        
-
                         Console.WriteLine("You wake up the next day fully refreshed!");
-                        turn++;
                         NewsInTheMorning();
+                        Turn++;
+                        Player.ResetTasks(this);
                     }
                 }
             }
@@ -76,7 +75,7 @@ namespace WorldOfZuul
         }
         private void NewsInTheMorning()
         {
-            int headlineNumber = turn % 10;
+            int headlineNumber = Turn % 10;
 
             if(World.Environment > World.PreviousEnvironment)
             {

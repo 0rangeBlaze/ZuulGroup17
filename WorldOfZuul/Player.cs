@@ -15,7 +15,8 @@ namespace WorldOfZuul
         private int personalWelfare;
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
-            {"eat", (false, "You still haven't eaten anything today. You are very hungry.")}
+            {"eat", (false, "You still haven't eaten anything today. You are very hungry.")},
+            {"sort", (false, "You need to throw out your trash.")}
         };
 
         public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {
@@ -114,8 +115,7 @@ namespace WorldOfZuul
             CurrentRoom = game.World.GetRoom(destination).Name;
         }
 
-        public bool ResetTasks()
-        {
+        public bool TasksDone(){
             foreach (var task in tasks.Values)
             {
                 if (!task.done)
@@ -124,9 +124,16 @@ namespace WorldOfZuul
                     return false;
                 }
             }
+            return true;
+        }
+
+        public void ResetTasks(Game game)
+        {
             tasks["work"] = (false, tasks["work"].incompleteMessage);
             tasks["eat"] = (false, tasks["eat"].incompleteMessage);
-            return true;
+            if(game.Turn%2 == 0) {
+                tasks["sort"] = (false, tasks["sort"].incompleteMessage);
+            }
         }
 
         public void Eat() {
@@ -138,8 +145,17 @@ namespace WorldOfZuul
                 tasks["eat"] = (true, tasks["eat"].incompleteMessage);
             }
         }
-        public void SortTrash()
+        public void SortTrash(Game game)
         {
+            if(!game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("sort"))
+            {
+                Console.WriteLine("Your trash bins are in your kitchen.");
+                return;
+            }
+            if(tasks["sort"].done) {
+                Console.WriteLine("There isn't enough trash yet.");
+                return;
+            }
             Methods methods = new Methods();
             Dictionary<string, string> trashAlignment = new Dictionary<string, string>()
         {
@@ -199,6 +215,7 @@ namespace WorldOfZuul
             {
                 methods.CenterColor("You are not environmentally friendly", "red");
             }
+            tasks["sort"] = (true, tasks["sort"].incompleteMessage);
         }
     }
 }      
