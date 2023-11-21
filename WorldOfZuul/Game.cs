@@ -136,7 +136,26 @@ namespace WorldOfZuul
 
             string[] News = new string[]
             {
-                "While making breakfast, in the radio you hear about a disaster in Lisboa, where a sandstorm hit, reason are still unclear"
+                "Disaster in Lisbon, a sandstorm hit, reasons are still unclear.",
+                "Scientists say Earth on track for disastrous sea level rise.",
+                "Global heat deaths could quadruple if action is not taken on climate change, study finds.",
+                "Worsening warming is hurting people in all regions, U.S. climate assessment shows.",
+                "4000 evacuating in Iceland under threat of volcanic eruption.",
+                "More than 100 dolphins found dead in Brazilian Amazon rainforest drought.",
+                "Underground heat from climate change could cause cities to sink.",
+                "Flooding from cyclone in southern Columbia kills dozens.",
+                "Earth just had its hottest 12 months ever recorded, analysis finds.",
+                "Drought that has hammered Syria, Iraq and Iran was exacerbated by climate change.",
+                "Melting of West Antarctic Ice Sheet may be completely unavoidable already, new comprehensive study finds.",
+                "Extreme ocean temperatures threaten to wipe out Caribbean coral.",
+                "Amazon rainforest port records lowest water level in 121 years amid drought.",
+                "U.K.'s filthy waterways foul up government image as companies dump sewage in rivers.",
+                "Flash floods foreshadow a threatening reality in New York City.",
+                "Air pollution causes an estimated 10 to 12 million premature deaths annually.",
+                "18 million tons of plastic enters the ocean every year as a result of mismanagement of domestic waste in coastal areas.",
+                "Pathogen-polluted drinking water and inadequate sanitation cause approximately 1.4 million human deaths annually, with many millions more becoming ill.",
+                "Brazil gripped by 'unbearable' heatwave.",
+                "Airport submits permit for more private jet flights."
             };
 
             Console.WriteLine(News[headlineNumber]);
