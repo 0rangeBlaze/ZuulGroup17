@@ -105,7 +105,26 @@ namespace WorldOfZuul
 
             string[] News = new string[]
             {
-                "In the morning news they mentioned, that there has been a surprising reduction in the number of hurricanes in the past year."
+                "Farmers were organized to collect eggs of endangered Wildfowl, saving the Australian species.",
+                "This California highway has just become the first state road made from recycled plastic in the US.",
+                "World's largest green hydrogen plant will soon be turning California's trash into ultra-cheap fuel.",
+                "U.S. approves plan to build the Nation's largest solar project in the desert.",
+                "A new poll has just been released, saying that 66% of Americans willing to try anything that can help save the environment.",
+                "Divers recovered 12 tons of trash from lake Tahoe.",
+                "Patagonia, the American retailer of outdoor recreation clothing store, gives away its entire $3 billion worth to fight climate change.",
+                "Ocean cleanup nonprofit gets 2,5 million dollars from Airbnb co-founder to launch massive plastic pollution cleanup.",
+                "Germany prioritizes climate crisis by supporting sustainability in developing countries with $4 billion plan.",
+                "Finnish scuba-diver finds a way to turn sea algae into a replacement for plastic in common products.",
+                "Tesco, the Europe's biggest supermarket chain, removed 1 billion pieces of plastic from across its stores.",
+                "There has been a surprising reduction in the number of hurricanes in the past years.",
+                "The World achieves its target to protect more land, adding 42%—the size of Russia—in last decade.",
+                "Volunteers in India are planting 250 million saplings in single day and seeing 80% survival rate.",
+                "World's 3rd largest grocery chain eliminates 20 million single-use plastic wrappings from Christmas goodies.",
+                "France debuts geothermal plant using heat from the earth to power 10,000 homes.",
+                "The UK has enforced a new Waste Reduction Policy.",
+                "Bezos created $10 billion Earth Fund to meet climate crisis, first grants of $800M go to iconic environmental groups.",
+                "Australian scientists create seaweed supplement for cows that reduces methane emissions by 80%",
+                "The Search Engine that plants trees with every search has just planted its 100-millionth tree."
             };
 
             Console.WriteLine(News[headlineNumber]);
