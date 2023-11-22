@@ -140,7 +140,6 @@ namespace WorldOfZuul
         }
         public void SortTrash()
         {
-            Methods methods = new Methods();
             Dictionary<string, string> trashAlignment = new Dictionary<string, string>()
         {
             { "Plastic Bottle", "plastic" },
@@ -167,7 +166,7 @@ namespace WorldOfZuul
 
             List<string> start = new List<string>() { "Yes", "No" };
             int points = 0;
-            string option = methods.SelectOption("Do you want to sort a trash", start);
+            string option = Utilities.SelectOption("Do you want to sort a trash", start);
 
             if (option == "Yes")
             {
@@ -177,17 +176,17 @@ namespace WorldOfZuul
                 {
                     int randomNumber = random.Next(temporary.Count);
                     string randomTrash = temporary[randomNumber];
-                    string trash = methods.SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
+                    string trash = Utilities.SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
                     if (trashAlignment[randomTrash] == trash)
                     {
                         points++;
-                        methods.CenterColor("Good choice","green");
+                        Utilities.CenterColor("Good choice","green");
                         Console.ReadKey();
                         Console.Clear();
                     }
                     else
                     {
-                        methods.CenterColor("Wrong choice","red");
+                        Utilities.CenterColor("Wrong choice","red");
                         Console.ReadKey();
                         Console.Clear();
                     }
@@ -197,7 +196,7 @@ namespace WorldOfZuul
             }
             else
             {
-                methods.CenterColor("You are not environmentally friendly", "red");
+                Utilities.CenterColor("You are not environmentally friendly", "red");
             }
         }
     }

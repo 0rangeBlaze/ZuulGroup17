@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text.Json;
-using System.Threading;
+
 
 namespace WorldOfZuul
 {
@@ -14,7 +11,6 @@ namespace WorldOfZuul
         private List<string> greeting;
         private Dictionary<string, DialogData> npcData;
         private bool talking = true;
-        Methods methods = new Methods();
 
         public Npc(string jsonFilePath)
         {
@@ -52,49 +48,40 @@ namespace WorldOfZuul
             }
         }
 
-        private void PrintChoices(DialogData dialogData)
+        private string SelectChoice(DialogData dialogData, Game game)
         {
-            int choiceNumber = 1;
+            string jumpDialog = "";
+            string actionKey = "";
+           
+            string question = dialogData.Dialog.ToString();
+
+            List<string> choices = new List<string>();
+
             foreach (var choice in dialogData.Choices)
             {
-                methods.PrintSlowly($"Choice number {choiceNumber}: {choice.Value.Description}");
-                choiceNumber++;
+                choices.Add(choice.Value.Description.ToString());
             }
-            methods.PrintSlowly($"Choice number {choiceNumber}: Stop talking");
-        }
 
-        //to do refactor:
-        private string GetPlayerChoice(Dictionary<string, DialogChoice> choices, Game game)
-        {
-            string[] choiceIndices = choices.Keys.ToArray();
-            int numberOfChoices = choiceIndices.Length + 1;
+            string chosed = Utilities.SelectOption(question, choices);
 
-            int choice;
-            bool validChoice = false;
-            do
+
+            foreach (var choice in dialogData.Choices)
             {
-                Console.Write($"Enter your choice (1-{numberOfChoices}): ");
-                string input = Console.ReadLine() ?? "";
-                validChoice = Int32.TryParse(input, out choice);
-                if (!validChoice || choice < 1 || choice > numberOfChoices)
+                if (choice.Value.Description.ToString() == chosed)
                 {
-                    methods.PrintSlowly($"Invalid input. Please enter a number between 1 and {numberOfChoices}.");
+                    jumpDialog = choice.Value.JumpDialogIndex.ToString();
+                    actionKey = choice.Key.ToString();
+                    if (choice.Key[0] == '#')
+                    {
+                        talking = false;
+                    }
+                    break;
                 }
-            } while (!validChoice || choice < 1 || choice > numberOfChoices);
-
-            if (choice == numberOfChoices)
-            {
-                talking = false;
-                return currentDialog;
             }
 
-            choices[choiceIndices[choice - 1]].HandleActions(game);
+            dialogData.Choices[actionKey].HandleActions(game);
 
-            if (choiceIndices[choice-1][0] == '#') {
-                talking = false;
-            }
-
-            return choices[choiceIndices[choice - 1]].JumpDialogIndex;
+            return jumpDialog;
         }
 
         public void NpcTalk(Game game)
@@ -108,9 +95,7 @@ namespace WorldOfZuul
                     if (npcData.ContainsKey(currentDialog))
                     {
                         DialogData currentDialogData = npcData[currentDialog];
-                        methods.PrintSlowly(currentDialogData.Dialog);
-                        PrintChoices(currentDialogData);
-                        currentDialog = GetPlayerChoice(currentDialogData.Choices, game);
+                        currentDialog = SelectChoice(currentDialogData, game);
                     }
                     else
                     {
@@ -130,7 +115,7 @@ namespace WorldOfZuul
         {
             Random greetings = new Random();
             int greetingIndex = greetings.Next(greeting.Count);
-            methods.PrintSlowly(greeting[greetingIndex]);
+            Utilities.SlowColor(greeting[greetingIndex],"green");
         }
 
         
