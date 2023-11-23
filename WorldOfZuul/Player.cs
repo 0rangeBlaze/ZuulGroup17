@@ -156,25 +156,24 @@ namespace WorldOfZuul
                 Console.WriteLine("There isn't enough trash yet.");
                 return;
             }
-            Methods methods = new Methods();
             Dictionary<string, string> trashAlignment = new Dictionary<string, string>()
-        {
-            { "Plastic Bottle", "plastic" },
-            { "Metal Can", "metal" },
-            { "Newspaper", "paper" },
-            { "Food Scraps", "organic" },
-            { "Glass Jar", "glass" },
-            { "Cardboard Box", "paper" },
-            { "Aluminum Foil", "metal" },
-            { "Banana Peel", "organic" },
-            { "Plastic Wrap", "plastic" },
-            { "Tin Can", "metal" },
-            { "Coffee Cup", "paper" },
-            { "Egg Carton", "paper" },
-            { "Soda Can", "metal" },
-            { "Milk Jug", "plastic" },
-            { "Pizza Box", "paper" }
-        };
+            {
+                { "Plastic Bottle", "plastic" },
+                { "Metal Can", "metal" },
+                { "Newspaper", "paper" },
+                { "Food Scraps", "organic" },
+                { "Glass Jar", "glass" },
+                { "Cardboard Box", "paper" },
+                { "Aluminum Foil", "metal" },
+                { "Banana Peel", "organic" },
+                { "Plastic Wrap", "plastic" },
+                { "Tin Can", "metal" },
+                { "Coffee Cup", "paper" },
+                { "Egg Carton", "paper" },
+                { "Soda Can", "metal" },
+                { "Milk Jug", "plastic" },
+                { "Pizza Box", "paper" }
+            };
 
             List<string> temporary = new List<string>() { "Plastic Bottle", "Metal Can", "Newspaper", "Food Scraps", "Glass Jar",
             "Cardboard Box", "Aluminum Foil", "Banana Peel", "Plastic Wrap", "Tin Can", "Coffee Cup", "Egg Carton", "Soda Can", "Milk Jug", "Pizza Box" };
@@ -183,9 +182,9 @@ namespace WorldOfZuul
 
             List<string> start = new List<string>() { "Yes", "No" };
             int points = 0;
-            string option = Utilities.SelectOption("Do you want to sort a trash", start);
+            int option = Utilities.SelectOption("Do you want to sort a trash", start);
 
-            if (option == "Yes")
+            if (option == 0)
             {
                 Console.Clear();
                 Random random = new Random();
@@ -193,8 +192,8 @@ namespace WorldOfZuul
                 {
                     int randomNumber = random.Next(temporary.Count);
                     string randomTrash = temporary[randomNumber];
-                    string trash = Utilities.SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
-                    if (trashAlignment[randomTrash] == trash)
+                    int trash = Utilities.SelectOption($"Where does this trash belong {temporary[randomNumber]}", trashBins);
+                    if (trashAlignment[randomTrash] == trashBins[trash])
                     {
                         points++;
                         Utilities.CenterColor("Good choice","green");

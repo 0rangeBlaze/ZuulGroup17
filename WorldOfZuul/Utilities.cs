@@ -28,7 +28,7 @@ namespace WorldOfZuul {
         // Then the method show you question and menu from which you can select with arrows
         // It returns index of list
         // You need to proces the returned value yourself
-        public static string SelectOption(string question, List<string> temp)
+        public static int SelectOption(string question, List<string> temp)
         {
             int option = 1;
             int startingPosition = temp.Count;
@@ -84,12 +84,12 @@ namespace WorldOfZuul {
                     }
                 }
                 Console.CursorVisible = true;
-                return temp[option - 1];
+                return option - 1;
             }
             else
             {
                 CenterColor("Wrong selection menu inputs", "red");
-                return "";
+                return -1;
             }
         }
 

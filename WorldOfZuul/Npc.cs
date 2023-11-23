@@ -50,38 +50,31 @@ namespace WorldOfZuul
 
         private string SelectChoice(DialogData dialogData, Game game)
         {
-            string jumpDialog = "";
-            string actionKey = "";
-           
             string question = dialogData.Dialog.ToString();
 
-            List<string> choices = new List<string>();
+            List<KeyValuePair<string, DialogChoice>> choices = new(dialogData.Choices);
+            List<string> descriptions = new List<string>();
 
-            foreach (var choice in dialogData.Choices)
+            foreach (var choice in choices)
             {
-                choices.Add(choice.Value.Description.ToString());
+                descriptions.Add(choice.Value.Description.ToString());
+            }
+            descriptions.Add("Quit conversation.");
+
+            int chosen = Utilities.SelectOption(question, descriptions);
+
+            if(chosen == descriptions.Count-1)
+            {
+                talking = false;
+                return currentDialog;
             }
 
-            string chosed = Utilities.SelectOption(question, choices);
-
-
-            foreach (var choice in dialogData.Choices)
-            {
-                if (choice.Value.Description.ToString() == chosed)
-                {
-                    jumpDialog = choice.Value.JumpDialogIndex.ToString();
-                    actionKey = choice.Key.ToString();
-                    if (choice.Key[0] == '#')
-                    {
-                        talking = false;
-                    }
-                    break;
-                }
+            if(choices[chosen].Key[0] == '#') {
+                talking = false;
             }
+            choices[chosen].Value.HandleActions(game);
 
-            dialogData.Choices[actionKey].HandleActions(game);
-
-            return jumpDialog;
+            return choices[chosen].Value.JumpDialogIndex;
         }
 
         public void NpcTalk(Game game)
