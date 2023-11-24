@@ -32,7 +32,7 @@ namespace WorldOfZuul
         {
             if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
             {
-                Console.WriteLine("Please choose a direction.");
+                Utilities.GamePrint("Please choose a direction.");
                 return;
             }
             string direction = args[0].ToLower();
@@ -40,13 +40,13 @@ namespace WorldOfZuul
             {
                 if (PreviousArea != CurrentArea)
                 {
-                    Console.WriteLine("You came from a different area you need to use travel to go back.");
+                    Utilities.GamePrint("You came from a different area you need to use travel to go back.");
+                    return;
                 }
                 else
                 {
                     (CurrentRoom, PreviousRoom) = (PreviousRoom, CurrentRoom);
                 }
-                return;
             }
             else if (game.World.GetRoom(CurrentArea, CurrentRoom).Exits.ContainsKey(direction))
             {
@@ -56,63 +56,63 @@ namespace WorldOfZuul
             }
             else
             {
-                Console.WriteLine($"You can't go {direction}!");
+                Utilities.GamePrint($"You can't go {direction}!");
+                return;
             }
+            Console.Clear();
+            Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
         }
 
         public void Travel(Game game, string[] args)
         {
             if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
             {
-                Console.WriteLine("Please choose a destination.");
+                Utilities.GamePrint("Please choose a destination.");
                 return;
             }
             string destination = args[0].ToLower();
             if (!game.World.Areas.ContainsKey(destination))
             {
-                Console.WriteLine("This destination doesn't exist!");
+                Utilities.GamePrint("This destination doesn't exist!");
                 return;
             }
             else if (destination == CurrentArea)
             {
-                Console.WriteLine($"You are already at (the) {CurrentArea}.");
+                Utilities.GamePrint($"You are already at (the) {CurrentArea}.");
                 return;
             }
-            string[] transportMethods = { "car", "public transport", "walk" };
-            string? travelCommand;
-            Console.WriteLine($"Choose method of transport({string.Join(" / ", transportMethods)}):");
-            travelCommand = Console.ReadLine();
-            while (!transportMethods.Contains(travelCommand))
-            {
-                Console.WriteLine($"Invalid transport method. Choose from these options: {string.Join(" / ", transportMethods)}. Try again:");
-                travelCommand = Console.ReadLine();
-            }
+            List<string> transportMethods = new() { "car", "public transport", "walk" };
+            int chosen = Utilities.SelectOption("Choose method of transport:", transportMethods);
 
-            if (travelCommand == "car")
+            switch (transportMethods[chosen])
             {
-                Console.WriteLine($"\nYou took the car to {destination} \n");
-            }
-            else if (travelCommand == "walk")
-            {
-                Console.WriteLine($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
-                Console.ReadKey(true);
-                Console.WriteLine($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
-                Console.ReadKey(true);
-                Console.WriteLine($"Another 400 meters at you're there.");
-                Console.ReadKey(true);
-                Console.WriteLine();
-            }
-            else if (travelCommand == "public transport")
-            {
-                Console.WriteLine("\nYou get on the next bus. Press any key to continue");
-                Console.ReadKey(true);
-                Console.WriteLine($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
+                case "car":
+                    Utilities.GamePrint($"\nYou took the car to {destination} \n");
+                    Console.ReadKey(true);
+                    break;
+                case "walk":
+                    Utilities.GamePrint($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
+                    Console.ReadKey(true);
+                    Utilities.GamePrint($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
+                    Console.ReadKey(true);
+                    Utilities.GamePrint($"Another 400 meters at you're there.");
+                    Console.ReadKey(true);
+                    break;
+                case "public transport":
+                    Utilities.GamePrint("\nYou get on the next bus. Press any key to continue");
+                    Console.ReadKey(true);
+                    Utilities.GamePrint($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
+                    Console.ReadKey(true);
+                    break;
+
             }
 
             PreviousArea = CurrentArea;
             CurrentArea = destination;
             PreviousRoom = CurrentRoom;
             CurrentRoom = game.World.GetRoom(destination).Name;
+            Console.Clear();
+            Console.WriteLine(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
         }
 
         public bool TasksDone(){

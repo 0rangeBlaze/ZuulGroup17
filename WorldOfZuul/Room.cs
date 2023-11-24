@@ -37,27 +37,27 @@
 
         public void Describe(Game game)
         {
-            Console.WriteLine(this.GetLongDescription(game.World.Environment));
+            Utilities.GamePrint(this.GetLongDescription(game.World.Environment));
 
             if (Npcs.Count > 0)
             {
-                Console.WriteLine("You see the following people in the room:");
+                Utilities.GamePrint("You see the following people in the room:");
                 foreach (var npc in Npcs)
                 {
-                    Console.WriteLine(" " + npc.Value.Name);
+                    Utilities.GamePrint(" " + npc.Value.Name);
                 }
             }
                 if (Exits.Count > 0)
             {
-                Console.WriteLine("Exits:");
+                Utilities.GamePrint("Exits:");
                 foreach (var exit in Exits)
                 {
-                    Console.WriteLine("- " + exit.Key);
+                    Utilities.GamePrint("- " + exit.Key);
                 }
             }
             else 
             {
-                Console.WriteLine("You cannot exit");
+                Utilities.GamePrint("You cannot exit");
             }
         }
     }

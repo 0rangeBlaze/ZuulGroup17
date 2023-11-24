@@ -37,14 +37,14 @@ namespace WorldOfZuul
 
             while (Running)
             {
-                Console.WriteLine(World.GetRoom(Player.CurrentArea, Player.CurrentRoom).ShortDescription);
+                Console.WriteLine();
                 Console.Write("> ");
 
                 string? input = Console.ReadLine();
                 CommandProcessor.HandleInput(input, this);
             }
 
-            Console.WriteLine("Thank you for playing World of Zuul!");
+            Utilities.GamePrint("Thank you for playing World of Zuul!");
         }
 
         
@@ -60,7 +60,7 @@ namespace WorldOfZuul
                     }
                     else
                     {
-                        Console.WriteLine("You wake up the next day fully refreshed!");
+                        Utilities.GamePrint("You wake up the next day fully refreshed!");
                         NewsInTheMorning();
                         Turn++;
                         Player.ResetTasks(this);
@@ -69,7 +69,7 @@ namespace WorldOfZuul
             }
             else
             {
-                Console.WriteLine("You would much rather sleep in your comfy bed in your bedroom.");
+                Utilities.GamePrint("You would much rather sleep in your comfy bed in your bedroom.");
             }
 
         }
@@ -127,7 +127,7 @@ namespace WorldOfZuul
                 "The Search Engine that plants trees with every search has just planted its 100-millionth tree."
             };
 
-            Console.WriteLine(News[headlineNumber]);
+            Utilities.GamePrint(News[headlineNumber]);
 
         }
 
@@ -158,7 +158,7 @@ namespace WorldOfZuul
                 "Airport submits permit for more private jet flights."
             };
 
-            Console.WriteLine(News[headlineNumber]);
+            Utilities.GamePrint(News[headlineNumber]);
 
         }
 
@@ -170,7 +170,7 @@ namespace WorldOfZuul
                 "This week's headline in the newspaper is that multiple villages in Africa finally got clean drinking water, thanks to donations."
             };
 
-            Console.WriteLine(News[headlineNumber]);
+            Utilities.GamePrint(News[headlineNumber]);
         
         }
 
@@ -182,7 +182,7 @@ namespace WorldOfZuul
                 "Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness."
             };
 
-            Console.WriteLine(News[headlineNumber]);
+            Utilities.GamePrint(News[headlineNumber]);
 
         }
         
@@ -190,9 +190,9 @@ namespace WorldOfZuul
         {
             EnvironmentConclusion();
             HumanWellfareConclusion();
-            Console.WriteLine("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
-            Console.WriteLine("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
-            Console.WriteLine("Hope you enjoyed our game :)");
+            Utilities.GamePrint("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
+            Utilities.GamePrint("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
+            Utilities.GamePrint("Hope you enjoyed our game :)");
             Running = false;
             return;
         }
@@ -200,37 +200,37 @@ namespace WorldOfZuul
         private void EnvironmentConclusion()
         {
             if(World.Environment >= 80)
-                Console.WriteLine("You have managed to look out for the environment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't fighting against it, but embracing its strengths.");
+                Utilities.GamePrint("You have managed to look out for the environment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't fighting against it, but embracing its strengths.");
                 
             else if(World.Environment >= 60)
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else if(World.Environment >= 40)
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else if(World.Environment >= 20)
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else
-                Console.WriteLine("");
+                Utilities.GamePrint("");
         }
 
         private void HumanWellfareConclusion()
         {
             if(World.PopulationWelfare >= 80)
-                Console.WriteLine("The population's wellfare has improved greatly. Almost everyone is living well, poverty and homelessness has been has been clamped back, by figures never seen before.");
+                Utilities.GamePrint("The population's wellfare has improved greatly. Almost everyone is living well, poverty and homelessness has been has been clamped back, by figures never seen before.");
             
             else if(World.PopulationWelfare >= 60)            
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else if(World.PopulationWelfare >= 40)
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else if(World.PopulationWelfare >= 20)
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
             else
-                Console.WriteLine("");
+                Utilities.GamePrint("");
 
         }
 
@@ -238,10 +238,11 @@ namespace WorldOfZuul
 
         private static void PrintWelcome()
         {
-            Utilities.WriteLineWordWrap("Welcome to Lasting Impact!");
-            Utilities.WriteLineWordWrap("In this game you will experience humanity's impact on the environment.");
-            Utilities.WriteLineWordWrap("You will be playing as an average person whose impact on the world is projected to an entire generation of people.");
-            Utilities.WriteLineWordWrap();
+            Console.Clear();
+            Utilities.GamePrint("Welcome to Lasting Impact!");
+            Utilities.GamePrint("In this game you will experience humanity's impact on the environment.");
+            Utilities.GamePrint("You will be playing as an average person whose impact on the world is projected to an entire generation of people.");
+            Utilities.GamePrint();
         }
 
     }

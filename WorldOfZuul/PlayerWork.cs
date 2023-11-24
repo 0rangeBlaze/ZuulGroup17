@@ -27,28 +27,31 @@ namespace WorldOfZuul
                     tasks["work"] = (true, tasks["work"].incompleteMessage);
                 }
                 else {
-                    Console.WriteLine("You are tired from the work you have already done today.");
+                    Utilities.GamePrint("You are tired from the work you have already done today.");
                 }
             }
             else{
-                Console.WriteLine("You need your office environment to be able to work.");
+                Utilities.GamePrint("You need your office environment to be able to work.");
             }
         }
 
         private void SupplyReview(Game game)
         {
-            Console.WriteLine("=========");
-            Console.WriteLine("You are tasked with overlooking the quality of the egg supplements.");
-            Console.WriteLine("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
-            Console.WriteLine("The good eggs are marked with an 'X' and the small ones with an 'O'.");
-            Console.WriteLine("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
+            Utilities.GamePrint("=========");
+            Utilities.GamePrint("You are tasked with overlooking the quality of the egg supplements.");
+            Utilities.GamePrint("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
+            Utilities.GamePrint("The good eggs are marked with an 'X' and the small ones with an 'O'.");
+            Utilities.GamePrint("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
+
+            Utilities.GamePrint("\n<Press any button to continue>");
+            Console.ReadKey(true);
 
             int goodChoices = 0;
             for(int k = 0; k < 3; k++)
             {
                 int badEggs = 0;
                 bool GoodBatch;
-                Console.WriteLine("");
+                string question = "";
                 for(int i = 0; i < 5; i++)
                 {
                     for(int j = 0; j < 5; j++)
@@ -56,15 +59,15 @@ namespace WorldOfZuul
                         int badEgg = Game.RandomGenerator.Next(1, 6);
                         if(badEgg == 1)
                         {
-                            Console.Write("O ");
+                            question += "O ";
                             badEggs += 1;
                         }
                         else
                         {
-                            Console.Write("X ");
+                            question += "X ";
                         }
                     }
-                    Console.WriteLine("");
+                    question += "\n";
                 } 
 
                 if(badEggs > 5)
@@ -75,51 +78,24 @@ namespace WorldOfZuul
                 {
                     GoodBatch = true;
                 }
-                Console.WriteLine("Is this a good or a bad batch?");
-                bool batchChecked = false;
-                while(!batchChecked)
-                {
-                    Console.Write(">");
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    if(key.KeyChar == 'y' || key.KeyChar == 'n')
-                    {
-                        Console.WriteLine("");
-                        if(key.KeyChar == 'y')
-                        {
-                            if(GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are incorrect, this is a bad batch, but do not despair! You can still prove yourself.");
-                        }
-                        else if(key.KeyChar == 'n')
-                        {
-                            if(!GoodBatch)
-                            {
-                                goodChoices += 1;
-                                Console.WriteLine("You are correct, your supervisors are going to be satisfied!");
-                            }
-                            else
-                                Console.WriteLine("Unfortunately you are incorrect, this was a good batch, but do not despair! You can still prove yourself.");
-
-                        }
-                        
-                        batchChecked = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid inpput. Please try again!");
-                    }
+                question += "Is this a good or a bad batch?";
+                int chosen = Utilities.SelectOption(question, new List<string> {"yes", "no"});
+                if((chosen == 0 && GoodBatch) || (chosen == 1 && !GoodBatch)) {
+                    goodChoices++;
+                    Utilities.GamePrint("You are correct, your supervisors are going to be satisfied!");
                 }
+                else {
+                    Utilities.GamePrint("Unfortunately you are incorrect, this was a good batch, but do not despair! You can still prove yourself.");
+                }
+                Utilities.GamePrint("\n<Press any button to continue>");
+                Console.ReadKey(true);
             }
             if(goodChoices > 2)
             {
                 WorkReputation++;
             }
-
-            Console.WriteLine("You are finished for the day, get some rest.");
+            Console.Clear();
+            Utilities.GamePrint("You are finished for the day, get some rest.");
         }
 
         private void SupplyChoice(Game game)
@@ -139,34 +115,24 @@ namespace WorldOfZuul
             int decisionValue = 0;
             foreach(Food name in foods)
             {
-                Console.WriteLine($"Who would you like to buy {name.FoodName} from?");
-                decisionValue += SupplyChoiceProvider(game, providers);
+                string question = $"Who would you like to buy {name.FoodName} from?";
+                decisionValue += SupplyChoiceProvider(game, providers, question);
             }
             if(decisionValue > 0) {
                 WorkReputation++;
             }
         }
-        private int SupplyChoiceProvider(Game game, List<Provider> providers)
+        private int SupplyChoiceProvider(Game game, List<Provider> providers, string question)
         {
+            List<string> options = new(){};
             for(int i =0; i < providers.Count(); i++)
             {
-                Console.WriteLine($"{i+1}. {providers[i].ProviderName}, \n{providers[i].providerDescription} ");
+                options.Add($"{providers[i].ProviderName}, {providers[i].providerDescription}");
             }
-            int input;
-            bool inputBool = true;
-
-            do
-            {
-                inputBool = int.TryParse(Console.ReadLine(), out input);
-                input = input -1;
-                if(input < 0 || input >= providers.Count())
-                {
-                    inputBool = false;
-                }
-            }while(!inputBool);
+            int input = Utilities.SelectOption(question, options);
             
-            Console.WriteLine($"{providers[input].ProviderName}");
-            Console.WriteLine($"You have chosen {providers[input].ProviderName}");
+            Utilities.GamePrint($"You have chosen {providers[input].ProviderName}");
+            Console.ReadKey(true);
             personalWelfare += providers[input].personalWelfareChange;
             game.World.PopulationWelfare += providers[input].populationWelfareChange;
             game.World.Environment += providers[input].environmentChange;
@@ -214,46 +180,33 @@ namespace WorldOfZuul
                 string hireHobby = hireTraits[1];
                 string hireLastJob = hireTraits[2];
 
-                Console.WriteLine($"Candidate: {hireName}");
-                Console.WriteLine($"Hobbies: {hireHobby}");
-                Console.WriteLine($"Last Job: {hireLastJob}");
+                string question = "";
+                question += $"Candidate: {hireName}\n";
+                question += $"Hobbies: {hireHobby}\n";
+                question += $"Last Job: {hireLastJob}\n";
 
-                string decision = string.Empty;
-                bool validDecision = false;
+                question += "Do you want to hire this candidate?\n";
+                int decision = Utilities.SelectOption("Do you want to hire this candidate?", new() {"Yes", "No"});
 
-                while (!validDecision)
+                if (decision == 0)
                 {
-                    Console.Write("Do you want to hire this candidate? (Yes/No): ");
-                    decision = Console.ReadLine() ?? "";
+                    // Stat changes
+                    int hobbyPersonal = traitValues[hireHobby].PER;
+                    int hobbyPopulation = traitValues[hireHobby].POPU;
+                    int hobbyEnvironment = traitValues[hireHobby].ENV;
+                    int lastJobPersonal = traitValues[hireLastJob].PER;
+                    int lastJobPopulation = traitValues[hireLastJob].POPU;
+                    int lastJobEnvironment = traitValues[hireLastJob].ENV;
+                    decisionValue += traitValues[hireHobby].desirablity + traitValues[hireLastJob].desirablity;
 
-                    if (decision.Equals("Yes"))
-                    {
-                        // Stat changes
-                        int hobbyPersonal = traitValues[hireHobby].PER;
-                        int hobbyPopulation = traitValues[hireHobby].POPU;
-                        int hobbyEnvironment = traitValues[hireHobby].ENV;
-                        int lastJobPersonal = traitValues[hireLastJob].PER;
-                        int lastJobPopulation = traitValues[hireLastJob].POPU;
-                        int lastJobEnvironment = traitValues[hireLastJob].ENV;
-                        decisionValue += traitValues[hireHobby].desirablity + traitValues[hireLastJob].desirablity;
-
-                        // Update game stats based on trait values
-                        //Examples:
-                        personalWelfare += hobbyPersonal + lastJobPersonal;
-                        game.World.PopulationWelfare += hobbyPopulation + lastJobPopulation;
-                        game.World.Environment += hobbyEnvironment + lastJobEnvironment;
-                        hires++;
-                        validDecision = true;
-                    }
-                    else if (decision.Equals("No"))
-                    {
-                        validDecision = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter 'Yes' or 'No'.");
-                    }
-                }
+                    // Update game stats based on trait values
+                    //Examples:
+                    personalWelfare += hobbyPersonal + lastJobPersonal;
+                    game.World.PopulationWelfare += hobbyPopulation + lastJobPopulation;
+                    game.World.Environment += hobbyEnvironment + lastJobEnvironment;
+                    hires++;
+                } 
+            
             }
             if(decisionValue > 0) {
                 WorkReputation++;

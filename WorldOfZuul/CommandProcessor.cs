@@ -41,7 +41,7 @@ namespace WorldOfZuul
 
         public static void Process(string? command, Game game){
             if(command == null) {
-                Console.WriteLine("Specify a valid command!");
+                Utilities.GamePrint("Specify a valid command!");
             }
             else {
                 string[] commandWords = command.Split();
@@ -49,21 +49,21 @@ namespace WorldOfZuul
                     commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{}));
                 }
                 else{
-                    Console.WriteLine($"Unknown action '{commandWords[0]}'.");
+                    Utilities.GamePrint($"Unknown action '{commandWords[0]}'.");
                 }
             }
         }
 
         public static void HandleInput(string? command, Game game) {
             if(command == null) {
-                Console.WriteLine("Specify a valid command!");
+                Utilities.GamePrint("Specify a valid command!");
             }
             else {
                 if(possibleCommands.ContainsKey(command.Split()[0])) {
                     Process(command, game);
                 }
                 else {
-                    Console.WriteLine($"Unknown command '{command.Split()[0]}'. Please try again!");
+                    Utilities.GamePrint($"Unknown command '{command.Split()[0]}'. Please try again!");
                 }
             }
         }       
@@ -77,32 +77,32 @@ The world is divided into four main areas: home, mall, town and work.
 Each of these areas contain rooms for you to explore.
 """);*/ //put this somehow in welcome text
 
-                Utilities.WriteLineWordWrap("Possible commands are:");
+                Utilities.GamePrint("Possible commands are:");
                 string commandList = "\t";
                 foreach(string command in possibleCommands.Keys) {
                     if(command != "")
                         commandList += $"{command}, ";
                 }
-                Utilities.WriteLineWordWrap(commandList[..^2]);
-                Utilities.WriteLineWordWrap("\tTo find out more about a command use 'help [command]'.");
+                Utilities.GamePrint(commandList[..^2]);
+                Utilities.GamePrint("\tTo find out more about a command use 'help [command]'.");
                 Console.WriteLine();
             }
             else {
                 if(possibleCommands.ContainsKey(args[0])){
-                    Utilities.WriteLineWordWrap(possibleCommands[args[0]]);
+                    Utilities.GamePrint(possibleCommands[args[0]]);
                 }
                 else{
-                    Utilities.WriteLineWordWrap($"Command {args[0]} does not exist.");
+                    Utilities.GamePrint($"Command {args[0]} does not exist.");
                 }
             }
         }
     
         private static void TalkToNpc(Game game, string[] arguments) {
             if(arguments.Length == 0 || string.IsNullOrEmpty(arguments[0])) {
-                Console.WriteLine("You need to specify who you are talking to!");
+                Utilities.GamePrint("You need to specify who you are talking to!");
             }
             else if(!game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs.ContainsKey(arguments[0])) {
-                Console.WriteLine($"{arguments[0]} is not here.");
+                Utilities.GamePrint($"{arguments[0]} is not here.");
             }
             else{
                 game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).Npcs[arguments[0]].NpcTalk(game);
@@ -114,18 +114,18 @@ Each of these areas contain rooms for you to explore.
         {
             if(arguments.Length == 0 || arguments[0] == "")
             {
-                Console.WriteLine("Areas:");
+                Utilities.GamePrint("Areas:");
                 foreach(var area in game.World.Areas.Keys)
                 {
                     if(area.ToLower() == game.Player.CurrentArea)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{area} <- You Are Here");
+                        Utilities.GamePrint($"{area} <- You Are Here");
                         Console.ResetColor();
                     }
                     else
                     {
-                        Console.WriteLine(area);
+                        Utilities.GamePrint(area);
                     }
                 }
             }
@@ -133,22 +133,22 @@ Each of these areas contain rooms for you to explore.
             {
                 if(!game.World.Areas.ContainsKey(arguments[0]))
                 {
-                    Console.WriteLine("There is no such location!");
+                    Utilities.GamePrint("There is no such location!");
                 }
                 else
                 {
-                    Console.WriteLine("Rooms:");
+                    Utilities.GamePrint("Rooms:");
                     foreach(var room in game.World.Areas[arguments[0]].Rooms.Values)
                     {
                         if(room.Name == game.Player.CurrentRoom)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine($"{room.Name} <- You Are Here");
+                            Utilities.GamePrint($"{room.Name} <- You Are Here");
                             Console.ResetColor();
                         } 
                         else
                         {
-                            Console.WriteLine(room.Name);
+                            Utilities.GamePrint(room.Name);
                         }
                     }
                 }

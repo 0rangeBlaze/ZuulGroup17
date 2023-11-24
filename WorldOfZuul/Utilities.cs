@@ -1,29 +1,34 @@
 namespace WorldOfZuul {
     public static class Utilities {
-    public static void WriteLineWordWrap(string paragraph = "", int tabSize = 8) {
-        string[] lines = paragraph
-            .Replace("\t", new String(' ', tabSize))
-            .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-
-        for (int i = 0; i < lines.Length; i++) {
-            string process = lines[i];
-            List<String> wrapped = new List<string>();
-
-            while (process.Length > Console.WindowWidth) {
-                int wrapAt = process.LastIndexOf(' ', Math.Min(Console.WindowWidth - 1, process.Length));
-                if (wrapAt <= 0) break;
-
-                wrapped.Add(process.Substring(0, wrapAt));
-                process = process.Remove(0, wrapAt + 1);
-            }
-
-            foreach (string wrap in wrapped) {
-                Console.WriteLine(wrap);
-            }
-
-            Console.WriteLine(process);
+        public static void GamePrint(string paragraph="") {
+           PrintSlowly(WrapLine(paragraph)); 
         }
-    }
+
+        public static string WrapLine(string paragraph = "", int tabSize = 8) {
+            string[] lines = paragraph
+                .Replace("\t", new String(' ', tabSize))
+                .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            string result = "";
+            for (int i = 0; i < lines.Length; i++) {
+                string process = lines[i];
+                List<String> wrapped = new List<string>();
+
+                while (process.Length > Console.WindowWidth) {
+                    int wrapAt = process.LastIndexOf(' ', Math.Min(Console.WindowWidth - 1, process.Length));
+                    if (wrapAt <= 0) break;
+
+                    wrapped.Add(process.Substring(0, wrapAt));
+                    process = process.Remove(0, wrapAt + 1);
+                }
+
+                foreach (string wrap in wrapped) {
+                    result += wrap + "\n";
+                }
+                result += process + (i < lines.Length-1 ? "\n" : "");
+            }
+            return result;
+        }
         // You input the question and list.
         // Then the method show you question and menu from which you can select with arrows
         // It returns index of list
@@ -40,8 +45,8 @@ namespace WorldOfZuul {
             {
                 while (!selected)
                 {
-
-                    CenterText(question + "\n");
+                    Console.Clear();
+                    CenterText(WrapLine(question + "\n"));
 
                     for (int i = 0; i < temp.Count; i++)
                     {
@@ -61,29 +66,26 @@ namespace WorldOfZuul {
                     switch (key.Key)
                     {
                         default:
-                            Console.Clear();
                             break;
                         case ConsoleKey.DownArrow:
                             if (option < startingPosition)
                             {
                                 option++;
                             }
-                            Console.Clear();
                             break;
                         case ConsoleKey.UpArrow:
                             if (option > endingPosition)
                             {
                                 option--;
                             }
-                            Console.Clear();
                             break;
                         case ConsoleKey.Enter:
                             selected = true;
-                            Console.Clear();
                             break;
                     }
                 }
                 Console.CursorVisible = true;
+                Console.Clear();
                 return option - 1;
             }
             else
@@ -94,10 +96,15 @@ namespace WorldOfZuul {
         }
 
         //It show text that is centered
-        public static void CenterText(string text)
+        public static void CenterText(string paragraph)
         {
-            Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
-            Console.WriteLine(text);
+            string[] lines = paragraph.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            foreach(string text in lines) {
+                if((Console.WindowWidth-text.Length)/2 >= 0) {
+                    Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
+                }
+                Console.WriteLine(text);
+            }
         }
 
         // Method for coloring the text
@@ -150,9 +157,8 @@ namespace WorldOfZuul {
         }
 
         //Print text slowly to add immersion
-        public static void PrintSlowly(string text)
+        public static void PrintSlowly(string text, int delay = 35)
         {
-            int delay = 25;
             foreach (char c in text)
             {
                 Console.Write(c);
@@ -162,10 +168,9 @@ namespace WorldOfZuul {
         }
 
         //Print centered text slowly to add immersion
-        public static void PrintSlowlyCenter(string text)
+        public static void PrintSlowlyCenter(string text, int delay = 35)
         {
             Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
-            int delay = 25;
             foreach (char c in text)
             {
                 Console.Write(c);

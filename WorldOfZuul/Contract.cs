@@ -8,7 +8,7 @@ namespace WorldOfZuul
         private double TotalNetWorth;
         private string? FieldOfWork;
         private string? ContractDescription;
-        private string? ifAccepted;
+        private string ifAccepted = "";
         private int GoodForEnvironment;
         public static int ContractNamesIndex = 0;
 
@@ -41,35 +41,18 @@ namespace WorldOfZuul
 
         private void ContractReview(Game game)
         {
-            this.PrintContract();
+            string question = this.GetContractString();
 
-            Console.WriteLine("Would you like to accept this contract? (y/n)");
-            bool signedContract = false;
-            while (!signedContract)
+            question += "Would you like to accept this contract?";
+            int chosen = Utilities.SelectOption(question, new() {"Yes", "No"});
+            if (chosen == 0)
             {
-                Console.Write(">");
-                ConsoleKeyInfo key = Console.ReadKey();
-                Console.WriteLine("");
-                if (key.KeyChar == 'y' || key.KeyChar == 'n')
-                {
-
-                    Console.WriteLine("");
-                    if (key.KeyChar == 'y')
-                    {
-                        Console.WriteLine(this.ifAccepted);
-                        game.World.Environment += this.GoodForEnvironment;
-                    }
-                    else if (key.KeyChar == 'n')
-                    {
-                        Console.WriteLine("You rejected this opportunity. Hope it wasn't a mistake");
-                    }
-
-                    signedContract = true;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please try again!");
-                }
+                Utilities.GamePrint(this.ifAccepted);
+                game.World.Environment += this.GoodForEnvironment;
+            }
+            else if (chosen == 1)
+            {
+                Utilities.GamePrint("You rejected this opportunity. Hope it wasn't a mistake");
             }
         }
 
@@ -82,18 +65,18 @@ namespace WorldOfZuul
             ContractNamesIndex %= ContractNames.Count;
         }
 
-        public void PrintContract()
+        public string GetContractString()
         {
-            Console.WriteLine($"");
-            Console.WriteLine($"Company Name: {this.CompanyName}");
-            Console.WriteLine($"Short Description: {this.CompanyShortDescription}");
-            Console.WriteLine($"");
-            Console.WriteLine($"Year of Fundation: {this.YearOfFundation}");
-            Console.WriteLine($"Total Net Worth: {this.TotalNetWorth} dollars");
-            Console.WriteLine($"Field of Work: {this.FieldOfWork}");
-            Console.WriteLine($"");
-            Console.WriteLine($"Contract: {this.ContractDescription}");
-            Console.WriteLine($"");
+            return
+            $"\n" +
+            $"Company Name: {this.CompanyName} {Environment.NewLine}" +
+            $"Short Description: {this.CompanyShortDescription}\n" +
+            $"\n" +
+            $"Year of Fundation: {this.YearOfFundation}\n" +
+            $"Total Net Worth: {this.TotalNetWorth} dollars\n" +
+            $"Field of Work: {this.FieldOfWork}\n" +
+            $"\n" +
+            $"Contract: {this.ContractDescription}\n";
         }
     }
 
