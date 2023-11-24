@@ -44,7 +44,7 @@ namespace WorldOfZuul {
             if (question != null && temp.Count > 0)
             {
                 Console.Clear();
-                CenterText(WrapLine(question + "\n"));
+                PrintSlowlyCenter(WrapLine(question + "\n"));
 
                 int top = Console.CursorTop;
                 //Console.WriteLine(top);
@@ -168,7 +168,7 @@ namespace WorldOfZuul {
         }
 
         //Print text slowly to add immersion
-        public static void PrintSlowly(string text, int delay = 5)
+        public static void PrintSlowly(string text, int delay = 35)
         {
             foreach (char c in text)
             {
@@ -179,15 +179,20 @@ namespace WorldOfZuul {
         }
 
         //Print centered text slowly to add immersion
-        public static void PrintSlowlyCenter(string text, int delay = 35)
+        public static void PrintSlowlyCenter(string paragraph, int delay = 35)
         {
-            Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
-            foreach (char c in text)
-            {
-                Console.Write(c);
-                Thread.Sleep(delay);
+            string[] lines = paragraph.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            foreach(string text in lines) {
+                if((Console.WindowWidth-text.Length)/2 >= 0) {
+                    Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
+                }
+                foreach (char c in text)
+                {
+                    Console.Write(c);
+                    Thread.Sleep(delay);
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
         }
     }
 }

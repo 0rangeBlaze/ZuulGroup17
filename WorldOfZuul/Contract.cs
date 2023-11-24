@@ -54,6 +54,8 @@ namespace WorldOfZuul
             {
                 Utilities.GamePrint("You rejected this opportunity. Hope it wasn't a mistake");
             }
+            Utilities.GamePrint("\n<Press any button to continue>");
+            Console.ReadKey(true);
         }
 
         public static void ContractReviewWork(Game game) {
