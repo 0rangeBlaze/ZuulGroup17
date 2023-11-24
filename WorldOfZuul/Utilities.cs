@@ -35,32 +35,34 @@ namespace WorldOfZuul {
         // You need to proces the returned value yourself
         public static int SelectOption(string question, List<string> temp)
         {
-            int option = 1;
-            int startingPosition = temp.Count;
-            int endingPosition = (temp.Count + 1) - startingPosition;
+            int option = 0;
+            int startingPosition = 0;
+            int endingPosition = temp.Count;
 
             bool selected = false;
             Console.CursorVisible = false;
             if (question != null && temp.Count > 0)
             {
+                Console.Clear();
+                CenterText(WrapLine(question + "\n"));
+
+                int top = Console.CursorTop;
+                //Console.WriteLine(top);
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    if (option == i)
+                    {
+                        CenterColor(temp[i], "green");
+                    }
+                    else
+                    {
+                        CenterText(temp[i]);
+                    }
+                }
+                Console.CursorTop = top;
+
                 while (!selected)
                 {
-                    Console.Clear();
-                    CenterText(WrapLine(question + "\n"));
-
-                    for (int i = 0; i < temp.Count; i++)
-                    {
-                        if (option == i + 1)
-                        {
-                            CenterColor(temp[i], "green");
-                        }
-                        else
-                        {
-                            CenterText(temp[i]);
-                        }
-
-                    }
-
                     ConsoleKeyInfo key = Console.ReadKey();
 
                     switch (key.Key)
@@ -68,15 +70,24 @@ namespace WorldOfZuul {
                         default:
                             break;
                         case ConsoleKey.DownArrow:
-                            if (option < startingPosition)
+                            if (option + 1 < endingPosition)
                             {
+                                CenterText(temp[option]);
                                 option++;
+                                CenterColor(temp[option], "green");
+                                //does not work in case of multiline options, which is solveable, but there is no need for it
+                                Console.CursorTop--;
                             }
                             break;
                         case ConsoleKey.UpArrow:
-                            if (option > endingPosition)
+                            if (option - 1 >= startingPosition)
                             {
+                                CenterText(temp[option]);
                                 option--;
+                                //once again doesn't work with multiline options
+                                Console.CursorTop -= 2;
+                                CenterColor(temp[option], "green");
+                                Console.CursorTop--;
                             }
                             break;
                         case ConsoleKey.Enter:
@@ -86,7 +97,7 @@ namespace WorldOfZuul {
                 }
                 Console.CursorVisible = true;
                 Console.Clear();
-                return option - 1;
+                return option;
             }
             else
             {
@@ -157,7 +168,7 @@ namespace WorldOfZuul {
         }
 
         //Print text slowly to add immersion
-        public static void PrintSlowly(string text, int delay = 35)
+        public static void PrintSlowly(string text, int delay = 5)
         {
             foreach (char c in text)
             {
