@@ -28,6 +28,7 @@ namespace WorldOfZuul
             WorkReputation = 0;
         }
 
+        /*
         private Dictionary<string, StatChanges> actionStatChanges = new Dictionary<string, StatChanges>
         {
             {"work", new StatChanges(5, -5)}, //Stats are just some examples, will change later probably
@@ -43,6 +44,7 @@ namespace WorldOfZuul
                 World.Environment += changes.EnvironmentChange;
             }
         }
+        */
 
         public void Move(Game game, string[] args)
         {
@@ -160,7 +162,7 @@ namespace WorldOfZuul
                 Console.WriteLine("You finish your delicious meal which makes you so full that you can't imagine eating anything for the rest of the day!");
                 tasks["eat"] = (true, tasks["eat"].incompleteMessage);
 
-                ApplyStatChanges("eat");
+                //ApplyStatChanges("eat");
             }
         }
         public void SortTrash(Game game)

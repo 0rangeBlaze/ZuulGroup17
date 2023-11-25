@@ -199,8 +199,8 @@ namespace WorldOfZuul
 
                     // Update game stats based on trait values
                     //Examples:
-                    game.World.PersonalWelfare += hobbyPersonal + lastJobPersonal;
-                    game.World.Environment += hobbyEnvironment + lastJobEnvironment;
+                    //game.World.PersonalWelfare += hobbyPersonal + lastJobPersonal;
+                    //game.World.Environment += hobbyEnvironment + lastJobEnvironment;
                     hires++;
                 } 
             

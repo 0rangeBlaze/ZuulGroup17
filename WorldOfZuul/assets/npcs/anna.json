@@ -62,7 +62,7 @@
       },
   
       "pizza": {
-        "Dialog": "Well, our most famous pizzas are the \"Green and White pizza\" and the \"Catalan Coca\", I'd recommend either.",
+        "Dialog": "Well, our most famous pizzas are the 'Green and White pizza' and the 'Catalan Coca', I'd recommend either.",
         "Choices": {
           "hawaiian": {
             "Description": "Okay, I'll try the Green and White pizza.",
@@ -82,7 +82,7 @@
         "Dialog": "We have world class steaks, made from animals born and raised in this area.",
         "Choices": {
           "index1": {
-            "Description": "Can I have a tomahawk steak, please??",
+            "Description": "Can I have a tomahawk steak, please?",
             "JumpDialogIndex": "drink",
             "Actions": []
           },
@@ -128,7 +128,7 @@
             "Actions": []
           },
           "IceTea": {
-            "Description": "I'd kill for a glass of cider!",
+            "Description": "I'd kill for a bit of cider!",
             "JumpDialogIndex": "end",
             "Actions": []
           },
