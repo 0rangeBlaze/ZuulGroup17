@@ -82,12 +82,12 @@
         "Dialog": "We have world class steaks, made from animals born and raised in this area.",
         "Choices": {
           "index1": {
-            "Description": "Can I have a tomahawk steak, please?",
+            "Description": "Can I have a tomahawk steak with the steak fries, please?",
             "JumpDialogIndex": "drink",
             "Actions": []
           },
           "index2": {
-            "Description": "May I get a ribeye steak with mashed potatoes?.",
+            "Description": "May I get a Wagyu steak with mashed potatoes?",
             "JumpDialogIndex": "drink",
             "Actions": []
           },
