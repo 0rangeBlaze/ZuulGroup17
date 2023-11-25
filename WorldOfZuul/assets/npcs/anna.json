@@ -1,0 +1,160 @@
+{
+    "name": "Anna",
+    "dialogs": {
+  
+      "index1": {
+        "Dialog": "Hi, and welcome to Gourmet Haven, where we only serve food made from locally grown ingredients. How may I be at your service?",
+        "Choices": {
+          "special": {
+            "Description": "What specialties do you have for today?",
+            "JumpDialogIndex": "specialties",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "Hmm, I feel like eating some beef.",
+            "JumpDialogIndex": "beef",
+            "Actions": []
+          },
+          "vega": {
+            "Description": "Do you have anything vegetarian?",
+            "JumpDialogIndex": "vegetarian",
+            "Actions": []
+          }
+        }
+      },
+  
+      "specialties": {
+        "Dialog": "The chef recommends the roasted lamb with the special \"Three Peas\" side dish.",
+        "Choices": {
+          "anwser1": {
+            "Description": "That sounds lovely, I'd like to order that.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "anwser2": {
+            "Description": "No, sorry, I don't feel like lamb.",
+            "JumpDialogIndex": "recommendation",
+            "Actions": []
+          }
+        }
+  
+      },
+  
+      "vegetarian": {
+        "Dialog": "We have many salad bowls, and many pizzas.",
+        "Choices": {
+          "small": {
+            "Description": "I'd like a Broccoli Salad please.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "medium": {
+            "Description": "Can I have the Japanese Sesame Spinach Salad?",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "large": {
+            "Description": "Please tell me a bit more about the pizzas.",
+            "JumpDialogIndex": "pizza",
+            "Actions": []
+          }
+        }
+      },
+  
+      "pizza": {
+        "Dialog": "Well, our most famous pizzas are the \"Green and White pizza\" and the \"Catalan Coca\", I'd recommend either.",
+        "Choices": {
+          "hawaiian": {
+            "Description": "Okay, I'll try the Green and White pizza.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "Let's give the Catalann Coca a chance.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          }
+        }
+  
+      },
+  
+      "beef": {
+        "Dialog": "We have world class steaks, made from animals born and raised in this area.",
+        "Choices": {
+          "index1": {
+            "Description": "Can I have a tomahawk steak, please??",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "index2": {
+            "Description": "May I get a ribeye steak with mashed potatoes?.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          },
+          "index3": {
+            "Description": "I would like the grilled ribs.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          }
+        }
+      },
+      "recommendation": {
+        "Dialog": "Then let me reccomend Spagetthi Bolognese, it's lovely with a bit of red wine.",
+        "Choices": {
+          "index1": {
+            "Description": "That sounds lovely, I'd like to order that.",
+            "JumpDialogIndex": "drink",
+            "Actions": []
+          }
+        }
+      },
+  
+      "drink": {
+        "Dialog": "Would you like to drink anything?",
+        "Choices": {
+          "coke": {
+            "Description": "Yes, a glass of sparkling water please!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "fanta": {
+            "Description": "Yes, I would like a glass of red wine!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "7up": {
+            "Description": "A cup of tea, thank you!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "IceTea": {
+            "Description": "I'd kill for a glass of cider!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "water": {
+            "Description": "Just water, thank you.",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "no": {
+            "Description": "No, thank you!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          }
+        }
+      },
+  
+      "end": {
+        "Dialog": "Alright, while we make your order let me bring you a dish of appetizers!",
+        "Choices": {
+          "#pay": {
+            "Description": "Pay",
+            "JumpDialogIndex": "index1",
+            "Actions": ["eat"]
+          }
+        }
+      }
+  
+    }
+  }
