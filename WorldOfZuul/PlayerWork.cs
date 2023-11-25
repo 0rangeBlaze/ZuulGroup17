@@ -157,18 +157,18 @@ namespace WorldOfZuul
                 "Filler6", "Filler7", "Filler8", "Filler9", "Filler0"
             };
             //I really need a better way to address these stats
-            Dictionary<string, (int PER, int POPU, int ENV, int desirablity)> traitValues = new Dictionary<string, (int, int, int, int)>
+            Dictionary<string, (int PER, int ENV, int desirablity)> traitValues = new Dictionary<string, (int, int, int)>
             {
-                { "Filler1", (1, 2, 3, 1) },
-                { "Filler2", (1, 2, 3, 0) },
-                { "Filler3", (1, 2, 3, -1) },
-                { "Filler4", (1, 2, 3, 1) },
-                { "Filler5", (1, 2, 3, 1) },
-                { "Filler6", (1, 2, 3, -1) },
-                { "Filler7", (1, 2, 3, 1) },
-                { "Filler8", (1, 2, 3, 0) },
-                { "Filler9", (1, 2, 3, 1) },
-                { "Filler0", (1, 2, 3, -1) },
+                { "Filler1", (1, 3, 1) },
+                { "Filler2", (1, 3, 0) },
+                { "Filler3", (1, 3, -1) },
+                { "Filler4", (1, 3, 1) },
+                { "Filler5", (1, 3, 1) },
+                { "Filler6", (1, 3, -1) },
+                { "Filler7", (1, 3, 1) },
+                { "Filler8", (1, 3, 0) },
+                { "Filler9", (1, 3, 1) },
+                { "Filler0", (1, 3, -1) },
             };
 
             int hires = 0;
@@ -192,17 +192,14 @@ namespace WorldOfZuul
                 {
                     // Stat changes
                     int hobbyPersonal = traitValues[hireHobby].PER;
-                    int hobbyPopulation = traitValues[hireHobby].POPU;
                     int hobbyEnvironment = traitValues[hireHobby].ENV;
                     int lastJobPersonal = traitValues[hireLastJob].PER;
-                    int lastJobPopulation = traitValues[hireLastJob].POPU;
                     int lastJobEnvironment = traitValues[hireLastJob].ENV;
                     decisionValue += traitValues[hireHobby].desirablity + traitValues[hireLastJob].desirablity;
 
                     // Update game stats based on trait values
                     //Examples:
-                    personalWelfare += hobbyPersonal + lastJobPersonal;
-                    game.World.PopulationWelfare += hobbyPopulation + lastJobPopulation;
+                    game.World.PersonalWelfare += hobbyPersonal + lastJobPersonal;
                     game.World.Environment += hobbyEnvironment + lastJobEnvironment;
                     hires++;
                 } 
