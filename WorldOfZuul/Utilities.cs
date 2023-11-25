@@ -63,7 +63,7 @@ namespace WorldOfZuul {
 
                 while (!selected)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey(true);
 
                     switch (key.Key)
                     {
@@ -170,12 +170,19 @@ namespace WorldOfZuul {
         //Print text slowly to add immersion
         public static void PrintSlowly(string text, int delay = 35)
         {
+            
             foreach (char c in text)
             {
+                while(Console.KeyAvailable) {
+                    Console.ReadKey(true);
+                }
                 Console.Write(c);
                 Thread.Sleep(delay);
             }
             Console.WriteLine();
+            while(Console.KeyAvailable) {
+                Console.ReadKey(true);
+            }
         }
 
         //Print centered text slowly to add immersion
@@ -192,6 +199,9 @@ namespace WorldOfZuul {
                     Thread.Sleep(delay);
                 }
                 Console.WriteLine();
+                while(Console.KeyAvailable) {
+                    Console.ReadKey(true);
+                }
             }
         }
     }
