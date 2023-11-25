@@ -40,6 +40,7 @@
                         },
                         "actions": [],
                         "npcs": [
+                            "./assets/npcs/anna.json"
                         ],
                         "exits":
                         {
