@@ -82,7 +82,9 @@ namespace WorldOfZuul
             if (npcData != null)
             {
                 talking = true;
+                Console.Clear();
                 RandomGreeting();
+                Console.ReadKey(true);
                 while (talking)
                 {
                     if (npcData.ContainsKey(currentDialog))
@@ -108,7 +110,7 @@ namespace WorldOfZuul
         {
             Random greetings = new Random();
             int greetingIndex = greetings.Next(greeting.Count);
-            Utilities.SlowColor(greeting[greetingIndex],"green");
+            Utilities.PrintSlowlyCenter(greeting[greetingIndex], ConsoleColor.Green);
         }
 
         
