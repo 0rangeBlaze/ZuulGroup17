@@ -175,6 +175,7 @@ namespace WorldOfZuul {
             {
                 while(Console.KeyAvailable) {
                     Console.ReadKey(true);
+                    delay = 0;
                 }
                 Console.Write(c);
                 Thread.Sleep(delay);
@@ -196,6 +197,10 @@ namespace WorldOfZuul {
                 Console.ForegroundColor = color;
                 foreach (char c in text)
                 {
+                    while(Console.KeyAvailable) {
+                        Console.ReadKey(true);
+                        delay = 0;
+                    }
                     Console.Write(c);
                     Thread.Sleep(delay);
                 }
