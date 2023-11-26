@@ -8,6 +8,7 @@ namespace WorldOfZuul
         public int environmentChange {get; set;}
         public string? providerDescription {get; set;}
         public int Desirablity {get; set;}
+        public string? Food {get; set;}
     }
     public class Food
     {

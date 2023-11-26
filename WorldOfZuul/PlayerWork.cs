@@ -101,35 +101,90 @@ namespace WorldOfZuul
         private void SupplyChoice(Game game)
         {
             List<Food> foods = new();
-            List<Provider> providers = new();
+            List<Provider> providers = new() {
+                new Provider() {
+                    Food = "fish", ProviderName = "EcoHarbor Fisheries",  
+                    personalWelfareChange = 0, environmentChange = 3, populationWelfareChange = -1, 
+                    providerDescription = "They invest in advanced technologies to reduce bycatch, use selective fishing methods, and support marine conservation initiatives. EcoHarbor works closely with local communities to ensure responsible fishing practices. Customers appreciate the premium quality and traceability of their products. Products from EcoHarbor Fisheries are positioned at a higher price point.", 
+                    Desirablity = -1
+                },
+                new Provider() {
+                    Food = "fish", ProviderName = "MarineMingle Seafoods",
+                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    providerDescription = " MarineMingle Seafoods source from a mix of wild-caught and aquaculture suppliers, with an emphasis on responsible practices. MarineMingle offers seafood at a mid-range price.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "fish", ProviderName = "BlueCrest Seafoods",
+                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    providerDescription = "They may source from fisheries with questionable environmental practices, including overfishing and habitat destruction. BlueCrest Seafoods priced at the lower end of the market.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "fruits", ProviderName = "Sunrise Orchards Cooperative",
+                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    providerDescription = "Sunrise Orchards Cooperative is a collective of small-scale farmers emphasizing community-based agriculture. They follow a mix of organic and conventional farming practices, with a focus on fair trade principles. They produce relatively affordable goods with good quality.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "fruits", ProviderName = "BudgetHarvest Fruits",
+                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    providerDescription = "BudgetHarvest Fruits aims to make fresh produce accessible to all, but their practices may not prioritize sustainability. They source fruits from various farms, including those with less environmentally friendly practices. However, customers are drawn to BudgetHarvest for their incredibly low prices, however their quiality is often undesirable.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "fruits", ProviderName = "EverGreen Harvests",
+                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    providerDescription = "EverGreen Harvests is dedicated to sustainable fruit production through regenerative agriculture. They implement cutting-edge techniques such as agroforestry and use organic practices to ensure soil health. EverGreen actively engages with local communities to promote responsible farming and biodiversity. Customers appreciate the exceptional quality and unique varieties of fruits. EverGreen Harvests products are extremely expensive.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "meat", ProviderName = "EconoMeat Processors", 
+                    personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1,
+                    providerDescription = "They source meat from various suppliers, including those with less environmentally friendly practices. EconoMeat may use conventional farming methods and be less transparent about sourcing. Generally cheap with an exception for a few quality products.", Desirablity = 1
+                },
+                new Provider() {
+                    Food = "meat", ProviderName = "CommunityCraze Ranch", 
+                    personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1,
+                    providerDescription = "They source from local farmers who follow a mix of conventional and sustainable practices, emphasizing humane treatment of animals. CommunityCraze Ranch is committed to supporting local economies and responsible farming. They offer meat at a mid-range price with great quality.", Desirablity = 1
+                },
+                new Provider() {
+                    Food = "meat", ProviderName = "SustainableSavanna Meats", 
+                    personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1,
+                    providerDescription = "SustainableSavanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. SustainableSavanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately the quality of their products is often bad and they are expensive.", Desirablity = 1
+                },
+            };
             foods.Add(new Food() {FoodName = "fish"});
-            foods.Add(new Food() {FoodName = "meat"});
-            foods.Add(new Food() {FoodName = "spices"});
             foods.Add(new Food() {FoodName = "fruits"});
-            foods.Add(new Food() {FoodName = "vegetables"});
+            /*foods.Add(new Food() {FoodName = "meat"});
+            foods.Add(new Food() {FoodName = "spices"});
+            foods.Add(new Food() {FoodName = "vegetables"});*/
 
-            providers.Add(new Provider() {ProviderName = "Zabka",  personalWelfareChange = -1, environmentChange = -1, populationWelfareChange = -1, providerDescription = "Lorem ipsum", Desirablity = 0});
-            providers.Add(new Provider() {ProviderName = "Lidl",  personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1, providerDescription = "Lorem ipsum", Desirablity = 0});
-            providers.Add(new Provider() {ProviderName = "Bilka", personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1, providerDescription = "Lorem ipsum", Desirablity = 1});
+
             
             int decisionValue = 0;
             foreach(Food name in foods)
             {
                 string question = $"Who would you like to buy {name.FoodName} from?";
-                decisionValue += SupplyChoiceProvider(game, providers, question);
+                decisionValue += SupplyChoiceProvider(game, providers, question, name);
             }
-            if(decisionValue > 0) {
+            if(decisionValue >= 0) {
                 WorkReputation++;
             }
         }
-        private int SupplyChoiceProvider(Game game, List<Provider> providers, string question)
+        private int SupplyChoiceProvider(Game game, List<Provider> providers, string question, Food food)
         {
             List<string> options = new(){};
+            string descriptions = "";
             for(int i =0; i < providers.Count(); i++)
             {
-                options.Add($"{providers[i].ProviderName}, {providers[i].providerDescription}");
+                if(food.FoodName == providers[i].Food){
+                    options.Add($"{providers[i].ProviderName}");
+                    descriptions += $"{providers[i].ProviderName}:\n\n {providers[i].providerDescription}\n\n\n";
+                }
             }
-            int input = Utilities.SelectOption(question, options);
+            descriptions += "\n" + question;
+            int input = Utilities.SelectOption(descriptions, options);
             
             Utilities.GamePrint($"You have chosen {providers[input].ProviderName}");
             Console.ReadKey(true);
