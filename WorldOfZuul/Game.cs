@@ -76,7 +76,9 @@ namespace WorldOfZuul
         private void NewsInTheMorning()
         {
             int headlineNumber = Turn % 10;
-
+            Console.WriteLine("");
+            Console.WriteLine("In the  news you read the following headlines:");
+            Console.WriteLine("");
             if(World.Environment > World.PreviousEnvironment)
             {
                 BetterEnvironment(headlineNumber);
@@ -127,7 +129,7 @@ namespace WorldOfZuul
                 "The Search Engine that plants trees with every search has just planted its 100-millionth tree."
             };
 
-            Utilities.GamePrint(News[headlineNumber]);
+            Utilities.GamePrint("\t" + News[headlineNumber]);
 
         }
 
@@ -158,7 +160,7 @@ namespace WorldOfZuul
                 "Airport submits permit for more private jet flights."
             };
 
-            Utilities.GamePrint(News[headlineNumber]);
+            Utilities.GamePrint("\t" + News[headlineNumber]);
 
         }
 
@@ -167,19 +169,18 @@ namespace WorldOfZuul
 
             string[] News = new string[]
             {
-                "This week's headline in the newspaper is that multiple villages in Africa finally got clean drinking water, thanks to donations.",
-                "Economic Explosion Results in Significant Boost to Public Welfare",
-                "Zambian Government's Initiatives Lead to Surge in Employment and Well-being",
+                "Hungarian Mental Health Awareness Campaigns Contribute to National Well-being",
                 "EU's Innovative Policies Bring a Remarkable Rise in Happiness Index",
                 "In Venezuela Community Support Programs Reap Benefits, Enhancing Public Welfare",
+                "Zambian Government's Initiatives Lead to Surge in Employment and Well-being",
+                "Economic Explosion Results in Significant Boost to Public Welfare",
                 "Healthcare Overhaul Results in Improved Well-being Across the U.S.",
                 "Croatian Education Reforms Bridge Gaps, Elevating Overall Welfare",
                 "Holland's Housing Problems Solved, Contributing to Elevated Quality of Life Across All Social Classes",
-                "Hungarian Mental Health Awareness Campaigns Contribute to National Well-being",
                 "Social Safety Nets Strengthened, Ensuring a Better Quality of Life"
             };
 
-            Utilities.GamePrint(News[headlineNumber]);
+            Utilities.GamePrint("\t" + News[headlineNumber]);
         
         }
 
@@ -188,20 +189,19 @@ namespace WorldOfZuul
 
             string[] News = new string[]
             {
-                "Tension Caused by Unemployment Alarms People about the French Welfare",
-                "Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness.",
                 "The British are risingly unhappy, due to the French",
+                "Outbreak Breaks Out in Guatemala",
                 "Rising Inequality in Bulgaria Sparks Concerns About the People's Well-being",
                 "Economic Downturn Takes Toll on Public Happiness",
                 "U.S.'s Social Safety Nets Strained as Welfare Declines Nationwide",
                 "Austrian Budget Cuts Lead to Challenges in Access to Vital Services",
-                "Outbreak Breaks Out in Guatemala",
                 "Well-Being Among Young Adults is Declining, Harvard-led Study Finds",
-                "Survey Reveals People's Mental and Physical Health Declined",
-                "Government Faces Criticism Over Worsening Social Welfare Indicators"
+                "Tension Caused by Unemployment Alarms People about the French Welfare",
+                "Survey Reveals People's Mental and Physical Health Declining",
+                "Swiss Government Faces Criticism Over Worsening Social Welfare Indicators"
             };
 
-            Utilities.GamePrint(News[headlineNumber]);
+            Utilities.GamePrint("\t" + News[headlineNumber]);
 
         }
         
