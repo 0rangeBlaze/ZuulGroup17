@@ -32,7 +32,7 @@ namespace WorldOfZuul
             {"move", "\nmove: move [direction]\n\tMove in direction.\n\tIf direction is set to back move back to previous room.\n"},
             {"travel", "\ntravel: travel [destination]\n\tNavigate to area specified in destination.\n"},
             {"work", "\nwork: \n\tWhen in your office start working.\n"},
-            {"talk", "\ntalk: talk [name]\n\tTalk to the npc specified by name in the current room .\n"},
+            {"talk", "\ntalk: talk [name]\n\tTalk to the npc specified by name in the current room.\n"},
             {"map", "\nmap: map [area]\n\tLists room in area. \n\tIf area is not specified lists areas.\n"},
             {"sort", "\ntrash:\n\tWhen in kitchen sort or just throw out trash.\n"},
             {"sleep", "\nsleep:\n\tWhen in your bedroom start a new turn.\n"},
