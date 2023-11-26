@@ -41,7 +41,7 @@ namespace WorldOfZuul
             Utilities.GamePrint("You are tasked with overlooking the quality of the egg supplements.");
             Utilities.GamePrint("A batch of 25 eggs is only acceptable if there are 5 or less small eggs.");
             Utilities.GamePrint("The good eggs are marked with an 'X' and the small ones with an 'O'.");
-            Utilities.GamePrint("After looking at a batch checking its quality: \nType 'y' if its acceptable \nType 'n' if not");
+            Utilities.GamePrint("After looking at a batch checking its quality: \nChoose 'yes' if its acceptable \nChoose 'no' if not");
 
             Utilities.GamePrint("\n<Press any button to continue>");
             Console.ReadKey(true);

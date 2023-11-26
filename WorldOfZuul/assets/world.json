@@ -191,7 +191,7 @@
                     {
                         "0": "The plastic trees that the government has planted to keep the good vibe up have also lost their leaves. It didn't seem possible, but chances are that no one has looked after them in a very long time. \nThere's a non-passing centimeter of sand on the ground, and on worse days, you can hardly see a few meters because of air-pollution.",
                         "20": "The greenpatch in the middle has been replaced by ake plants. The actuall ones could survive in these conditions. The cafés are still busy, just not as much as usually. \nThe constant smog makes it hard to breathe, and unpleasant to stay outside for longer than needed.",
-                        "40": "The town's main square is surrounded by cute little cafés. It's a little greenpatch surrounded by glass giants. There are benches situated under the shade of the trees. \nThe place is suprisingly well lit, compared to how tall buildings stand around it. It's because the sunlight bounces around on those hoge windows.",
+                        "40": "The town's main square is surrounded by cute little cafés. It's a little greenpatch surrounded by glass giants. There are benches situated under the shade of the trees. \nThe place is suprisingly well lit, compared to how tall buildings stand around it. It's because the sunlight bounces around on those huge windows.",
                         "60": "When you look around you see that a few cafés have joined the action against unlawful, and environmentally harmful ways of farming coffee, and are proudly showing it off with huge banners. ",
                         "80": "Only busses are allowed in the main square. Other than that no vehicle can come near the middle of the town. This way there are more spacious and more well lit roads, surrounded by trees. \nSince there are no cars, there are no traffic jams, and the well timed bus rides can get anyone, anywhere on time."
                     },
@@ -212,7 +212,7 @@
                     {
                         "0": "Everything that has made this place beautiful has died, because no sunlight is getting to the ground. Even the large pines that could maybe get just enough light to survive aren't alive anymore. \nIt's because the lake's water is full of garbage, and it pollutes everything in its area. There are no more reasons to come here.",
                         "20": "Even if you tried, you couldn't find any of the famous bunnies, they had to be moved, since nothing they can eat was able to grow in conditions like these. And it's perfectly understandable, since practically only large trees are alive.",
-                        "40": "When you walk past the tree line on the park's edge you see a few people kayaking, a couple swimming. Others are running, walking their dogs and pic-nicing.",
+                        "40": "When you walk past the tree line on the park's edge you see a few people kayaking, a couple swimming. Others are running, walking their dogs and picnicing.",
                         "60": "The municipailty is putting a big emphasis on providing greenplaces for people, and it is very noticable. This park is magnificent. Not a piece of trash in sight, everything is well maintained and clean. \nThere are more benches and tables for people to eat, instead of eating in the closed and crowded reastaurants.",
                         "80": "Many people love spendind their days outside. Even more people have the chance to get the feeling of walking in the mountains, or on a in a meadow of flowers, because of this beautifully maintained park. \nActually there isn't a lot maintaining to do, nature is just thriving here, you almost can't notice that you are in a big city."
                     },
@@ -285,7 +285,7 @@
                     "shortDescription" : "Your bosses spacious and shiny office.",
                     "longDescription": 
                     {
-                        "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space.\n Expensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
+                        "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. \nExpensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
                     },
                     "actions": [],
                     "npcs": [
@@ -300,7 +300,7 @@
                     "shortDescription" : "Your second home, shared with all your collegues.",
                     "longDescription": 
                     {
-                        "0": "You have arrived at your little work space. It's nothing special, with a desk seperated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
+                        "0": "You have arrived at your little work space. It's nothing special, with a desk separated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
                     },
                     "actions": ["work"],
                     "npcs": [
