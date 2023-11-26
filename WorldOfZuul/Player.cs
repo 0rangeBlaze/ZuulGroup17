@@ -16,7 +16,7 @@ namespace WorldOfZuul
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
             {"eat", (false, "You still haven't eaten anything today. You are very hungry.")},
-            {"sort", (false, "You need to throw out your trash.")}
+            {"sort", (false, "You need to throw out your trash, it's in the kitchen.")}
         };
 
         public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {

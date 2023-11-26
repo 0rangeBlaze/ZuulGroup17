@@ -144,7 +144,10 @@
                     ],
                     "exits":
                     {
-                        "livingroom": "Livingroom"
+                        "livingroom": "Livingroom",
+                        "kitchen": "Kitchen",
+                        "bathroom":"Bathroom"
+
                     }
                 },
                 "Kitchen":
@@ -159,7 +162,9 @@
                     ],
                    "exits":
                     {
-                        "livingroom": "Livingroom"
+                        "livingroom": "Livingroom",
+                        "bedroom": "Bedroom",
+                        "bathroom":"Bathroom"
                     }
                 },
                 "Bathroom":
@@ -174,7 +179,9 @@
                     ],
                    "exits":
                     {
-                        "livingroom":"Livingroom"
+                        "livingroom":"Livingroom",
+                        "kitchen": "Kitchen",
+                        "bedroom": "Bedroom"
                     }
                 }
             }

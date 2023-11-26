@@ -188,7 +188,7 @@ namespace WorldOfZuul
 
             string[] News = new string[]
             {
-                "Unemployment Surge Raises Alarms for the French Welfare",
+                "Tension Caused by Unemployment Alarms People about the French Welfare",
                 "Your local municipality has issued a letter to all residents, to beware of the rising numbers in homelessness.",
                 "The British are risingly unhappy, due to the French",
                 "Rising Inequality in Bulgaria Sparks Concerns About the People's Well-being",
@@ -261,6 +261,7 @@ namespace WorldOfZuul
             Utilities.GamePrint("Welcome to Lasting Impact!");
             Utilities.GamePrint("In this game you will experience humanity's impact on the environment.");
             Utilities.GamePrint("You will be playing as an average person whose impact on the world is projected to an entire generation of people.");
+            Utilities.GamePrint("In one turn you have to work in your office, eat in one of the restaurants and choose to sort trash in your kitchen.");
             Utilities.GamePrint();
         }
 
