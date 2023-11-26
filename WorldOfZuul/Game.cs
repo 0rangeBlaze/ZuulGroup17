@@ -54,7 +54,7 @@ namespace WorldOfZuul
             {
                 if(Player.TasksDone()) 
                 {
-                    if(Turn == 20)
+                    if(Turn == 6)
                     {
                         EndGame();
                     }

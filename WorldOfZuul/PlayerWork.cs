@@ -8,15 +8,15 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation < 5)
+                    if (WorkReputation < 2)
                     {
                         SupplyReview(game);
                     }
-                    else if (WorkReputation < 10) 
+                    else if (WorkReputation == 10000) 
                     {
                         Hire(game);
                     }
-                    else if (WorkReputation < 15)
+                    else if (WorkReputation < 4)
                     {
                         SupplyChoice(game);
                     }
@@ -104,31 +104,31 @@ namespace WorldOfZuul
             List<Provider> providers = new() {
                 new Provider() {
                     Food = "fish", ProviderName = "EcoHarbor Fisheries",  
-                    personalWelfareChange = 0, environmentChange = 3, populationWelfareChange = -1, 
+                    personalWelfareChange = -10, environmentChange = 10, populationWelfareChange = -10, 
                     providerDescription = "They invest in advanced technologies to reduce bycatch, use selective fishing methods, and support marine conservation initiatives. EcoHarbor works closely with local communities to ensure responsible fishing practices. Customers appreciate the premium quality and traceability of their products. Products from EcoHarbor Fisheries are positioned at a higher price point.", 
                     Desirablity = -1
                 },
                 new Provider() {
                     Food = "fish", ProviderName = "MarineMingle Seafoods",
-                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    personalWelfareChange = -5, environmentChange = 10, populationWelfareChange = 10, 
                     providerDescription = " MarineMingle Seafoods source from a mix of wild-caught and aquaculture suppliers, with an emphasis on responsible practices. MarineMingle offers seafood at a mid-range price.",
                     Desirablity = 0
                 },
                 new Provider() {
                     Food = "fish", ProviderName = "BlueCrest Seafoods",
-                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    personalWelfareChange = 10, environmentChange = -20, populationWelfareChange = 10, 
                     providerDescription = "They may source from fisheries with questionable environmental practices, including overfishing and habitat destruction. BlueCrest Seafoods priced at the lower end of the market.",
                     Desirablity = 0
                 },
                 new Provider() {
                     Food = "fruits", ProviderName = "Sunrise Orchards Cooperative",
-                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    personalWelfareChange = 5, environmentChange = 20, populationWelfareChange = 15, 
                     providerDescription = "Sunrise Orchards Cooperative is a collective of small-scale farmers emphasizing community-based agriculture. They follow a mix of organic and conventional farming practices, with a focus on fair trade principles. They produce relatively affordable goods with good quality.",
                     Desirablity = 0
                 },
                 new Provider() {
                     Food = "fruits", ProviderName = "BudgetHarvest Fruits",
-                    personalWelfareChange = 0, environmentChange = 1, populationWelfareChange = 1, 
+                    personalWelfareChange = 15, environmentChange = -15, populationWelfareChange = 15, 
                     providerDescription = "BudgetHarvest Fruits aims to make fresh produce accessible to all, but their practices may not prioritize sustainability. They source fruits from various farms, including those with less environmentally friendly practices. However, customers are drawn to BudgetHarvest for their incredibly low prices, however their quiality is often undesirable.",
                     Desirablity = 0
                 },
@@ -141,12 +141,14 @@ namespace WorldOfZuul
                 new Provider() {
                     Food = "meat", ProviderName = "EconoMeat Processors", 
                     personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1,
-                    providerDescription = "They source meat from various suppliers, including those with less environmentally friendly practices. EconoMeat may use conventional farming methods and be less transparent about sourcing. Generally cheap with an exception for a few quality products.", Desirablity = 1
+                    providerDescription = "They source meat from various suppliers, including those with less environmentally friendly practices. EconoMeat may use conventional farming methods and be less transparent about sourcing. Generally cheap with an exception for a few quality products.", 
+                    Desirablity = 1
                 },
                 new Provider() {
                     Food = "meat", ProviderName = "CommunityCraze Ranch", 
                     personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 1,
-                    providerDescription = "They source from local farmers who follow a mix of conventional and sustainable practices, emphasizing humane treatment of animals. CommunityCraze Ranch is committed to supporting local economies and responsible farming. They offer meat at a mid-range price with great quality.", Desirablity = 1
+                    providerDescription = "They source from local farmers who follow a mix of conventional and sustainable practices, emphasizing humane treatment of animals. CommunityCraze Ranch is committed to supporting local economies and responsible farming. They offer meat at a mid-range price with great quality.", 
+                    Desirablity = 1
                 },
                 new Provider() {
                     Food = "meat", ProviderName = "SustainableSavanna Meats", 
