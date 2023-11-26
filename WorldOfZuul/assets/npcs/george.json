@@ -1,0 +1,132 @@
+{
+    "name": "George",
+    "dialogs": {
+  
+      "index1": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "special": {
+            "Description": "How are you doing, George?",
+            "JumpDialogIndex": "howAreYou",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "What should I do now, George?",
+            "JumpDialogIndex": "whatToDo",
+            "Actions": []
+          },
+          "vega": {
+            "Description": "I am tired, George.",
+            "JumpDialogIndex": "tired",
+            "Actions": []
+          }
+        }
+      },
+  
+      "howAreYou": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "anwser1": {
+            "Description": "I'm also fine, thank you. What do you think I should be doing now?",
+            "JumpDialogIndex": "whatToDo",
+            "Actions": []
+          },
+          "anwser2": {
+            "Description": "That's good to hear. I, myself, don't feel so good now, like I don't have any energy left.",
+            "JumpDialogIndex": "tired",
+            "Actions": []
+          }
+        }
+  
+      },
+  
+      "whatToDo": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "small": {
+            "Description": "That's a great idea, I'll check if I have any plans for today. Thank you!",
+            "JumpDialogIndex": "thankyou",
+            "Actions": []
+          },
+          "medium": {
+            "Description": "No, I can't do that now, I have quite a bit of work to do. Oh yeah, I should work, thank you!",
+            "JumpDialogIndex": "thankyou",
+            "Actions": []
+          }
+        }
+      },
+  
+      "tired": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "hawaiian": {
+            "Description": "Yeah, I guess you're right, I should just finish up here, and head home. Thanks George!",
+            "JumpDialogIndex": "thankyou",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "I don't know, maybe it's because I don't spend enough time outside?",
+            "JumpDialogIndex": "outside",
+            "Actions": []
+          }
+        }
+      },
+
+      "outside": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "index1": {
+            "Description": "Okay, from now on I'll spend more time in nature and exercising, I appreciate the tip.",
+            "JumpDialogIndex": "thankyou",
+            "Actions": []
+          }
+        }
+      },
+  
+      "thankyou": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "thanks1": {
+            "Description": "No, YOU're the best!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "thanks2": {
+            "Description": "That's such a nice thing to say.",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "thanks3": {
+            "Description": "You have a lovely day too!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "thanks4": {
+            "Description": "Coming from someone like you, that really means a lot!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "thanks5": {
+            "Description": "Well, if I could, I'd hire you as my personal cheerleader!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "thanks6": {
+            "Description": "Thank you so much! I really appreciate your kind words.",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          }
+        }
+      },
+      "end": {
+        "Dialog": "<PLANT>",
+        "Choices": {
+          "#end": {
+            "Description": "Yeah, see you too!",
+            "JumpDialogIndex": "index1",
+            "Actions": []
+          }
+        }
+      }
+    }
+  }

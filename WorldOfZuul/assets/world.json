@@ -304,6 +304,7 @@
                     },
                     "actions": ["work"],
                     "npcs": [
+                        "./assets/npcs/george.json"
                     ],
                     "exits":
                     {
