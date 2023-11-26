@@ -130,7 +130,7 @@ namespace WorldOfZuul
             PreviousRoom = CurrentRoom;
             CurrentRoom = game.World.GetRoom(destination).Name;
             Console.Clear();
-            Console.WriteLine(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
+            Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
         }
 
         public bool TasksDone(){

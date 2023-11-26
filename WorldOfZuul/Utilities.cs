@@ -52,11 +52,11 @@ namespace WorldOfZuul {
                 {
                     if (option == i)
                     {
-                        CenterColor(temp[i], "green");
+                        CenterColor(WrapLine(temp[i]), "green");
                     }
                     else
                     {
-                        CenterText(temp[i]);
+                        CenterText(WrapLine(temp[i]));
                     }
                 }
                 Console.CursorTop = top;
@@ -72,22 +72,23 @@ namespace WorldOfZuul {
                         case ConsoleKey.DownArrow:
                             if (option + 1 < endingPosition)
                             {
-                                CenterText(temp[option]);
+                                CenterText(WrapLine(temp[option]));
                                 option++;
-                                CenterColor(temp[option], "green");
-                                //does not work in case of multiline options, which is solveable, but there is no need for it
-                                Console.CursorTop--;
+                                string selectedText = WrapLine(temp[option]);
+                                CenterColor(selectedText, "green");
+                                Console.CursorTop -= selectedText.Count(x => x == '\n')+1;
                             }
                             break;
                         case ConsoleKey.UpArrow:
                             if (option - 1 >= startingPosition)
                             {
-                                CenterText(temp[option]);
+                                string deselected = WrapLine(temp[option]);
+                                CenterText(deselected);
                                 option--;
-                                //once again doesn't work with multiline options
-                                Console.CursorTop -= 2;
-                                CenterColor(temp[option], "green");
-                                Console.CursorTop--;
+                                string selectedText = WrapLine(temp[option]);
+                                Console.CursorTop -= selectedText.Count(x => x == '\n') + deselected.Count(x => x == '\n') + 2;
+                                CenterColor(selectedText, "green");
+                                Console.CursorTop -= selectedText.Count(x => x == '\n') + 1;
                             }
                             break;
                         case ConsoleKey.Enter:
