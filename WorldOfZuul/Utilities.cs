@@ -188,8 +188,9 @@ namespace WorldOfZuul {
         }
 
         //Print centered text slowly to add immersion
-        public static void PrintSlowlyCenter(string paragraph, ConsoleColor color = ConsoleColor.White, int delay = 35)
+        public static void PrintSlowlyCenter(string paragraph, ConsoleColor? inputColor = null, int delay = 35)
         {
+            ConsoleColor color = inputColor ?? Console.ForegroundColor;
             string[] lines = paragraph.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
             foreach(string text in lines) {
                 if((Console.WindowWidth-text.Length)/2 >= 0) {
