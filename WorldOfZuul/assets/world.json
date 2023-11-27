@@ -7,7 +7,29 @@
             "rooms":
             {
 
-                    "FastFood":
+                "Hall":
+                {
+                    "shortDescription" : "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                    "longDescription":
+                    {
+                        "0": "This place feels like it was taken from a horror movie. Not a single soul in sight, the ground is covered in inches of dust and the sign have fallen off from the shops. \nThe fountain is completely empty, many lights aren't even working. You can see how few people dare just to go this far from their shelters.",
+                        "20": "You notice a strange smell in the air. It's salty... They must've switched the water in the fountain, because how valuable drinking water became. \nYou also discover, how they changed every greenery to fake plant, since nothing could survive here anymore. ",
+                        "40": "In the hall you see a few people with big shopping bags, waiting for their friends or families. If you look past them, you see lines at the shops' checkouts. \nAll around are big discount posters, trying to lure you in the stores for stuff you don't actually need.",
+                        "60": "The splashing of the fountain, and the chatter gives a calming background noise. You see all kinds of people looking for all kinds of things to buy. \nMany store advertise that they are \"x\"% carbon-neutral, or locally sourced. The prices seem a bit higher, but it might just be worth it.",
+                        "80": "In the middle, there's an garden inside, for people to do their work, study or simply recharge their social battery. It's nice to see that natures presence here. \nThe shops all have deals for those, who want to think long term, and buy products that last long, and don't need an annual upgrade."
+                    },
+                    "actions": [],
+                    "npcs": [
+                    ],
+                    "exits":
+                    {
+                        "restaurant": "Restaurant",
+                        "clothingstore": "ClothingStore",
+                        "fastfood": "FastFood"
+                    }
+                },
+
+                "FastFood":
                     {
                         "shortDescription" : "You can get food, but its done fast.",
                         "longDescription": 
@@ -27,6 +49,7 @@
                             "hall": "Hall"
                         }
                     },
+
                     "Restaurant":
                     {
                         "shortDescription" : "This place has a reputation for using local ingredients, but also is a bit more expensive than the competitors.",
@@ -47,28 +70,7 @@
                             "hall": "Hall"
                         }
                     },
-                    "Hall":
-                    {
-                        "shortDescription" : "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
-                        "longDescription":
-                        {
-                            "0": "This place feels like it was taken from a horror movie. Not a single soul in sight, the ground is covered in inches of dust and the sign have fallen off from the shops. \nThe fountain is completely empty, many lights aren't even working. You can see how few people dare just to go this far from their shelters.",
-                            "20": "You notice a strange smell in the air. It's salty... They must've switched the water in the fountain, because how valuable drinking water became. \nYou also discover, how they changed every greenery to fake plant, since nothing could survive here anymore. ",
-                            "40": "In the hall you see a few people with big shopping bags, waiting for their friends or families. If you look past them, you see lines at the shops' checkouts. \nAll around are big discount posters, trying to lure you in the stores for stuff you don't actually need.",
-                            "60": "The splashing of the fountain, and the chatter gives a calming background noise. You see all kinds of people looking for all kinds of things to buy. \nMany store advertise that they are \"x\"% carbon-neutral, or locally sourced. The prices seem a bit higher, but it might just be worth it.",
-                            "80": "In the middle, there's an garden inside, for people to do their work, study or simply recharge their social battery. It's nice to see that natures presence here. \nThe shops all have deals for those, who want to think long term, and buy products that last long, and don't need an annual upgrade."
-                        },
-                        "actions": [],
-                        "npcs": [
-                        ],
-                        "exits":
-                        {
-                            "restaurant": "Restaurant",
-                            "clothingstore": "ClothingStore",
-                            "generalstore": "GeneralStore",
-                            "fastfood": "FastFood"
-                        }
-                    },
+
                     "ClothingStore":
                     {
                         "shortDescription" : "A clothing store filled with all kinds of fashionware",
@@ -88,6 +90,7 @@
                             "hall": "Hall"
                         }
                     },
+
                     "GeneralStore":
                     {
                         "shortDescription" : "You are in a general store, it has everything you could have ever dreamt of.",
@@ -132,6 +135,7 @@
                         "bathroom":"Bathroom"
                     }
                 },
+
                 "Bedroom":
                 {
                     "shortDescription" : "Your bedroom.",
@@ -150,6 +154,7 @@
 
                     }
                 },
+
                 "Kitchen":
                 {
                     "shortDescription": "The small kitchen of your home.",
@@ -167,6 +172,7 @@
                         "bathroom":"Bathroom"
                     }
                 },
+
                 "Bathroom":
                 {
                     "shortDescription" : "A bathroom... Nothing special.",
@@ -212,6 +218,7 @@
                         "bar":"Bar"
                     }
                 },
+
                 "Park":
                 {
                     "shortDescription" : "It is the city park, with the great lake in the middle.",
@@ -231,6 +238,7 @@
                         "mainsquare": "MainSquare"
                     }
                 },
+
                 "SportCenter":
                 {
                     "shortDescription" : "The place everyone goes to work out",
@@ -246,6 +254,7 @@
                         "mainsquare": "MainSquare"
                     }
                 },
+
                 "Bar":
                 {
                     "shortDescription" : "The best site to catch up with friends and blow of a bit of steam.",
@@ -287,6 +296,7 @@
                         "office":"Office"
                     }
                 },
+
                 "Boss":
                 {
                     "shortDescription" : "Your bosses spacious and shiny office.",
@@ -302,6 +312,7 @@
                         "breakroom": "Breakroom"
                     }
                 },
+                
                 "Office":
                 {
                     "shortDescription" : "Your second home, shared with all your collegues.",
