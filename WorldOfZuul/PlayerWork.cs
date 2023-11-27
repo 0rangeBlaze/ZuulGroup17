@@ -78,7 +78,7 @@ namespace WorldOfZuul
                 {
                     GoodBatch = true;
                 }
-                question += "Is this a good or a bad batch?";
+                question += "Is this a good batch?";
                 int chosen = Utilities.SelectOption(question, new List<string> {"yes", "no"});
                 if((chosen == 0 && GoodBatch) || (chosen == 1 && !GoodBatch)) {
                     goodChoices++;

@@ -3,46 +3,137 @@
   "dialogs": {
 
     "index1": {
-      "Dialog": "Quest 1",
+      "Dialog": "What's up? Do you dare to challenge me in any of these games?",
       "Choices": {
-        "anwser1": {
-          "Description": "I chose 1",
-          "JumpDialogIndex": "index2",
+        "rps": {
+          "Description": "Yeah, haha, come on, I can always beat you in a rock paper scissors!",
+          "JumpDialogIndex": "rockps",
+          "Actions": []
+        },
+        "4inaline": {
+          "Description": "How about I school you in '4 in a line'?",
+          "JumpDialogIndex": "4inaline",
+          "Actions": []
+        },
+        "battleship": {
+          "Description": "Alright, but I seriously can't remember the last time you won in battleships.",
+          "JumpDialogIndex": "battleship",
+          "Actions": []
+        },
+        "nojusttalk": {
+          "Description": "I don't feel like playing, let's just talk. How are you doing?",
+          "JumpDialogIndex": "talk1",
           "Actions": []
         }
       }
     },
-    "index2": {
-      "Dialog": "Quest 2",
+
+    "rockps": {
+      "Dialog": "Alright, get ready...",
       "Choices": {
         "anwser1": {
-          "Description": "I chose 1",
-          "JumpDialogIndex": "index1",
-          "Actions": []
-        },
-        "anwser2": {
-          "Description": "I chose 2",
-          "JumpDialogIndex": "index3",
+          "Description": "<Start the game>",
+          "JumpDialogIndex": "end",
           "Actions": []
         }
       }
-
     },
-    "index3": {
-      "Dialog": "Quest 3",
+
+    "4inaline": {
+      "Dialog": "Oooh let's go, I'll be blue you'be red, and come on haha... school me!",
       "Choices": {
         "anwser1": {
-          "Description": "I chose 32",
-          "JumpDialogIndex": "index1",
-          "Actions": []
-        },
-        "anwser2": {
-          "Description": "I chose 2",
-          "JumpDialogIndex": "index2",
+          "Description": "<Start the game>",
+          "JumpDialogIndex": "end",
           "Actions": []
         }
       }
+    },
 
+    "battleship": {
+      "Dialog": "'All hands man your battlestaion' or whatever they say in the movies.",
+      "Choices": {
+        "anwser1": {
+          "Description": "<Start the game>",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        }
+      }
+    },
+
+    "talk1": {
+      "Dialog": "I'm doing okay, the new job is taking up all my time, but I generally don't mind it.",
+      "Choices": {
+        "anwser1": {
+          "Description": "Oh yeah, I remember, you just changed from public relations to working as an event organizer. How are you coping with that lifestyle shift?",
+          "JumpDialogIndex": "question1",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "That's nice, I hope it stays that ways. I just got home from a weekend trip in the woods.",
+          "JumpDialogIndex": "talk2",
+          "Actions": []
+        }
+      }
+    },
+    "question1": {
+      "Dialog": "It really couldn't be better, I really needed it. How about you, I saw that you went to a bungalow in mountains.",
+      "Choices": {
+        "anwser1": {
+          "Description": "It was just great, just the thing I needed to charge up my battery. How is your wife doing?",
+          "JumpDialogIndex": "question2",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "Well it wasn't the greatest, I couldn't really break free from work, everybody kept bothering me.",
+          "JumpDialogIndex": "talk3",
+          "Actions": []
+        }
+      }
+    },
+
+    "question2": {
+      "Dialog": "She could be doing better, but still managing. A bit of fallout with the school board, but that luckily got worked out",
+      "Choices": {
+        "anwser1": {
+          "Description": "I heard about teachers arguing with their board, but having it happen this close to someone you know is just scary.",
+          "JumpDialogIndex": "talk4",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "Well it wasn't the greatest, I couldn't really break free from work, everybody kept bothering me.",
+          "JumpDialogIndex": "talk3",
+          "Actions": []
+        }
+      }
+    },
+
+    "talk3": {
+      "Dialog": "It really couldn't be better, I really needed it. How about you, I saw that you went to a bungalow in mountains.",
+      "Choices": {
+        "anwser1": {
+          "Description": "It was just great, just the thing I needed to charge up my battery. How is your wife doing?",
+          "JumpDialogIndex": "question2",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "Well it wasn't the greatest, I couldn't really break free from work, everybody kept bothering me.",
+          "JumpDialogIndex": "talk3",
+          "Actions": []
+        }
+      }
+    },
+
+
+    "end": {
+      "Dialog": "It was nice seeing you, take care!",
+      "Choices": {
+        "#pay": {
+          "Description": "Yeah, you too, and see you!",
+          "JumpDialogIndex": "index1",
+          "Actions": []
+        }
+      }
     }
 
   }
