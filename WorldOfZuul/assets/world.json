@@ -155,7 +155,7 @@
                     "shortDescription": "The small kitchen of your home.",
                     "longDescription":
                     {
-                        "0": "In the kitchen you find a freshly baked pie. A few dirty plates are in the sink, but you know that that's not your problem."
+                        "0": "In the kitchen you can't find any food, even though you can smell it... Well too bad. A few dirty plates are in the sink, but luckily you know that that's not your problem."
                     },
                     "actions": ["sort"],
                     "npcs": [

@@ -13,6 +13,7 @@ namespace WorldOfZuul
         public string? PreviousArea { get; set; }
         public int WorkReputation { get; set; }
         private int personalWelfare;
+        public int CurrentProviderIndex{ get; set; }
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
             {"eat", (false, "You still haven't eaten anything today. You are very hungry.")},
@@ -26,6 +27,7 @@ namespace WorldOfZuul
             PreviousRoom = currentRoom;
             personalWelfare = 0;
             WorkReputation = 0;
+            CurrentProviderIndex = 0;
         }
 
         /*
@@ -45,6 +47,7 @@ namespace WorldOfZuul
             }
         }
         */
+        
 
         public void Move(Game game, string[] args)
         {

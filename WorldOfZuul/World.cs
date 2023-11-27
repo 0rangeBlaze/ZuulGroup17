@@ -15,7 +15,6 @@ namespace WorldOfZuul
         public World(string path="assets/world.json") {
             Areas = new Dictionary<string, Area>(StringComparer.OrdinalIgnoreCase) {};
             Environment = PopulationWelfare = PreviousEnvironment = PreviousPopulationWelfare = 50;
-            CurrentProviderIndex = 0;
             Load(path);
         }
 

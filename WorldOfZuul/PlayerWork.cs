@@ -8,7 +8,7 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation < 2)
+                    if (WorkReputation  == 2)
                     {
                         SupplyReview(game);
                     }
@@ -148,7 +148,7 @@ namespace WorldOfZuul
                     Food = "meat", ProviderName = "CommunityCraze Ranch", 
                     personalWelfareChange = 5, environmentChange = 6, populationWelfareChange = 9,
                     providerDescription = "They source from local farmers who follow a mix of conventional and sustainable practices, emphasizing humane treatment of animals. CommunityCraze Ranch is committed to supporting local economies and responsible farming. They offer meat at a mid-range price with great quality.", 
-                    Desirablity = 0
+                    Desirablity = 1
                 },
                 new Provider() {
                     Food = "meat", ProviderName = "SustainableSavanna Meats", 
@@ -166,17 +166,30 @@ namespace WorldOfZuul
 
             
             int decisionValue = 0;
+
+            for(int i = game.Player.CurrentProviderIndex; i < game.Player.CurrentProviderIndex + 2; i++)
+            {
+                string question = $"Who would you like to buy {foods[i].FoodName} from?";
+                decisionValue += SupplyChoiceProvider(game, providers, question, foods[i]);
+
+            }    
+            /*
             foreach(Food name in foods)
             {
                 string question = $"Who would you like to buy {name.FoodName} from?";
                 decisionValue += SupplyChoiceProvider(game, providers, question, name);
             }
+            */
+
+            game.Player.CurrentProviderIndex += 2;
             if(decisionValue >= 0) {
                 WorkReputation++;
             }
+
         }
         private int SupplyChoiceProvider(Game game, List<Provider> providers, string question, Food food)
         {
+            
             List<string> options = new(){};
             string descriptions = "";
             for(int i = 0; i < 3; i++)
