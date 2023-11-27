@@ -8,7 +8,7 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation == 2)
+                    if (WorkReputation < 2)
                     {
                         SupplyChoice(game);
                         //SupplyReview(game);
@@ -157,12 +157,31 @@ namespace WorldOfZuul
                     providerDescription = "SustainableSavanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. SustainableSavanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately the quality of their products is often bad and they are expensive.", 
                     Desirablity = 0
                 },
+                new Provider() {
+                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
+                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
+                    providerDescription = "Ignore this, and just skip", 
+                    Desirablity = 1
+                },
+                new Provider() {
+                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
+                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
+                    providerDescription = "Ignore this, and just skip", 
+                    Desirablity = 1
+                },
+                new Provider() {
+                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
+                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
+                    providerDescription = "Ignore this, and just skip", 
+                    Desirablity = 1
+                },
+                
             };
             foods.Add(new Food() {FoodName = "fish"});
             foods.Add(new Food() {FoodName = "fruits"});
             foods.Add(new Food() {FoodName = "meat"});
-            /*foods.Add(new Food() {FoodName = "spices"});
-            foods.Add(new Food() {FoodName = "vegetables"});*/
+            foods.Add(new Food() {FoodName = "spices"});
+            //foods.Add(new Food() {FoodName = "vegetables"});
 
 
             
