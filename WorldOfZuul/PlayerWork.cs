@@ -10,7 +10,8 @@ namespace WorldOfZuul
                 if(!tasks["work"].done) {
                     if (WorkReputation  == 2)
                     {
-                        SupplyReview(game);
+                        SupplyChoice(game);
+                        //SupplyReview(game);
                     }
                     else if (WorkReputation == 10000) 
                     {
@@ -189,25 +190,26 @@ namespace WorldOfZuul
         }
         private int SupplyChoiceProvider(Game game, List<Provider> providers, string question, Food food)
         {
-            
+            List<Provider> filteredProviders = new(){};
             List<string> options = new(){};
             string descriptions = "";
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < providers.Count; i++)
             {
                 if(food.FoodName == providers[i].Food){
+                    filteredProviders.Add(providers[i]);
                     options.Add($"{providers[i].ProviderName}");
                     descriptions += $"{providers[i].ProviderName}:\n\n {providers[i].providerDescription}\n\n\n";
                 }
             }
             descriptions += "\n" + question;
             int input = Utilities.SelectOption(descriptions, options);
-            
-            Utilities.GamePrint($"You have chosen {providers[input].ProviderName}");
+
+            Utilities.GamePrint($"You have chosen {filteredProviders[input].ProviderName}");
             Console.ReadKey(true);
-            personalWelfare += providers[input].personalWelfareChange;
-            game.World.PopulationWelfare += providers[input].populationWelfareChange;
-            game.World.Environment += providers[input].environmentChange;
-            return providers[input].Desirablity;
+            personalWelfare += filteredProviders[input].personalWelfareChange;
+            game.World.PopulationWelfare += filteredProviders[input].populationWelfareChange;
+            game.World.Environment += filteredProviders[input].environmentChange;
+            return filteredProviders[input].Desirablity;
         }
 
         private void Hire(Game game)
