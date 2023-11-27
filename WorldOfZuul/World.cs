@@ -1,11 +1,12 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace WorldOfZuul
 {
     public class World
     {
         public Dictionary<string, Area> Areas {get; private set;}
-        public bool loaded = false;
+        public bool Loaded {get; private set;}
         public int PopulationWelfare{get; set;}
         public int Environment{get; set;}
         public int PreviousEnvironment{get; set;}
@@ -13,6 +14,7 @@ namespace WorldOfZuul
         public int CurrentProviderIndex{get; set;}
 
         public World(string path="assets/world.json") {
+            Loaded = false;
             Areas = new Dictionary<string, Area>(StringComparer.OrdinalIgnoreCase) {};
             Environment = PopulationWelfare = PreviousEnvironment = PreviousPopulationWelfare = 50;
             Load(path);
@@ -103,7 +105,7 @@ namespace WorldOfZuul
                     Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }
                 doc.Dispose();
-                loaded = true;
+                Loaded = true;
             }
             catch (Exception e)
             {
@@ -113,6 +115,23 @@ namespace WorldOfZuul
 
         public Room GetRoom(string area, string? room = "") {
             return string.IsNullOrEmpty(room) ? Areas[area].Rooms[Areas[area].DefaultRoom] : Areas[area].Rooms[room];
+        }
+
+        [JsonConstructorAttribute]
+        public World(
+            Dictionary<string, Area> areas,
+            int populationWelfare,
+            int environment,
+            int previousEnvironment,
+            int previousPopulationWelfare,
+            bool loaded
+        ) {
+            this.Areas = new(areas, StringComparer.OrdinalIgnoreCase);
+            this.PopulationWelfare = populationWelfare;
+            this.Environment = environment;
+            this.PreviousEnvironment = previousEnvironment;
+            this.PreviousPopulationWelfare = previousPopulationWelfare;
+            this.Loaded = loaded;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace WorldOfZuul
 {
@@ -21,7 +22,7 @@ namespace WorldOfZuul
             {"map", (Game game, string[] arguments ) => Map(game, arguments)},
             {"sort", (Game game, string[] _) => game.Player.SortTrash(game)},
             {"sleep", (Game game, string[] arguments) => game.NextTurn()},
-            {"quit", (Game game, string[] arguments) => game.Running = false},
+            {"quit", (Game game, string[] arguments) => Quit(game)},
 
             {"eat", (Game game, string[] _) => game.Player.Eat()}
         };
@@ -153,6 +154,21 @@ Each of these areas contain rooms for you to explore.
                     }
                 }
             }
+        }
+
+        public static void Quit(Game game)
+        {
+            int input = Utilities.SelectOption("Do you want to save your progress?", new List<string>(){"yes", "no"});
+            if(input == 0) {
+                string jsonString = JsonSerializer.Serialize(game);
+                string savePath = "./saves/save.json";
+                Directory.CreateDirectory("./saves"); 
+                using (StreamWriter sw = File.CreateText(savePath))
+                {
+                    sw.WriteLine(jsonString);
+                }
+            }
+            game.Running = false;
         }
     }
 }

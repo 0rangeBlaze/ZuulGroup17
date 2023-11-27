@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 
 namespace WorldOfZuul
@@ -7,18 +8,18 @@ namespace WorldOfZuul
     public class Npc
     {
         public string Name {get; private set;}
-        private string currentDialog;
-        private List<string> greeting;
-        private Dictionary<string, DialogData> npcData;
-        private bool talking = true;
+        public string CurrentDialog {get; private set;}
+        public List<string> Greeting {get; private set;}
+        public Dictionary<string, DialogData> NpcData {get; private set;}
+        public bool Talking {get; private set;}
 
         public Npc(string jsonFilePath)
         {
-            greeting = new List<string>() { "Hi", "Hello", "How do you do" };
-            currentDialog = "index1";
+            Greeting = new List<string>() { "Hi", "Hello", "How do you do" };
+            CurrentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
             Name = Name ?? "";
-            npcData = npcData ?? new();
+            NpcData = NpcData ?? new();
         }
 
         private void LoadDialogsFromJson(string jsonFilePath)
@@ -32,7 +33,7 @@ namespace WorldOfZuul
                 Name = nameElement.GetString() ?? "";
                 JsonElement dialogsElement;
                 npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
-                npcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
+                NpcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
             }
             catch (FileNotFoundException)
             {
@@ -65,12 +66,12 @@ namespace WorldOfZuul
 
             if(chosen == descriptions.Count-1)
             {
-                talking = false;
-                return currentDialog;
+                Talking = false;
+                return CurrentDialog;
             }
 
             if(choices[chosen].Key[0] == '#') {
-                talking = false;
+                Talking = false;
             }
             choices[chosen].Value.HandleActions(game);
 
@@ -79,23 +80,23 @@ namespace WorldOfZuul
 
         public void NpcTalk(Game game)
         {
-            if (npcData != null)
+            if (NpcData != null)
             {
-                talking = true;
+                Talking = true;
                 Console.Clear();
                 RandomGreeting();
                 Console.ReadKey(true);
-                while (talking)
+                while (Talking)
                 {
-                    if (npcData.ContainsKey(currentDialog))
+                    if (NpcData.ContainsKey(CurrentDialog))
                     {
-                        DialogData currentDialogData = npcData[currentDialog];
-                        currentDialog = SelectChoice(currentDialogData, game);
+                        DialogData currentDialogData = NpcData[CurrentDialog];
+                        CurrentDialog = SelectChoice(currentDialogData, game);
                     }
                     else
                     {
-                        Console.WriteLine($"Error: {Name} doesn't have dialog with index '{currentDialog}'");
-                        talking = false;
+                        Console.WriteLine($"Error: {Name} doesn't have dialog with index '{CurrentDialog}'");
+                        Talking = false;
                     }
                 }
 
@@ -109,10 +110,23 @@ namespace WorldOfZuul
         private void RandomGreeting()
         {
             Random greetings = new Random();
-            int greetingIndex = greetings.Next(greeting.Count);
-            Utilities.PrintSlowlyCenter(greeting[greetingIndex], ConsoleColor.Green);
+            int greetingIndex = greetings.Next(Greeting.Count);
+            Utilities.PrintSlowlyCenter(Greeting[greetingIndex], ConsoleColor.Green);
         }
 
+        [JsonConstructorAttribute]
+        public Npc(string name,
+        string currentDialog,
+        List<string> greeting,
+        Dictionary<string, DialogData> npcData,
+        bool talking
+        ) {
+           Name = name;
+           CurrentDialog = currentDialog;
+           Greeting = greeting;
+           NpcData = npcData; 
+           Talking = talking;
+        }
         
     }
 

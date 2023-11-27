@@ -10,8 +10,7 @@ namespace WorldOfZuul
                 if(!tasks["work"].done) {
                     if (WorkReputation < 2)
                     {
-                        SupplyChoice(game);
-                        //SupplyReview(game);
+                        SupplyReview(game);
                     }
                     else if (WorkReputation == 10000) 
                     {

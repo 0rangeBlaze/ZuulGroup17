@@ -4,23 +4,23 @@
     {
         public string Name {get; private set;}
         public string ShortDescription { get; private set; }
-        private Dictionary<int, string> longDescriptions;
+        public Dictionary<int, string> LongDescriptions { get; private set; }
         public Dictionary<string, string> Exits { get; private set; }
         public string[] Actions {get; private set;}
         public Dictionary<string, Npc> Npcs {get; private set;}
 
-        public Room(string name, string shortDesc, Dictionary<int, string>? longDescs, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
+        public Room(string name, string shortDescription, Dictionary<int, string>? longDescriptions, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
         {
             Name = name;
-            ShortDescription = shortDesc;
-            longDescriptions = longDescs ?? new();
-            Exits = exits ?? new(StringComparer.OrdinalIgnoreCase) {};
+            ShortDescription = shortDescription;
+            LongDescriptions = longDescriptions ?? new();
+            Exits = exits == null ? new(StringComparer.OrdinalIgnoreCase){} : new(exits, StringComparer.OrdinalIgnoreCase);
             Actions = actions ?? new string[0];
-            Npcs = npcs ?? new(StringComparer.OrdinalIgnoreCase);
+            Npcs = npcs == null ? new(StringComparer.OrdinalIgnoreCase){} : new(npcs, StringComparer.OrdinalIgnoreCase);
         }
 
         private string GetLongDescription(int environment) {
-            int[] keys = longDescriptions.Keys.ToArray();
+            int[] keys = LongDescriptions.Keys.ToArray();
             int maxValue = int.MinValue;
             //O(n) not the best but array won't be longer than 100 elements for sure, so doesn't matter
             for (int i = 0; i < keys.Length; i++)
@@ -32,7 +32,7 @@
             }
 
             //a bit ugly, but it gets the job done if we don't find a value
-            return longDescriptions.ContainsKey(maxValue) ? longDescriptions[maxValue] : longDescriptions[keys[0]];
+            return LongDescriptions.ContainsKey(maxValue) ? LongDescriptions[maxValue] : LongDescriptions[keys[0]];
         }
 
         public void Describe(Game game)
@@ -47,7 +47,7 @@
                     Utilities.GamePrint(" " + npc.Value.Name);
                 }
             }
-                if (Exits.Count > 0)
+            if (Exits.Count > 0)
             {
                 Utilities.GamePrint("Exits:");
                 foreach (var exit in Exits)

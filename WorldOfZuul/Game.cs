@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Globalization;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Text.Json;
 
 namespace WorldOfZuul
 {
@@ -12,11 +10,38 @@ namespace WorldOfZuul
         public static Random RandomGenerator = new Random();
         public int Turn {get; set;}
 
+        public static Game Load(){
+            string savePath = "./saves/save.json";
+            Game? game;
+            if(File.Exists(savePath))
+            {
+                int input = Utilities.SelectOption("Do you want to load your previous save?", new List<string> {"yes", "no"});
+                if(input == 0) {
+                    game = JsonSerializer.Deserialize<Game>(File.ReadAllText(savePath));
+                    if(game == null) {
+                        game = new();
+                        game.Running = false;
+                        Utilities.GamePrint("Failed to load save file!");
+                    }
+                    else {
+                        game.Running = true;
+                    }
+                    return game;
+                }
+            }
+            game = new();
+
+            PrintWelcome();
+            CommandProcessor.Process("help", game);
+
+            return game;
+        }
+
         public Game()
         {
             Turn = 0;
             World = new World("assets/world.json");
-            if(!World.loaded) {
+            if(!World.Loaded) {
                 Console.WriteLine("Couldn't load world.");
                 Player = new();
                 Running = false;
@@ -32,9 +57,7 @@ namespace WorldOfZuul
                 return;
             }
 
-            PrintWelcome();
-            CommandProcessor.Process("help", this);
-
+            Utilities.GamePrint(World.GetRoom(Player.CurrentArea, Player.CurrentRoom).ShortDescription);
             while (Running)
             {
                 Console.WriteLine();
@@ -44,7 +67,7 @@ namespace WorldOfZuul
                 CommandProcessor.HandleInput(input, this);
             }
 
-            Utilities.GamePrint("Thank you for playing World of Zuul!");
+            Utilities.GamePrint("Thank you for playing Lasting Impact!");
         }
 
         
