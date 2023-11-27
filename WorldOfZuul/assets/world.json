@@ -160,7 +160,7 @@
                     "shortDescription": "The small kitchen of your home.",
                     "longDescription":
                     {
-                        "0": "In the kitchen you can't find any food, even though you can smell it... Well too bad. A few dirty plates are in the sink, but luckily you know that that's not your problem."
+                        "0": "In the kitchen you can't find any food, even though you can smell something... Well too bad. A few dirty plates are in the sink, but luckily you know that that's not your problem."
                     },
                     "actions": ["sort"],
                     "npcs": [
@@ -178,10 +178,11 @@
                     "shortDescription" : "A bathroom... Nothing special.",
                     "longDescription": 
                     {
-                        "0": "A bathroom... Nothing special."
+                        "0": "It really is just a bathroom... There is nothing special."
                     },
                     "actions": [],
                     "npcs": [
+                        "./assets/npcs/mirror.json"
                     ],
                    "exits":
                     {
@@ -312,7 +313,7 @@
                         "breakroom": "Breakroom"
                     }
                 },
-                
+
                 "Office":
                 {
                     "shortDescription" : "Your second home, shared with all your collegues.",

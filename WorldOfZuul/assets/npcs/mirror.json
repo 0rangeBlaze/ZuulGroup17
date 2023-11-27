@@ -1,0 +1,85 @@
+{
+    "name": "Mirror",
+    "dialogs": {
+  
+      "index1": {
+        "Dialog": "",
+        "Choices": {
+          "special": {
+            "Description": "You can survive this day!",
+            "JumpDialogIndex": "survive",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "You will do great!",
+            "JumpDialogIndex": "doGreat",
+            "Actions": []
+          },
+          "vega": {
+            "Description": "You are strong and capable!",
+            "JumpDialogIndex": "strong",
+            "Actions": []
+          }
+        }
+      },
+  
+      "survive": {
+        "Dialog": "You can survive this day!",
+        "Choices": {
+          "anwser1": {
+            "Description": "Today, I choose confidence over doubt and courage over fear!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "anwser2": {
+            "Description": "My potential is limitless, and I am constantly evolving!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          }
+        }
+  
+      },
+  
+      "doGreat": {
+        "Dialog": "You will do great!",
+        "Choices": {
+          "small": {
+            "Description": "I choose to focus on the present and create a positive future!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "medium": {
+            "Description": "I am a magnet for positive energy, and I attract positive people and experiences!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          }
+        }
+      },
+  
+      "strong": {
+        "Dialog": "You are strong and capable!",
+        "Choices": {
+          "hawaiian": {
+            "Description": "I am in control of my life, and I choose to respond with confidence!",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          },
+          "meat": {
+            "Description": "I release all doubts and embrace the power within me!",
+            "JumpDialogIndex": "outside",
+            "Actions": []
+          }
+        }
+      },
+      "end": {
+        "Dialog": "",
+        "Choices": {
+          "#end": {
+            "Description": "<Leave feeling a LOT better>",
+            "JumpDialogIndex": "index1",
+            "Actions": []
+          }
+        }
+      }
+    }
+  }
