@@ -8,7 +8,7 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation  == 2)
+                    if (WorkReputation == 2)
                     {
                         SupplyChoice(game);
                         //SupplyReview(game);
@@ -182,6 +182,7 @@ namespace WorldOfZuul
             }
             */
 
+            Console.WriteLine("You have worked enough for today, get some rest");
             game.Player.CurrentProviderIndex += 2;
             if(decisionValue >= 0) {
                 WorkReputation++;
