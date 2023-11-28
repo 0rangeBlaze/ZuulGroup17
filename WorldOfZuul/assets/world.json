@@ -48,11 +48,13 @@
                         ],
                         "exits":
                         {
+                            "restaurant": "Restaurant",
+                            "clothingstore": "ClothingStore",
                             "hall": "Hall"
                         }
                     },
 
-                    "Restaurant":
+                "Restaurant":
                     {
                         "shortDescription" : "This place has a reputation for using local ingredients, but also is a bit more expensive than the competitors.",
                         "longDescription": 
@@ -70,11 +72,13 @@
                         ],
                         "exits":
                         {
+                            "clothingstore": "ClothingStore",
+                            "fastfood": "FastFood",
                             "hall": "Hall"
                         }
                     },
 
-                    "ClothingStore":
+                "ClothingStore":
                     {
                         "shortDescription" : "A clothing store filled with all kinds of fashionware",
                         "longDescription":
@@ -91,31 +95,12 @@
                         ],
                        "exits":
                         {
-                            "hall": "Hall"
-                        }
-                    },
-
-                    "GeneralStore":
-                    {
-                        "shortDescription" : "You are in a general store, it has everything you could have ever dreamt of.",
-                        "longDescription": 
-                        {
-                            "0": "0%",
-                            "20": "20%",
-                            "40": "40%",
-                            "60": "60%",
-                            "80": "80%"
-                        },
-                        "actions": [],
-                        "events": [],
-                        "npcs": [
-                        ],
-                      "exits":
-                        {
+                            "restaurant": "Restaurant",
+                            "fastfood": "FastFood",
                             "hall": "Hall"
                         }
                     }
-                }
+            }
         },
 
         "Home":
@@ -225,7 +210,7 @@
                     "exits":
                     {
                         "park": "Park",
-                        "sportcenter": "SportCenter",
+                        "arcade": "Arcade",
                         "bar":"Bar"
                     }
                 },
@@ -247,16 +232,18 @@
                     ],
                     "exits":
                     {
+                        "arcade": "Arcade",
+                        "bar":"Bar",
                         "mainsquare": "MainSquare"
                     }
                 },
 
-                "SportCenter":
+                "Arcade":
                 {
-                    "shortDescription" : "The place everyone goes to work out",
+                    "shortDescription" : "THE place for vintage games",
                     "longDescription":
                     {
-                        "0": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated, you can almost actually feel the energy in the air"
+                        "0": "Anywhere you look, you see the most popular games ever made, huge arcade machines and the whole place just screams 80's vibes."
                     },
                     "actions": [],
                     "events": [],
@@ -264,6 +251,8 @@
                     ],
                     "exits":
                     {
+                        "park": "Park",
+                        "bar":"Bar",
                         "mainsquare": "MainSquare"
                     }
                 },
@@ -282,6 +271,8 @@
                     ],
                     "exits":
                     {
+                        "park": "Park",
+                        "arcade": "Arcade",
                         "mainsquare": "MainSquare"
                     }
                 }
@@ -325,6 +316,7 @@
                     ],
                     "exits":
                     {
+                        "office":"Office",
                         "breakroom": "Breakroom"
                     }
                 },
@@ -343,6 +335,7 @@
                     ],
                     "exits":
                     {
+                        "boss": "Boss",
                         "Breakroom":"Breakroom"
                     }
                 }
