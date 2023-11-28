@@ -41,7 +41,7 @@
 
             if (Npcs.Count > 0)
             {
-                Utilities.GamePrint("You see the following people in the room:");
+                Utilities.GamePrint("In the room you see:");
                 foreach (var npc in Npcs)
                 {
                     Utilities.GamePrint(" " + npc.Value.Name);

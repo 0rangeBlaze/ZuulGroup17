@@ -112,12 +112,14 @@ namespace WorldOfZuul
                     Console.ReadKey(true);
                     break;
                 case "walk":
-                    Utilities.GamePrint($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
-                    Console.ReadKey(true);
-                    Utilities.GamePrint($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
-                    Console.ReadKey(true);
-                    Utilities.GamePrint($"Another 400 meters at you're there.");
-                    Console.ReadKey(true);
+
+                        Utilities.GamePrint($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
+                        Console.ReadKey(true);
+                        Utilities.GamePrint($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
+                        Console.ReadKey(true);
+                        Utilities.GamePrint($"Another 400 meters at you're there.");
+                        Console.ReadKey(true);
+
                     break;
                 case "public transport":
                     Utilities.GamePrint("\nYou get on the next bus. Press any key to continue");
