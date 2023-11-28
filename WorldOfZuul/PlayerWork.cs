@@ -140,40 +140,41 @@ namespace WorldOfZuul
                 },
                 new Provider() {
                     Food = "meat", ProviderName = "EconoMeat Processors", 
-                    personalWelfareChange = 0, environmentChange = -12, populationWelfareChange = 2,
+                    personalWelfareChange = 0, environmentChange = -6, populationWelfareChange = 2,
                     providerDescription = "They source meat from various suppliers, including those with less environmentally friendly practices. EconoMeat may use conventional farming methods and be less transparent about sourcing. Generally cheap with an exception for a few quality products.", 
                     Desirablity = 0
                 },
                 new Provider() {
-                    Food = "meat", ProviderName = "CommunityCraze Ranch", 
+                    Food = "meat", ProviderName = "Community Craze Ranch", 
                     personalWelfareChange = 5, environmentChange = 6, populationWelfareChange = 9,
                     providerDescription = "They source from local farmers who follow a mix of conventional and sustainable practices, emphasizing humane treatment of animals. CommunityCraze Ranch is committed to supporting local economies and responsible farming. They offer meat at a mid-range price with great quality.", 
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "meat", ProviderName = "SustainableSavanna Meats", 
-                    personalWelfareChange = -8, environmentChange = 15, populationWelfareChange = 1,
+                    Food = "meat", ProviderName = "Sustainable Savanna Meats", 
+                    personalWelfareChange = -8, environmentChange = 7, populationWelfareChange = 1,
                     providerDescription = "SustainableSavanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. SustainableSavanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately the quality of their products is often bad and they are expensive.", 
                     Desirablity = 0
                 },
                 new Provider() {
-                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
-                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
-                    providerDescription = "Ignore this, and just skip", 
+                    Food = "shrimp", ProviderName = "Shoreline Shrimpers Co.",
+                    personalWelfareChange = 5, environmentChange = 6, populationWelfareChange = 4, 
+                    providerDescription = "Shoreline Shrimpers Co. specializes in sustainably sourced shrimp, employing eco-friendly practices in both wild-caught and farmed varieties. Enjoy high-quality shrimp with a focus on preserving marine ecosystems, for just a few dollars more/shipment.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
-                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
-                    providerDescription = "Ignore this, and just skip", 
+                    Food = "shrimp", ProviderName = "DeepSea Exploitation Corp.",
+                    personalWelfareChange = 6, environmentChange = -8, populationWelfareChange = -3, 
+                    providerDescription = "DeepSea Exploitation Corp. engages in unsustainable shrimp harvesting practices, causing significant harm to marine ecosystems. Their practices makes their products extremely cheap and still good quality.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "spices", ProviderName = "Needs_To_Be_Written", 
-                    personalWelfareChange = 0, environmentChange = 0, populationWelfareChange = 0,
-                    providerDescription = "Ignore this, and just skip", 
-                    Desirablity = 1
-                },
+                    Food = "shrimp", ProviderName = "Oceanic Delights Seafood",
+                    personalWelfareChange = -4, environmentChange = 8, populationWelfareChange = 5, 
+                    providerDescription = "Oceanic Delights Seafood brings you a diverse selection of shrimp sourced from well-managed fisheries. Their methods while truly amazing for the environment, make their products much pricier than the competitors'.",
+                    Desirablity = 0
+                }
+
                 
             };
             foods.Add(new Food() {FoodName = "fish"});

@@ -70,14 +70,14 @@
           "Actions": []
         },
         "anwser2": {
-          "Description": "That's nice, I hope it stays that ways. I just got home from a weekend trip in the woods.",
-          "JumpDialogIndex": "talk2",
+          "Description": "That's nice, I hope it stays that ways. Did you see the new Star Wars film?.",
+          "JumpDialogIndex": "question3",
           "Actions": []
         }
       }
     },
     "question1": {
-      "Dialog": "It really couldn't be better, I really needed it. How about you, I saw that you went to a bungalow in mountains.",
+      "Dialog": "It really couldn't be better, I desperately needed it. How about you, I saw that you went to a bungalow in mountains.",
       "Choices": {
         "anwser1": {
           "Description": "It was just great, just the thing I needed to charge up my battery. How is your wife doing?",
@@ -91,34 +91,60 @@
         }
       }
     },
-
+    
     "question2": {
       "Dialog": "She could be doing better, but still managing. A bit of fallout with the school board, but that luckily got worked out",
       "Choices": {
         "anwser1": {
           "Description": "I heard about teachers arguing with their board, but having it happen this close to someone you know is just scary.",
-          "JumpDialogIndex": "talk4",
+          "JumpDialogIndex": "end",
           "Actions": []
         },
         "anwser2": {
-          "Description": "Well it wasn't the greatest, I couldn't really break free from work, everybody kept bothering me.",
-          "JumpDialogIndex": "talk3",
+          "Description": "I'm glad that its okay now. I hope it's the end of that.",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        }
+      }
+    },
+    
+    "talk3": {
+      "Dialog": "I'm sorry to hear that, I hope it didn't totally ruin the weekend. Why did they bother you constantly?",
+      "Choices": {
+        "anwser1": {
+          "Description": "We just hired a bunch of new people, and they couldn't manage a few days, without a million questions.",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "Ahh it's not their fault. We are near a deadline and a lot of things still need to be done.",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        }
+      }
+    },
+    "question3": {
+      "Dialog": "Noo, they lost me after Episode 7. You know me, I'm an original trilogy fan. Have you seen it?",
+      "Choices": {
+        "anwser1": {
+          "Description": "Yeah and I think it's amazing, I thought you were the one to talk about this with, but i guess not.",
+          "JumpDialogIndex": "end",
+          "Actions": []
+        },
+        "anwser2": {
+          "Description": "No, and I wanted to ask if you wanted to go see it together.",
+          "JumpDialogIndex": "question4",
           "Actions": []
         }
       }
     },
 
-    "talk3": {
-      "Dialog": "It really couldn't be better, I really needed it. How about you, I saw that you went to a bungalow in mountains.",
+    "question4": {
+      "Dialog": "Okay, let's go. Worst case scenario we will have something to laugh about.",
       "Choices": {
         "anwser1": {
-          "Description": "It was just great, just the thing I needed to charge up my battery. How is your wife doing?",
-          "JumpDialogIndex": "question2",
-          "Actions": []
-        },
-        "anwser2": {
-          "Description": "Well it wasn't the greatest, I couldn't really break free from work, everybody kept bothering me.",
-          "JumpDialogIndex": "talk3",
+          "Description": "Lovely, I'll look up a few available times, and message you those.",
+          "JumpDialogIndex": "end",
           "Actions": []
         }
       }
@@ -128,8 +154,8 @@
     "end": {
       "Dialog": "It was nice seeing you, take care!",
       "Choices": {
-        "#pay": {
-          "Description": "Yeah, you too, and see you!",
+        "#end": {
+          "Description": "Yeah, you too, good bye!",
           "JumpDialogIndex": "index1",
           "Actions": []
         }
