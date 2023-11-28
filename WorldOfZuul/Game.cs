@@ -100,23 +100,23 @@ namespace WorldOfZuul
         private void LookingOutTheWindow()
         {
             if(World.Environment < 20)
-                Console.WriteLine("Yeah... Looking out the window you see the remains of the tree in front of your house. Nothing's left but a sad trunk.");
+                Utilities.GamePrint("Yeah... Looking out the window you see the remains of the tree in front of your house. Nothing's left but a sad trunk.");
             else if(World.Environment < 40)
-                Console.WriteLine("Wow, looking out the window you really can't see that far, because of the constant smog.");
+                Utilities.GamePrint("Wow, looking out the window you really can't see that far, because of the constant smog.");
             else if(World.Environment < 60)
-                Console.WriteLine("When you look out the window you see the view you always saw.");
+                Utilities.GamePrint("When you look out the window you see the view you always saw.");
             else if(World.Environment < 80)
-                Console.WriteLine("Looking out the window is refreshing and encouraging. You see birds resting on the branches, and the air is just crystal clear.");
+                Utilities.GamePrint("Looking out the window is refreshing and encouraging. You see birds resting on the branches, and the air is just crystal clear.");
             else
-                Console.WriteLine("It really is a pleasure to look out the window. There isn't even a sign of poor or left behind neighbourhood, and nature is just thriving.");
+                Utilities.GamePrint("It really is a pleasure to look out the window. There isn't even a sign of poor or left behind neighbourhood, and nature is just thriving.");
         }
 
         private void NewsInTheMorning()
         {
             int headlineNumber = Turn % 10;
-            Console.WriteLine("");
-            Console.WriteLine("In the  news you read the following headlines:");
-            Console.WriteLine("");
+            Utilities.GamePrint("");
+            Utilities.GamePrint("In the  news you read the following headlines:");
+            Utilities.GamePrint("");
             if(World.Environment > World.PreviousEnvironment)
             {
                 BetterEnvironment(headlineNumber);
