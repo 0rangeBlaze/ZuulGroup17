@@ -8,14 +8,16 @@
         public Dictionary<string, string> Exits { get; private set; }
         public string[] Actions {get; private set;}
         public Dictionary<string, Npc> Npcs {get; private set;}
+        public List<string> Events {get; private set;}
 
-        public Room(string name, string shortDescription, Dictionary<int, string>? longDescriptions, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null)
+        public Room(string name, string shortDescription, Dictionary<int, string>? longDescriptions, string[]? actions = null, Dictionary<string, string>? exits = null, Dictionary<string, Npc>? npcs = null, List<string>? events = null)
         {
             Name = name;
             ShortDescription = shortDescription;
             LongDescriptions = longDescriptions ?? new();
             Exits = exits == null ? new(StringComparer.OrdinalIgnoreCase){} : new(exits, StringComparer.OrdinalIgnoreCase);
             Actions = actions ?? new string[0];
+            Events = events ?? new List<string>{};
             Npcs = npcs == null ? new(StringComparer.OrdinalIgnoreCase){} : new(npcs, StringComparer.OrdinalIgnoreCase);
         }
 
@@ -58,6 +60,14 @@
             else 
             {
                 Utilities.GamePrint("You cannot exit");
+            }
+        }
+
+        public void HandleEvents(Game game) {
+            while(Events.Count > 0)
+            {
+                CommandProcessor.Process(Events[0], game);
+                Events.RemoveAt(0);
             }
         }
     }

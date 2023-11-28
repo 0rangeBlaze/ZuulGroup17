@@ -136,6 +136,7 @@ namespace WorldOfZuul
             CurrentRoom = game.World.GetRoom(destination).Name;
             Console.Clear();
             Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
+            game.World.GetRoom(CurrentArea, CurrentRoom).HandleEvents(game);
         }
 
         public bool TasksDone(){
@@ -161,10 +162,10 @@ namespace WorldOfZuul
 
         public void Eat() {
             if(tasks["eat"].done) {
-                Console.WriteLine("You have eaten so much that you are still full. Maybe you should get some rest before you eat again.");
+                Utilities.GamePrint("You have eaten so much that you are still full. Maybe you should get some rest before you eat again.");
             }
             else {
-                Console.WriteLine("You finish your delicious meal which makes you so full that you can't imagine eating anything for the rest of the day!");
+                Utilities.GamePrint("You finish your delicious meal which makes you so full that you can't imagine eating anything for the rest of the day!");
                 tasks["eat"] = (true, tasks["eat"].incompleteMessage);
 
                 //ApplyStatChanges("eat");

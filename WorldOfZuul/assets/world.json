@@ -19,6 +19,7 @@
                         "80": "In the middle, there's an garden inside, for people to do their work, study or simply recharge their social battery. It's nice to see that natures presence here. \nThe shops all have deals for those, who want to think long term, and buy products that last long, and don't need an annual upgrade."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -41,6 +42,7 @@
                             "80": "When you step in you notice the amount of natural light coming into the main space. \nPeople are smiling and chatting, and most of the items on the menu have a stamp on them, marking the enviromentally friendly."
                         },
                         "actions": [],
+                        "events": [],
                         "npcs": [
                             "./assets/npcs/adam.json"
                         ],
@@ -62,6 +64,7 @@
                             "80": "The crowd favourite. Since the uprising of local farming, the cost of dining here has gone down quite a bit, but that doesn't mean that the quality has takes a hit. It's still remarkably good."
                         },
                         "actions": [],
+                        "events": [],
                         "npcs": [
                             "./assets/npcs/anna.json"
                         ],
@@ -83,6 +86,7 @@
                             "80": "Next to the door, there's a huge sign advertising that the factory, from where this store is getting its products, is carbon-neutral. A few products even have \"recycled\" tags on them."
                         },
                         "actions": [],
+                        "events": [],
                         "npcs": [
                         ],
                        "exits":
@@ -103,6 +107,7 @@
                             "80": "80%"
                         },
                         "actions": [],
+                        "events": [],
                         "npcs": [
                         ],
                       "exits":
@@ -126,6 +131,7 @@
                         "0": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there."
                     }, 
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                    "exits":
@@ -144,6 +150,7 @@
                        "0": "You are in the bedroom. The TV is on, just as a background noise. Light is coming in from the living room."
                     },
                     "actions": ["nextTurn"],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -163,6 +170,7 @@
                         "0": "In the kitchen you can't find any food, even though you can smell something... Well too bad. A few dirty plates are in the sink, but luckily you know that that's not your problem."
                     },
                     "actions": ["sort"],
+                    "events": [],
                     "npcs": [
                     ],
                    "exits":
@@ -181,6 +189,7 @@
                         "0": "It really is just a bathroom... There is nothing special."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                         "./assets/npcs/mirror.json"
                     ],
@@ -210,6 +219,7 @@
                         "80": "Only busses are allowed in the main square. Other than that no vehicle can come near the middle of the town. This way there are more spacious and more well lit roads, surrounded by trees. \nSince there are no cars, there are no traffic jams, and the well timed bus rides can get anyone, anywhere on time. On a parking bus's windshield is a small lizzard and a ladybug just chilling out."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -232,6 +242,7 @@
                         "80": "Many people love spendind their days outside. Even more people have the chance to get the feeling of walking in the mountains, or on a in a meadow of flowers, because of this beautifully maintained park. \nActually there isn't a lot maintaining to do, nature is just thriving here, you almost can't notice that you are in a big city."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -248,6 +259,7 @@
                         "0": "Anywhere you look, you see peple trying to get in better shape. Everyone is motivated, you can almost actually feel the energy in the air"
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -264,6 +276,7 @@
                         "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                         "./assets/npcs/bob.json"
                     ],
@@ -287,6 +300,7 @@
                         "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas."
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                         "./assets/npcs/Arturas.json",
                         "./assets/npcs/Maya.json"
@@ -306,6 +320,7 @@
                         "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. \nExpensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
                     },
                     "actions": [],
+                    "events": [],
                     "npcs": [
                     ],
                     "exits":
@@ -322,6 +337,7 @@
                         "0": "You have arrived at your little work space. It's nothing special, with a desk separated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
                     },
                     "actions": ["work"],
+                    "events": [],
                     "npcs": [
                         "./assets/npcs/george.json"
                     ],

@@ -88,6 +88,7 @@ namespace WorldOfZuul
                         NewsInTheMorning();
                         Turn++;
                         Player.ResetTasks(this);
+                        SettingRoomEvents();
                     }
                 }
             }
@@ -97,6 +98,13 @@ namespace WorldOfZuul
             }
 
         }
+
+        private void SettingRoomEvents() {
+            if(Turn % 3 == 0) {
+                World.GetRoom("Mall", "Hall");
+            }
+        }
+
         private void LookingOutTheWindow()
         {
             if(World.Environment < 20)

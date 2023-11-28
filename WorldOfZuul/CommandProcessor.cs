@@ -24,7 +24,8 @@ namespace WorldOfZuul
             {"sleep", (Game game, string[] arguments) => game.NextTurn()},
             {"quit", (Game game, string[] arguments) => Quit(game)},
 
-            {"eat", (Game game, string[] _) => game.Player.Eat()}
+            {"eat", (Game game, string[] _) => game.Player.Eat()},
+            {"ad", (Game game, string[] _) => Advertisement(game)}
         };
         private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {
             {"", ""}, 
@@ -154,6 +155,11 @@ Each of these areas contain rooms for you to explore.
                     }
                 }
             }
+        }
+
+        public static void Advertisement(Game game) {
+            List<string> ads = new List<string>() {"first", "second"};
+            Utilities.SelectOption(ads[game.Turn/3], new List<string>() {"yes", "no"});
         }
 
         public static void Quit(Game game)

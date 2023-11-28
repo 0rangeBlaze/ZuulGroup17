@@ -79,6 +79,14 @@ namespace WorldOfZuul
 
                         string[] actions = JsonSerializer.Deserialize<string[]>(actionsElement) ?? new string[0];
 
+                        JsonElement eventsElement;
+                        if(!room.Value.TryGetProperty("events", out eventsElement))
+                            throw new Exception($"Property \"actions\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
+                        if(eventsElement.ValueKind != JsonValueKind.Array)
+                            throw new Exception($"Property \"actions\" is not an array in room \"{room.Name}\", in area \"{area.Name}\"");
+
+                        List<string> events = JsonSerializer.Deserialize<List<string>>(eventsElement) ?? new List<string>{};
+
                         JsonElement exitsElement;
                         if(!room.Value.TryGetProperty("exits", out exitsElement))
                             throw new Exception($"Property \"exits\" is missing in room \"{room.Name}\", in area \"{area.Name}\"");
@@ -100,7 +108,7 @@ namespace WorldOfZuul
                             npcs[npc.Name] = npc;
                         }
                         
-                        rooms[room.Name] = new Room(room.Name, shortDesc, longDescriptions, actions, exits, npcs);
+                        rooms[room.Name] = new Room(room.Name, shortDesc, longDescriptions, actions, exits, npcs, events);
                     }
                     Areas[area.Name] = new Area(area.Name, rooms, defaultRoom);
                 }
