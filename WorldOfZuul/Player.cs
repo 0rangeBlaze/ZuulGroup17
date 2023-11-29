@@ -114,7 +114,7 @@ namespace WorldOfZuul
                     break;
                 case "walk":
 
-                    int currentWalkText = TravelIndex % 2;
+                    int currentWalkText = TravelIndex % 4;
 
                     string[,] Walk = new string[,]
                     {
@@ -124,10 +124,21 @@ namespace WorldOfZuul
                             $"Another 400 meters at you're there."
                         },
                         {
-                            $"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.",
-                            $"TEST",
-                            $"Another 400 meters at you're there."
+                            $"\nYou decided to walk to {destination}. You have to walk on for 700 meters, followed by a left turn.",
+                            $"Now, you find yourself at the busy intersection of Sesame Street. You consider crossing the pedestrian bridge for a quicker route, but remember that that's under construction.",
+                            $"A mere 300 meters later, you'll reach your destination."
                         },
+                        {
+                            $"\nYou decided to walk to {destination}. A charming 500 meter walk awaits through this beautiful neighbourhood, with a left turn just around the corner.",
+                            $"Navigating through these lovely streets, you emerge onto Privet Drive. For a brief detour, ascend the staircase leading to Skovvej.",
+                            $"A mere 250 meters from the intersection, you'll find yourself at {destination}."
+                        },
+                        {
+                            $"\nYou decided to walk to {destination}. After reaching Diagon Alley, turn left and continue for 300 meters until you reach the charming Central Perk.",
+                            $"Now, on Main Street, you encounter a lively market. You don't have the time to explore the stalls, you have continue for 700 meters.",
+                            $"Your next landmark is the old clock tower. Walk past it and proceed straight for another 500 meters to reach {destination}.",
+                        },
+
                     };
 
                     Utilities.GamePrint(Walk[currentWalkText, 0]);
