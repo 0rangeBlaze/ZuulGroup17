@@ -85,7 +85,7 @@ namespace WorldOfZuul
                     GoodForEnvironment = 7,
                     Desirability = 0,
                     ifAccepted = "Accepting this contract aligns with your commitment to sustainability. The financial rewards may be highly dependant on the final up, but that should never stop you.",
-                    ifDenied = "By rejecting this contract, you avoid potential challenges associated with the dynamic pay-out. However, consider the missed opportunity to contribute to sustainable farming practices."
+                    ifDenied = "By rejecting this contract, you avoid potential challenges associated with the dynamic pay-out. However, consider the missed opportunity to contribute to sustainable farming practices ."
                 },
 
                 new()
@@ -106,6 +106,7 @@ namespace WorldOfZuul
 
         private void ContractReview(Game game)
         {
+            
             string question = this.GetContractString();
             int goodChoices = 0;
             question += "Would you like to accept this contract?";
@@ -131,9 +132,13 @@ namespace WorldOfZuul
                 game.Player.WorkReputation++;
         }
 
-        public static void ContractReviewWork(Game game) {
-            const int NUMBEROFCONTRACTS = 3;
-            for(int i = ContractNamesIndex; i < ContractNamesIndex + NUMBEROFCONTRACTS; i++) {
+        public static void ContractReviewWork(Game game) 
+        {
+            const int NUMBEROFCONTRACTS = 2;
+
+
+            for(int i = ContractNamesIndex; i < ContractNamesIndex + NUMBEROFCONTRACTS; i++) 
+            {
                 ContractNames[i%ContractNames.Count].ContractReview(game);
             }
             ContractNamesIndex += NUMBEROFCONTRACTS;

@@ -11,7 +11,6 @@ namespace WorldOfZuul
         public int Environment{get; set;}
         public int PreviousEnvironment{get; set;}
         public int PreviousPopulationWelfare{get; set;}
-        public int CurrentProviderIndex{get; set;}
 
         public World(string path="assets/world.json") {
             Loaded = false;
