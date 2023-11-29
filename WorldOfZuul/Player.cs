@@ -14,6 +14,7 @@ namespace WorldOfZuul
         public int WorkReputation { get; set; }
         private int personalWelfare;
         public int CurrentProviderIndex{ get; set; }
+        public int TravelIndex{ get; set; }
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
             {"work", (false, "You still haven't done any work today. Your boss will be mad.")},
             {"eat", (false, "You still haven't eaten anything today. You are very hungry.")},
@@ -27,7 +28,7 @@ namespace WorldOfZuul
             PreviousRoom = currentRoom;
             personalWelfare = 0;
             WorkReputation = 0;
-            CurrentProviderIndex = 0;
+            CurrentProviderIndex = TravelIndex = 0;
         }
 
         /*
@@ -113,15 +114,35 @@ namespace WorldOfZuul
                     break;
                 case "walk":
 
-                        Utilities.GamePrint($"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.");
-                        Console.ReadKey(true);
-                        Utilities.GamePrint($"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.");
-                        Console.ReadKey(true);
-                        Utilities.GamePrint($"Another 400 meters at you're there.");
-                        Console.ReadKey(true);
+                    int currentWalkText = TravelIndex % 2;
+
+                    string[,] Walk = new string[,]
+                    {
+                        {
+                            $"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.",
+                            $"Now you are on 5th avenue. That means you can take a shortcut by walking up the stair to Margrethe II street.",
+                            $"Another 400 meters at you're there."
+                        },
+                        {
+                            $"\nYou decided to walk to {destination}. That means you have to walk on for another 600 meters and then take a right.",
+                            $"TEST",
+                            $"Another 400 meters at you're there."
+                        },
+                    };
+
+                    Utilities.GamePrint(Walk[currentWalkText, 0]);
+                    Console.ReadKey(true);
+                    Utilities.GamePrint(Walk[currentWalkText, 1]);
+                    Console.ReadKey(true);
+                    Utilities.GamePrint(Walk[currentWalkText, 2]);
+                    Console.ReadKey(true);
+
+                    TravelIndex++;
 
                     break;
+
                 case "public transport":
+
                     Utilities.GamePrint("\nYou get on the next bus. Press any key to continue");
                     Console.ReadKey(true);
                     Utilities.GamePrint($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
