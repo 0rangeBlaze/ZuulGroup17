@@ -9,7 +9,7 @@
 
                 "Hall":
                 {
-                    "shortDescription" : "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you.",
+                    "shortDescription" : "Main area of the Mall. You are next to a big fountain, there are all kinds of shops around you. \nPossible commands:\n\t 'look', 'move', 'travel', 'help', 'map', 'quit'",
                     "longDescription":
                     {
                         "0": "This place feels like it was taken from a horror movie. Not a single soul in sight, the ground is covered in inches of dust and the sign have fallen off from the shops. \nThe fountain is completely empty, many lights aren't even working. You can see how few people dare just to go this far from their shelters.",
@@ -32,7 +32,7 @@
 
                 "FastFood":
                     {
-                        "shortDescription" : "You can get food, but its done fast.",
+                        "shortDescription" : "You can get food, but its done fast.\nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                         "longDescription": 
                         {
                             "0": "You step in, and see only empty, oily papers around. One machine is runing up front, and you can hear someone speak in the back rooms.",
@@ -56,7 +56,7 @@
 
                 "Restaurant":
                     {
-                        "shortDescription" : "This place has a reputation for using local ingredients, but also is a bit more expensive than the competitors.",
+                        "shortDescription" : "This place has a reputation for using local ingredients, but also is a bit more expensive than the competitors. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                         "longDescription": 
                         {
                             "0": "This place is nothing like it used to be. The flowers are dead, the beautiful wood interior is cracked, the painting on the wall is falling of. \nSince local food production is almost impossible the food here is less than acceptable.",
@@ -80,7 +80,7 @@
 
                 "ClothingStore":
                     {
-                        "shortDescription" : "A clothing store filled with all kinds of fashionware",
+                        "shortDescription" : "A clothing store filled with all kinds of fashionware. \nPossible commands:\n\t 'look', 'move', 'travel', 'help', 'map', 'quit'",
                         "longDescription":
                         {
                             "0": "The first thing you notice, is how little the selection is. There are only generic colour shirts, with the most basic signs on them. \n This may be because only the super large printing factories remained due the cotton shortage, and they have to make the clothes appealing to everyone.",
@@ -110,7 +110,7 @@
             {
                 "Livingroom":
                 {
-                    "shortDescription" : "The main area of the house.",
+                    "shortDescription" : "The main area of the house. \nPossible commands:\n\t 'look', 'move', 'travel', 'help', 'map', 'quit'",
                     "longDescription":
                     {
                         "0": "You are standing by the couch. Your favourite picture is on the wall in front of you. The kitchen door is cracked open, a good smell is creeping from there."
@@ -129,7 +129,7 @@
 
                 "Bedroom":
                 {
-                    "shortDescription" : "Your bedroom.",
+                    "shortDescription" : "Your bedroom. \nPossible commands:\n\t 'look', 'move', 'travel', 'sleep', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                        "0": "You are in the bedroom. The TV is on, just as a background noise. Light is coming in from the living room."
@@ -149,7 +149,7 @@
 
                 "Kitchen":
                 {
-                    "shortDescription": "The small kitchen of your home.",
+                    "shortDescription": "The small kitchen of your home. \nPossible commands:\n\t 'look', 'move', 'travel', 'sort', 'help', 'map', 'quit'",
                     "longDescription":
                     {
                         "0": "In the kitchen you can't find any food, even though you can smell something... Well too bad. A few dirty plates are in the sink, but luckily you know that that's not your problem."
@@ -168,7 +168,7 @@
 
                 "Bathroom":
                 {
-                    "shortDescription" : "A bathroom... Nothing special.",
+                    "shortDescription" : "A bathroom... Nothing special. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "It really is just a bathroom... There is nothing special."
@@ -194,7 +194,7 @@
             {
                 "MainSquare":
                 {
-                    "shortDescription" : "The main square of the town, one corner from the bus station.",
+                    "shortDescription" : "The main square of the town, one corner from the bus station. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription":
                     {
                         "0": "The plastic trees that the government has planted to keep the good vibe up have also lost their leaves. It didn't seem possible, but chances are that no one has looked after them in a very long time. \nThere's a non-passing centimeter of sand on the ground, and on worse days, you can hardly see a few meters because of air-pollution.",
@@ -217,7 +217,7 @@
 
                 "Park":
                 {
-                    "shortDescription" : "It is the city park, with the great lake in the middle.",
+                    "shortDescription" : "It is the city park, with the great lake in the middle. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "Everything that has made this place beautiful has died, because no sunlight is getting to the ground. Even the large pines that could maybe get just enough light to survive aren't alive anymore. \nIt's because the lake's water is full of garbage, and it pollutes everything in its area. There are no more reasons to come here.",
@@ -240,7 +240,7 @@
 
                 "Arcade":
                 {
-                    "shortDescription" : "THE place for vintage games",
+                    "shortDescription" : "THE place for vintage games. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription":
                     {
                         "0": "Anywhere you look, you see the most popular games ever made, huge arcade machines and the whole place just screams 80's vibes."
@@ -259,7 +259,7 @@
 
                 "Bar":
                 {
-                    "shortDescription" : "The best site to catch up with friends and blow of a bit of steam.",
+                    "shortDescription" : "The best site to catch up with friends and blow of a bit of steam. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class."
@@ -285,7 +285,7 @@
             {
                 "Breakroom":
                 {
-                    "shortDescription" : "The main hangout area for collegues.",
+                    "shortDescription" : "The main hangout area for collegues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas."
@@ -304,7 +304,7 @@
 
                 "Boss":
                 {
-                    "shortDescription" : "Your bosses spacious and shiny office.",
+                    "shortDescription" : "Your bosses spacious and shiny office. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. \nExpensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
@@ -322,7 +322,7 @@
 
                 "Office":
                 {
-                    "shortDescription" : "Your second home, shared with all your collegues.",
+                    "shortDescription" : "Your second home, shared with all your collegues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'work', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "You have arrived at your little work space. It's nothing special, with a desk separated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
