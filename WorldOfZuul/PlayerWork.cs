@@ -8,7 +8,7 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation == 2)
+                    if (WorkReputation < 2)
                     {
                         SupplyReview(game);
                     }
@@ -16,7 +16,7 @@ namespace WorldOfZuul
                     {
                         Hire(game);
                     }
-                    else if (WorkReputation < 4)
+                    else if (WorkReputation < 5)
                     {
                         SupplyChoice(game);
                     }
@@ -179,44 +179,38 @@ namespace WorldOfZuul
                 },
 
                 new Provider() {
-                    Food = "chocolate",
-                    ProviderName = "Willy Wonka's Sweets Co.",
+                    Food = "chocolate", ProviderName = "Willy Wonka's Sweets Co.",
                     personalWelfareChange = -7, environmentChange = 7, populationWelfareChange = 5,
                     providerDescription = "Sweet Delights Co. produces high-quality chocolates using sustainable and ethical practices. Their commitment to fair trade positively impacts local communities and the environment.This also makes their product really expensive.",
                     Desirablity = 0
                 },
                 new Provider() {
-                    Food = "chocolate",
-                    ProviderName = "CheapSweets Inc.",
+                    Food = "chocolate", ProviderName = "CheapSweets Inc.",
                     personalWelfareChange = 8, environmentChange = -10, populationWelfareChange = -2,
                     providerDescription = "CheapSweets Inc. prioritizes low-cost chocolate production, often disregarding environmental concerns. Their practices contribute to pollution and deforestation, resulting in a significant negative impact on ecosystems.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "chocolate",
-                    ProviderName = "EcoChoco Ltd.",
+                    Food = "chocolate", ProviderName = "EcoChoco Ltd.",
                     personalWelfareChange = 2, environmentChange = 2, populationWelfareChange = 1,
                     providerDescription = "EcoChoco Ltd. focuses on producing affordable chocolate while maintaining a moderate level of environmental responsibility. They employ some sustainable practices, but there is room for improvement in reducing their ecological footprint.",
                     Desirablity = 1
                 },
 
                 new Provider() {
-                    Food = "cheese",
-                    ProviderName = "Unilever Dairy",
+                    Food = "cheese", ProviderName = "Unilever Dairy",
                     personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 2,
                     providerDescription = "Unilever Dairy produces a variety of cheeses with a moderate impact on the environment. They prioritize quality and the employees welfare while trying to maintain maintaining eco-friendly practices.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "cheese",
-                    ProviderName = "Danone Inc.",
+                    Food = "cheese", ProviderName = "Danone Inc.",
                     personalWelfareChange = 6, environmentChange = -8, populationWelfareChange = -2,
                     providerDescription = "Danone Inc. focuses on low-cost cheese production, often at the expense of the environment. Their practices contribute to environmental degradation, but their products are incredibly cheap.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "cheese",
-                    ProviderName = "Schreiber Foods Ltd.",
+                    Food = "cheese", ProviderName = "Schreiber Foods Ltd.",
                     personalWelfareChange = -8, environmentChange = 7, populationWelfareChange = 5,
                     providerDescription = "Schreiber Foods Ltd. is committed to producing environmentally friendly and high-quality cheeses. While their products are pricier, they prioritize sustainable practices and contribute positively to the environment.",
                     Desirablity = 0
@@ -274,7 +268,7 @@ namespace WorldOfZuul
 
             Utilities.GamePrint($"You have chosen {filteredProviders[input].ProviderName}");
             Console.ReadKey(true);
-            personalWelfare += filteredProviders[input].personalWelfareChange;
+            PersonalWelfare += filteredProviders[input].personalWelfareChange;
             game.World.PopulationWelfare += filteredProviders[input].populationWelfareChange;
             game.World.Environment += filteredProviders[input].environmentChange;
             return filteredProviders[input].Desirablity;
@@ -341,7 +335,7 @@ namespace WorldOfZuul
                     // Update game stats based on trait values
                     //Examples:
 
-                    personalWelfare += hobbyPersonal + lastJobPersonal;
+                    PersonalWelfare += hobbyPersonal + lastJobPersonal;
                     game.World.Environment += hobbyEnvironment + lastJobEnvironment;
                     hires++;
                 } 

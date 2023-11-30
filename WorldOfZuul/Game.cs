@@ -77,13 +77,14 @@ namespace WorldOfZuul
             {
                 if(Player.TasksDone()) 
                 {
-                    if(Turn == 6)
+                    if(Turn == 8)
                     {
                         EndGame();
                     }
                     else
                     {
                         Utilities.GamePrint("You wake up the next day fully refreshed!");
+                        PersonalWelfareChange();
                         LookingOutTheWindow();
                         NewsInTheMorning();
                         Turn++;
@@ -103,6 +104,44 @@ namespace WorldOfZuul
             if(Turn % 3 == 0) {
                 World.GetRoom("Mall", "Hall");
             }
+        }
+
+        private void PersonalWelfareChange()
+        {
+
+            string[] betterWelfare = new string[]
+            {
+                "Over the past period you have noticed that you smile more, and just generally feel better",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+            };
+
+            string[] worseWelfare = new string[]
+            {
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+            };
+
+            if(Player.PersonalWelfare > Player.PreviousPersonalWelfare)
+            {
+                Utilities.GamePrint(betterWelfare[Turn - 1]);
+            }
+            else if(Player.PersonalWelfare < Player.PreviousPersonalWelfare)
+            {
+                Utilities.GamePrint(worseWelfare[Turn - 1]);
+            }
+
+            Player.PreviousPersonalWelfare = Player.PersonalWelfare;
         }
 
         private void LookingOutTheWindow()

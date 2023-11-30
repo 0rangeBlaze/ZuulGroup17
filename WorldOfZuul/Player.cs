@@ -12,7 +12,8 @@ namespace WorldOfZuul
         public string CurrentArea { get; set; }
         public string? PreviousArea { get; set; }
         public int WorkReputation { get; set; }
-        private int personalWelfare;
+        public int PersonalWelfare { get; set; }
+        public int PreviousPersonalWelfare { get; set; }
         public int CurrentProviderIndex{ get; set; }
         public int TravelIndex{ get; set; }
         private Dictionary<string, (bool done, string incompleteMessage)> tasks = new() {
@@ -26,7 +27,7 @@ namespace WorldOfZuul
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
             PreviousRoom = currentRoom;
-            personalWelfare = 0;
+            PersonalWelfare = PreviousPersonalWelfare = 50;
             WorkReputation = 0;
             CurrentProviderIndex = TravelIndex = 0;
         }
