@@ -109,6 +109,7 @@ namespace WorldOfZuul
         private void PersonalWelfareChange()
         {
 
+            /*
             string[] betterWelfare = new string[]
             {
                 "Over the past period you have noticed that you smile more, and just generally feel better",
@@ -131,14 +132,15 @@ namespace WorldOfZuul
                 "",
                 "",
             };
+            */
 
             if(Player.PersonalWelfare > Player.PreviousPersonalWelfare)
             {
-                Utilities.GamePrint(betterWelfare[Turn - 1]);
+                Utilities.GamePrint("Your health has gone up.");
             }
             else if(Player.PersonalWelfare < Player.PreviousPersonalWelfare)
             {
-                Utilities.GamePrint(worseWelfare[Turn - 1]);
+                Utilities.GamePrint("Your health has gotten worse.");
             }
 
             Player.PreviousPersonalWelfare = Player.PersonalWelfare;
