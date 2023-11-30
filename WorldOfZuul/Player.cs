@@ -130,7 +130,7 @@ namespace WorldOfZuul
                         },
                         {
                             $"\nYou decided to walk to {destination}. A charming 500 meter walk awaits through this beautiful neighbourhood, with a left turn just around the corner.",
-                            $"Navigating through these lovely streets, you emerge onto Privet Drive. For a brief detour, ascend the staircase leading to Skovvej.",
+                            $"Navigating through these lovely streets, you emerge onto Privet Drive. For a brief detour, ascend the staircase leading to Skovvej street.",
                             $"A mere 250 meters from the intersection, you'll find yourself at {destination}."
                         },
                         {

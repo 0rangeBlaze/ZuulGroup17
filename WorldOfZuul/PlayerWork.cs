@@ -16,7 +16,7 @@ namespace WorldOfZuul
                     {
                         Hire(game);
                     }
-                    else if (WorkReputation == 4)
+                    else if (WorkReputation < 4)
                     {
                         SupplyChoice(game);
                     }
@@ -120,6 +120,7 @@ namespace WorldOfZuul
                     providerDescription = "They may source from fisheries with questionable environmental practices, including overfishing and habitat destruction. BlueCrest Seafoods priced at the lower end of the market.",
                     Desirablity = 1
                 },
+
                 new Provider() {
                     Food = "fruits", ProviderName = "Sunrise Orchards Cooperative",
                     personalWelfareChange = 5, environmentChange = 10, populationWelfareChange = 7, 
@@ -138,6 +139,7 @@ namespace WorldOfZuul
                     providerDescription = "EverGreen Harvests is dedicated to sustainable fruit production through regenerative agriculture. They implement cutting-edge techniques such as agroforestry and use organic practices to ensure soil health. EverGreen actively engages with local communities to promote responsible farming and biodiversity. Customers appreciate the exceptional quality and unique varieties of fruits. EverGreen Harvests products are extremely expensive.",
                     Desirablity = 0
                 },
+
                 new Provider() {
                     Food = "meat", ProviderName = "EconoMeat Processors", 
                     personalWelfareChange = 0, environmentChange = -6, populationWelfareChange = 2,
@@ -156,32 +158,78 @@ namespace WorldOfZuul
                     providerDescription = "SustainableSavanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. SustainableSavanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately the quality of their products is often bad and they are expensive.", 
                     Desirablity = 0
                 },
+
                 new Provider() {
                     Food = "shrimp", ProviderName = "Shoreline Shrimpers Co.",
                     personalWelfareChange = 5, environmentChange = 6, populationWelfareChange = 4, 
                     providerDescription = "Shoreline Shrimpers Co. specializes in sustainably sourced shrimp, employing eco-friendly practices in both wild-caught and farmed varieties. Enjoy high-quality shrimp with a focus on preserving marine ecosystems, for just a few dollars more/shipment.",
-                    Desirablity = 1
+                    Desirablity = 0
                 },
                 new Provider() {
-                    Food = "shrimp", ProviderName = "DeepSea Exploitation Corp.",
+                    Food = "shrimp", ProviderName = "Deep Sea Fishing Corp.",
                     personalWelfareChange = 6, environmentChange = -8, populationWelfareChange = -3, 
                     providerDescription = "DeepSea Exploitation Corp. engages in unsustainable shrimp harvesting practices, causing significant harm to marine ecosystems. Their practices makes their products extremely cheap and still good quality.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "shrimp", ProviderName = "Oceanic Delights Seafood",
-                    personalWelfareChange = -4, environmentChange = 8, populationWelfareChange = 5, 
+                    Food = "shrimp", ProviderName = "Oceanic  Seafood",
+                    personalWelfareChange = -7, environmentChange = 8, populationWelfareChange = 5, 
                     providerDescription = "Oceanic Delights Seafood brings you a diverse selection of shrimp sourced from well-managed fisheries. Their methods while truly amazing for the environment, make their products much pricier than the competitors'.",
                     Desirablity = 0
-                }
+                },
 
-                
+                new Provider() {
+                    Food = "chocolate",
+                    ProviderName = "Willy Wonka's Sweets Co.",
+                    personalWelfareChange = -7, environmentChange = 7, populationWelfareChange = 5,
+                    providerDescription = "Sweet Delights Co. produces high-quality chocolates using sustainable and ethical practices. Their commitment to fair trade positively impacts local communities and the environment.This also makes their product really expensive.",
+                    Desirablity = 0
+                },
+                new Provider() {
+                    Food = "chocolate",
+                    ProviderName = "CheapSweets Inc.",
+                    personalWelfareChange = 8, environmentChange = -10, populationWelfareChange = -2,
+                    providerDescription = "CheapSweets Inc. prioritizes low-cost chocolate production, often disregarding environmental concerns. Their practices contribute to pollution and deforestation, resulting in a significant negative impact on ecosystems.",
+                    Desirablity = 1
+                },
+                new Provider() {
+                    Food = "chocolate",
+                    ProviderName = "EcoChoco Ltd.",
+                    personalWelfareChange = 2, environmentChange = 2, populationWelfareChange = 1,
+                    providerDescription = "EcoChoco Ltd. focuses on producing affordable chocolate while maintaining a moderate level of environmental responsibility. They employ some sustainable practices, but there is room for improvement in reducing their ecological footprint.",
+                    Desirablity = 1
+                },
+
+                new Provider() {
+                    Food = "cheese",
+                    ProviderName = "Unilever Dairy",
+                    personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 2,
+                    providerDescription = "Unilever Dairy produces a variety of cheeses with a moderate impact on the environment. They prioritize quality and the employees welfare while trying to maintain maintaining eco-friendly practices.",
+                    Desirablity = 1
+                },
+                new Provider() {
+                    Food = "cheese",
+                    ProviderName = "Danone Inc.",
+                    personalWelfareChange = 6, environmentChange = -8, populationWelfareChange = -2,
+                    providerDescription = "Danone Inc. focuses on low-cost cheese production, often at the expense of the environment. Their practices contribute to environmental degradation, but their products are incredibly cheap.",
+                    Desirablity = 1
+                },
+                new Provider() {
+                    Food = "cheese",
+                    ProviderName = "Schreiber Foods Ltd.",
+                    personalWelfareChange = -8, environmentChange = 7, populationWelfareChange = 5,
+                    providerDescription = "Schreiber Foods Ltd. is committed to producing environmentally friendly and high-quality cheeses. While their products are pricier, they prioritize sustainable practices and contribute positively to the environment.",
+                    Desirablity = 0
+                },
+
+         
             };
             foods.Add(new Food() {FoodName = "fish"});
             foods.Add(new Food() {FoodName = "fruits"});
             foods.Add(new Food() {FoodName = "meat"});
-            foods.Add(new Food() {FoodName = "spices"});
-            //foods.Add(new Food() {FoodName = "vegetables"});
+            foods.Add(new Food() {FoodName = "shrimp"});
+            foods.Add(new Food() {FoodName = "chocolate"});
+            foods.Add(new Food() {FoodName = "cheese"});
 
 
             
