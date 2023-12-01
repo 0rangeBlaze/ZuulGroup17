@@ -70,7 +70,7 @@
             "Actions": []
           },
           "meat": {
-            "Description": "Let's give the Catalann Coca a chance.",
+            "Description": "Let's give the Catalan Coca a chance.",
             "JumpDialogIndex": "drink",
             "Actions": []
           }
@@ -99,7 +99,7 @@
         }
       },
       "recommendation": {
-        "Dialog": "Then let me reccomend Spagetthi Bolognese, it's lovely with a bit of red wine.",
+        "Dialog": "Then let me recommend Spaghetti Bolognese, it's lovely with a bit of red wine.",
         "Choices": {
           "index1": {
             "Description": "That sounds lovely, I'd like to order that.",

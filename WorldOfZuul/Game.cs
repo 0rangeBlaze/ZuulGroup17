@@ -136,7 +136,7 @@ namespace WorldOfZuul
 
             if(Player.PersonalWelfare > Player.PreviousPersonalWelfare)
             {
-                Utilities.GamePrint("Your health has gone up.");
+                Utilities.GamePrint("Your health has got better.");
             }
             else if(Player.PersonalWelfare < Player.PreviousPersonalWelfare)
             {
@@ -201,7 +201,7 @@ namespace WorldOfZuul
                 "A new poll has just been released, saying that 66% of Americans willing to try anything that can help save the environment.",
                 "Divers recovered 12 tons of trash from lake Tahoe.",
                 "Patagonia, the American retailer of outdoor recreation clothing store, gives away its entire $3 billion worth to fight climate change.",
-                "Ocean cleanup nonprofit gets 2,5 million dollars from Airbnb co-founder to launch massive plastic pollution cleanup.",
+                "Ocean clean-up non-profit gets 2,5 million dollars from Airbnb co-founder to launch massive plastic pollution clean-up.",
                 "Germany prioritizes climate crisis by supporting sustainability in developing countries with $4 billion plan.",
                 "Finnish scuba-diver finds a way to turn sea algae into a replacement for plastic in common products.",
                 "Tesco, the Europe's biggest supermarket chain, removed 1 billion pieces of plastic from across its stores.",

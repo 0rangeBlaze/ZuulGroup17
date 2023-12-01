@@ -21,7 +21,7 @@ namespace WorldOfZuul
                 new()
                 {
                     CompanyName = "Lidl",
-                    CompanyShortDescription = "Huge german discount retailer",
+                    CompanyShortDescription = "Huge German discount retailer",
                     YearOfFoundation = 1932,
                     TotalNetWorth = 1400000000,
                     FieldOfWork = "Food and Clothing",
@@ -34,12 +34,12 @@ namespace WorldOfZuul
 
                 new()
                 {
-                    CompanyName = "Bean Harbor Coffee Co.",
+                    CompanyName = "Bean Harbour Coffee Co.",
                     CompanyShortDescription = "Largest Coffee farming chain in the world",
                     YearOfFoundation = 1914,
                     TotalNetWorth = 20000000000,
                     FieldOfWork = "Coffee bean farming and distribution",
-                    ContractDescription = "Bean Harbor Coffee is offering your company a discount for all its products, in exchange for helping their distribution in Europe. \nThis company's methods regarding child labour and enviromentally consciousness are an extremely contreversial topic.",
+                    ContractDescription = "Bean Harbor Coffee is offering your company a discount for all its products, in exchange for helping their distribution in Europe. \nThis company's methods regarding child labour and environmentally consciousness are an extremely controversial topic.",
                     GoodForEnvironment = -5,
                     Desirability = 1,
                     ifAccepted = "While this decision may help you move up the ladder in the company, it may not have been the best for the future of the environment.",
@@ -53,7 +53,7 @@ namespace WorldOfZuul
                     YearOfFoundation = 2010,
                     TotalNetWorth = 800000000,
                     FieldOfWork = "Data Science",
-                    ContractDescription = "Data Innovate Analytics is proposing a collaboration to develop an AI-driven predictive analytics platform. Your company's part is to provide continoues data regarding people's habits, to optimize the supply chain. The contract is 12 months long . The contract includes free implementation for your company, monthly payments and a substantial bonus if the development is successful.",
+                    ContractDescription = "Data Innovate Analytics is proposing a collaboration to develop an AI-driven predictive analytics platform. Your company's part is to provide continuous data regarding people's habits, to optimize the supply chain. The contract is 12 months long. The contract includes free implementation for your company, monthly payments and a substantial bonus if the development is successful.",
                     GoodForEnvironment = 5,
                     Desirability = 1,
                     ifAccepted = "This was a great deal.",
@@ -85,7 +85,7 @@ namespace WorldOfZuul
                     GoodForEnvironment = 7,
                     Desirability = 0,
                     ifAccepted = "Accepting this contract aligns with your commitment to sustainability. The financial rewards may be highly dependant on the final up, but that should never stop you.",
-                    ifDenied = "By rejecting this contract, you avoid potential challenges associated with the dynamic pay-out. However, consider the missed opportunity to contribute to sustainable farming practices ."
+                    ifDenied = "By rejecting this contract, you avoid potential challenges associated with the dynamic pay-out. However, consider the missed opportunity to contribute to sustainable farming practices."
                 },
 
                 new()
@@ -95,7 +95,7 @@ namespace WorldOfZuul
                     YearOfFoundation = 1989,
                     TotalNetWorth = 3000000000000,
                     FieldOfWork = "Smart Devices",
-                    ContractDescription = "Apple proposed to work together with you on it's new meal preping application. They want to learn the habits of people when it comes to making food. \nThey propose a 2 year long contract, where you work together to develop an add, that's helping people get the best nutrition. \nThe contract proposes that you get 1,5 million dollars at the end of the first year, and than 25% of the app's revenue.",
+                    ContractDescription = "Apple proposed to work together with you on it's new meal prepping application. They want to learn the habits of people when it comes to making food. \nThey propose a 2 year long contract, where you work together to develop an add, that's helping people get the best nutrition. \nThe contract proposes that you get 1,5 million dollars at the end of the first year, and than 25% of the app's revenue.",
                     GoodForEnvironment = 6,
                     Desirability = 1,
                     ifAccepted = "While accepting this contract may seem a bit risky, because of the late pay-date, this is a great deal both for the company and the people's health.",

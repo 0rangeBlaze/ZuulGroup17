@@ -223,7 +223,7 @@ namespace WorldOfZuul
                 { "Food Scraps", "organic" },
                 { "Glass Jar", "glass" },
                 { "Cardboard Box", "paper" },
-                { "Aluminum Foil", "metal" },
+                { "Aluminium Foil", "metal" },
                 { "Banana Peel", "organic" },
                 { "Plastic Wrap", "plastic" },
                 { "Tin Can", "metal" },
@@ -235,7 +235,7 @@ namespace WorldOfZuul
             };
 
             List<string> temporary = new List<string>() { "Plastic Bottle", "Metal Can", "Newspaper", "Food Scraps", "Glass Jar",
-            "Cardboard Box", "Aluminum Foil", "Banana Peel", "Plastic Wrap", "Tin Can", "Coffee Cup", "Egg Carton", "Soda Can", "Milk Jug", "Pizza Box" };
+            "Cardboard Box", "Aluminium Foil", "Banana Peel", "Plastic Wrap", "Tin Can", "Coffee Cup", "Egg Carton", "Soda Can", "Milk Jug", "Pizza Box" };
 
             List<string> trashBins = new List<string>() { "plastic", "metal", "paper", "organic", "glass" };
 

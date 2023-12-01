@@ -40,7 +40,7 @@
     },
 
     "4inaline": {
-      "Dialog": "Oooh let's go, I'll be blue you'be red, and come on haha... school me!",
+      "Dialog": "Oooh let's go, I'll be blue you'll be red, and come on haha... school me!",
       "Choices": {
         "anwser1": {
           "Description": "<Start the game>",
@@ -51,7 +51,7 @@
     },
 
     "battleship": {
-      "Dialog": "'All hands man your battlestaion' or whatever they say in the movies.",
+      "Dialog": "'All hands man your battlestations or whatever they say in the movies.",
       "Choices": {
         "anwser1": {
           "Description": "<Start the game>",
@@ -70,7 +70,7 @@
           "Actions": []
         },
         "anwser2": {
-          "Description": "That's nice, I hope it stays that ways. Did you see the new Star Wars film?.",
+          "Description": "That's nice, I hope it stays that way. Did you see the new Star Wars film?.",
           "JumpDialogIndex": "question3",
           "Actions": []
         }
@@ -155,7 +155,7 @@
       "Dialog": "It was nice seeing you, take care!",
       "Choices": {
         "#end": {
-          "Description": "Yeah, you too, good bye!",
+          "Description": "Yeah, you too, goodbye!",
           "JumpDialogIndex": "index1",
           "Actions": []
         }

@@ -29,7 +29,7 @@ namespace WorldOfZuul
         };
         private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {
             {"", ""}, 
-            {"help", "\nhelp: help [command]\n\tPrint usage of command.\n\tIf command is not sepcified list all commands.\n"},
+            {"help", "\nhelp: help [command]\n\tPrint usage of command.\n\tIf command is not specified list all commands.\n"},
             {"look", "\nlook:\n\tFind out more about your surroundings and which ways you can move.\n"},
             {"move", "\nmove: move [direction]\n\tMove in direction.\n\tIf direction is set to back move back to previous room.\n"},
             {"travel", "\ntravel: travel [destination]\n\tNavigate to area specified in destination.\n"},

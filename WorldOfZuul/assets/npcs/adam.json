@@ -97,7 +97,7 @@
           "Actions": []
         },
         "vegetarian": {
-          "Description": "I would like the vegaterian sausage, with pickles and ketchup.",
+          "Description": "I would like the vegeterian sausage, with pickles and ketchup.",
           "JumpDialogIndex": "drink",
           "Actions": []
         }

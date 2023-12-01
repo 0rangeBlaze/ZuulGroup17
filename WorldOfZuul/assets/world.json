@@ -38,7 +38,7 @@
                             "0": "You step in, and see only empty, oily papers around. One machine is running up front, and you can hear someone speak in the back rooms.",
                             "20": "When you walk in you only see a couple sitting at the window. By the looks of it the place hasn't been cleaned in days, and something smells.",
                             "40": "There are many people inside, all looking bored, uninterested. They just want to get over this day. There's an empty ordering machine just a few steps from you.",
-                            "60": "This reastaurant isn't what you expected. It's clean, good looking, and besides the normal hamburgers and sidedishes, there is a localy sourced selection.",
+                            "60": "This restaurant isn't what you expected. It's clean, good looking, and besides the normal hamburgers and side dishes, there is a locally sourced selection.",
                             "80": "When you step in you notice the amount of natural light coming into the main space. \nPeople are smiling and chatting, and most of the items on the menu have a stamp on them, marking the enviromentally friendly."
                         },
                         "actions": [],
@@ -80,7 +80,7 @@
 
                 "ClothingStore":
                     {
-                        "shortDescription" : "A clothing store filled with all kinds of fashionware. \nPossible commands:\n\t 'look', 'move', 'travel', 'help', 'map', 'quit'",
+                        "shortDescription" : "A clothing store filled with all kinds of fashion ware. \nPossible commands:\n\t 'look', 'move', 'travel', 'help', 'map', 'quit'",
                         "longDescription":
                         {
                             "0": "The first thing you notice, is how little the selection is. There are only generic colour shirts, with the most basic signs on them. \n This may be because only the super large printing factories remained due the cotton shortage, and they have to make the clothes appealing to everyone.",
@@ -198,10 +198,10 @@
                     "longDescription":
                     {
                         "0": "The plastic trees that the government has planted to keep the good vibe up have also lost their leaves. It didn't seem possible, but chances are that no one has looked after them in a very long time. \nThere's a non-passing centimeter of sand on the ground, and on worse days, you can hardly see a few meters because of air-pollution.",
-                        "20": "The greenpatch in the middle has been replaced by fake plants. The actuall ones couldn't survive in these conditions. The cafés are still busy, just not as much as usually. \nThe constant smog makes it hard to breathe, and unpleasant to stay outside for longer than needed.",
-                        "40": "The town's main square is surrounded by cute little cafés. It's a little greenpatch surrounded by glass giants. There are benches situated under the shade of the trees. On the bench's armest you see a lizzard and a ladybug just sitting next to eachother. \nThe place is suprisingly well lit, compared to how tall buildings stand around it. It's because the sunlight bounces around on those huge windows.",
-                        "60": "When you look around you see that a few cafés have joined the action against unlawful, and environmentally harmful ways of farming coffee, and are proudly showing it off with huge banners. \nThe sidewalks have more green areas, made up of bushes and other plants. When you look up at one of the trees, there sits a little ladybug with a lizzard, looking back at you. Nature truly is amazing.",
-                        "80": "Only busses are allowed in the main square. Other than that no vehicle can come near the middle of the town. This way there are more spacious and more well lit roads, surrounded by trees. \nSince there are no cars, there are no traffic jams, and the well timed bus rides can get anyone, anywhere on time. On a parking bus's windshield is a small lizzard and a ladybug just chilling out."
+                        "20": "The green patch in the middle has been replaced by fake plants. The actual ones couldn't survive in these conditions. The cafés are still busy, just not as much as usually. \nThe constant smog makes it hard to breathe, and unpleasant to stay outside for longer than needed.",
+                        "40": "The town's main square is surrounded by cute little cafés. It's a little greenpatch surrounded by glass giants. There are benches situated under the shade of the trees. On the bench's armrest you see a lizard and a ladybug just sitting next to each other. \nThe place is surprisingly well lit, compared to how tall buildings stand around it. It's because the sunlight bounces around on those huge windows.",
+                        "60": "When you look around you see that a few cafés have joined the action against unlawful, and environmentally harmful ways of farming coffee, and are proudly showing it off with huge banners. \nThe sidewalks have more green areas, made up of bushes and other plants. When you look up at one of the trees, there sits a little ladybug with a lizard, looking back at you. Nature truly is amazing.",
+                        "80": "Only busses are allowed in the main square. Other than that no vehicle can come near the middle of the town. This way there are more spacious and more well lit roads, surrounded by trees. \nSince there are no cars, there are no traffic jams, and the well timed bus rides can get anyone, anywhere on time. On a parking bus's windshield is a small lizard and a ladybug just chilling out."
                     },
                     "actions": [],
                     "events": [],
@@ -222,9 +222,9 @@
                     {
                         "0": "Everything that has made this place beautiful has died, because no sunlight is getting to the ground. Even the large pines that could maybe get just enough light to survive aren't alive anymore. \nIt's because the lake's water is full of garbage, and it pollutes everything in its area. There are no more reasons to come here.",
                         "20": "Even if you tried, you couldn't find any of the famous bunnies, they had to be moved, since nothing they can eat was able to grow in conditions like these. And it's perfectly understandable, since practically only large trees are alive.",
-                        "40": "When you walk past the tree line on the park's edge you see a few people kayaking, a couple swimming. Others are running, walking their dogs and picnicing.",
-                        "60": "The municipailty is putting a big emphasis on providing greenplaces for people, and it is very noticable. This park is magnificent. Not a piece of trash in sight, everything is well maintained and clean. \nThere are more benches and tables for people to eat, instead of eating in the closed and crowded reastaurants.",
-                        "80": "Many people love spendind their days outside. Even more people have the chance to get the feeling of walking in the mountains, or on a in a meadow of flowers, because of this beautifully maintained park. \nActually there isn't a lot maintaining to do, nature is just thriving here, you almost can't notice that you are in a big city."
+                        "40": "When you walk past the tree line on the park's edge you see a few people kayaking, a couple swimming. Others are running, walking their dogs and picnicking.",
+                        "60": "The municipality is putting a big emphasis on providing green places for people, and it is very noticeable. This park is magnificent. Not a piece of trash in sight, everything is well maintained and clean. \nThere are more benches and tables for people to eat, instead of eating in the closed and crowded restaurants.",
+                        "80": "Many people love spending their days outside. Even more people have the chance to get the feeling of walking in the mountains, or on a in a meadow of flowers, because of this beautifully maintained park. \nActually there isn't a lot maintaining to do, nature is just thriving here, you almost can't notice that you are in a big city."
                     },
                     "actions": [],
                     "events": [],
@@ -262,7 +262,7 @@
                     "shortDescription" : "The best site to catch up with friends and blow of a bit of steam. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
-                        "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tabacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class."
+                        "0": "When you step in, you immediately hear the music, can smell the mixture of booze and tobacco. \nPeople are chatting and laughing, friends are reuniting, college students are celebrating their survival of a class."
                     },
                     "actions": [],
                     "events": [],
@@ -285,10 +285,10 @@
             {
                 "Breakroom":
                 {
-                    "shortDescription" : "The main hangout area for collegues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
+                    "shortDescription" : "The main hangout area for colleagues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
-                        "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringig and typing from the office areas."
+                        "0": "In the breakroom you find a few co-workers finally getting their coffee needed for their survival. You hear constant ringing and typing from the office areas."
                     },
                     "actions": [],
                     "events": [],
@@ -307,7 +307,7 @@
                     "shortDescription" : "Your bosses spacious and shiny office. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
-                        "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. \nExpensive looking pantings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
+                        "0": "When you look around you notice how much better your boss's office is than yours. It has a lot of natural light, plants and a ton of space. \nExpensive looking paintings hang on the walls. On the walls that are not glass, because of course it is a corner office."   
                     },
                     "actions": [],
                     "events": [],

@@ -130,7 +130,7 @@ namespace WorldOfZuul
                 new Provider() {
                     Food = "fruits", ProviderName = "BudgetHarvest Fruits",
                     personalWelfareChange = 7, environmentChange = -7, populationWelfareChange =7, 
-                    providerDescription = "BudgetHarvest Fruits aims to make fresh produce accessible to all, but their practices may not prioritize sustainability. They source fruits from various farms, including those with less environmentally friendly practices. However, customers are drawn to BudgetHarvest for their incredibly low prices, however their quiality is often undesirable.",
+                    providerDescription = "BudgetHarvest Fruits aims to make fresh produce accessible to all, but their practices may not prioritize sustainability. They source fruits from various farms, including those with less environmentally friendly practices. However, customers are drawn to BudgetHarvest for their incredibly low prices, however their quality is often undesirable.",
                     Desirablity = 1
                 },
                 new Provider() {
@@ -155,7 +155,7 @@ namespace WorldOfZuul
                 new Provider() {
                     Food = "meat", ProviderName = "Sustainable Savanna Meats", 
                     personalWelfareChange = -8, environmentChange = 7, populationWelfareChange = 1,
-                    providerDescription = "SustainableSavanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. SustainableSavanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately the quality of their products is often bad and they are expensive.", 
+                    providerDescription = "Sustainable Savanna Meats is a pioneer in sustainable and ethical meat production. They prioritize pasture-raised, grass-fed livestock, avoiding the use of hormones and antibiotics. Sustainable Savanna engages in regenerative farming practices to enhance soil health and biodiversity. Unfortunately, the quality of their products is often bad and they are expensive.", 
                     Desirablity = 0
                 },
 
@@ -168,7 +168,7 @@ namespace WorldOfZuul
                 new Provider() {
                     Food = "shrimp", ProviderName = "Deep Sea Fishing Corp.",
                     personalWelfareChange = 6, environmentChange = -8, populationWelfareChange = -3, 
-                    providerDescription = "DeepSea Exploitation Corp. engages in unsustainable shrimp harvesting practices, causing significant harm to marine ecosystems. Their practices makes their products extremely cheap and still good quality.",
+                    providerDescription = "Deep Sea Exploitation Corp. engages in unsustainable shrimp harvesting practices, causing significant harm to marine ecosystems. Their practices make their products extremely cheap and still good quality.",
                     Desirablity = 1
                 },
                 new Provider() {
@@ -181,26 +181,26 @@ namespace WorldOfZuul
                 new Provider() {
                     Food = "chocolate", ProviderName = "Willy Wonka's Sweets Co.",
                     personalWelfareChange = -7, environmentChange = 7, populationWelfareChange = 5,
-                    providerDescription = "Sweet Delights Co. produces high-quality chocolates using sustainable and ethical practices. Their commitment to fair trade positively impacts local communities and the environment.This also makes their product really expensive.",
+                    providerDescription = "Willy Wonka's Sweets Co. produces high-quality chocolates using sustainable and ethical practices. Their commitment to fair trade positively impacts local communities and the environment. This also makes their product really expensive.",
                     Desirablity = 0
                 },
                 new Provider() {
-                    Food = "chocolate", ProviderName = "CheapSweets Inc.",
+                    Food = "chocolate", ProviderName = "Cheap Sweets Inc.",
                     personalWelfareChange = 8, environmentChange = -10, populationWelfareChange = -2,
-                    providerDescription = "CheapSweets Inc. prioritizes low-cost chocolate production, often disregarding environmental concerns. Their practices contribute to pollution and deforestation, resulting in a significant negative impact on ecosystems.",
+                    providerDescription = "Cheap Sweets Inc. prioritizes low-cost chocolate production, often disregarding environmental concerns. Their practices contribute to pollution and deforestation, resulting in a significant negative impact on ecosystems.",
                     Desirablity = 1
                 },
                 new Provider() {
-                    Food = "chocolate", ProviderName = "EcoChoco Ltd.",
+                    Food = "chocolate", ProviderName = "Eco Choco Ltd.",
                     personalWelfareChange = 2, environmentChange = 2, populationWelfareChange = 1,
-                    providerDescription = "EcoChoco Ltd. focuses on producing affordable chocolate while maintaining a moderate level of environmental responsibility. They employ some sustainable practices, but there is room for improvement in reducing their ecological footprint.",
+                    providerDescription = "Eco Choco Ltd. focuses on producing affordable chocolate while maintaining a moderate level of environmental responsibility. They employ some sustainable practices, but there is room for improvement in reducing their ecological footprint.",
                     Desirablity = 1
                 },
 
                 new Provider() {
                     Food = "cheese", ProviderName = "Unilever Dairy",
                     personalWelfareChange = 1, environmentChange = 1, populationWelfareChange = 2,
-                    providerDescription = "Unilever Dairy produces a variety of cheeses with a moderate impact on the environment. They prioritize quality and the employees welfare while trying to maintain maintaining eco-friendly practices.",
+                    providerDescription = "Unilever Dairy produces a variety of cheeses with a moderate impact on the environment. They prioritize quality and the employee's welfare while trying to maintain maintaining eco-friendly practices.",
                     Desirablity = 1
                 },
                 new Provider() {
