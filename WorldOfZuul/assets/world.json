@@ -35,7 +35,7 @@
                         "shortDescription" : "You can get food, but its done fast.\nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'help', 'map', 'quit'",
                         "longDescription": 
                         {
-                            "0": "You step in, and see only empty, oily papers around. One machine is runing up front, and you can hear someone speak in the back rooms.",
+                            "0": "You step in, and see only empty, oily papers around. One machine is running up front, and you can hear someone speak in the back rooms.",
                             "20": "When you walk in you only see a couple sitting at the window. By the looks of it the place hasn't been cleaned in days, and something smells.",
                             "40": "There are many people inside, all looking bored, uninterested. They just want to get over this day. There's an empty ordering machine just a few steps from you.",
                             "60": "This reastaurant isn't what you expected. It's clean, good looking, and besides the normal hamburgers and sidedishes, there is a localy sourced selection.",
@@ -322,7 +322,7 @@
 
                 "Office":
                 {
-                    "shortDescription" : "Your second home, shared with all your collegues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'work', 'help', 'map', 'quit'",
+                    "shortDescription" : "Your second home, shared with all your colleagues. \nPossible commands:\n\t 'look', 'move', 'travel', 'interact', 'work', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                         "0": "You have arrived at your little work space. It's nothing special, with a desk separated from the other by small wall. \nYour plant, named George, is at the corner of your desk, partially behind your monitor. He is there to remind you how beautiful the world outside is."
