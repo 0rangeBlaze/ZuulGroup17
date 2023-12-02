@@ -8,7 +8,7 @@ namespace WorldOfZuul
     public class Npc
     {
         public string Name {get; private set;}
-        public string CurrentDialog {get; private set;}
+        public string CurrentDialog {get; set;}
         public List<string> Greeting {get; private set;}
         public Dictionary<string, DialogData> NpcData {get; private set;}
         public bool Talking {get; private set;}

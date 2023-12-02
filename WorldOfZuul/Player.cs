@@ -12,6 +12,8 @@ namespace WorldOfZuul
         public string CurrentArea { get; set; }
         public string? PreviousArea { get; set; }
         public int WorkReputation { get; set; }
+        public string Job { get; set; }
+        public bool Promoted { get; set; }
         public int PersonalWelfare { get; set; }
         public int PreviousPersonalWelfare { get; set; }
         public int CurrentProviderIndex{ get; set; }
@@ -23,6 +25,7 @@ namespace WorldOfZuul
         };
 
         public Player(string currentArea = "home", string previousArea = "home", string currentRoom = "livingroom") {
+            Job = "SupplyReview";
             CurrentArea = currentArea;
             PreviousArea = previousArea;
             CurrentRoom = currentRoom;
@@ -30,6 +33,7 @@ namespace WorldOfZuul
             PersonalWelfare = PreviousPersonalWelfare = 50;
             WorkReputation = 0;
             CurrentProviderIndex = TravelIndex = 0;
+            Promoted = false;
         }
 
         /*
@@ -177,7 +181,7 @@ namespace WorldOfZuul
             {
                 if (!task.done)
                 {
-                    Console.WriteLine(task.incompleteMessage);
+                    Utilities.GamePrint(task.incompleteMessage);
                     return false;
                 }
             }

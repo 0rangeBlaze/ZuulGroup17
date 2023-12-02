@@ -8,23 +8,29 @@ namespace WorldOfZuul
         public void Work(Game game) {
             if(game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("work")) {
                 if(!tasks["work"].done) {
-                    if (WorkReputation < 2)
-                    {
-                        SupplyReview(game);
+                    if(Promoted) {
+                        Utilities.GamePrint("You should talk to your boss.");
                     }
-                    else if (WorkReputation == 10000) 
-                    {
-                        Hire(game);
+                    else {
+                        if (Job == "SupplyReview")
+                        {
+                            SupplyReview(game);
+                        }
+                        else if (WorkReputation == 10000) 
+                        {
+                            Hire(game);
+                        }
+                        else if (Job == "SupplyChoice")
+                        {
+                            SupplyChoice(game);
+                        }
+                        else if (Job == "ContractReview")
+                        {
+                            Contract.ContractReviewWork(game);
+                        }
+                        tasks["work"] = (true, tasks["work"].incompleteMessage);
                     }
-                    else if (WorkReputation < 5)
-                    {
-                        SupplyChoice(game);
-                    }
-                    else
-                    {
-                        Contract.ContractReviewWork(game);
-                    }
-                    tasks["work"] = (true, tasks["work"].incompleteMessage);
+
                 }
                 else {
                     Utilities.GamePrint("You are tired from the work you have already done today.");
@@ -93,6 +99,7 @@ namespace WorldOfZuul
             if(goodChoices > 2)
             {
                 WorkReputation++;
+                Promotion(game);
             }
             Console.Clear();
             Utilities.GamePrint("You are finished for the day, get some rest.");
@@ -247,6 +254,7 @@ namespace WorldOfZuul
             game.Player.CurrentProviderIndex += 2;
             if(decisionValue >= 0) {
                 WorkReputation++;
+                Promotion(game);
             }
 
         }
@@ -343,6 +351,7 @@ namespace WorldOfZuul
             }
             if(decisionValue > 0) {
                 WorkReputation++;
+                Promotion(game);
             }
         }
 
@@ -360,5 +369,30 @@ namespace WorldOfZuul
             int index = Game.RandomGenerator.Next(traitList.Count);
             return traitList[index];
         }
+
+        private void Promotion(Game game) {
+            if(WorkReputation < 2)
+            {
+                Job = "SupplyReview";
+            }
+            else if(WorkReputation < 5)
+            {
+                if(Job != "SupplyChoice")
+                {
+                    Job = "SupplyChoice";
+                    Promoted = true;
+                    game.World.GetRoom("work", "Boss").Npcs["boss"].CurrentDialog = "promoteToSupplyChoice";
+                }
+            }
+            else
+            {
+                if(Job != "ContractReview")
+                {
+                    Job = "ContractReview";
+                    Promoted = true;
+                }
+            }
+        }
+
     }
 }

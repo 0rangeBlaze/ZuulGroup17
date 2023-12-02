@@ -298,7 +298,8 @@
                     ],
                     "exits":
                     {
-                        "office":"Office"
+                        "office":"Office",
+                        "boss":"Boss"
                     }
                 },
 
@@ -312,10 +313,10 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/boss.json"
                     ],
                     "exits":
                     {
-                        "office":"Office",
                         "breakroom": "Breakroom"
                     }
                 },
