@@ -54,7 +54,7 @@
     },
 
     "promoteToContractReview": {
-      "Dialog": "You are doing a good job with the suppliers. That's why I decided to give you one fo the most important jobs in this company. You are going to review our contracts with other companies. Good luck!",
+      "Dialog": "You are doing a good job with the suppliers. That's why I decided to give you one for the most important jobs in this company. You are going to review our contracts with other companies. Good luck!",
       "Choices": {
         "#danke": {
           "Description": "I'll do my best!",

@@ -317,6 +317,7 @@
                     ],
                     "exits":
                     {
+                        "office":"Office",
                         "breakroom": "Breakroom"
                     }
                 },
@@ -335,6 +336,7 @@
                     ],
                     "exits":
                     {
+                        "boss":"Boss",
                         "Breakroom":"Breakroom"
                     }
                 }
