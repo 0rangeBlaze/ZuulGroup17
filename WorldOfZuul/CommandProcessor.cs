@@ -32,6 +32,8 @@ namespace WorldOfZuul
             {"betterPersonalWelfare", (Game game, string[] _) => game.Player.BetterPersonalWelfare()},
             {"worseEnvironment", (Game game, string[] _) => game.World.WorseEnvironment()},
             {"betterEnvironment", (Game game, string[] _) => game.World.BetterEnvironment()},
+            {"runningGame", (Game game, string[] _) => MiniGames.RunGame()},
+
 
         };
         private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {

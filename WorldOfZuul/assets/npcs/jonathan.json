@@ -1,0 +1,32 @@
+{
+    "name": "Johnathan",
+    "dialogs": {
+  
+      "index1": {
+        "Dialog": "Do you want to join us for a run?",
+        "Choices": {
+          "yes": {
+            "Description": "Sure, let's go",
+            "JumpDialogIndex": "end",
+            "Actions": ["runningGame", "betterPersonalWelfare"]
+          },
+          "no": {
+            "Description": "No thanks, I'm good",
+            "JumpDialogIndex": "end",
+            "Actions": []
+          }
+        }
+      },
+
+      "end": {
+        "Dialog": "Well, goodbye!",
+        "Choices": {
+          "#end": {
+            "Description": "Yeah, see you!",
+            "JumpDialogIndex": "index1",
+            "Actions": []
+          }
+        }
+      }
+    }
+  }

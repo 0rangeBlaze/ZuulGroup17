@@ -77,7 +77,7 @@
           "#end": {
             "Description": "<Leave feeling a LOT better>",
             "JumpDialogIndex": "index1",
-            "Actions": []
+            "Actions": ["betterPersonalWelfare"]
           }
         }
       }

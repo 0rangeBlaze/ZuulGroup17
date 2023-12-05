@@ -229,6 +229,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/track.json"
                     ],
                     "exits":
                     {
