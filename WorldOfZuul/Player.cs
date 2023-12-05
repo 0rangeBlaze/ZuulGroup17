@@ -306,7 +306,7 @@ namespace WorldOfZuul
 
             Console.CursorLeft = Console.WindowWidth / 2;
 
-            string srounds = Console.ReadLine();
+            string? srounds = Console.ReadLine();
 
             int rounds;
             while (srounds == null || int.TryParse(srounds, out _) == false)
@@ -415,7 +415,7 @@ namespace WorldOfZuul
                 }
             }
 
-            Console.Write($"Bot Points: {botPoints}");
+            Console.Write($"Bob Points: {botPoints}");
             Console.CursorLeft = Console.WindowWidth - $"Player Points: {playerPoints}".Length;
             Console.WriteLine($"Player Points: {playerPoints}");
             Thread.Sleep(3000);
@@ -467,7 +467,7 @@ namespace WorldOfZuul
             }
             else if (botwins[dicKey] == true)
             {
-                decision = "Bot wins";
+                decision = "Bob wins";
                 botPoints++;
             }
             else
