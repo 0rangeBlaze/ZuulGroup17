@@ -15,6 +15,16 @@
           "JumpDialogIndex": "4inaline",
           "Actions": []
         },
+        "battleship": {
+          "Description": "Alright, but I seriously can't remember the last time you won in battleships.",
+          "JumpDialogIndex": "battleship",
+          "Actions": []
+        },
+        "whack": {
+          "Description": "Lets play whacking the mole, i will see how much i will get this time",
+          "JumpDialogIndex": "whack",
+          "Actions": []
+        },
         "nojusttalk": {
           "Description": "I don't feel like playing, let's just talk. How are you doing?",
           "JumpDialogIndex": "talk1",
@@ -29,7 +39,7 @@
         "anwser1": {
           "Description": "<Start the game>",
           "JumpDialogIndex": "end",
-          "Actions": ["scizzors"]
+          "Actions": [ "scizzors" ]
         }
       }
     },
@@ -41,6 +51,27 @@
           "Description": "<Start the game>",
           "JumpDialogIndex": "end",
           "Actions": []
+        }
+      }
+    },
+
+    "battleship": {
+      "Dialog": "'All hands man your battlestations or whatever they say in the movies.",
+      "Choices": {
+        "anwser1": {
+          "Description": "<Start the game>",
+          "JumpDialogIndex": "end",
+          "Actions": [ "battleships" ]
+        }
+      }
+    },
+    "whack": {
+      "Dialog": "'Don't be to slow ;)'",
+      "Choices": {
+        "anwser1": {
+          "Description": "<Start the game>",
+          "JumpDialogIndex": "end",
+          "Actions": [ "whack" ]
         }
       }
     },
@@ -75,7 +106,7 @@
         }
       }
     },
-    
+
     "question2": {
       "Dialog": "She could be doing better, but still managing. A bit of fallout with the school board, but that luckily got worked out",
       "Choices": {
@@ -91,7 +122,7 @@
         }
       }
     },
-    
+
     "talk3": {
       "Dialog": "I'm sorry to hear that, I hope it didn't totally ruin the weekend. Why did they bother you constantly?",
       "Choices": {
@@ -141,7 +172,7 @@
         "#end": {
           "Description": "Yeah, you too, goodbye!",
           "JumpDialogIndex": "index1",
-          "Actions": ["betterWelfare"]
+          "Actions": []
         }
       }
     }
