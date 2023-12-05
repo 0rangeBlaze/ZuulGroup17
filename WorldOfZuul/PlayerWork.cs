@@ -390,6 +390,7 @@ namespace WorldOfZuul
                 {
                     Job = "ContractReview";
                     Promoted = true;
+                    game.World.GetRoom("work", "Boss").Npcs["boss"].CurrentDialog = "promoteToContractReview";
                 }
             }
         }
