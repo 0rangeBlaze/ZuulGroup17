@@ -26,7 +26,8 @@ namespace WorldOfZuul
 
             {"eat", (Game game, string[] _) => game.Player.Eat()},
             {"ad", (Game game, string[] _) => Advertisement(game)},
-            {"promoted", (Game game, string[] _ ) => game.Player.Promoted = false}
+            {"promoted", (Game game, string[] _ ) => game.Player.Promoted = false},
+            {"scizzors", (Game game, string[] _) => MiniGames.RockPaperScizors()}
         };
         private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {
             {"", ""}, 

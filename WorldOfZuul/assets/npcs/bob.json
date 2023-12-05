@@ -34,7 +34,7 @@
         "anwser1": {
           "Description": "<Start the game>",
           "JumpDialogIndex": "end",
-          "Actions": []
+          "Actions": ["scizzors"]
         }
       }
     },
