@@ -9,6 +9,7 @@ namespace WorldOfZuul
         public bool Running {get; set;}
         public static Random RandomGenerator = new Random();
         public int Turn {get; set;}
+        public bool New {get; set;}
 
         public static Game Load(){
             string savePath = "./saves/save.json";
@@ -30,15 +31,12 @@ namespace WorldOfZuul
                 }
             }
             game = new();
-
-            PrintWelcome();
-            CommandProcessor.Process("help", game);
-
             return game;
         }
 
         public Game()
         {
+            New = true;
             Turn = 0;
             World = new World("assets/world.json");
             if(!World.Loaded) {
@@ -57,6 +55,11 @@ namespace WorldOfZuul
                 return;
             }
 
+            if(New) {
+                New = false;
+                PrintWelcome();
+                CommandProcessor.Process("help", this);
+            }
             Utilities.GamePrint(World.GetRoom(Player.CurrentArea, Player.CurrentRoom).ShortDescription);
             while (Running)
             {

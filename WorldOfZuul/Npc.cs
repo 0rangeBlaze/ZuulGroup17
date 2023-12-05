@@ -12,9 +12,11 @@ namespace WorldOfZuul
         public List<string> Greeting {get; private set;}
         public Dictionary<string, DialogData> NpcData {get; private set;}
         public bool Talking {get; private set;}
+        public bool Loaded {get; private set;}
 
         public Npc(string jsonFilePath)
         {
+            Loaded = false;
             Greeting = new List<string>() { "Hi", "Hello", "How do you do" };
             CurrentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
@@ -34,6 +36,7 @@ namespace WorldOfZuul
                 JsonElement dialogsElement;
                 npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
                 NpcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
+                Loaded=true;
             }
             catch (FileNotFoundException)
             {

@@ -104,6 +104,7 @@ namespace WorldOfZuul
                         foreach(JsonElement pathNpc in npcsElement.EnumerateArray()){
                             Npc npc = new Npc(pathNpc.GetString() ?? 
                             throw new Exception($"Npcs contains a non-string element in room \"{room.Name}\", in area \"{area.Name}\""));
+                            if(!npc.Loaded) throw new Exception($"Error loading in NPC:(${pathNpc.GetString()}) in room \"{room.Name}\", in area \"{area.Name}\"");
                             npcs[npc.Name] = npc;
                         }
                         
