@@ -125,7 +125,7 @@ namespace WorldOfZuul
                 {
                     Console.Write(lineBot);
                     Console.CursorLeft = Console.WindowWidth - linePlayer.Length;
-                    Console.WriteLine(new string(linePlayer.ToCharArray().Select(c => FlipSign(c)).Reverse().ToArray()));
+                    Console.Write(new string(linePlayer.ToCharArray().Select(c => FlipSign(c)).Reverse().ToArray()));
                 }
             }
 
