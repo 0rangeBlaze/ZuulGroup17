@@ -140,5 +140,14 @@ namespace WorldOfZuul
             this.PreviousPopulationWelfare = previousPopulationWelfare;
             this.Loaded = loaded;
         }
+
+        public void BetterEnvironment()
+        {
+            Environment += 5;
+        }
+        public void WorseEnvironment()
+        {
+            Environment += 5;
+        }
     }
 }

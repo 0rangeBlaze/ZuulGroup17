@@ -15,11 +15,6 @@
           "JumpDialogIndex": "4inaline",
           "Actions": []
         },
-        "battleship": {
-          "Description": "Alright, but I seriously can't remember the last time you won in battleships.",
-          "JumpDialogIndex": "battleship",
-          "Actions": []
-        },
         "nojusttalk": {
           "Description": "I don't feel like playing, let's just talk. How are you doing?",
           "JumpDialogIndex": "talk1",
@@ -41,17 +36,6 @@
 
     "4inaline": {
       "Dialog": "Oooh let's go, I'll be blue you'll be red, and come on haha... school me!",
-      "Choices": {
-        "anwser1": {
-          "Description": "<Start the game>",
-          "JumpDialogIndex": "end",
-          "Actions": []
-        }
-      }
-    },
-
-    "battleship": {
-      "Dialog": "'All hands man your battlestations or whatever they say in the movies.",
       "Choices": {
         "anwser1": {
           "Description": "<Start the game>",
@@ -157,7 +141,7 @@
         "#end": {
           "Description": "Yeah, you too, goodbye!",
           "JumpDialogIndex": "index1",
-          "Actions": []
+          "Actions": ["betterWelfare"]
         }
       }
     }

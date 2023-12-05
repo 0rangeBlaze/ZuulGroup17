@@ -118,6 +118,10 @@ namespace WorldOfZuul
                 case "car":
                     Utilities.GamePrint($"\nYou took the car to {destination} \n");
                     Console.ReadKey(true);
+                    game.World.Environment -= 5;
+                    game.World.PopulationWelfare -= 2;
+
+
                     break;
                 case "walk":
 
@@ -155,6 +159,10 @@ namespace WorldOfZuul
                     Utilities.GamePrint(Walk[currentWalkText, 2]);
                     Console.ReadKey(true);
 
+                    PersonalWelfare += 2;
+                    game.World.Environment += 3;
+                    game.World.PopulationWelfare += 2;
+
                     TravelIndex++;
 
                     break;
@@ -165,6 +173,10 @@ namespace WorldOfZuul
                     Console.ReadKey(true);
                     Utilities.GamePrint($"You travelled for 30 minutes, and you now have arrived at {destination}\n");
                     Console.ReadKey(true);
+
+                    PersonalWelfare -= 2;
+                    game.World.Environment += 1;
+                    
                     break;
 
             }
@@ -286,6 +298,11 @@ namespace WorldOfZuul
                 Utilities.CenterColor("You are not environmentally friendly", "red");
             }
             tasks["sort"] = (true, tasks["sort"].incompleteMessage);
+        }
+
+        public void BetterPersonalWelfare()
+        {
+            PersonalWelfare += 5;
         }
     }
 }
