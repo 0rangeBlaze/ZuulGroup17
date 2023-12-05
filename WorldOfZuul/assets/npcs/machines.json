@@ -1,0 +1,38 @@
+{
+    "name": "Machines",
+    "dialogs": {
+  
+      "index1": {
+        "Dialog": "Choose from the following machines",
+        "Choices": {
+          "rps": {
+            "Description": "Whack a Mole!",
+            "JumpDialogIndex": "whackamole",
+            "Actions": []
+          }
+        }
+      },
+      "whackamole": {
+        "Dialog": "'Don't be to slow ;)'",
+        "Choices": {
+          "anwser1": {
+            "Description": "<Start the game>",
+            "JumpDialogIndex": "end",
+            "Actions": [ "whack" ]
+          }
+        }
+      },
+  
+      "end": {
+        "Dialog": "Game Over!",
+        "Choices": {
+          "#end": {
+            "Description": "<Leave>",
+            "JumpDialogIndex": "index1",
+            "Actions": ["betterPersonalWelfare"]
+          }
+        }
+      }
+    }
+  }
+  

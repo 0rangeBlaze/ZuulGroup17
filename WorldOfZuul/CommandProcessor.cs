@@ -29,7 +29,10 @@ namespace WorldOfZuul
             {"promoted", (Game game, string[] _ ) => game.Player.Promoted = false},
             {"scizzors", (Game game, string[] _) => MiniGames.RockPaperScizors()},
             {"whack", (Game game, string[] _) => MiniGames.WhackAMole()},
-            {"battleships", (Game game, string[] _) => MiniGames.BattleShips()}
+            {"betterPersonalWelfare", (Game game, string[] _) => game.Player.BetterPersonalWelfare()},
+            {"worseEnvironment", (Game game, string[] _) => game.World.WorseEnvironment()},
+            {"betterEnvironment", (Game game, string[] _) => game.World.BetterEnvironment()},
+
         };
         private static readonly Dictionary<string, string> possibleCommands = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase) {
             {"", ""}, 

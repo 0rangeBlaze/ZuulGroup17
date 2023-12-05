@@ -151,7 +151,7 @@
           "#pay": {
             "Description": "Pay",
             "JumpDialogIndex": "index1",
-            "Actions": ["eat"]
+            "Actions": ["eat", "betterEnvironment"]
           }
         }
       }

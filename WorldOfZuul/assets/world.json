@@ -248,6 +248,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/machines.json"
                     ],
                     "exits":
                     {
