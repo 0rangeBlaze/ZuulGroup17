@@ -36,9 +36,8 @@ namespace WorldOfZuul
             for (int i = 0; i < rounds; i++)
             {
                 int bot = random.Next(3);
-                string player = Utilities.SelectOption(question, list).ToString();
-                int chosed = dict.FirstOrDefault(x => x.Value == player).Key;
-                WhoWins(bot, chosed);
+                int player = Utilities.SelectOption(question, list);
+                WhoWins(bot, player);
                 Console.CursorVisible = false;
             }
             Utilities.CenterText("So who won ?\n");
