@@ -32,7 +32,9 @@ namespace WorldOfZuul
             {"betterPersonalWelfare", (Game game, string[] _) => game.Player.BetterPersonalWelfare()},
             {"worseEnvironment", (Game game, string[] _) => game.World.WorseEnvironment()},
             {"betterEnvironment", (Game game, string[] _) => game.World.BetterEnvironment()},
-            {"runningGame", (Game game, string[] _) => MiniGames.RunGame()},
+            {"connect", (Game game, string[] _) => MiniGames.ConnectFour()},
+            {"runningGame", (Game game, string[] _) => MiniGames.RunGame()}
+            
 
 
         };
