@@ -229,7 +229,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
-                        "./assets/npcs/track.json"
+                        "./assets/npcs/jonathan.json"
                     ],
                     "exits":
                     {
