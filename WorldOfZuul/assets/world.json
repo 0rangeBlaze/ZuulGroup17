@@ -335,7 +335,8 @@
                     "actions": ["work"],
                     "events": [],
                     "npcs": [
-                        "./assets/npcs/george.json"
+                        "./assets/npcs/george.json",
+                        "./assets/npcs/officePoster.json"
                     ],
                     "exits":
                     {

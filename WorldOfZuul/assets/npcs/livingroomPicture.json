@@ -18,7 +18,7 @@
           },
           "music": {
             "Description": "Hmm strangely I feel like listening to a bit of 90's Dance-Pop",
-            "JumpDialogIndex": "survive",
+            "JumpDialogIndex": "end",
             "Actions": []
           }
         }
