@@ -6,13 +6,30 @@
       "index1": {
         "Dialog": "Choose from the following machines",
         "Choices": {
-          "rps": {
+          "mole": {
             "Description": "Whack a Mole!",
             "JumpDialogIndex": "whackamole",
+            "Actions": []
+          },
+          "pong": {
+            "Description": "Play Pong!",
+            "JumpDialogIndex": "pong",
             "Actions": []
           }
         }
       },
+
+      "pong": {
+        "Dialog": "Get Ready!",
+        "Choices": {
+          "rps": {
+            "Description": "<Start the game>",
+            "JumpDialogIndex": "end",
+            "Actions": ["pong"]
+          }
+        }
+      },
+
       "whackamole": {
         "Dialog": "'Don't be to slow ;)'",
         "Choices": {

@@ -33,7 +33,8 @@ namespace WorldOfZuul
             {"worseEnvironment", (Game game, string[] _) => game.World.WorseEnvironment()},
             {"betterEnvironment", (Game game, string[] _) => game.World.BetterEnvironment()},
             {"connect", (Game game, string[] _) => MiniGames.ConnectFour()},
-            {"runningGame", (Game game, string[] _) => MiniGames.RunGame()}
+            {"runningGame", (Game game, string[] _) => MiniGames.RunGame()},
+            {"pong", (Game game, string[] _) => MiniGames.Pong()},
             
 
 
