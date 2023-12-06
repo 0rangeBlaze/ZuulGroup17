@@ -231,12 +231,12 @@ namespace WorldOfZuul
         {
             if (!game.World.GetRoom(CurrentArea, CurrentRoom).Actions.Contains("sort"))
             {
-                Console.WriteLine("Your trash bins are in your kitchen.");
+                Utilities.GamePrint("Your trash bins are in your kitchen.");
                 return;
             }
             if (tasks["sort"].done)
             {
-                Console.WriteLine("There isn't enough trash yet.");
+                Utilities.GamePrint("There isn't enough trash yet.");
                 return;
             }
             Dictionary<string, string> trashAlignment = new Dictionary<string, string>()

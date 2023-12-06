@@ -58,7 +58,7 @@ namespace WorldOfZuul
                 Utilities.GamePrint("Specify a valid command!");
             }
             else {
-                string[] commandWords = command.Split();
+                string[] commandWords = command.Trim().Split();
                 if(commandDict.ContainsKey(commandWords[0])) {
                     commandDict[commandWords[0]](game, (commandWords.Length > 1 ? commandWords[1..] : new string[0]{}));
                 }
