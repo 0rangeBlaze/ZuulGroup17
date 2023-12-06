@@ -118,6 +118,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/livingroomPicture.json"
                     ],
                    "exits":
                     {
