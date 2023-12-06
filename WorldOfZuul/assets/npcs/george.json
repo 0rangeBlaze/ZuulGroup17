@@ -1,6 +1,6 @@
 {
     "name": "George",
-    "greetings": [],
+    "greetings": ["<PLANT>"],
     "dialogs": {
   
       "index1": {
