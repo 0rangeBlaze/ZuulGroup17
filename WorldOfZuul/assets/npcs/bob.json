@@ -1,5 +1,6 @@
 {
   "name": "Bob",
+  "greetings": ["Hi", "Hello", "Hey"],
   "dialogs": {
 
     "index1": {

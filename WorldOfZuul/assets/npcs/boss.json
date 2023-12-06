@@ -1,5 +1,6 @@
 {
   "name": "Boss",
+  "greetings": ["Hi", "Hello", "How is it going?"],
   "dialogs": {
 
     "index1": {

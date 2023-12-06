@@ -1,8 +1,9 @@
 {
   "name": "Fortuna",
+  "greetings": ["Greetings"],
   "dialogs": {
     "index1": {
-      "Dialog": "Greetings, seeker of destiny. How's the wind of fate blowing for you today?",
+      "Dialog": "Seeker of destiny. How's the wind of fate blowing for you today?",
       "Choices": {
         "future": {
           "Description": "Tell me about my future.",

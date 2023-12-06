@@ -1,5 +1,6 @@
 {
   "name": "Maya",
+  "greetings": ["Hey", "Hi", "Hello"],
   "dialogs": {
     "helpOffer": {
       "Dialog": "Thanks for the offer! I might take you up on that. Teamwork makes the dream work, right?",
@@ -12,7 +13,7 @@
       }
     },
     "index1": {
-      "Dialog": "Hey there! How's it going?",
+      "Dialog": "How's it going?",
       "Choices": {
         "weather": {
           "Description": "Not bad. How's the weather outside?",

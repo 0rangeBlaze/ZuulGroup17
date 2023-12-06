@@ -17,11 +17,12 @@ namespace WorldOfZuul
         public Npc(string jsonFilePath)
         {
             Loaded = false;
-            Greeting = new List<string>() { "Hi", "Hello", "How do you do" };
+            //Greeting = new List<string>() { "Hi", "Hello", "How do you do" };
             CurrentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
             Name = Name ?? "";
             NpcData = NpcData ?? new();
+            Greeting = Greeting ?? new(){};
         }
 
         private void LoadDialogsFromJson(string jsonFilePath)
@@ -33,6 +34,11 @@ namespace WorldOfZuul
                 JsonElement nameElement;
                 npcDoc.RootElement.TryGetProperty("name", out nameElement);
                 Name = nameElement.GetString() ?? "";
+
+                JsonElement greetingsElement;
+                npcDoc.RootElement.TryGetProperty("greetings", out greetingsElement);
+                Greeting = JsonSerializer.Deserialize<List<string>>(greetingsElement.ToString()) ?? new(){};
+
                 JsonElement dialogsElement;
                 npcDoc.RootElement.TryGetProperty("dialogs", out dialogsElement);
                 NpcData = JsonSerializer.Deserialize<Dictionary<string, DialogData>>(dialogsElement.ToString()) ?? new();
@@ -88,7 +94,6 @@ namespace WorldOfZuul
                 Talking = true;
                 Console.Clear();
                 RandomGreeting();
-                Console.ReadKey(true);
                 while (Talking)
                 {
                     if (NpcData.ContainsKey(CurrentDialog))
@@ -112,9 +117,12 @@ namespace WorldOfZuul
 
         private void RandomGreeting()
         {
-            Random greetings = new Random();
-            int greetingIndex = greetings.Next(Greeting.Count);
-            Utilities.PrintSlowlyCenter(Greeting[greetingIndex], ConsoleColor.Green);
+            if(Greeting.Count != 0){
+                Random greetings = new Random();
+                int greetingIndex = greetings.Next(Greeting.Count);
+                Utilities.PrintSlowlyCenter(Greeting[greetingIndex], ConsoleColor.Green);
+                Console.ReadKey(true);
+            }
         }
 
         [JsonConstructorAttribute]

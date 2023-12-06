@@ -1,9 +1,10 @@
 {
     "name": "Anna",
+    "greetings": ["Hi"],
     "dialogs": {
   
       "index1": {
-        "Dialog": "Hi, and welcome to Gourmet Haven, where we only serve food made from locally grown ingredients. How may I be at your service?",
+        "Dialog": "Welcome to Gourmet Haven, where we only serve food made from locally grown ingredients. How may I be at your service?",
         "Choices": {
           "special": {
             "Description": "What specialties do you have for today?",

@@ -1,8 +1,9 @@
 {
   "name": "Arturas",
+  "greetings": ["Hey", "Hello", "Hi"],
   "dialogs": {
     "index1": {
-      "Dialog": "Hey, good to see you! How's everything going?",
+      "Dialog": "Good to see you! How's everything going?",
       "Choices": {
         "projects": {
           "Description": "Not bad. Any interesting projects you're working on?",
