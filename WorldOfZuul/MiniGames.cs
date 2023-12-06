@@ -68,31 +68,31 @@ namespace WorldOfZuul
         {
 
             string rock = @"
-                    _______  
-                ---'   ____) 
-                      (_____)
-                      (_____)
-                      (____) 
-                ---.__(___)  
-            ";
+    _______  
+---'   ____) 
+      (_____)
+      (_____)
+      (____) 
+---.__(___)  
+";
 
             string paper = @"
-                _______       
-            ---'   ____)____  
-                      ______) 
-                     _______) 
-                     _______) 
-            ---.__________)   
-            ";
+    _______       
+---'   ____)____  
+          ______) 
+         _______) 
+         _______) 
+---.__________)   
+";
 
             string scissors = @"
-                _______       
-            ---'   ____)____  
-                      ______) 
-                   __________)
-                  (____)      
-            ---.__(___)       
-            ";
+    _______       
+---'   ____)____  
+          ______) 
+       __________)
+      (____)      
+---.__(___)       
+";
 
             Dictionary<int, string> intString = new Dictionary<int, string>()
             {
@@ -407,6 +407,7 @@ namespace WorldOfZuul
                     Console.WriteLine("Increase the size of the console window.");
                 }
                 Console.WriteLine("Drive was closed.");
+                Console.ReadKey(true);
             }
             finally
             {

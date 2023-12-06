@@ -54,6 +54,7 @@ namespace WorldOfZuul
             if(!Running){
                 return;
             }
+            CheckSize();
 
             if(New) {
                 New = false;
@@ -355,5 +356,57 @@ namespace WorldOfZuul
             Utilities.GamePrint();
         }
 
+        public static void CheckSize(){
+            Console.Clear();
+            Console.CursorVisible=false;
+            bool accepted = false;
+            int minW=50;
+            int minH=30;
+            while(!accepted || (Console.WindowWidth < minW) || (Console.WindowHeight < minH)){
+                accepted=false;
+                Console.WriteLine("Please don't change the size of the window during the game or you might come across some issue.");
+                Console.WriteLine();
+                if(Console.WindowWidth < minW) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Your window isn't wide enough!");
+                }
+                else {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Your window is wide enough!");
+                }
+                Console.WriteLine();
+                if(Console.WindowHeight < minH) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Your window isn't tall enough!");
+                }
+                else{
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Your window is tall enough!");
+                }
+                Console.ResetColor();
+
+                Console.WriteLine();
+                Console.WriteLine("<Press any keys to continue>");
+
+                while(Console.KeyAvailable){
+                    Console.ReadKey(true);
+                    accepted=true;
+                }
+                Thread.Sleep(33);
+                Console.Clear();
+            }
+            Console.Clear();
+            /*if(Console.WindowWidth < minW){
+                Console.Clear();
+                Console.CursorVisible=false;
+                Console.WriteLine($"Your terminal needs to be at least {minW} characters wide. Your terminal is:");
+                Console.Write(Console.WindowWidth);
+                while(Console.WindowWidth < minW){
+                    Console.SetCursorPosition(0, Console.CursorTop);
+                    Console.Write(Console.WindowWidth);
+                }
+            }*/
+            Console.CursorVisible=true;
+        }
     }
 }
