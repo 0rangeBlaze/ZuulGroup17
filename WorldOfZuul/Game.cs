@@ -302,6 +302,7 @@ namespace WorldOfZuul
             HumanWellfareConclusion();
             Utilities.GamePrint("You can see now, how much effect small, seemingly worthless choices have, if we all do the right thing. Even at times, where these things seem agonizing.");
             Utilities.GamePrint("Yes, in this game you also had more-and-more control over a large food company, but even if that's not the case in real life, you shouldn't despair, if you just do your seemingly small part, positive change will take effect in time.");
+            Utilities.GamePrint("Make sure to do the right thing!\n");
             Utilities.GamePrint("Hope you enjoyed our game :)");
             Running = false;
             return;
@@ -331,16 +332,16 @@ namespace WorldOfZuul
                 Utilities.GamePrint("The population's wellfare has improved greatly. Almost everyone is living well, poverty and homelessness has been has been clamped back, by figures never seen before.");
             
             else if(World.PopulationWelfare >= 60)            
-                Utilities.GamePrint("");
+                Utilities.GamePrint("The population's welfare has improved. Most people are living well, both poverty and homelessness has been clamped back. World hunger is closer to being solved than ever before.");
 
             else if(World.PopulationWelfare >= 40)
-                Utilities.GamePrint("");
+                Utilities.GamePrint("The population's welfare has more-or-less stayed the same. This isn't a bad thing, but with a bit more effort we could make sure that more people are living well.");
 
             else if(World.PopulationWelfare >= 20)
-                Utilities.GamePrint("");
+                Utilities.GamePrint("The population's welfare has gotten worse because of your decisions. Homelessness has grown, the less developed countries are falling behind even more, and even the developed countries are struggling.");
 
             else
-                Utilities.GamePrint("");
+                Utilities.GamePrint("Due to some of your decisions the population's welfare has gotten a lot worse. The gap between the social stratums is the biggest it has ever been. ");
 
         }
 
