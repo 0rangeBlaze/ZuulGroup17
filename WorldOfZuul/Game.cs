@@ -351,9 +351,12 @@ namespace WorldOfZuul
         {
             Console.Clear();
             Utilities.GamePrint("Welcome to Lasting Impact!");
-            Utilities.GamePrint("In this game you will experience humanity's impact on the environment.");
+            Utilities.GamePrint("In this game you will experience humanity's impact on the environment.\n");
             Utilities.GamePrint("You will be playing as an average person whose impact on the world is projected to an entire generation of people.");
-            Utilities.GamePrint("In one turn you have to work in your office, eat in one of the restaurants and choose to sort trash in your kitchen.");
+            Utilities.GamePrint("Throughout your choices you will have to look out for the environment's health, the population's welfare, and your own health.");
+            Utilities.GamePrint("");
+            Utilities.GamePrint("The game is built on a turn basis, each representing a large amount of time, like 1 or 2 years.");
+            Utilities.GamePrint("In one turn you have to work in your office, eat in one of the restaurants and choose to sort trash in your kitchen. On top of this, feel free to wonder around, and see your impact in real time.");
             Utilities.GamePrint();
         }
 
