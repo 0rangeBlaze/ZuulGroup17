@@ -130,7 +130,7 @@
 
                 "Bedroom":
                 {
-                    "shortDescription" : "Your bedroom. \nPossible commands:\n\t 'look', 'move', 'travel', 'sleep', 'help', 'map', 'quit'",
+                    "shortDescription" : "Your bedroom. \nPossible commands:\n\t 'look', 'move', 'travel', 'sleep', 'interact', 'help', 'map', 'quit'",
                     "longDescription": 
                     {
                        "0": "You are in the bedroom. The TV is on, just as a background noise. Light is coming in from the living room."
@@ -138,6 +138,7 @@
                     "actions": ["nextTurn"],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/deathbat.json"
                     ],
                     "exits":
                     {
