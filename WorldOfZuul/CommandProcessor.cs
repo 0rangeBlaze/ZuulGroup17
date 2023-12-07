@@ -80,17 +80,12 @@ namespace WorldOfZuul
                     Utilities.GamePrint($"Unknown command '{command.Split()[0]}'. Please try again!");
                 }
             }
-        }       
+        }
 
         private static void Help(string[] args)
         {
             if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
             {
-                /*Utilities.WriteLineWordWrap("""
-The world is divided into four main areas: home, mall, town and work.
-Each of these areas contain rooms for you to explore.
-""");*/ //put this somehow in welcome text
-
                 Utilities.GamePrint("Possible commands are:");
                 string commandList = "\t";
                 foreach(string command in possibleCommands.Keys) {
@@ -170,8 +165,21 @@ Each of these areas contain rooms for you to explore.
         }
 
         public static void Advertisement(Game game) {
-            List<string> ads = new List<string>() {"first", "second"};
-            Utilities.SelectOption(ads[game.Turn/3], new List<string>() {"yes", "no"});
+            Utilities.GamePrint("You enter the Mall and an amazing advertisement catches you eyes!");
+            Console.ReadKey(true);
+            List<string> ads = new List<string>() {
+                "Unleash the Future with the iPhone Quantum X - A Revolution Beyond Reality!\n\nAre you ready to transcend the limits of imagination and step into a realm where technology and dreams collide? Introducing the iPhone Quantum X – a device so advanced, it defies the boundaries of what you thought was possible!\n\nWould you like to buy it?",
+                " Wrap Yourself in Celestial Luxury with the Nebula Silk Scarf Collection - Where Elegance Meets the Cosmos!\n\nElevate your accessory game with the Nebula Silk Scarf Collection, a fusion of sophistication and cosmic allure. Each scarf is a masterpiece, designed to not just complement your outfit but to transport you into the realms of celestial charm.\n\nWould you like to buy it?"};
+            int input = Utilities.SelectOption(ads[(game.Turn)/3%ads.Count()], new List<string>() {"yes", "no"});
+            if(input == 0) {
+                Utilities.GamePrint("You are happy with what you bought, but did you really need it? Consider whether the production of this item, with its impact on Earth's resources, aligns with your genuine needs.");
+                game.World.Environment -= 10;
+                game.Player.PersonalWelfare += 5;
+            }
+            else {
+                Utilities.GamePrint("You didn't really need that anyways. It will be better for the environment this way.");
+                game.World.Environment += 5;
+            }
         }
 
         public static void Quit(Game game)

@@ -64,10 +64,15 @@
         }
 
         public void HandleEvents(Game game) {
+            bool exists = Events.Count > 0;
             while(Events.Count > 0)
             {
                 CommandProcessor.Process(Events[0], game);
                 Events.RemoveAt(0);
+            }
+            if(exists){
+                Console.ReadKey(true);
+                Console.Clear();
             }
         }
     }

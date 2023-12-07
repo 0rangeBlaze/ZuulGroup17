@@ -106,7 +106,7 @@ namespace WorldOfZuul
 
         private void SettingRoomEvents() {
             if(Turn % 3 == 0) {
-                World.GetRoom("Mall", "Hall");
+                World.GetRoom("Mall", "Hall").Events.Add("ad");
             }
         }
 

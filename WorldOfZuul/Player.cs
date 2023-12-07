@@ -38,25 +38,6 @@ namespace WorldOfZuul
             Promoted = false;
         }
 
-        /*
-        private Dictionary<string, StatChanges> actionStatChanges = new Dictionary<string, StatChanges>
-        {
-            {"work", new StatChanges(5, -5)}, //Stats are just some examples, will change later probably
-            {"eat", new StatChanges(3, -2)},
-            {"sort", new StatChanges(2, -1)}
-        };
-
-        public void ApplyStatChanges(string action)
-        {
-            if (actionStatChanges.TryGetValue(action, out var changes))
-            {
-                personalWelfare += changes.PersonalWelfareChange;
-                World.Environment += changes.EnvironmentChange;
-            }
-        }
-        */
-
-
         public void Move(Game game, string[] args)
         {
             if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
@@ -89,6 +70,7 @@ namespace WorldOfZuul
                 return;
             }
             Console.Clear();
+            game.World.GetRoom(CurrentArea, CurrentRoom).HandleEvents(game);
             Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
         }
 
@@ -186,8 +168,8 @@ namespace WorldOfZuul
             PreviousRoom = CurrentRoom;
             CurrentRoom = game.World.GetRoom(destination).Name;
             Console.Clear();
-            Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
             game.World.GetRoom(CurrentArea, CurrentRoom).HandleEvents(game);
+            Utilities.GamePrint(game.World.GetRoom(game.Player.CurrentArea, game.Player.CurrentRoom).ShortDescription);
         }
 
         public bool TasksDone()
@@ -223,8 +205,6 @@ namespace WorldOfZuul
             {
                 Utilities.GamePrint("You finish your delicious meal which makes you so full that you can't imagine eating anything for the rest of the day!");
                 tasks["eat"] = (true, tasks["eat"].incompleteMessage);
-
-                //ApplyStatChanges("eat");
             }
         }
         public void SortTrash(Game game)
