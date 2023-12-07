@@ -5,7 +5,8 @@
 
     "index1": {
       "Dialog": "Are you managing with your tasks?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "burger": {
           "Description": "Yes, everything is going great.",
           "JumpDialogIndex": "great",
@@ -21,7 +22,8 @@
 
     "great": {
       "Dialog": "Amazing. Keep it up!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#anwser1": {
           "Description": "Thanks boss!",
           "JumpDialogIndex": "index1",
@@ -33,7 +35,8 @@
 
     "tooMuch": {
       "Dialog": "Don't worry, you can have more time if you need it.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#thanking": {
           "Description": "Thank you very much boss!",
           "JumpDialogIndex": "index1",
@@ -44,7 +47,8 @@
 
     "promoteToSupplyChoice": {
       "Dialog": "You have been doing very well lately. That's why I decided to give you a promotion. You are going to choose our suppliers. This is a very important task, you have a big responsibility.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#thanks": {
           "Description": "Thank you boss, I won't let you down!",
           "JumpDialogIndex": "index1",
@@ -56,7 +60,8 @@
 
     "promoteToContractReview": {
       "Dialog": "You are doing a good job with the suppliers. That's why I decided to give you one for the most important jobs in this company. You are going to review our contracts with other companies. Good luck!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#danke": {
           "Description": "I'll do my best!",
           "JumpDialogIndex": "index1",

@@ -5,7 +5,8 @@
   
       "index1": {
         "Dialog": "",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "special": {
             "Description": "You can survive this day!",
             "JumpDialogIndex": "survive",
@@ -26,7 +27,8 @@
   
       "survive": {
         "Dialog": "You can survive this day!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "anwser1": {
             "Description": "Today, I choose confidence over doubt and courage over fear!",
             "JumpDialogIndex": "end",
@@ -43,7 +45,8 @@
   
       "doGreat": {
         "Dialog": "You will do great!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "small": {
             "Description": "I choose to focus on the present and create a positive future!",
             "JumpDialogIndex": "end",
@@ -59,7 +62,8 @@
   
       "strong": {
         "Dialog": "You are strong and capable!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "hawaiian": {
             "Description": "I am in control of my life, and I choose to respond with confidence!",
             "JumpDialogIndex": "end",
@@ -74,7 +78,8 @@
       },
       "end": {
         "Dialog": "",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "#end": {
             "Description": "<Leave feeling a LOT better>",
             "JumpDialogIndex": "index1",

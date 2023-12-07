@@ -96,7 +96,7 @@ namespace WorldOfZuul
                 Utilities.GamePrint("\n<Press any button to continue>");
                 Console.ReadKey(true);
             }
-            if(goodChoices > 2)
+            if(goodChoices > 1)
             {
                 WorkReputation++;
                 Promotion(game);

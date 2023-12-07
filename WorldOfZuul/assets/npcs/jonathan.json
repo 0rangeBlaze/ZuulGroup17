@@ -5,7 +5,8 @@
   
       "index1": {
         "Dialog": "Do you want to join us for a run?",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "yes": {
             "Description": "Sure, let's go",
             "JumpDialogIndex": "end",
@@ -21,7 +22,8 @@
 
       "end": {
         "Dialog": "Well, goodbye!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "#end": {
             "Description": "Yeah, see you!",
             "JumpDialogIndex": "index1",

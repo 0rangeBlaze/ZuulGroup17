@@ -5,7 +5,8 @@
   
       "index1": {
         "Dialog": "Choose from the following machines",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "mole": {
             "Description": "Whack a Mole!",
             "JumpDialogIndex": "whackamole",
@@ -21,7 +22,8 @@
 
       "pong": {
         "Dialog": "Get Ready!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "rps": {
             "Description": "<Start the game>",
             "JumpDialogIndex": "end",
@@ -32,7 +34,8 @@
 
       "whackamole": {
         "Dialog": "'Don't be to slow ;)'",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "anwser1": {
             "Description": "<Start the game>",
             "JumpDialogIndex": "end",
@@ -43,7 +46,8 @@
   
       "end": {
         "Dialog": "Game Over!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "#end": {
             "Description": "<Leave>",
             "JumpDialogIndex": "index1",
