@@ -118,7 +118,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
-                        "./assets/npcs/livingroomPicture.json"
+                        "./assets/npcs/pictureLivingroom.json"
                     ],
                    "exits":
                     {
@@ -138,7 +138,7 @@
                     "actions": ["nextTurn"],
                     "events": [],
                     "npcs": [
-                        "./assets/npcs/deathbat.json"
+                        "./assets/npcs/posterBedroom.json"
                     ],
                     "exits":
                     {
@@ -337,7 +337,7 @@
                     "events": [],
                     "npcs": [
                         "./assets/npcs/george.json",
-                        "./assets/npcs/officePoster.json"
+                        "./assets/npcs/posterOffice.json"
                     ],
                     "exits":
                     {
