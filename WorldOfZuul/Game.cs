@@ -313,16 +313,16 @@ namespace WorldOfZuul
                 Utilities.GamePrint("You have managed to look out for the environment through-out your choices, and now you can see its results. Nature is thriving, finally humanity isn't fighting against it, but embracing its strengths.");
                 
             else if(World.Environment >= 60)
-                Utilities.GamePrint("");
+                Utilities.GamePrint("You have gotten the environment to a better state, compared to when you started, this is all thanks to your choices. If we were to continue down this road, with time, we could achieve a situation where humanity isn't fighting against nature but embracing its strengths.");
 
             else if(World.Environment >= 40)
-                Utilities.GamePrint("");
+                Utilities.GamePrint("The state of the environments health more or less stayed the same through-out your progress. This isn't a bad thing, but with a bit more effort we could make sure that this planet survives with us.");
 
             else if(World.Environment >= 20)
-                Utilities.GamePrint("");
+                Utilities.GamePrint("Following your choices humanity has made the state of the environment worse, with careless consumption and production, wasting resources. Maybe only looking out for your own interest isn't the best for the future.");
 
             else
-                Utilities.GamePrint("");
+                Utilities.GamePrint("Humanity has almost completely wiped-out nature. We are as far from symbiosis as we can be. Maybe if, just a few times, we put aside our selfish interests we can make sure that everyone and everything is living happily and healthy on this planet.");
         }
 
         private void HumanWellfareConclusion()
