@@ -368,6 +368,7 @@ namespace WorldOfZuul
             int minH=30;
             while(!accepted || (Console.WindowWidth < minW) || (Console.WindowHeight < minH)){
                 accepted=false;
+                Console.WriteLine("Set the window to a size, where both lines are green!");
                 Console.WriteLine("Please don't change the size of the window during the game or you might come across some issue.");
                 Console.WriteLine();
                 if(Console.WindowWidth < minW) {
