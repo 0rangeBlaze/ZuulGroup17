@@ -5,7 +5,8 @@
   
       "index1": {
         "Dialog": "kxxxxxxxxkkkkkxdddxkkxxxdddxkkkkxdoodxxxxxxxxddodd\nxxxxxxkkkkkxxxxxxxxxddddolllodxxddooodxxxxxxxxdodd\nxxxxkkkkkOOOOkkxxxxxxddo:,,,,;cdddooddxkkOkkkxdodd\nkkkkkkkkOOkkkkkxxxxxxxoc:;cclccoddooddxkkOOkxdxddx\nOOOOkxkOkxkkxkOkxxkkOkdlc:cllloxxdddddddxxkkxdxxkk\nOO0OkxxxxxkkkkkxxkOOOkxoc:clooxkkxdodddxxddxxxkO00\nOOOkkkkkxxkkkOOxxkkkkxdl::clldxxxdoodxxxxddxxxk000\nkkxxxxxxxxkkkOkxxxxdoooc::cll:cloooddxxxkxdxkxxkO0\ndxkkkkxxxxxxxxxdlc:,,clccloo:...',;:ldxxxdddxxxxkk\ndxkkkkxdxdddkkxo;....';:clc;........;oddodxddkkOOk\ndxxxdddxxdddxkxl,.....,c::;'........'lxdodxxdxxxkO\ndxxxxdxkxddddxxl'.....,:;,'..........:oddxkOkxddxk\ndkkxdddxdddddxxl'.....',,'....;::'....,cdxxkkxxkkO\nxxddxxxdodxkkxdc.......,,.....';:;......cddxxxxdxk\nxddxxxxdodxkkxdl,..';;;,'...............:ddoxkxddx\nxddxxxxdoodxxxddl;'',,''......... ..,,;:odooxxxddx\nxddxxxxdddddkkxdxxo:...............'oxddddddxxxxdd\ndooddddoooodxxddddo:...'............lddddddddddddd\nllloddolcllooollllc,.......  .......:ooooooooooool",
-        "Choices": {
+        "IsPicture": true,
+				"Choices": {
           "special": {
             "Description": "That's just magnificent!",
             "JumpDialogIndex": "end",
@@ -25,7 +26,8 @@
       },    
       "end": {
         "Dialog": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "#end": {
             "Description": "<Leave>",
             "JumpDialogIndex": "index1",

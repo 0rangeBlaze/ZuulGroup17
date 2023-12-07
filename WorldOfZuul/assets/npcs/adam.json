@@ -5,7 +5,8 @@
 
     "index1": {
       "Dialog": "Welcome to PolyTaste! How may I serve you?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "burger": {
           "Description": "I would like a cheese burger.",
           "JumpDialogIndex": "fries",
@@ -26,7 +27,8 @@
 
     "fries": {
       "Dialog": "Would you like to have fries?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "Yeah.",
           "JumpDialogIndex": "friesSize",
@@ -43,7 +45,8 @@
 
     "friesSize": {
       "Dialog": "Do you want large medium or small fries?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "small": {
           "Description": "Small, please!",
           "JumpDialogIndex": "drink",
@@ -64,7 +67,8 @@
 
     "toppings": {
       "Dialog": "What would you like on your pizza?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "hawaiian": {
           "Description": "Tomato sauce, cheese, ham and pineapple slices.",
           "JumpDialogIndex": "drink",
@@ -86,7 +90,8 @@
 
     "fillings": {
       "Dialog": "What would you like to have in your hotdog?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "hawaiian": {
           "Description": "Onions, ketchup and mustard.",
           "JumpDialogIndex": "drink",
@@ -107,7 +112,8 @@
 
     "drink": {
       "Dialog": "Would you like to drink anything?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "coke": {
           "Description": "Yes, a coke please!",
           "JumpDialogIndex": "end",
@@ -143,7 +149,8 @@
 
     "end": {
       "Dialog": "Alright, your order is coming right up!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#pay": {
           "Description": "Pay",
           "JumpDialogIndex": "index1",

@@ -4,7 +4,8 @@
   "dialogs": {
     "helpOffer": {
       "Dialog": "Thanks for the offer! I might take you up on that. Teamwork makes the dream work, right?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "End Conversation",
           "JumpDialogIndex": "index1",
@@ -14,7 +15,8 @@
     },
     "index1": {
       "Dialog": "How's it going?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "weather": {
           "Description": "Not bad. How's the weather outside?",
           "JumpDialogIndex": "weatherResponse",
@@ -29,7 +31,8 @@
     },
     "movieRecommendation": {
       "Dialog": "Oh, I recently watched this amazing sci-fi movie. It's called 'Galactic Odyssey.' You should check it out!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "thanks": {
           "Description": "Thanks for the recommendation!",
           "JumpDialogIndex": "thanks",
@@ -44,7 +47,8 @@
     },
     "thanks": {
       "Dialog": "No problem! Enjoy the movie. Let me know if you need more suggestions.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "End Conversation",
           "JumpDialogIndex": "index1",
@@ -54,7 +58,8 @@
     },
     "weatherResponse": {
       "Dialog": "Oh, you know, the usual unpredictable weather. One moment it's sunny, the next it's pouring rain.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "plans": {
           "Description": "Any plans for the weekend?",
           "JumpDialogIndex": "weekendPlans",
@@ -69,7 +74,8 @@
     },
     "weekendPlans": {
       "Dialog": "Not sure yet. Maybe catch up on some movies or just relax at home. How about you?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "movies": {
           "Description": "Sounds nice! Any movie recommendations?",
           "JumpDialogIndex": "movieRecommendation",
@@ -84,7 +90,8 @@
     },
     "workloadResponse": {
       "Dialog": "It's a bit hectic, you know how it is. But trying to manage. How about yours?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "help": {
           "Description": "Need any help with your tasks?",
           "JumpDialogIndex": "helpOffer",

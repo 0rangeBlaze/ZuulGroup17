@@ -33,7 +33,7 @@ namespace WorldOfZuul {
         // Then the method show you question and menu from which you can select with arrows
         // It returns index of list
         // You need to proces the returned value yourself
-        public static int SelectOption(string question, List<string> temp)
+        public static int SelectOption(string question, List<string> temp, int delay = 35)
         {
             int option = 0;
             int startingPosition = 0;
@@ -44,7 +44,7 @@ namespace WorldOfZuul {
             if (question != null && temp.Count > 0)
             {
                 Console.Clear();
-                PrintSlowlyCenter(WrapLine(question + "\n"));
+                PrintSlowlyCenter(WrapLine(question + "\n"), Console.ForegroundColor, delay);
 
                 int top = Console.CursorTop;
                 //Console.WriteLine(top);

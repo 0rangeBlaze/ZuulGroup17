@@ -4,7 +4,8 @@
   "dialogs": {
     "index1": {
       "Dialog": "Seeker of destiny. How's the wind of fate blowing for you today?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "future": {
           "Description": "Tell me about my future.",
           "JumpDialogIndex": "futureResponse",
@@ -19,7 +20,8 @@
     },
     "futureResponse": {
       "Dialog": "Ah, the future is a vast sea, and I can only provide glimpses. Let's see what the cards reveal.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "draw_card": {
           "Description": "Draw a card from the deck.",
           "JumpDialogIndex": "drawCardResponse",
@@ -34,7 +36,8 @@
     },
     "drawCardResponse": {
       "Dialog": "Ah, a seeker of mysteries. Let us see what fate has in store for you.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "reveal": {
           "Description": "Reveal the card's meaning.",
           "JumpDialogIndex": "revealCardMeaning",
@@ -44,7 +47,8 @@
     },
     "revealCardMeaning": {
       "Dialog": "The card is drawn. Let me reveal its meaning to you.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "luckyCharm": {
           "Description": "Card 1",
           "JumpDialogIndex": "luckyCharmResponse",
@@ -69,7 +73,8 @@
     },
     "luckyCharmResponse": {
       "Dialog": "A stroke of luck! Lady luck smiles upon you.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "Farewell.",
           "JumpDialogIndex": "index1",
@@ -79,7 +84,8 @@
     },
     "twistedFateResponse": {
       "Dialog": "A twist of fate! Fate favours the bold.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "May the cards guide your path. Farewell.",
           "JumpDialogIndex": "index1",
@@ -89,7 +95,8 @@
     },
     "naturesBlessingResponse": {
       "Dialog": "Nature smiles upon you! Make sure to sort your trash!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "Farewell.",
           "JumpDialogIndex": "index1",
@@ -99,7 +106,8 @@
     },
     "grimDestinyResponse": {
       "Dialog": "Future looks grim! Take care of the environment!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "Farewell.",
           "JumpDialogIndex": "index1",
@@ -109,7 +117,8 @@
     },
     "adviceResponse": {
       "Dialog": "Ah, seeking guidance. Let me share a few words of advice.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "ponder": {
           "Description": "I will ponder on your words.",
           "JumpDialogIndex": "ponderResponse",
@@ -124,7 +133,8 @@
     },
     "ponderResponse": {
       "Dialog": "May your thoughts be as profound as the ocean, and your decisions as clear as the sky.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "Farewell.",
           "JumpDialogIndex": "index1",

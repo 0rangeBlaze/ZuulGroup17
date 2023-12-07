@@ -5,7 +5,8 @@
   
       "index1": {
         "Dialog": "Welcome to Gourmet Haven, where we only serve food made from locally grown ingredients. How may I be at your service?",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "special": {
             "Description": "What specialties do you have for today?",
             "JumpDialogIndex": "specialties",
@@ -26,7 +27,8 @@
   
       "specialties": {
         "Dialog": "The chef recommends the roasted lamb with the special \"Three Peas\" side dish.",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "anwser1": {
             "Description": "That sounds lovely, I'd like to order that.",
             "JumpDialogIndex": "drink",
@@ -43,7 +45,8 @@
   
       "vegetarian": {
         "Dialog": "We have many salad bowls, and many pizzas.",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "small": {
             "Description": "I'd like a Broccoli Salad please.",
             "JumpDialogIndex": "drink",
@@ -64,7 +67,8 @@
   
       "pizza": {
         "Dialog": "Well, our most famous pizzas are the 'Green and White pizza' and the 'Catalan Coca', I'd recommend either.",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "hawaiian": {
             "Description": "Okay, I'll try the Green and White pizza.",
             "JumpDialogIndex": "drink",
@@ -81,7 +85,8 @@
   
       "beef": {
         "Dialog": "We have world class steaks, made from animals born and raised in this area.",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "index1": {
             "Description": "Can I have a tomahawk steak with the steak fries, please?",
             "JumpDialogIndex": "drink",
@@ -101,7 +106,8 @@
       },
       "recommendation": {
         "Dialog": "Then let me recommend Spaghetti Bolognese, it's lovely with a bit of red wine.",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "index1": {
             "Description": "That sounds lovely, I'd like to order that.",
             "JumpDialogIndex": "drink",
@@ -112,7 +118,8 @@
   
       "drink": {
         "Dialog": "Would you like to drink anything?",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "coke": {
             "Description": "Yes, a glass of sparkling water please!",
             "JumpDialogIndex": "end",
@@ -148,7 +155,8 @@
   
       "end": {
         "Dialog": "Alright, while we make your order let me bring you a dish of appetizers!",
-        "Choices": {
+        "IsPicture": false,
+				"Choices": {
           "#pay": {
             "Description": "Pay",
             "JumpDialogIndex": "index1",

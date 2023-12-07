@@ -4,7 +4,8 @@
   "dialogs": {
     "index1": {
       "Dialog": "Good to see you! How's everything going?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "projects": {
           "Description": "Not bad. Any interesting projects you're working on?",
           "JumpDialogIndex": "projectsResponse",
@@ -19,7 +20,8 @@
     },
     "projectsResponse": {
       "Dialog": "Yeah, I've got this new project on optimizing our workflow. It's challenging but exciting.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "challenges": {
           "Description": "Facing any challenges with the project?",
           "JumpDialogIndex": "challengesResponse",
@@ -34,7 +36,8 @@
     },
     "challengesResponse": {
       "Dialog": "Well, there are a few roadblocks, but that's the fun part, right? Keeps things interesting.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "solutions": {
           "Description": "Have you found any solutions to the challenges?",
           "JumpDialogIndex": "solutionsResponse",
@@ -49,7 +52,8 @@
     },
     "solutionsResponse": {
       "Dialog": "I'm working on it. It's a collaborative effort, so I'm open to suggestions!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "ideas": {
           "Description": "Any specific ideas you're considering?",
           "JumpDialogIndex": "ideasResponse",
@@ -64,7 +68,8 @@
     },
     "ideasResponse": {
       "Dialog": "I'm exploring a few ideas, but I'm always open to brainstorming sessions. Teamwork, you know?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "collaborate": {
           "Description": "Would you be interested in collaborating on some ideas?",
           "JumpDialogIndex": "collaborateResponse",
@@ -79,7 +84,8 @@
     },
     "collaborateResponse": {
       "Dialog": "Absolutely! Let's schedule a meeting to discuss and bounce around some ideas.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "End Conversation",
           "JumpDialogIndex": "index1",
@@ -89,7 +95,8 @@
     },
     "officeResponse": {
       "Dialog": "It's buzzing as usual. How about your workload? Managing everything?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "help": {
           "Description": "Need any help with your tasks?",
           "JumpDialogIndex": "helpOffer",
@@ -104,7 +111,8 @@
     },
     "helpOffer": {
       "Dialog": "Thanks for the offer! I appreciate it. If anything comes up, I'll let you know.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "End Conversation",
           "JumpDialogIndex": "index1",

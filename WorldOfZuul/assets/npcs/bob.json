@@ -5,7 +5,8 @@
 
     "index1": {
       "Dialog": "What's up? Do you dare to challenge me in any of these games?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "rps": {
           "Description": "Yeah, haha, come on, I can always beat you in a rock paper scissors!",
           "JumpDialogIndex": "rockps",
@@ -26,7 +27,8 @@
 
     "rockps": {
       "Dialog": "Alright, get ready...",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "<Start the game>",
           "JumpDialogIndex": "end",
@@ -37,7 +39,8 @@
 
     "4inaline": {
       "Dialog": "Oooh let's go, I'll be blue you'll be red, and come on haha... school me!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "<Start the game>",
           "JumpDialogIndex": "end",
@@ -48,7 +51,8 @@
 
     "talk1": {
       "Dialog": "I'm doing okay, the new job is taking up all my time, but I generally don't mind it.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "Oh yeah, I remember, you just changed from public relations to working as an event organizer. How are you coping with that lifestyle shift?",
           "JumpDialogIndex": "question1",
@@ -63,7 +67,8 @@
     },
     "question1": {
       "Dialog": "It really couldn't be better, I desperately needed it. How about you, I saw that you went to a bungalow in mountains.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "It was just great, just the thing I needed to charge up my battery. How is your wife doing?",
           "JumpDialogIndex": "question2",
@@ -79,7 +84,8 @@
 
     "question2": {
       "Dialog": "She could be doing better, but still managing. A bit of fallout with the school board, but that luckily got worked out",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "I heard about teachers arguing with their board, but having it happen this close to someone you know is just scary.",
           "JumpDialogIndex": "end",
@@ -95,7 +101,8 @@
 
     "talk3": {
       "Dialog": "I'm sorry to hear that, I hope it didn't totally ruin the weekend. Why did they bother you constantly?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "We just hired a bunch of new people, and they couldn't manage a few days, without a million questions.",
           "JumpDialogIndex": "end",
@@ -110,7 +117,8 @@
     },
     "question3": {
       "Dialog": "Noo, they lost me after Episode 7. You know me, I'm an original trilogy fan. Have you seen it?",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "Yeah and I think it's amazing, I thought you were the one to talk about this with, but i guess not.",
           "JumpDialogIndex": "end",
@@ -126,7 +134,8 @@
 
     "question4": {
       "Dialog": "Okay, let's go. Worst case scenario we will have something to laugh about.",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "anwser1": {
           "Description": "Lovely, I'll look up a few available times, and message you those.",
           "JumpDialogIndex": "end",
@@ -136,7 +145,8 @@
     },
     "end": {
       "Dialog": "It was nice seeing you, take care!",
-      "Choices": {
+      "IsPicture": false,
+			"Choices": {
         "#end": {
           "Description": "Yeah, you too, goodbye!",
           "JumpDialogIndex": "index1",

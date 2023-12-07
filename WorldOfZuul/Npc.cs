@@ -71,7 +71,14 @@ namespace WorldOfZuul
             }
             descriptions.Add("Quit conversation.");
 
-            int chosen = Utilities.SelectOption(question, descriptions);
+            int chosen;
+            //bad code
+            if(dialogData.IsPicture){
+                chosen = Utilities.SelectOption(question, descriptions, 1);
+            }
+            else{
+                chosen = Utilities.SelectOption(question, descriptions);
+            }
 
             if(chosen == descriptions.Count-1)
             {
@@ -145,9 +152,11 @@ namespace WorldOfZuul
     {
         public string Dialog { get; set; }
         public Dictionary<string, DialogChoice> Choices { get; set; }
-        public DialogData(string? dialog, Dictionary<string, DialogChoice>? choices) {
+        public bool IsPicture { get; set; }
+        public DialogData(string? dialog, Dictionary<string, DialogChoice>? choices, bool isPicture) {
             Dialog = dialog ?? "";
             Choices = choices ?? new();
+            IsPicture = isPicture;
         }
     }
 
