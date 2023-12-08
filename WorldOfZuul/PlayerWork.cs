@@ -16,10 +16,6 @@ namespace WorldOfZuul
                         {
                             SupplyReview(game);
                         }
-                        else if (WorkReputation == 10000) 
-                        {
-                            Hire(game);
-                        }
                         else if (Job == "SupplyChoice")
                         {
                             SupplyChoice(game);
@@ -242,14 +238,7 @@ namespace WorldOfZuul
                 decisionValue += SupplyChoiceProvider(game, providers, question, foods[i]);
 
             }    
-            /*
-            foreach(Food name in foods)
-            {
-                string question = $"Who would you like to buy {name.FoodName} from?";
-                decisionValue += SupplyChoiceProvider(game, providers, question, name);
-            }
-            */
-
+            
             Console.WriteLine("You have worked enough for today, get some rest");
             game.Player.CurrentProviderIndex += 2;
             if(decisionValue >= 0) {
@@ -258,6 +247,7 @@ namespace WorldOfZuul
             }
 
         }
+
         private int SupplyChoiceProvider(Game game, List<Provider> providers, string question, Food food)
         {
             List<Provider> filteredProviders = new(){};
@@ -282,93 +272,6 @@ namespace WorldOfZuul
             return filteredProviders[input].Desirablity;
         }
 
-        private void Hire(Game game)
-        {
-            List<string> hireNames = new List<string>
-            {
-                "Zuhao", "Oskar", "Daniel", "Sebestyén", "Szymon"
-            };
-
-
-            List<string> hireHobbies = new List<string>
-            {
-                "Filler1", "Filler2", "Filler3", "Filler4", "Filler5"
-            };
-
-            List<string> hireLastJobs = new List<string>
-            {
-                "Filler6", "Filler7", "Filler8", "Filler9", "Filler0"
-            };
-            //I really need a better way to address these stats
-            Dictionary<string, (int PER, int ENV, int desirablity)> traitValues = new Dictionary<string, (int, int, int)>
-            {
-                { "Filler1", (1, 3, 1) },
-                { "Filler2", (1, 3, 0) },
-                { "Filler3", (1, 3, -1) },
-                { "Filler4", (1, 3, 1) },
-                { "Filler5", (1, 3, 1) },
-                { "Filler6", (1, 3, -1) },
-                { "Filler7", (1, 3, 1) },
-                { "Filler8", (1, 3, 0) },
-                { "Filler9", (1, 3, 1) },
-                { "Filler0", (1, 3, -1) },
-            };
-
-            int hires = 0;
-            int decisionValue = 0;
-            while (hires < 5) // Loop until the player has hired five times
-            {
-                string[] hireTraits = GetRandomCandidate(hireNames, hireHobbies, hireLastJobs);
-                string hireName = hireTraits[0];
-                string hireHobby = hireTraits[1];
-                string hireLastJob = hireTraits[2];
-
-                string question = "";
-                question += $"Candidate: {hireName}\n";
-                question += $"Hobbies: {hireHobby}\n";
-                question += $"Last Job: {hireLastJob}\n";
-
-                question += "Do you want to hire this candidate?\n";
-                int decision = Utilities.SelectOption("Do you want to hire this candidate?", new() {"Yes", "No"});
-
-                if (decision == 0)
-                {
-                    // Stat changes
-                    int hobbyPersonal = traitValues[hireHobby].PER;
-                    int hobbyEnvironment = traitValues[hireHobby].ENV;
-                    int lastJobPersonal = traitValues[hireLastJob].PER;
-                    int lastJobEnvironment = traitValues[hireLastJob].ENV;
-                    decisionValue += traitValues[hireHobby].desirablity + traitValues[hireLastJob].desirablity;
-
-                    // Update game stats based on trait values
-                    //Examples:
-
-                    PersonalWelfare += hobbyPersonal + lastJobPersonal;
-                    game.World.Environment += hobbyEnvironment + lastJobEnvironment;
-                    hires++;
-                } 
-            
-            }
-            if(decisionValue > 0) {
-                WorkReputation++;
-                Promotion(game);
-            }
-        }
-
-        private string[] GetRandomCandidate(List<string> names, List<string> hobbies, List<string> lastJobs)
-        {
-            string hireName = GetRandomCandidateTrait(names);
-            string hireHobby = GetRandomCandidateTrait(hobbies);
-            string hireLastJob = GetRandomCandidateTrait(lastJobs);
-
-            return new string[] { hireName, hireHobby, hireLastJob };
-        }
-
-        private string GetRandomCandidateTrait(List<string> traitList)
-        {
-            int index = Game.RandomGenerator.Next(traitList.Count);
-            return traitList[index];
-        }
 
         private void Promotion(Game game) {
             if(WorkReputation < 2)

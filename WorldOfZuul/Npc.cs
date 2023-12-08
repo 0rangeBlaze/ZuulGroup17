@@ -17,7 +17,6 @@ namespace WorldOfZuul
         public Npc(string jsonFilePath)
         {
             Loaded = false;
-            //Greeting = new List<string>() { "Hi", "Hello", "How do you do" };
             CurrentDialog = "index1";
             LoadDialogsFromJson(jsonFilePath);
             Name = Name ?? "";

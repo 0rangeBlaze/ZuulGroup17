@@ -112,32 +112,6 @@ namespace WorldOfZuul
 
         private void PersonalWelfareChange()
         {
-
-            /*
-            string[] betterWelfare = new string[]
-            {
-                "Over the past period you have noticed that you smile more, and just generally feel better",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-            };
-
-            string[] worseWelfare = new string[]
-            {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-            };
-            */
-
             if(Player.PersonalWelfare > Player.PreviousPersonalWelfare)
             {
                 Utilities.GamePrint("Your health has got better.");
@@ -401,16 +375,6 @@ namespace WorldOfZuul
                 Console.Clear();
             }
             Console.Clear();
-            /*if(Console.WindowWidth < minW){
-                Console.Clear();
-                Console.CursorVisible=false;
-                Console.WriteLine($"Your terminal needs to be at least {minW} characters wide. Your terminal is:");
-                Console.Write(Console.WindowWidth);
-                while(Console.WindowWidth < minW){
-                    Console.SetCursorPosition(0, Console.CursorTop);
-                    Console.Write(Console.WindowWidth);
-                }
-            }*/
             Console.CursorVisible=true;
         }
     }
