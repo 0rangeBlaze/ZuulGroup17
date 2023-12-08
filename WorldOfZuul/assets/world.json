@@ -208,6 +208,7 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
+                        "./assets/npcs/commemoration.json"
                     ],
                     "exits":
                     {
