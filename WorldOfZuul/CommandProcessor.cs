@@ -35,7 +35,6 @@ namespace WorldOfZuul
             {"connect", (Game game, string[] _) => MiniGames.ConnectFour()},
             {"runningGame", (Game game, string[] _) => MiniGames.RunGame()},
             {"pong", (Game game, string[] _) => MiniGames.Pong()},
-            
 
 
         };

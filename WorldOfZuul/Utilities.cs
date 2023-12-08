@@ -47,7 +47,6 @@ namespace WorldOfZuul {
                 PrintSlowlyCenter(WrapLine(question + "\n"), Console.ForegroundColor, delay);
 
                 int top = Console.CursorTop;
-                //Console.WriteLine(top);
                 for (int i = 0; i < temp.Count; i++)
                 {
                     if (option == i)

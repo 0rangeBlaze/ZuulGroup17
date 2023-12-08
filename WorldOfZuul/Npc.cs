@@ -71,7 +71,6 @@ namespace WorldOfZuul
             descriptions.Add("Quit conversation.");
 
             int chosen;
-            //bad code
             if(dialogData.IsPicture){
                 chosen = Utilities.SelectOption(question, descriptions, 1);
             }

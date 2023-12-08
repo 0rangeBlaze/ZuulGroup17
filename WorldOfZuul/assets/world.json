@@ -251,7 +251,8 @@
                     "actions": [],
                     "events": [],
                     "npcs": [
-                        "./assets/npcs/machines.json"
+                        "./assets/npcs/machines.json",
+                        "./assets/npcs/fortuneteller.json"
                     ],
                     "exits":
                     {
