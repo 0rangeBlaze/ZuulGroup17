@@ -338,8 +338,8 @@ namespace WorldOfZuul
             Console.Clear();
             Console.CursorVisible=false;
             bool accepted = false;
-            int minW=50;
-            int minH=30;
+            int minW=100;
+            int minH=35;
             while(!accepted || (Console.WindowWidth < minW) || (Console.WindowHeight < minH)){
                 accepted=false;
                 Console.WriteLine("Set the window to a size, where both lines are green!");
