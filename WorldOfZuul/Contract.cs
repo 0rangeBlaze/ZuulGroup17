@@ -149,7 +149,7 @@ namespace WorldOfZuul
         {
             return
             $"\n" +
-            $"Company Name: {this.CompanyName} {Environment.NewLine}" +
+            $"Company Name: {this.CompanyName} \n" +
             $"Short Description: {this.CompanyShortDescription}\n" +
             $"\n" +
             $"Year of Fundation: {this.YearOfFoundation}\n" +

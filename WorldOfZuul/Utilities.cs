@@ -7,7 +7,7 @@ namespace WorldOfZuul {
         public static string WrapLine(string paragraph = "", int tabSize = 8) {
             string[] lines = paragraph
                 .Replace("\t", new String(' ', tabSize))
-                .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                .Split(new string[] { Environment.NewLine, "\n"}, StringSplitOptions.None);
 
             string result = "";
             for (int i = 0; i < lines.Length; i++) {
@@ -109,7 +109,7 @@ namespace WorldOfZuul {
         //It show text that is centered
         public static void CenterText(string paragraph)
         {
-            string[] lines = paragraph.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] lines = paragraph.Split(new string[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
             foreach(string text in lines) {
                 if((Console.WindowWidth-text.Length)/2 >= 0) {
                     Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);
@@ -190,7 +190,7 @@ namespace WorldOfZuul {
         public static void PrintSlowlyCenter(string paragraph, ConsoleColor? inputColor = null, int delay = 35)
         {
             ConsoleColor color = inputColor ?? Console.ForegroundColor;
-            string[] lines = paragraph.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] lines = paragraph.Split(new string[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
             foreach(string text in lines) {
                 if((Console.WindowWidth-text.Length)/2 >= 0) {
                     Console.SetCursorPosition((Console.WindowWidth - text.Length) / 2, Console.CursorTop);

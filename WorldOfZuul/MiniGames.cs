@@ -110,8 +110,8 @@ namespace WorldOfZuul
 
             CountDown(3, listOfAcsi);
 
-            var linesBot = intString[bot].Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-            var linesPlayer = intString[player].Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            var linesBot = intString[bot].Split(new[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
+            var linesPlayer = intString[player].Split(new[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
 
 
             int maxLines = Math.Max(linesBot.Length, linesPlayer.Length);
