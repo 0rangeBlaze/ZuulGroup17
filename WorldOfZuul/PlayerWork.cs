@@ -274,11 +274,11 @@ namespace WorldOfZuul
 
 
         private void Promotion(Game game) {
-            if(WorkReputation < 2)
+            if(WorkReputation < 1)
             {
                 Job = "SupplyReview";
             }
-            else if(WorkReputation < 5)
+            else if(WorkReputation < 2)
             {
                 if(Job != "SupplyChoice")
                 {

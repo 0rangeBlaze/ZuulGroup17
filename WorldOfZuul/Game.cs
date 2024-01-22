@@ -81,7 +81,7 @@ namespace WorldOfZuul
             {
                 if(Player.TasksDone()) 
                 {
-                    if(Turn == 8)
+                    if(Turn == 3)
                     {
                         EndGame();
                     }
